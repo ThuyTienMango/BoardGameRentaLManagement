@@ -13,18 +13,56 @@
 .header{
 	height: 80px;
 	background-color:var(--white-color);
+    display: flex;
+    align-items: center;
+}
+.header__search{
+    background: #F0F4F5;
+    border-radius: 10px;
+    min-width: 272px;
+    min-height: 25px;
+    position: absolute;
+    left: 29.5%;
+    top: 1%;
+
+    
+    
+}
+.search__title{
+position: absolute;
+top: 21%;
+left: 15%;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+color: rgba(0, 0, 0, 0.8);
+
+}
+
+.header__search_icon{
+    position: absolute;
+left: 4.41%;
+right: 89.71%;
+top: 17.31%;
+bottom: 14.06%;
+
 }
 .header_navbar{
 	display:flex;
 	justify-content: space-between;
 }
 .header_navbar-list{
+    position: relative;
+    left: 55%;
 	list-style: none;
-	padding-left: 33%;
 }
 .header_navbar-item{
 	display: inline-block;
 	margin: 0 8px;
+    padding: 10px 10px;
 }
 .header_navbar-item:hover{
 	cursor: pointer;
@@ -38,10 +76,11 @@
 	position:absolute;
 	width: 176px;
 	height: 46px;
-	left: 50px;
+	
 	top: 15px;
 }
 .header-logo{
+
 	width: 176px;
 	height: 46px;
 	left: 0px;
@@ -49,10 +88,11 @@
 	cursor: pointer;
 }
 .header_navbar-avatar {
-	margin-top: -2px;
+	position: absolute;
+    right: -12%;
     width: 40px;
     height: 40px;
-    margin-right: 15px;
+    
 	cursor:pointer;
 }
 
