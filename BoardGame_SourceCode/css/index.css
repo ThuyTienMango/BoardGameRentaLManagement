@@ -9,3 +9,49 @@
     color: var(--color-black);
     font-family: var(--font-helvetica);
 }
+/*Header*/
+.header{
+	height: 80px;
+	background-color:var(--white-color);
+}
+.header_navbar{
+	display:flex;
+	justify-content: space-between;
+}
+.header_navbar-list{
+	list-style: none;
+	padding-left: 33%;
+}
+.header_navbar-item{
+	display: inline-block;
+	margin: 0 8px;
+}
+.header_navbar-item:hover{
+	cursor: pointer;
+	color: rgba(0,0,0,0.7);
+}
+.header_navbar-icon-link{
+	position: absolute;
+}
+
+.header__logo{
+	position:absolute;
+	width: 176px;
+	height: 46px;
+	left: 50px;
+	top: 15px;
+}
+.header-logo{
+	width: 176px;
+	height: 46px;
+	left: 0px;
+	top: 0px;
+	cursor: pointer;
+}
+.header_navbar-avatar {
+	margin-top: -2px;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+	cursor:pointer;
+}
