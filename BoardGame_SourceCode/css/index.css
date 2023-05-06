@@ -30,16 +30,18 @@
 }
 .search__title{
 position: absolute;
-top: 21%;
+width: 75%;
+top: 9%;
 left: 15%;
 font-family: 'Helvetica';
 font-style: normal;
 font-weight: 400;
 font-size: 12px;
-line-height: 14px;
-
+line-height: 18px;
 color: rgba(0, 0, 0, 0.8);
-
+background-color: #F0F4F5;
+outline: none;
+border: none;
 }
 
 .header__search_icon{
@@ -48,7 +50,7 @@ left: 4.41%;
 right: 89.71%;
 top: 17.31%;
 bottom: 14.06%;
-
+cursor: pointer;
 }
 .header_navbar{
 	display:flex;
