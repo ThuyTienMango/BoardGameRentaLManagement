@@ -54,7 +54,93 @@
        </div>
             
        </header>
+       <div class="header-end"></div>
+       <div class="container-section">
+        <div class="nav-status"></div>
 
+           <div class="single-item">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__colum-1">
+
+                        <div class="small-img ">
+                            <img src="../public/it1.jpg" alt="" class="small-img__img boder-img">
+                            <img src="../public/it2.jpg" alt="" class="small-img__img opacity-img">
+                            <img src="../public/it3.jpg" alt="" class="small-img__img opacity-img">
+                            <img src="../public/it4.jpg" alt="" class="small-img__img opacity-img">
+                            <img src="../public/it5.jpg" alt="" class="small-img__img opacity-img">
+                        </div>
+                    </div>
+                    <div class="grid__colum-6">
+                        <div class="lage-img">
+                            <img src="../public/it1.jpg" alt="" id="lage-img__img">
+                        </div>
+                    </div>
+
+                    <div class="grid__colum-5">
+                        <div class="info">
+                            <div class="info__title"> Azul Mini </div>
+                            <div class="info__product-id"> Product ID #MNG139412VN </div>
+
+                        </div>
+                        <div class="rental">
+                            <div class="rental__rent">Giá Thuê:</div>
+                            <div class="rental__price"> 172.000 VND </div>
+                            <div class="rental__remain"> 20+ còn lại  </div>
+                        </div>
+                        <div class="button-rent">
+                            <input type="number" value="1">
+                            <div class="ren-btn">
+                                <a href="" class="ren-btn__title"> Đặt thuê  </a>
+                            </div>
+                           
+                            <div class="add-wishlist">
+                                <svg  class="add-wishlist__icon-heart" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.49744 17.2053C9.22356 17.2053 8.95852 17.1706 8.73765 17.0928C5.36274 15.9593 0 11.9359 0 5.99169C0 2.96334 2.50026 0.506042 5.57478 0.506042C7.06786 0.506042 8.46377 1.0771 9.49744 2.09809C10.5311 1.0771 11.927 0.506042 13.4201 0.506042C16.4946 0.506042 18.9949 2.97199 18.9949 5.99169C18.9949 11.9446 13.6321 15.9593 10.2572 17.0928C10.0364 17.1706 9.77132 17.2053 9.49744 17.2053ZM5.57478 1.80391C3.23355 1.80391 1.32522 3.68149 1.32522 5.99169C1.32522 11.9013 7.12971 15.1892 9.17055 15.8728C9.32958 15.9247 9.67414 15.9247 9.83317 15.8728C11.8652 15.1892 17.6785 11.91 17.6785 5.99169C17.6785 3.68149 15.7702 1.80391 13.4289 1.80391C12.086 1.80391 10.8403 2.41823 10.0364 3.48248C9.78899 3.81127 9.22356 3.81127 8.97619 3.48248C8.15455 2.40958 6.91767 1.80391 5.57478 1.80391Z" fill="white"/>
+                                </svg>
+                                <svg class="add-wishlist__icon-add" width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.72222 2.91683H0.277778C0.125926 2.91683 0 2.7935 0 2.64478C0 2.49607 0.125926 2.37274 0.277778 2.37274H4.72222C4.87407 2.37274 5 2.49607 5 2.64478C5 2.7935 4.87407 2.91683 4.72222 2.91683Z" fill="white"/>
+                                    <path d="M2.49946 5.09316C2.34761 5.09316 2.22168 4.96983 2.22168 4.82112V0.468424C2.22168 0.319707 2.34761 0.196381 2.49946 0.196381C2.65131 0.196381 2.77724 0.319707 2.77724 0.468424V4.82112C2.77724 4.96983 2.65131 5.09316 2.49946 5.09316Z" fill="white"/>
+                                </svg>     
+                            </div>
+
+                        </div>
+
+                    </div>
+                   
+                </div>
+            </div>
+           </div>
+           <!--  Script chuyển ảnh sản phẩm  -->
+           <script>
+            var ProductImg = document.getElementById("lage-img__img");
+            var SmallImg = document.getElementsByClassName("small-img__img");
+            SmallImg[0].onclick = function()
+            {
+                ProductImg.src = SmallImg[0].src;
+            }
+            SmallImg[1].onclick = function()
+            {
+                ProductImg.src = SmallImg[1].src;
+            }
+            SmallImg[2].onclick = function()
+            {
+                ProductImg.src = SmallImg[2].src;
+            }
+            SmallImg[3].onclick = function()
+            {
+                ProductImg.src = SmallImg[3].src;
+            }
+            SmallImg[4].onclick = function()
+            {
+                ProductImg.src = SmallImg[4].src;
+            }
+            SmallImg[5].onclick = function()
+            {
+                ProductImg.src = SmallImg[5].src;
+            }
+           </script>
+       </div>
       
 
     <!--  footer  -->

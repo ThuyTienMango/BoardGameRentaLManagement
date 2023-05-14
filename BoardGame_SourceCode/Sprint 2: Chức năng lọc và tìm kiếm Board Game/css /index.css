@@ -139,7 +139,231 @@ cursor: pointer;
 	cursor:pointer;
 }
 
+.header-end{
+	background: #F0F4F5;
+	width: 100%;
+	height: 4px;
+}
 
+/*  Khung san pham  */
+.container-section{
+    top: 85px;
+    left: 0;
+    background-color:var(--color-white);
+    width: 100%;
+    height: 2598px;
+} 
+
+.nav-status{
+	background: #333;
+	width: 100%;
+	height: 30px;
+}
+.single-item{
+	margin-top: 20px;
+}
+
+.grid__colum-1{
+	width: 10%;
+    padding-left: 8px;
+    padding-right: 8px;
+	margin-top: 30px;
+}
+
+.small-img{
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+.small-img__img{
+	width: 79px;
+    height: 79px;
+    padding: 14px;
+}
+.boder-img {
+	border: 1px solid #000000;
+}
+.opacity-img {
+	opacity: 0.7;
+}
+.grid__colum-6{
+	margin-top: 15px;
+	width: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.lage-img{
+	display: flex;
+	width: 540px;
+	height: 540px;
+}
+#lage-img__img{
+	width: 540px;
+	height: 540px;
+}
+
+
+.grid__colum-5{
+	position: relative;
+	margin-top: 15px;
+	width: 35%;
+    padding-left: 8px;
+    padding-right: 8px;
+
+}
+
+
+.info{
+	position: absolute;
+    left: 10%;
+    top: 18%;
+}
+.info__title{
+	width: 175px;
+height: 26px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 23px;
+line-height: 26px;
+
+color: #000000;
+
+}
+.info__product-id{
+	width: 391px;
+height: 20px;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 18px;
+
+color: #000000;
+
+}
+.rental{
+	position: absolute;
+    left: 10%;
+    top: 30%;
+
+}
+
+.rental__rent{
+width: 391px;
+height: 20px;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.rental__price{
+	width: 391px;
+	height: 37px;
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 26px;
+line-height: 30px;
+
+color: #000000;
+}
+.rental__remain{
+	width: 152px;
+height: 17px;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 15px;
+
+color: #48494A;
+
+}
+.button-rent{
+	position: absolute;
+    left: 10%;
+    top: 45%;
+	display: flex;
+
+
+}
+.button-rent input{
+	box-sizing: border-box;
+	width: 51px;
+height: 28px;
+background: #F0F4F5;
+border: 1px solid #F0F4F5;
+text-align: center;
+margin-right: 5px;
+
+
+}
+input :focus {
+	outline: none;
+}
+a{
+	text-decoration: none;
+	color: #ffff	 ;
+}
+.ren-btn{
+	position: relative;
+	text-align: center;
+	width: 102px;
+	height: 28px;
+	background: #002144;
+	border: 1px solid #F0F4F5;
+	box-sizing: border-box;
+	margin-left: 5px;
+	margin-right: 5px;
+
+}
+.ren-btn__title{
+
+position: absolute;
+left: 25%;
+top: 20%;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+
+color: #FFFFFF;
+}
+.add-wishlist{
+	position: relative;
+	box-sizing: border-box;
+	width: 37px;
+height: 28px;
+background: #002144;
+border: 1px solid #F0F4F5;
+}
+.add-wishlist__icon-heart{
+	
+	position: absolute;
+	
+	left: 20%;
+    top: 10%;
+    width: 20.99px;
+    height: 21.7px;
+color: #000000;
+
+}
+.add-wishlist__icon-add{
+	position: absolute;
+	bottom: 3%;
+    right: 6%;
+    width: 10px;
+    height: 6.9px;
+
+}
 /* Footer */
 .footer{
 	padding-top: 16px;
