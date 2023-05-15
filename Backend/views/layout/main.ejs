@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boardgame</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="global.css">
+
+  </head>
+  <body>
+    <div class="app">
+        
+       <header class="header">
+       <div class="grid">
+        <div class="grid__row">
+            <div class="header__logo">
+                <img src="/assets/images/logo.jpg" alt="" class="header-logo">
+            </div>  
+
+            <div class="header__search">
+                <img src="/assets/images/-icon-magnifying-glass.svg" alt="icon search" class="header__search_icon">
+                <div class="header__search-input-wrap">
+                <input type ="text" class ="search__title" placeholder="Tên sản phẩm, bộ sưu tập"> </input>
+                
+                <div class="header__search-history">
+                    <p class="header__search-history-heading">Lịch sử tìm kiếm</p>
+                    <ul class="header__search-history-list">
+                        <li class="header__search-history-item">
+                            <a href="">Beyond The Sun</a>
+                        </li>
+                        <li class="header__search-history-item">
+                            <a href="">The best boardgame ever</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+              
+          <ul class="header_navbar-list">
+              <li class="header_navbar-item">Trang Chủ</li>
+              <li class="header_navbar-item">Cửa hàng</li>
+              <li class="header_navbar-item">Đặt thuê</li>
+              <li class="header_navbar-item">Liên hệ</li> 
+              <img src="/assets/images/Profile.png" alt="" class="header_navbar-avatar">
+            </ul>
+        </div>
+       </div>
+            
+       </header>
+
+       <!-- thanh cong cu loc  -->
+       <div class="sort-section">
+        <div class="grid ">
+            <div class="grid_row sort-section__content ">
+                <div class=" sort-section__name  sort-section__name--active "> Board Game</div>
+                <div class="sort-section__name  ">Mới Nhất </div>
+                <div class="sort-section__name "> Phổ Biến</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-section">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__colum-2">
+                    <div class="filter-category"></div>
+                </div>
+                <div class=" grid__colum-10">
+                    <div class="tf-sort">
+                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
+                        <div class="tf-sort__layout">
+                            <div class="layout__grid layout__grid--btn-primary">
+                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
+                                <b class=" layout__content ">Grid</b>
+                            </div>
+                            <div class="layout__line">
+                                 <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
+                        
+                                <b class=" layout__content ">Line</b>
+                            </div>
+                            
+                        </div>
+                        <div class="filter-price">
+                            <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
+                    
+                            <b class=" layout__content "> Giá:</b>
+                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
+                            <ul class="filter-price__list">
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
+                                    
+                                </li>
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <!--  San pham tong   -->
+                    <div class="product-section grid__row">
+                         <!--  San pham  -->
+                        <% boardgames.forEach((boardgame) =>{ %>
+                          <div class=" product-section__item-shop col-4">
+                            <div class="item-shop__favourite">
+                                <div class="item-shop__favourite__content">
+                                    <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                    <b class="item-shop__likes">99</b>
+                                </div>
+                            </div>
+                            <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                            
+                            <a href=" https://www.miniaturemarket.com/village-big-box-esg50200en.html " class="item-shop__title-product"> <%= boardgame.name %>  </a>
+                            <div class="item-shop__rent">
+                                <b class="item-shop__rent__title"> Giá Thuê</b>
+                                <b class="item-shop__rent__cost"><%= boardgame.price %></b>
+                            </div>
+                           
+                            <div class="item-shop__rent-btn">
+                                <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                            </div>
+                          </div>
+                        <%}) %>
+                        
+                        <div class="product-section__page">
+                            <a href=" #" class="product-section__page__number product-section__page__number--active"> 1 </a>
+                            <a href=" #" class="product-section__page__number"> 2 </a>
+                            <a href=" #" class="product-section__page__number"> 3 </a>
+                            <a href=" #" class="product-section__page__number"> 4 </a>
+                            <a href=" #" class="product-section__page__number"> ... </a>
+                            <a href=" #" class="product-section__page__number"> 153 </a>
+
+                        </div>
+
+                        
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!--  footer  -->
+<footer class="footer">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__column-2-4">
+                <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Trung Tâm Trợ Giúp</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Địa chỉ</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Hướng dẫn đặt thuê</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+                <h3 class="footer__heading">Giới thiệu</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Về chúng tôi</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Tuyển dụng</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Điều khoản</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+                <h3 class="footer__heading">Tài khoản</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Mục yêu thích</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Lịch sử thuê</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Đặt lịch</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+                <h3 class="footer__heading">Theo dõi</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">
+                            <i class="footer-itm__icon fa-brands fa-facebook"></i>
+                            Facebook</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">
+                            <i class="footer-itm__icon fa-brands fa-instagram"></i>
+                            Instagram</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">
+                            <i class="footer-itm__icon fa-brands fa-shopify"></i>
+                            Shopee</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+                <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
+                <div class="footer__download">
+                    <img src="/assets/images/QR.png" alt="Download QR" class="footer__download-QR">
+                    <div class="footer__download-apps">
+                        <a href="" class="footer__download-app-link">
+                            <img src="/assets/images/GGplay.png" alt="Google Play" class="footer__download-app-img">
+                        </a>
+                        <a href="" class="footer__download-app-link">
+                            <img src="/assets/images/appstore.png" alt="App Store" class="footer__download-app-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="grid__row">
+            <p class="footer__text">© 2023 - Bản quyền thuộc về Công ty TNHH Astro</p>
+        </div>
+  
+    </div>
+  </footer>
+</div>
+    
+
+</body>
+</html>
