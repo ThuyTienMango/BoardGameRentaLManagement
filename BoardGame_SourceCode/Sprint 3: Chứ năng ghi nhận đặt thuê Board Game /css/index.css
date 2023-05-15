@@ -145,6 +145,18 @@ cursor: pointer;
 	height: 4px;
 }
 
+.header-end{
+	background: #F0F4F5;
+	width: 100%;
+	height: 4px;
+}
+
+.nav-status{
+	background: #333;
+	width: 100%;
+	height: 30px;
+}
+
 
 /* Footer */
 .footer{
