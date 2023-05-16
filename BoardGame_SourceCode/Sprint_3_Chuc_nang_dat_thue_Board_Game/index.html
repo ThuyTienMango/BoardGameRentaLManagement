@@ -5,9 +5,9 @@
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="stylesheet" href="./public/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="../Sprint 3: Chứ năng ghi nhận đặt thuê Board Game /css/global.css" />
-    <link rel="stylesheet" href="../Sprint 3: Chứ năng ghi nhận đặt thuê Board Game /css/index.css" />
-    <link rel="stylesheet" href="../Sprint 3: Chứ năng ghi nhận đặt thuê Board Game /css/responsive.css">
+    <link rel="stylesheet" href="../Sprint_3_Chuc_nang_dat_thue_Board_Game/css/global.css" />
+    <link rel="stylesheet" href="../Sprint_3_Chuc_nang_dat_thue_Board_Game/css/index.css" />
+    <link rel="stylesheet" href="../Sprint_3_Chuc_nang_dat_thue_Board_Game/css/responsive.css">
     
     <!-- <link
       rel="stylesheet"
@@ -62,22 +62,130 @@
         <!--  Khung hien thi thong tin don hang  -->
         <div class="info-oder">
             <div class="grid">
-                <div class="grid__grow">
-                    <div class="info-oder__container">
-                        <svg  class="retangle-top-oder" width="772" height="4" viewBox="0 0 772 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="772" height="4" fill="#002144"/>
+                <div class="grid__row">
+                    <div class="info-oder__col-8">
+                        <div class="info-oder__container">
+                            <svg  class="retangle-top-oder" width="772" height="4" viewBox="0 0 772 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="772" height="4" fill="#002144"/>
+                                </svg>
+                        <div class="info-oder__table-tile">
+                            <div class="table-title__product-title  info-oder__col4 ">  Sản phẩm  </div>
+                                <div class="table-title__properties info-oder__col5 ">
+                                <div class="table-title__title-2 "> 
+                                        <div class="table-title__title-2__head "> Thời gian thuê  </div>
+                                        <div class="table-title__title-2__unit">( Ngày )</div>
+                                </div>
+                                <div class="table-title__title-2  "> 
+                                    <div class="table-title__title-2__head">Số lượng </div>
+                                    <div class="table-title__title-2__unit">( Cái )</div>
+                                </div>
+                                <div class="table-title__title-2 "> 
+                                    <div class="table-title__title-2__head"> Giá Thuê</div>
+                                    <div class="table-title__title-2__unit">( Vnđ ) </div>
+                                </div>
+                                <div class="table-title__title-2 "> 
+                                    <div class="table-title__title-2__head">Thành tiền</div>
+                                    <div class="table-title__title-2__unit">( Vnđ ) </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  1 item  -->
+                        <div class="info-oder__item">
+                            <div class="info-oder__card info-oder__col4 ">
+                                <img src="../public/it1.jpg" alt="" class="info-oder__card__img">
+                                <div class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </div>
+                                <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
+                            </div>
+                        
+                            <div class="info-oder__properties info-oder__col5">
+                                <div class="quantity-btn info-oder__colum-1  quantity-btn__rental-time ">
+                                    <input type="number" value="10">
+                                </div>
+                                <div class="quantity-btn info-oder__colum-1 quantity-btn__quantity ">
+                                    <input type="number" value="1">
+                                </div>
+                                <div class="info-oder__colum-1 quantity-btn__cost ">
+                                    55,000
+                                </div>
+                                <div class="info-oder__colum-1 quantity-btn__total ">
+                                    550,000
+                                </div>
+                            </div>
+
+                        </div>  
+
+                         <!--  1 item  -->
+                         <div class="info-oder__item">
+                            <div class="info-oder__card info-oder__col4 ">
+                                <img src="../public/it1.jpg" alt="" class="info-oder__card__img">
+                                <div class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </div>
+                                <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
+                            </div>
+                        
+                            <div class="info-oder__properties info-oder__col5">
+                                <div class="quantity-btn info-oder__colum-1  quantity-btn__rental-time ">
+                                    <input type="number" value="10">
+                                </div>
+                                <div class="quantity-btn info-oder__colum-1 quantity-btn__quantity ">
+                                    <input type="number" value="1">
+                                </div>
+                                <div class="info-oder__colum-1 quantity-btn__cost ">
+                                    55,000
+                                </div>
+                                <div class="info-oder__colum-1 quantity-btn__total ">
+                                    550,000
+                                </div>
+                            </div>
+
+                        </div>  
+                         
+
+
+
+
+                        <svg class="info-oder__retangle-mini" width="772" height="1" viewBox="0 0 772 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="772" height="1" fill="#002144" fill-opacity="0.5"/>
                             </svg>
-                    <div class="info-oder__table-title">
-                        <div class="table-title__head-title">  Sản phẩm  </div>
-                        <div class="table-title__title-2">  Thời gian thuê </div>
-                        <div class="table-title__title-2"> Số lượng </div>
-                        <div class="table-title__title-2"> Giá Thuê </div>
-                        <div class="table-title__title-2"> Thành tiền </div>
-                        <div class="table-title__title-3">  ( Ngày ) </div>
-                        <div class="table-title__title-3">  ( Cái ) </div>
-                        <div class="table-title__title-3"> ( Vnđ )  </div>
-                        <div class="table-title__title-3"> ( Vnđ )  </div>
-                    </div>    
+                    </div>
+                   
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                        
+
+
+                    
+                     
+                    
+                            
+
+                               
+    
+                                   
+                          
+                    
+                      
                     </div>
                 </div>
             </div>

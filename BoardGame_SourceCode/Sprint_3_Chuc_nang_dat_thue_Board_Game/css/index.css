@@ -156,6 +156,213 @@ cursor: pointer;
 	width: 100%;
 	height: 30px;
 }
+/* <!--  Khung hien thi thong tin don hang  --> */
+
+.info-oder .info-oder__my-oder {
+	/* width: 821px;
+	height: 322px; */
+}
+
+.info-oder__col-8{
+	width: 65%;
+}
+.info-oder__container{
+	
+	position: relative;
+	width: 100%;
+	min-height: 310px;
+	overflow: hidden;
+}
+
+.retangle-top-oder{
+	width: 772px;
+	height: 4px;
+	background: #002144;
+}
+
+.info-oder__table-tile{
+	
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: 60px;
+}
+
+.table-title__product-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 56px ;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	color: #000000;
+}
+.table-title__properties{
+	display: flex;
+	align-items: center;
+	height: 56px ;
+	text-align: center;
+	font-family: 'Helvetica';
+	font-style: normal;
+	}
+
+.info-oder__col4{
+	width: 46%;
+	
+}
+.info-oder__col5{
+	width: 50%;
+	padding-left: 20px;
+}
+
+.table-title__title-2{
+	width: 100px;
+	height: 17px;
+	}
+	
+	
+	
+.table-title__title-2__head{
+padding-bottom: 8px;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.table-title__title-2__unit{
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.info-oder__item{
+	width: 100%;
+	display: flex;
+	margin-top: 10px;
+}
+
+.info-oder__card{
+	position: relative;
+	
+	height: 97px;
+	font-family: 'Helvetica';
+	font-style: normal;
+}
+.info-oder__card__img{
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	width: 80px;
+	height: 80px;
+
+}
+.info-oder__card__title{
+	position: absolute;
+left: 25%;
+top: 10%;
+
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.info-oder__card__quantity{
+	position: absolute;
+left: 25%;
+
+top: 30%;
+
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+color: #000000;
+
+}
+
+.info-oder__properties{	
+	display: flex;
+	align-items: center;
+	height: 56px ;
+	
+	
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+	
+	color: #48494A;
+	
+	
+}
+
+.info-oder__colum-1{
+	display: flex;
+	align-items: center;
+	width: 25%;
+    justify-content: center;
+	padding-left: 10px;
+
+}
+
+.quantity-btn input{
+	box-sizing: border-box;
+	width: 51px;
+height: 28px;
+background: #F0F4F5;
+border: 1px solid #002144;
+text-align: center;
+margin-right: 5px;
+border-radius: 5px;
+}
+input :focus {
+	outline: none;
+}
+
+
+
+
+
+
+
+
+.info-oder__retangle-mini{
+	margin-top: 20px;
+width: 772px;
+height: 1px;
+background: rgba(0, 33, 68, 0.5);
+}
+
+
+/* .info-oder .info-oder__my-oder {
+	display: flex;
+	position: absolute;
+	top: 20%;
+	left: 0%;
+
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Footer */
