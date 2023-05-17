@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const boardgameController = require('../controllers/boardgameController');
+const siteController = require('../controllers/siteController');
 
-router.get('/', boardgameController.index);
+router.get('/', siteController.index);
 
 module.exports = router;
