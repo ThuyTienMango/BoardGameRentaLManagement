@@ -1,10 +1,6 @@
 class siteController {
-    async index(req, res, next){
-        try{
+    index(req, res){
             res.send('Landing page');
-        } catch(error){
-        next(error);
-        }
     }
 }
 

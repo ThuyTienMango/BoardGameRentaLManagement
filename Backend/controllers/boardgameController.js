@@ -26,6 +26,15 @@ class boardgameController {
             next(error);
         }
     }
+
+    async order(req, res, next){
+        try {
+            res.send('Order page');
+        }
+        catch(error){
+            next(error);
+        }
+    }
 }
 
 module.exports = new boardgameController();
