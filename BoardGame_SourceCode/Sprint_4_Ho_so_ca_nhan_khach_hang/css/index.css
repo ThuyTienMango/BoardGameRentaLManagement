@@ -2,7 +2,7 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 1800px;
+    height:878px;
     overflow: hidden;
     text-align: left;
     font-size: var(--font-size-base);
@@ -155,6 +155,162 @@ cursor: pointer;
 	background: #333;
 	width: 100%;
 	height: 30px;
+}
+
+
+/*  khung hien thi ho so khach hang  */
+.cus-profile{
+	display: block;
+	height: auto;
+}
+
+.navigation-left{
+	width: 272px;
+height: 259px;
+background: #999;
+margin-top: 25px;
+}
+
+.cus-profile__col-3{
+	width: 23%;
+}
+
+/* Khung thong tin khach hang   */
+
+.cus-profile__col-9 {
+	width: 74%;
+	margin-left: 25px;
+}
+
+
+.customer-information{
+	position: relative;
+	min-height: 300px;
+	margin-top: 25px;
+	
+}
+.customer-information__container{
+	width: 97%;
+	min-height: 310px;
+	
+	overflow: hidden;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+
+	background: #FBFBFB;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+
+.customer-information__title{
+position: absolute;
+left: 3.24%;
+right: 69.04%;
+top: 7.69%;
+bottom: 84.62%;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #002144;
+}
+
+.customer-information__retangle{
+	position: absolute;
+left: 2.46%;
+right: 3.11%;
+top: 18.39%;
+bottom: 81.27%;
+width: 93%;
+background: rgba(0, 33, 68, 0.5);
+}
+
+.customer-information__form{
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+height: 243px;
+	left: 0%;
+	top:  20%;
+	width: 100%;
+}
+
+.customer-form__inputfied{
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.customer-form__inputfied label {
+	width: 60px;
+	font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: 5px;
+    color: #000000;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+    padding-right: 15px;
+
+
+}
+
+.customer-form__input-name, 
+.customer-form__input-email,
+.customer-form__input-phone,
+.customer-form__input-identity,
+.customer-form__input-address {
+	box-sizing: border-box;
+	height: 30px;
+	background: #FBFBFB;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+}
+.customer-form__input-name{
+	width: 19.2%;
+
+}
+.customer-form__input-email{
+	width: 23.5%;
+}
+.customer-form__input-phone{
+	width: 28%;
+
+}
+.customer-form__input-identity{
+	width:34%;
+
+}
+.customer-form__input-address{
+	width:84%;
+}
+.customer-form__input-identity-img{
+	width:38%;
+	
+}
+
+
+.customer-form__inputfied input {
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+
+color: rgba(0, 0, 0, 0.5);
+
 }
 
 
