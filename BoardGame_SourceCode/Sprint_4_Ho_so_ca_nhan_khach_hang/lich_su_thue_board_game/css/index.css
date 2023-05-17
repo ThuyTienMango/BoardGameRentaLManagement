@@ -2,7 +2,7 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 1800px;
+    height: 900px;
     overflow: hidden;
     text-align: left;
     font-size: var(--font-size-base);
@@ -156,6 +156,240 @@ cursor: pointer;
 	width: 100%;
 	height: 30px;
 }
+
+/* khung hien thi lich su thue */
+
+.navigation-left{
+	width: 272px;
+height: 259px;
+background: #999;
+margin-top: 25px;
+}
+
+.cus-profile__col-3{
+	width: 23%;
+}
+
+
+.cus-profile__col-9 {
+	width: 74%;
+	margin-left: 25px;
+}
+
+.customer-history{
+    display: block;
+	height: auto;
+}
+
+.customer-history__container{
+    margin-top: 30px;
+	position: relative;
+	width: 100%;
+	min-height: 310px;
+
+}
+
+.customer-history__retangle-top,
+.customer-history__retangle-top2 {
+    width: 97%;
+}
+
+
+.info-oder__table-tile{
+    width: 100%;
+	display: flex;
+	align-items: center;
+	height: 60px;
+}
+
+.table-title__product-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 56px ;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	color: #000000;
+}
+
+.info-oder__col4{
+	width: 46%;
+	
+}
+
+.table-title__properties{
+	display: flex;
+	align-items: center;
+	height: 56px ;
+	text-align: center;
+	font-family: 'Helvetica';
+	font-style: normal;
+	}
+.info-oder__col5{
+	width: 50%;
+	padding-left: 20px;
+}
+
+.table-title__title-2{
+	width: 100px;
+	height: 17px;
+}
+
+.table-title__title-2__head{
+    padding-bottom: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.7);
+}
+    
+.table-title__title-2__unit{
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.info-oder__item{
+	width: 100%;
+	display: flex;
+	margin-top: 10px;
+}
+
+.info-oder__card{
+	position: relative;
+	
+	height: 97px;
+	font-family: 'Helvetica';
+	font-style: normal;
+}
+
+.info-oder__card__img{
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	width: 80px;
+	height: 80px;
+
+}
+
+.info-oder__card__title{
+	position: absolute;
+left: 25%;
+top: 10%;
+
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.info-oder__card__quantity{
+	position: absolute;
+left: 25%;
+
+top: 30%;
+
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+color: #000000;
+
+}
+
+.info-oder__properties{	
+	display: flex;
+	align-items: center;
+	height: 56px ;
+	
+	
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+	
+	color: #48494A;
+	
+	
+}
+
+.info-oder__colum-1{
+	display: flex;
+	align-items: center;
+	width: 25% !important;
+    justify-content: center;
+	
+}
+
+
+.quantity-btn{
+display: flex;
+align-items: center;
+	
+box-sizing: border-box;
+width: 51px;
+height: 28px;
+background: #F0F4F5;
+border: 1px solid #002144;
+border-radius: 5px;
+}
+
+.rental-time__value,
+.quantity__value{
+display: flex;
+justify-content: center;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+
+
+color: #48494A;
+}
+
+/* input :focus {
+	outline: none;
+} */
+
+/* thanh so trang o cuoi  */
+
+.product-section__page{
+    position: absolute;
+    width: 9px;
+    text-align: center;
+    align-items: center;
+    height: 17px;
+    left: 40%;
+    display: inline-flex;
+    margin-top: 15px;
+}
+
+.product-section__page__number{
+    text-decoration: none;
+    color:var( --color-darkgray);
+    padding: 4px 5px ;
+    margin: 5px 5px ;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.product-section__page__number--active{
+    background-color: red;
+    color: var(--color-white) !important;
+    border-radius:  var(--br-8xs);
+}
+
 
 
 /* Footer */
