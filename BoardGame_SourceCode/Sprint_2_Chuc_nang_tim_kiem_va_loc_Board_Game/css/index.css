@@ -2,7 +2,7 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 1800px;
+    height: 1740px;
     overflow: hidden;
     text-align: left;
     font-size: var(--font-size-base);
@@ -98,15 +98,31 @@ cursor: pointer;
 	justify-content: space-between;
 }
 .header_navbar-list{
+   display: flex;
     position: relative;
     left: 55%;
 	list-style: none;
 }
 .header_navbar-item{
-	display: inline-block;
-	margin: 0 8px;
+    display: flex;
+	justify-content: center;
+	margin: 0 10px;
     padding: 10px 10px;
 }
+
+.header_navbar-item--active{
+display: none;   
+position: absolute;
+bottom: 10%;
+width: 72px;
+height: 3px;
+background: #002144;
+}
+.active__visibly
+{
+    display: block;
+}
+
 .header_navbar-item:hover{
 	cursor: pointer;
 	color: rgba(0,0,0,0.7);
@@ -139,10 +155,27 @@ cursor: pointer;
 	cursor:pointer;
 }
 
+
 .header-end{
 	background: #F0F4F5;
 	width: 100%;
 	height: 4px;
+}
+
+/** Nav status**/
+.nav-status{
+    position: absolute;
+    width: 451px;
+    height: 30px;
+    left: 150px;
+    top: 82px;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #002144;
 }
 
 /*  Khung san pham  */
@@ -417,7 +450,7 @@ color: #000000;
 /*  san pham tuong tu  */
 .similar-content{
 	position: relative;
-	height: 523px;
+	height: 435px;
 	width: 100%;
 	margin-top:15px;
 }
@@ -453,7 +486,7 @@ color: #000000;
 .btn-next{
 	position: absolute;
 	top: -1%;
-	right: 0;
+	right: 2%;
 	width: 97px;
 height: 40px;
 }
@@ -470,7 +503,7 @@ height: 40px;
 }
 
 .colum-4{
-	width: 20%;
+	width: 18.5%;
 }
 .product-section__item-shop:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16),
@@ -613,10 +646,9 @@ height: 40px;
 	padding-top: 16px;
     position: absolute;
     left: 0;
-    /* top: 2817px; */
-	bottom: 0;
+    bottom: 0%;
     width: 100%;
-    height: 200px;
+    height: 220px;
     background-color: var(--color-gray-100);
 }
 .footer__heading{
@@ -680,18 +712,4 @@ height: 40px;
 	width: 19%;
 }
 
-/** Nav status**/
-.nav-status{
-    position: absolute;
-    width: 451px;
-    height: 30px;
-    left: 150px;
-    top: 82px;
 
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-size: 13px;
-    line-height: 15px;
-
-    color: #002144;
-}
