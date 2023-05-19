@@ -192,17 +192,149 @@ background: #002144;
 	height: auto;
 }
 
-.navigation-left{
-	width: 272px;
-height: 259px;
-background: #999;
-margin-top: 25px;
-}
-
-.cus-profile__col-3{
-	width: 23%;
-}
-
+/* khung dieu huong  */
+.navigation-left{	
+	margin-top: 25px;
+	}
+	.cus-profile__col-3{
+		width: 23%;
+	}
+	
+	.navigation-left__container{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		
+	}
+	.navigation-left__avatar{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		width: 100%;
+		height: 80px;
+		
+	}
+	
+	
+	
+	.navigation-left__avata__img{
+		margin-right: 5px;
+	}
+	.navigation-left__avatar__content{
+		
+		
+		width: 70%;
+		margin-left: 5px;
+		height: 100%;
+		
+		
+	}
+	.avatar__content__name{
+		font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	
+	color: #000000;
+		margin-top: 20px;
+		width: 100%;
+	}
+	
+	.avatar__content__edit-profile{
+		margin-top: 5px;
+		position: relative;
+		font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+	/* identical to box height */
+	
+	
+	color: rgba(0, 0, 0, 0.7);
+		width: 100%;
+	}
+	.edit-profile__icon-edit{
+		position: absolute;
+		top: 0%;
+		left: 0%;
+	}
+	.avatar__content__edit-profile__title{
+		position: absolute;
+		left: 10%;
+		top: 0%;
+	}
+	
+	
+	
+	
+	
+	.navigation-left__function{
+		height: 55%;
+		width: 100%;
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	.navigation-left__function-title{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		
+		height: 45px;
+		
+	}
+	.function-title__icon-profile{
+		margin-left: 5px;
+		margin-right: 5px;
+		width: 30px;
+		height: 30px;
+	}
+	.function-title{
+		margin-left: 8px;
+		font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	
+	color: #000000;
+	
+		
+	}
+	
+	.navigation-left__function__nav-list{
+		width: 52%;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.function__nav-list__title{
+		font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 17px;
+	display: flex;
+	align-items: center;
+	
+	color: #000000;
+	}
+	.navigation-left__function--active{
+		color: #002144;
+		font-weight: 700;
+	}
+	
 /* Khung thong tin khach hang   */
 
 .cus-profile__col-9 {
