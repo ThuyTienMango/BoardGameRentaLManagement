@@ -98,15 +98,35 @@ cursor: pointer;
 	justify-content: space-between;
 }
 .header_navbar-list{
+
+   display: flex;
+
     position: relative;
     left: 55%;
 	list-style: none;
 }
 .header_navbar-item{
-	display: inline-block;
-	margin: 0 8px;
+
+    display: flex;
+	justify-content: center;
+	margin: 0 10px;
     padding: 10px 10px;
 }
+
+.header_navbar-item--active{
+display: none;   
+position: absolute;
+bottom: 10%;
+width: 72px;
+height: 3px;
+background: #002144;
+}
+.active__visibly
+{
+    display: block;
+}
+
+
 .header_navbar-item:hover{
 	cursor: pointer;
 	color: rgba(0,0,0,0.7);
@@ -138,6 +158,7 @@ cursor: pointer;
     
 	cursor:pointer;
 }
+
 
 .header-end{
 	background: #F0F4F5;
@@ -503,10 +524,11 @@ color: rgba(0, 0, 0, 0.5);
 	padding-top: 16px;
     position: absolute;
     left: 0;
-    /* top: 2817px; */
-	bottom: 0;
+
+    bottom: 0%;
     width: 100%;
-    height: 200px;
+    height: 220px;
+
     background-color: var(--color-gray-100);
 }
 .footer__heading{
