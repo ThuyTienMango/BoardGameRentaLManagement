@@ -173,9 +173,18 @@ background: #002144;
 }
 
 .nav-status{
-	background: #333;
-	width: 100%;
-	height: 30px;
+	position: absolute;
+    width: 451px;
+    height: 30px;
+    left: 150px;
+    top: 82px;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #002144;
 }
 /* <!--  Khung hien thi thong tin don hang  --> */
 
@@ -372,6 +381,9 @@ background: rgba(0, 33, 68, 0.5);
 	left: 0%;
 
 } */
+
+/* Khung hien thi thong tin dat thue */
+
 
 
 
