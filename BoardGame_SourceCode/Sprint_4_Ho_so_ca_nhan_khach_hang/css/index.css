@@ -475,15 +475,20 @@ height: 243px;
 }
 
 
-.customer-form__inputfied input {
-	font-family: 'Helvetica';
+.customer-form__inputfied .div_content {
+font-family: 'Helvetica';
+display: flex;
+align-items: center;
+text-align: center;
 font-style: normal;
-font-weight: 300;
-font-size: 12px;
+font-weight: 400;
+font-size: 14px;
 line-height: 14px;
+color: #000000;
+}
 
-color: rgba(0, 0, 0, 0.5);
-
+.customer-form__text {
+	margin-left: 8px ;
 }
 
 
