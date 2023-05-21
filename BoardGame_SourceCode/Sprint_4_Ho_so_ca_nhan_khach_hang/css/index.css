@@ -182,13 +182,14 @@ background: #002144;
 }
 
 
-/** Nav status**/
+/*  nav-status-page */
+
 .nav-status{
-    position: absolute;
-    width: 451px;
-    height: 30px;
-    left: 150px;
-    top: 82px;
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+    width: 100%;
 
     font-family: 'Helvetica';
     font-style: normal;
@@ -196,6 +197,22 @@ background: #002144;
     line-height: 15px;
 
     color: #002144;
+}
+.nav-status__page, 
+.nav-status__page__link {
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 15px;
+color: #002144;
+margin-right: 5px;
+
+}
+
+.nav-status__page--now{
+	font-weight: 300;
+
 }
 
 
