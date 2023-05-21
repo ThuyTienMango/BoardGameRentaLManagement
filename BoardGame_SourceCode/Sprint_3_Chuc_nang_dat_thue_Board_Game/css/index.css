@@ -382,7 +382,7 @@ background: rgba(0, 33, 68, 0.5);
 
 } */
 
-/* Khung hien thi thong tin dat thue */
+
 
 
 
@@ -521,10 +521,21 @@ color: rgba(0, 0, 0, 0.5);
 
 }
 
+/* Khung hien thi thong tin dat thue */
+.info-order__col-4{
+	width:30%;
+	margin-left:25px;
 
+}
 
-
-
+.retangle-top-oder-right{
+	position: absolute;
+	width: 288px;
+	height: 4px;
+	left: 920px;
+    top: 125px;
+	color:#002144;
+}
 
 
 
