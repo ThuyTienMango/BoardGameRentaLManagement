@@ -2,13 +2,20 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 1800px;
+
+    height: 1100px;
+
     overflow: hidden;
     text-align: left;
     font-size: var(--font-size-base);
     color: var(--color-black);
     font-family: var(--font-helvetica);
 }
+
+.app a{
+    text-decoration: none;
+}
+
 /*Header*/
 .header{
 	height: 80px;
@@ -113,17 +120,34 @@ cursor: pointer;
     padding: 10px 10px;
 }
 
+.header_navbar-item__content {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+.content__active{
+    font-weight: 700;
+}
+
 .header_navbar-item--active{
 display: none;   
 position: absolute;
 bottom: 10%;
 width: 72px;
 height: 3px;
+
+
+
 background: #002144;
 }
 .active__visibly
 {
     display: block;
+
+
 }
 
 
@@ -161,21 +185,20 @@ background: #002144;
 
 
 
-
 .header-end{
 	background: #F0F4F5;
 	width: 100%;
 	height: 4px;
 }
 
+/*  nav-status-page */
 
-/** Nav status**/
 .nav-status{
-    position: absolute;
-    width: 451px;
-    height: 30px;
-    left: 150px;
-    top: 82px;
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+    width: 100%;
 
     font-family: 'Helvetica';
     font-style: normal;
@@ -184,6 +207,725 @@ background: #002144;
 
     color: #002144;
 }
+.nav-status__page, 
+.nav-status__page__link {
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 15px;
+color: #002144;
+margin-right: 5px;
+
+}
+
+.nav-status__page--now{
+	font-weight: 300;
+
+}
+/* <!--  Khung hien thi thong tin don hang  --> */
+
+.info-oder{
+	display: block;
+	height: auto;
+}
+
+.info-oder__col-8,
+.customer-information__col-8 {
+	width: 65%;
+}
+.info-oder__container{
+	
+	position: relative;
+	width: 100%;
+	min-height: 310px;
+
+}
+
+.retangle-top-oder{
+	width: 772px;
+	height: 4px;
+	background: #002144;
+}
+
+.info-oder__table-tile{
+	
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: 60px;
+}
+
+.table-title__product-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 56px ;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	color: #000000;
+}
+.table-title__properties{
+	display: flex;
+	align-items: center;
+	height: 56px ;
+	text-align: center;
+	font-family: 'Helvetica';
+	font-style: normal;
+	}
+
+.info-oder__col4{
+	width: 46%;
+	
+}
+.info-oder__col5{
+	width: 50%;
+	padding-left: 20px;
+}
+
+.table-title__title-2{
+	width: 100px;
+	height: 17px;
+	}
+	
+	
+	
+.table-title__title-2__head{
+padding-bottom: 8px;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.table-title__title-2__unit{
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.info-oder__item{
+	width: 100%;
+	display: flex;
+	margin-top: 10px;
+}
+
+.info-oder__card{
+	position: relative;
+	
+	height: 97px;
+	font-family: 'Helvetica';
+	font-style: normal;
+}
+.info-oder__card__img{
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+
+}
+.info-oder__card__title{
+	position: absolute;
+left: 25%;
+top: 10%;
+
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+cursor: pointer;
+}
+.info-oder__card__quantity{
+	position: absolute;
+left: 25%;
+
+top: 30%;
+
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+color: #000000;
+
+}
+
+.info-oder__properties{	
+	display: flex;
+	align-items: center;
+	height: 56px ;
+	
+	
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+	
+	color: #48494A;
+	
+	
+}
+
+.info-oder__colum-1{
+	display: flex;
+	align-items: center;
+	width: 25%;
+    justify-content: center;
+	padding-left: 10px;
+
+}
+
+.quantity-btn input{
+	box-sizing: border-box;
+	width: 51px;
+height: 28px;
+background: #F0F4F5;
+border: 1px solid #002144;
+text-align: center;
+margin-right: 5px;
+border-radius: 5px;
+}
+input :focus {
+	outline: none;
+}
+
+
+
+
+
+
+
+
+.info-oder__retangle-mini{
+	margin-top: 20px;
+width: 772px;
+height: 1px;
+background: rgba(0, 33, 68, 0.5);
+}
+
+
+/* .info-oder .info-oder__my-oder {
+	display: flex;
+	position: absolute;
+	top: 20%;
+	left: 0%;
+
+} */
+
+
+
+
+
+
+
+/* Khung thong tin khach hang   */
+
+
+.customer-information{
+	position: relative;
+	min-height: 300px;
+	margin-top: 25px;
+	
+}
+.customer-information__container{
+	width: 97%;
+	min-height: 310px;
+	
+	overflow: hidden;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+
+	background: #FBFBFB;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+
+.customer-information__title{
+position: absolute;
+left: 3.24%;
+right: 69.04%;
+top: 7.69%;
+bottom: 84.62%;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #002144;
+}
+
+.customer-information__retangle{
+	position: absolute;
+left: 2.46%;
+right: 3.11%;
+top: 18.39%;
+bottom: 81.27%;
+
+background: rgba(0, 33, 68, 0.5);
+}
+
+.customer-information__form{
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+height: 243px;
+	left: 0%;
+	top:  20%;
+	width: 100%;
+}
+
+.customer-form__inputfied{
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.customer-form__inputfied label {
+	width: 60px;
+	font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: 5px;
+    color: #000000;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+    padding-right: 15px;
+
+
+}
+
+.customer-form__input-name, 
+.customer-form__input-email,
+.customer-form__input-phone,
+.customer-form__input-identity,
+.customer-form__input-address {
+	box-sizing: border-box;
+	height: 30px;
+	background: #FBFBFB;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+}
+.customer-form__input-name{
+	width: 148px;
+
+}
+.customer-form__input-email{
+	width: 179px;
+}
+.customer-form__input-phone{
+	width: 214px;
+
+}
+.customer-form__input-identity{
+	width:260px;
+
+}
+.customer-form__input-address{
+	width:645px;
+}
+.customer-form__input-identity-img{
+	width:294px;
+	
+}
+
+
+.customer-form__inputfied input {
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+
+color: rgba(0, 0, 0, 0.5);
+
+}
+
+/* Khung hien thi thong tin dat thue */
+.info-order__col-4{
+	width: 24%;
+    margin-left: 90px;
+}
+.hire-info__container{
+	width: 100%;
+   
+    position: relative;
+}
+.hire-info__container__content{
+	margin-top: 15px;
+    width: 100%;
+    height: 94px;
+}
+
+.hire-info__line{
+	width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.gia-tien{
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+text-align: right;
+
+color: #48494A;
+
+}
+
+.don-vi-tinh {
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+margin-left: 25px;
+color: #48494A;
+
+}
+
+.hire-info__container__title{
+	width: 100%;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+.retangle-top-oder-right{
+	width: 288px ;
+    height: 4px;
+    color: #002144;
+}
+
+.hire-info__container__title__col-3{
+	width: 57%;
+}
+
+.hire-info__container__title__col-2{
+	width: 40%;
+
+
+}
+
+
+.gia-tri-don-hang {
+	display: flex;
+	justify-content: space-between;
+}
+.gia-tri-don-hang-con{
+	display: flex;
+	justify-content: flex-end;
+
+}
+.tien-hang{
+	
+   
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+
+.diem-tich-luy{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.phieu-giam-gia{
+	position: absolute;
+    width: 32%;
+    height: 11%;
+    left: 5%;
+    top: 44%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.gia-tien-hang{
+	
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+
+color: #48494A;
+}
+.don-vi-tien-hang{
+	
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+
+}
+
+.so-diem-tich-luy{
+	position: absolute;
+	width: 31%;
+    height: 11%;
+    left: 54%;
+    top: 33%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.don-vi-diem-tich-luy{
+	position: absolute;
+    width: 44px;
+    height: 21px;
+    left: 87%;
+    top: 33%;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.so-diem-phieu-giam-gia{
+	position: absolute;
+	width: 31%;
+    height: 11%;
+    left: 54%;
+    top: 44%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.don-vi-phieu-giam-gia{
+	position: absolute;
+	width: 31%;
+    height: 11%;
+    left: 79%;
+    top: 44%;
+
+.info-oder__col-4{
+	width: 25%;
+	background-color: #333;
+}
+
+
+	color: #48494A;
+}
+
+.tong-tien-hang{
+	position: absolute;
+    width: 44%;
+    height: 11%;
+    left: 5%;
+    top: 71%;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+
+	color: #FF0000;
+}
+.gia-tong-tien-hang{
+	position: absolute;
+    width: 31%;
+    height: 11%;
+    left: 54%;
+    top: 71%;
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+
+color: #FF0000;
+}
+
+.don-vi-tong-tien-hang{
+	position: absolute;
+    width: 31%;
+    height: 11%;
+    left: 79%;
+    top: 71%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #FF0000;
+}
+
+.tong-thanh-toan {
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+
+color: #FF0000;
+}
+
+.tong-gia-tien-hang {
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+
+color: #FF0000;
+}
+
+.tong-don-vi-tien-hang {
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+margin-left: 25px;
+color: #FF0000;
+}
+
+.dieu-khoan-thue-container{
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+    background: #F0F4F5;
+	padding: 5px 0px;
+	
+}
+
+.dieu-khoan-title{
+	margin-left: 5px;
+	margin-top: 8px;
+	margin-bottom: 5px;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 16px;
+
+	color: #000000;
+}
+
+.dieu-khoan-content{
+	margin-left: 10px;
+	margin-right: 5px;
+	text-align: left;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 10px;
+    line-height: 11px;
+    color: #000000;
+	height: 240px;
+	overflow-y: auto;
+	line-height: 1.5;
+}
+
+
+.tick-dong-y-dieu-khoan{
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.tick-check{
+	background: #FFFFFF;
+	border: 1px solid #002144;
+	cursor: pointer;
+
+}
+.tick-dong-y-dieu-khoan__title{
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+margin-left: 5px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+
+.dat-thue-container{
+	width: 100%;
+	
+height: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+background: #002144;
+}
+.dat-thue-content{
+	
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 18px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+
+}
+
 
 
 /* Footer */
@@ -191,16 +933,20 @@ background: #002144;
 	padding-top: 16px;
     position: absolute;
     left: 0;
-    /* top: 2817px; */
-	bottom: 0;
+
+
+    bottom: 0%;
     width: 100%;
-    height: 200px;
+    height: 220px;
+
     background-color: var(--color-gray-100);
 }
 .footer__heading{
-	font-size: 0.85rem;
+	font-size: 0.7rem;
 	text-transform: uppercase;
 	color: white;
+    text-decoration: none;
+
 }
 .footer__list{
 	padding-left: 0;
