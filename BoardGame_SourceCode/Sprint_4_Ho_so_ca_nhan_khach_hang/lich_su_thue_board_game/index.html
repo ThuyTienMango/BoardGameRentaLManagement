@@ -5,11 +5,11 @@
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="stylesheet" href="./public/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="../Sprint_4_Ho_so_ca_nhan_khach_hang/css/global.css" />
-    <link rel="stylesheet" href="../Sprint_4_Ho_so_ca_nhan_khach_hang/css/index.css" />
-    <link rel="stylesheet" href="../Sprint_4_Ho_so_ca_nhan_khach_hang/css/responsive.css">
+    <link rel="stylesheet" href="../lich_su_thue_board_game/css/global.css" />
+    <link rel="stylesheet" href="../lich_su_thue_board_game/css/index.css" />
+    <link rel="stylesheet" href="../lich_su_thue_board_game/css/responsive.css">
     
-   <title> Hồ sơ cá nhân </title>
+  <title> Lịch sử thuê Board Game </title>
 </head>
 <body>
     <div class="app">
@@ -20,7 +20,7 @@
              margin-bottom: 25px;
              margin-top: 25px;" >
                  <div class="header__logo">
-                     <img src="../public/logo.jpg" alt="" class="header-logo">
+                     <img src="../../public/logo.jpg" alt="" class="header-logo">
                  </div>  
      
                  <div class="header__search">
@@ -65,7 +65,7 @@
                      <div class="header_navbar-item__content ">Liên hệ</div>
                      <div class="header_navbar-item--active"></div>
                    </li> 
-                   <img src="../public/Profile.png" alt="" class="header_navbar-avatar">
+                   <img src="../../public/Profile.png" alt="" class="header_navbar-avatar">
                  </ul>
              </div>
             </div>
@@ -75,12 +75,12 @@
        <div class="header-end"></div>
        <div class="container-section">
         <div class="nav-status">
-            <p> <b>Hồ sơ</b> :: Hồ sơ của tôi  </p>
+            <p> <b>Hồ sơ</b> :: Lịch sử thuê board game  </p>
         </div>
-        <div class="cus-profile">
-
+         <div class="cus-history">
             <div class="grid">
                 <div class="grid__row">
+                    <!-- khung dieu huong  -->
                     <div class="navigation-left cus-profile__col-3">
                         <div class="navigation-left__container">
                             <div class="navigation-left__avatar">
@@ -153,61 +153,142 @@
 
                         </div>
                     </div>
-
-
-
-
-
-
-                    <div class="customer-information cus-profile__col-9 ">
-                        <div class="customer-information__container">
-                            <div class="customer-information__title">
-                                Hồ Sơ Của Tôi 
+                    <div class="customer-history cus-profile__col-9">
+                        <div class="customer-history__container">
+                            <img src="../../public/customer-history__retangle-top.svg" alt="" class="customer-history__retangle-top">
+                            <div class="info-oder__table-tile">
+                                <div class="table-title__product-title  info-oder__col4 ">  Sản phẩm  </div>
+                                    <div class="table-title__properties info-oder__col5 ">
+                                    <div class="table-title__title-2 "> 
+                                            <div class="table-title__title-2__head "> Thời gian thuê  </div>
+                                            <div class="table-title__title-2__unit">( Ngày )</div>
+                                    </div>
+                                    <div class="table-title__title-2  "> 
+                                        <div class="table-title__title-2__head">Số lượng </div>
+                                        <div class="table-title__title-2__unit">( Cái )</div>
+                                    </div>
+                                    <div class="table-title__title-2 "> 
+                                        <div class="table-title__title-2__head"> Giá Thuê</div>
+                                        <div class="table-title__title-2__unit">( Vnđ ) </div>
+                                    </div>
+                                    <div class="table-title__title-2 "> 
+                                        <div class="table-title__title-2__head">Thành tiền</div>
+                                        <div class="table-title__title-2__unit">( Vnđ ) </div>
+                                    </div>
+                                    <div class="table-title__title-2 "> 
+                                        <div class="table-title__title-2__head">Trạng thái</div>
+                                    </div>
+                                </div>
                             </div>
+                            <img src="../../public/customer-history__retangle-top2.svg" alt="" class="customer-history__retangle-top2">
+                            <!--  1 item  -->
+                            <div class="info-oder__item">
+                                <div class="info-oder__card info-oder__col4 ">
+                                    <img src="../../public/it2.jpg" alt="" class="info-oder__card__img">
+                                    <div class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </div>
+                                    <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
+                                </div>
+                            
+                                <div class="info-oder__properties info-oder__col5">
+                                    <div class=" info-oder__colum-1   quantity-btn__rental-time ">
+                                        <div class="rental-time__value quantity-btn"> 10 </div>
+                                    </div>
+                                    <div class=" info-oder__colum-1 quantity-btn__quantity ">
+                                        <div class="quantity__value quantity-btn "> 1  </div>
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__cost ">
+                                        55,000
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__total ">
+                                        550,000
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__status ">
+                                        Chờ lấy
+                                    </div>
+                                </div>
+
+                            </div> 
+                             <!-- item-end   -->
+                             <!--  1 item  -->
+                            <div class="info-oder__item">
+                                <div class="info-oder__card info-oder__col4 ">
+                                    <img src="../../public/it2.jpg" alt="" class="info-oder__card__img">
+                                    <div class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </div>
+                                    <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
+                                </div>
+                            
+                                <div class="info-oder__properties info-oder__col5">
+                                    <div class=" info-oder__colum-1   quantity-btn__rental-time ">
+                                        <div class="rental-time__value quantity-btn"> 10 </div>
+                                    </div>
+                                    <div class=" info-oder__colum-1 quantity-btn__quantity ">
+                                        <div class="quantity__value quantity-btn "> 1  </div>
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__cost ">
+                                        55,000
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__total ">
+                                        550,000
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__status ">
+                                        Chờ lấy
+                                    </div>
+                                </div>
+
+                            </div> 
+                             <!-- item-end   -->
+                             <!--  1 item  -->
+                            <div class="info-oder__item">
+                                <div class="info-oder__card info-oder__col4 ">
+                                    <img src="../../public/it2.jpg" alt="" class="info-oder__card__img">
+                                    <div class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </div>
+                                    <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
+                                </div>
+                            
+                                <div class="info-oder__properties info-oder__col5">
+                                    <div class=" info-oder__colum-1   quantity-btn__rental-time ">
+                                        <div class="rental-time__value quantity-btn"> 10 </div>
+                                    </div>
+                                    <div class=" info-oder__colum-1 quantity-btn__quantity ">
+                                        <div class="quantity__value quantity-btn "> 1  </div>
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__cost ">
+                                        55,000
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__total ">
+                                        550,000
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__status ">
+                                        Chờ lấy
+                                    </div>
+                                </div>
+
+                            </div> 
+                             <!-- item-end   -->
+                      
                           
-                                <img src="../public/customer-infomation__retangle.svg" alt="" class="customer-information__retangle">
-                              <div class="customer-information__form">
-                                <div class="customer-form__inputfied">
-                                    <label for="name">Tên: </label>
-                                    <input class=" customer-form__input-name " type="text" id="name" name="name">
-                                </div>
+                               
 
-                                <div class="customer-form__inputfied">
-                                    <label for="email">Email:  </label>
-                                    <input class=" customer-form__input-email " type="email" id="email" name="email">
-                                </div>
+                             <div class="product-section__page">
+                                <a href=" #" class="product-section__page__number product-section__page__number--active"> 1 </a>
+                                <a href=" #" class="product-section__page__number"> 2 </a>
+                                <a href=" #" class="product-section__page__number"> 3 </a>
+                                <a href=" #" class="product-section__page__number"> 4 </a>
+                                <a href=" #" class="product-section__page__number"> ... </a>
+                                <a href=" #" class="product-section__page__number"> 12 </a>
+                            </div>
+                        </div>
 
-                                <div class="customer-form__inputfied">
-                                    <label for="phone">SĐT:  </label>
-                                    <input class=" customer-form__input-phone " type="tel" id="phone" name="phone">
-                                </div>
-
-                                <div class="customer-form__inputfied">
-                                    <label for="identity">CCCD:  </label>
-                                    <input class=" customer-form__input-identity " type="text" id="identity" name="identity">
-
-                                    <label for="identity-img" style="padding-right: 0px;width: 40px; " >Ảnh:  </label>
-                                    <input class=" customer-form__input-identity-img " type="file" id="identity-img" name="identity-img"  style="
-                                    margin-right: 25px;">
-                                </div>
-
-                                <div class="customer-form__inputfied">
-                                    <label for="address">Địa chỉ:  </label>
-                                    <input class=" customer-form__input-address " type="text" id="address" name="address">
-                                </div>
-                              </div>
-                        </div>   
-                    </div>
+                    </div> 
                 </div>
             </div>
-        </div>
+         </div>
 
 
 
        </div>
 
-       
-    <!--  footer  -->
+      <!--  footer  -->
 <footer class="footer">
     <div class="grid">
         <div class="grid__row">
