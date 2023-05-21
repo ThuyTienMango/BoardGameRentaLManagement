@@ -504,9 +504,10 @@ background: #002144;
     background-color: var(--color-gray-100);
 }
 .footer__heading{
-	font-size: 0.85rem;
+	font-size: 0.7rem;
 	text-transform: uppercase;
 	color: white;
+    text-decoration: none;
 }
 .footer__list{
 	padding-left: 0;
