@@ -174,10 +174,10 @@ background: #002144;
 
 .nav-status{
 	position: absolute;
-    width: 451px;
+    width: 100%;
     height: 30px;
-    left: 150px;
-    top: 82px;
+    left: 1.5%;
+    top: -9%;
 
     font-family: 'Helvetica';
     font-style: normal;
@@ -613,9 +613,181 @@ color: #48494A;
 
 }
 
+.so-diem-tich-luy{
+	position: absolute;
+	width: 31%;
+    height: 11%;
+    left: 54%;
+    top: 33%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.don-vi-diem-tich-luy{
+	position: absolute;
+    width: 44px;
+    height: 21px;
+    left: 87%;
+    top: 33%;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.so-diem-phieu-giam-gia{
+	position: absolute;
+	width: 31%;
+    height: 11%;
+    left: 54%;
+    top: 44%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.don-vi-phieu-giam-gia{
+	position: absolute;
+	width: 31%;
+    height: 11%;
+    left: 79%;
+    top: 44%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #48494A;
+}
+
+.tong-tien-hang{
+	position: absolute;
+    width: 44%;
+    height: 11%;
+    left: 5%;
+    top: 71%;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+
+	color: #FF0000;
+}
+.gia-tong-tien-hang{
+	position: absolute;
+    width: 31%;
+    height: 11%;
+    left: 54%;
+    top: 71%;
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+
+color: #FF0000;
+}
+
+.don-vi-tong-tien-hang{
+	position: absolute;
+    width: 31%;
+    height: 11%;
+    left: 79%;
+    top: 71%;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+
+	color: #FF0000;
+}
+
+.dieu-khoan-thue-container{
+	position: absolute;
+    width: 296px;
+    height: 266px;
+    left: 8.5%;
+    top: 216px;
+    background: #F0F4F5;
+}
+
+.dieu-khoan-title{
+	position: absolute;
+    width: 80%;
+    height: 11%;
+    left: 6%;
+	top: 7%;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 16px;
+
+	color: #000000;
+}
+
+.dieu-khoan-content{
+	position: absolute;
+    width: 70%;
+    left: 6%;
+    top: 11%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 11px;
+    color: #000000;
+}
 
 
+.dat-thue-container{
+	position: absolute;
+	width: 296px;
+	height: 32px;
+	left: 8.5%;
+    top: 500px;
+background: #002144;
+}
+.dat-thue-content{
+	position: absolute;
+    top: -26%;
+    left: 40%;
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 18px;
+/* identical to box height */
 
+
+color: #FFFFFF;
+
+}
 
 /* Footer */
 .footer{
