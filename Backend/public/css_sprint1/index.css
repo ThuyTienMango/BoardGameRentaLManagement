@@ -3,7 +3,9 @@
     background-color: var(--color-white);
     width: 100%;
 
+
     min-height: 2150px;
+
 
     overflow: hidden;
     text-align: left;
@@ -11,6 +13,11 @@
     color: var(--color-black);
     font-family: var(--font-helvetica);
 }
+
+.app a{
+    text-decoration: none;
+}
+
 /*Header*/
 .header{
 	height: 80px;
@@ -101,35 +108,47 @@ cursor: pointer;
 }
 .header_navbar-list{
 
-    display: flex;
+
+   display: flex;
+
     position: relative;
     left: 55%;
 	list-style: none;
 }
 .header_navbar-item{
 
+
     display: flex;
 	justify-content: center;
 	margin: 0 10px;
     padding: 10px 10px;
 }
-
+.header_navbar-item__content {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+.content__active{
+    font-weight: 700;
+}
 .header_navbar-item--active{
 display: none;   
 position: absolute;
 bottom: 10%;
 width: 72px;
 height: 3px;
+
 background: #002144;
 }
 .active__visibly
 {
     display: block;
+
 }
 
-.header_navbar-item__content {
-    color: #000000;
-}
 
 .header_navbar-item:hover{
 	cursor: pointer;
@@ -163,9 +182,6 @@ background: #002144;
 	cursor:pointer;
 }
 
-.no-underline {
-    text-decoration: none;
-  }
 
 /*  Minh duc */
 
@@ -216,12 +232,13 @@ background: #002144;
    min-height: 1800px;
    overflow: hidden;
 
+
 } 
 .filter-category{
     width: 90%;
     height: 887px;
     border-radius: var(--br-8xs);
-    background-color: brown;
+    
     
 }
 
@@ -326,7 +343,9 @@ background: #002144;
 
 .product-section{
 
+
     display: flex;
+
 
    position: relative;
    z-index: 1;
@@ -478,6 +497,7 @@ background: #002144;
 
     bottom:-60px;
 
+
     display: inline-flex;
 }
 .product-section__page__number{
@@ -503,6 +523,7 @@ background: #002144;
     position: absolute;
     left: 0;
 
+
     bottom: 0%;
     width: 100%;
     height: 220px;
@@ -510,9 +531,11 @@ background: #002144;
     background-color: var(--color-gray-100);
 }
 .footer__heading{
-	font-size: 0.85rem;
+	font-size: 0.7rem;
 	text-transform: uppercase;
 	color: white;
+    text-decoration: none;
+
 }
 .footer__list{
 	padding-left: 0;

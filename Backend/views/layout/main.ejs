@@ -19,93 +19,110 @@
 
        <!-- thanh cong cu loc  -->
        <div class="sort-section">
-            <div class="grid ">
-                <div class="grid_row sort-section__content ">
-                    <div class=" sort-section__name  sort-section__name--active "> Board Game</div>
-                    <div class="sort-section__name  ">Mới Nhất </div>
-                    <div class="sort-section__name "> Phổ Biến</div>
-                </div>
+        <div class="grid ">
+            <div class="grid_row sort-section__content ">
+
+                <a href="https://courses.uit.edu.vn/login/index.php" class="  sort-section__name  sort-section__name--active"> Board Game</a>
+               
+                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
+                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name "> Phổ Biến</a>
+
             </div>
         </div>
+    </div>
     
-        <div class="container-section">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__colum-2">
-                        <div class="filter-category"></div>
+    <div class="container-section">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__colum-2">
+                    <div class="filter-category">
+                        <img src="assets/images/filter-mo-hinh.svg" alt="" class="fiter-mo-hinh">
+
                     </div>
-                    <div class=" grid__colum-10">
-                        <div class="tf-sort">
-                            <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
-                            <div class="tf-sort__layout">
-                                <div class="layout__grid layout__grid--btn-primary">
-                                    <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
-                                    <b class=" layout__content ">Grid</b>
-                                </div>
-                                <div class="layout__line">
-                                    <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
-                            
-                                    <b class=" layout__content ">Line</b>
-                                </div>
+                </div>
+                <div class=" grid__colum-10">
+                    <div class="tf-sort">
+                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
+                        <div class="tf-sort__layout">
+                            <div class="layout__grid layout__grid--btn-primary">
+                                <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-grid-2.svg" />
+                                <b class=" layout__content ">Grid</b>
                             </div>
-                            <div class="filter-price">
-                                <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
+                            <div class="layout__line">
+                                 <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-menu.svg" />
                         
-                                <b class=" layout__content "> Giá:</b>
-                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
-                                <ul class="filter-price__list">
-                                    <li class="filter-price__list__item">
-                                        <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
-                                        
-                                    </li>
-                                    <li class="filter-price__list__item">
-                                        <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
-                                    </li>
-                                </ul>
+                                <b class=" layout__content ">Line</b>
                             </div>
+                            
                         </div>
+                        <div class="filter-price">
+                            <img class="tf-sort__layout__icon   " alt="" src="assets/images/-icon-filter.svg" />
+                    
+                            <b class=" layout__content "> Giá:</b>
+                            <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
+                            <ul class="filter-price__list">
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
+                                    
+                                </li>
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
 
                     <!--  San pham tong/ hiện 5 hàng sản phẩm, mỗi hàng 4 sp    -->
-
-                    <div class="product-section grid__row">
-                         <!--  San pham  -->
-                         <% boardgames.forEach((boardgame) =>{ %>
-                            <div class=" product-section__item-shop col-4">
-                              <div class="item-shop__favourite">
-                                  <div class="item-shop__favourite__content">
-                                      <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
-                                      <b class="item-shop__likes">99</b>
-                                  </div>
-                              </div>
-                              <a href="store/<%= boardgame._id %>">
-                                  <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
-                              </a>
-                              <a href="store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
-                              <div class="item-shop__rent">
-                                  <b class="item-shop__rent__title"> Giá Thuê</b>
-                                  <b class="item-shop__rent__cost"><%= boardgame.price %></b>
-                              </div>
-                             
-                              <div class="item-shop__rent-btn">
-                                  <b class="item-shop__rent-btn__title">Thuê ngay</b>
-                              </div>
-                            </div>
-                          <%}) %>
+                        <div class="product-section grid__row">
+                            <!-- San pham -->
+                            <% rows.forEach((row) => { %>
+                                <div class="product-section__row">
+                                    <% row.forEach((boardgame) => { %>
+                                        <div class=" product-section__item-shop col-4">
+                                            <div class="item-shop__favourite">
+                                                <div class="item-shop__favourite__content">
+                                                    <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                                    <b class="item-shop__likes">99</b>
+                                                </div>
+                                            </div>
+                                            <a href="store/<%= boardgame._id %>">
+                                                <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                                            </a>
+                                            <a href="store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
+                                            <div class="item-shop__rent">
+                                                <b class="item-shop__rent__title"> Giá Thuê</b>
+                                                <b class="item-shop__rent__cost"><%= boardgame.price %></b>
+                                            </div>
+                                            
+                                            <div class="item-shop__rent-btn">
+                                                <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                </div>
+                            <% }) %>
+                        </div>
+                        
 
 
                         <!-- SP end  -->
-                        <div class="product-section__page">
-                            <a href=" #" class="product-section__page__number product-section__page__number--active"> 1 </a>
-                            <a href=" #" class="product-section__page__number"> 2 </a>
-                            <a href=" #" class="product-section__page__number"> 3 </a>
-                            <a href=" #" class="product-section__page__number"> 4 </a>
-                            <a href=" #" class="product-section__page__number"> ... </a>
-                            <a href=" #" class="product-section__page__number"> 153 </a>
-                        </div>
-                    </div>
+                        
+                
+                    <div class="product-section__page">
+                        <a href=" #" class="product-section__page__number product-section__page__number--active"> 1 </a>
+                        <% if (boardgames.length === 5) { %>
+                            <a href="/page-2" class="product-section__page__number product-section__page__number--active"> 2 </a>
+                          <% } %>
+                        <a href=" #" class="product-section__page__number"> 3 </a>
+                        <a href=" #" class="product-section__page__number"> 4 </a>
+                        <a href=" #" class="product-section__page__number"> ... </a>
+                        <a href=" #" class="product-section__page__number"> 153 </a>
+                    </div>    
                 </div>
             </div>
-        </div>
+        </div> 
+    </div>
     
     <!-- Footer -->
     <%- include('../partials/footer.ejs'); -%>
