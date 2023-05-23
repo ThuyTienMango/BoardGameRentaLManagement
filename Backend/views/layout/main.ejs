@@ -17,54 +17,60 @@
        <!-- Header -->
         <%- include('../partials/header.ejs'); -%>
 
-       <!-- thanh cong cu loc  -->
-       <div class="sort-section">
-            <div class="grid ">
-                <div class="grid_row sort-section__content ">
-                    <div class=" sort-section__name  sort-section__name--active "> Board Game</div>
-                    <div class="sort-section__name  ">Mới Nhất </div>
-                    <div class="sort-section__name "> Phổ Biến</div>
-                </div>
+      <!-- thanh cong cu loc  -->
+      <div class="sort-section">
+        <div class="grid ">
+            <div class="grid_row sort-section__content ">
+
+                <a href="https://courses.uit.edu.vn/login/index.php" class="  sort-section__name  sort-section__name--active"> Board Game</a>
+                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
+                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name "> Phổ Biến</a>
+
             </div>
         </div>
+    </div>
     
-        <div class="container-section">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__colum-2">
-                        <div class="filter-category"></div>
-                    </div>
-                    <div class=" grid__colum-10">
-                        <div class="tf-sort">
-                            <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
-                            <div class="tf-sort__layout">
-                                <div class="layout__grid layout__grid--btn-primary">
-                                    <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
-                                    <b class=" layout__content ">Grid</b>
-                                </div>
-                                <div class="layout__line">
-                                    <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
-                            
-                                    <b class=" layout__content ">Line</b>
-                                </div>
-                            </div>
-                            <div class="filter-price">
-                                <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
-                        
-                                <b class=" layout__content "> Giá:</b>
-                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
-                                <ul class="filter-price__list">
-                                    <li class="filter-price__list__item">
-                                        <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
-                                        
-                                    </li>
-                                    <li class="filter-price__list__item">
-                                        <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+    <div class="container-section">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__colum-2">
+                    <div class="filter-category">
+                        <img src="assets/images/filter-mo-hinh.svg" alt="" class="fiter-mo-hinh">
 
+                    </div>
+                </div>
+                <div class=" grid__colum-10">
+                    <div class="tf-sort">
+                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
+                        <div class="tf-sort__layout">
+                            <div class="layout__grid layout__grid--btn-primary">
+                                <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-grid-2.svg" />
+                                <b class=" layout__content ">Grid</b>
+                            </div>
+                            <div class="layout__line">
+                                 <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-menu.svg" />
+                        
+                                <b class=" layout__content ">Line</b>
+                            </div>
+                            
+                        </div>
+                        <div class="filter-price">
+                            <img class="tf-sort__layout__icon   " alt="" src="assets/images/-icon-filter.svg" />
+                    
+                            <b class=" layout__content "> Giá:</b>
+                            <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
+                            <ul class="filter-price__list">
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
+                                    
+                                </li>
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
                     <!--  San pham tong/ hiện 5 hàng sản phẩm, mỗi hàng 4 sp    -->
 
                     <div class="product-section grid__row">
