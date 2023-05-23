@@ -6,46 +6,15 @@ class boardgameController {
     //[GET] /store
     async index(req, res, next) {
         try {
-          const boardgames = await Boardgame.find({});
-          const currentPage = 1;
-          const itemsPerRow = 4;
-          const rowsPerPage = 5;
-          const startIndex = (currentPage - 1) * rowsPerPage * itemsPerRow;
-          const endIndex = startIndex + rowsPerPage * itemsPerRow - 1;
-      
-          const productsPerPage = boardgames.slice(startIndex, endIndex + 1);
-          const rows = [];
-      
-          for (let i = 0; i < productsPerPage.length; i += itemsPerRow) {
-            rows.push(productsPerPage.slice(i, i + itemsPerRow));
-          }
-      
-          res.render('layout/main', {
-            rows: rows.map(row => multipleMongooseToObject(row))
-          });
-        } catch (error) {
-          next(error);
-        }
-      }
-      
-    
-    async page2(req, res, next) {
-        try {
             const boardgames = await Boardgame.find({});
-            const currentPage = 2;
-            const itemsPerPage = 5;
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage - 1;
-
-            const productsPerPage = boardgames.slice(startIndex, endIndex + 1);  
             res.render('layout/main', {
-                boardgames: multipleMongooseToObject(productsPerPage)
+                boardgames: multipleMongooseToObject(boardgames)
             });
         } catch (error) {
             next(error);
         }
     }
-
+    
     //[GET] /store/:id 
     async show(req, res, next) {
         try {
