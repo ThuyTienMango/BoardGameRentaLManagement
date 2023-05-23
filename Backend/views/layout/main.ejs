@@ -98,15 +98,15 @@
                             </div>
                           <%}) %>
 
+                        
 
-                        <!-- SP end  -->
-                        <div class="product-section__page">
-                            <a href=" #" class="product-section__page__number product-section__page__number--active"> 1 </a>
-                            <a href=" #" class="product-section__page__number"> 2 </a>
-                            <a href=" #" class="product-section__page__number"> 3 </a>
-                            <a href=" #" class="product-section__page__number"> 4 </a>
-                            <a href=" #" class="product-section__page__number"> ... </a>
-                            <a href=" #" class="product-section__page__number"> 153 </a>
+                        <!-- Phân trang -->
+                        <div class="pagination">
+                            <% for (let i = 1; i <= totalPages; i++) { %>
+                                <a href="#" class="product-section__page__number <%= currentPage === i ? 'product-section__page__number--active' : '' %>">
+                                    <%= i %>
+                                </a>
+                            <% } %>
                         </div>
                     </div>
                 </div>
