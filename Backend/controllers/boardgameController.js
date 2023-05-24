@@ -55,7 +55,7 @@ class boardgameController {
 
     async order(req, res, next){
         try {
-            res.send('Order page');
+            res.render('boardgames/order');
         }
         catch(error){
             next(error);
