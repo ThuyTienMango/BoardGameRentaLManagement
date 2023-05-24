@@ -103,7 +103,7 @@
                         <!-- Phân trang -->
                         <div class="pagination">
                             <% for (let i = 1; i <= totalPages; i++) { %>
-                                <a href="#" class="product-section__page__number <%= currentPage === i ? 'product-section__page__number--active' : '' %>">
+                                <a href="/store?page=<%= i %>" class="<%= currentPage === i ? 'active' : '' %>">
                                     <%= i %>
                                 </a>
                             <% } %>

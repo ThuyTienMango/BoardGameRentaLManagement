@@ -496,7 +496,7 @@ background: #002144;
     display: inline-flex;
 }
 
-.product-section__page__number {
+.pagination a {
     text-decoration: none;
     color: var(--color-darkgray);
     padding: 4px 5px;
@@ -508,11 +508,12 @@ background: #002144;
     line-height: 18px;
 }
 
-.product-section__page__number--active {
+.pagination .active {
     background-color: red;
     color: var(--color-white) !important;
     border-radius: var(--br-8xs);
 }
+
 
 
 /* Footer */
