@@ -415,6 +415,17 @@ a{
 
 
 .button-rent__quantity{
+
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+/* identical to box height */
+
+text-align: center;
+
+color: #48494A;
     position: relative;
     display: flex;
     width: 51px;
