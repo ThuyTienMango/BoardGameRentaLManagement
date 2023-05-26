@@ -90,16 +90,17 @@
                     <div class="grid__colum-1">
 
                         <div class="small-img ">
-                            <img src="../public/it1.jpg" alt="" class="small-img__img boder-img">
-                            <img src="../public/it2.jpg" alt="" class="small-img__img opacity-img">
-                            <img src="../public/it3.jpg" alt="" class="small-img__img opacity-img">
-                            <img src="../public/it4.jpg" alt="" class="small-img__img opacity-img">
-                            <img src="../public/it5.jpg" alt="" class="small-img__img opacity-img">
+                            <img src="../public/it1.jpg" alt="" class="small-img__img boder-img"  onclick="swapImageClasses(this)" >
+                            <img src="../public/it2.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
+                            <img src="../public/it3.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
+                            <img src="../public/it4.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
+                            <img src="../public/it5.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
                         </div>
                     </div>
                     <div class="grid__colum-6">
                         <div class="lage-img">
-                            <img src="../public/it1.jpg" alt="" id="lage-img__img">
+                            <img src="../public/it1.jpg" alt="" id="large-img__img">
+                           
                         </div>
                     </div>
 
@@ -115,10 +116,21 @@
                             <div class="rental__remain"> 20+ còn lại  </div>
                         </div>
                         <div class="button-rent">
-                            <input type="number" value="1">
-                            <div class="ren-btn">
-                                <a href="" class="ren-btn__title"> Đặt thuê  </a>
+                            <div class="button-rent__quantity">
+                               
+
+                                <button class="button-rent__increase" >
+                                    <img src="../public/button-rent__increase.svg" alt="" >
+                                </button>
+                                <button class="button-rent__decrease">
+                                    <img src="../public/button-rent__decrease.svg" alt="" >
+                                </button>
+                                
+                                <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" readonly>
                             </div>
+                            <button class="ren-btn">
+                                <a href="" class="ren-btn__title"> Đặt thuê  </a>
+                            </button>
                            
                             <div class="add-wishlist">
                                 <svg  class="add-wishlist__icon-heart" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,35 +150,61 @@
             </div>
         
          </div>
+         <!-- Script giới hạn nhập liệu ô số lượng   -->
+        <script>
+            //  tăng giảm số lượng bằng cách click 
+                        // Lấy các phần tử từ DOM
+                const decreaseButton = document.querySelector('.button-rent__decrease');
+                const increaseButton = document.querySelector('.button-rent__increase');
+                const quantityInput = document.querySelector('.button-rent__quantityInput');
+
+                // Xử lý sự kiện khi click vào nút giảm
+                decreaseButton.addEventListener('click', function() {
+                    // Giảm giá trị số lượng
+                    let quantity = parseInt(quantityInput.value);
+                    if (quantity > 1) {
+                        quantity--;
+                        quantityInput.value = quantity;
+                    }
+                });
+
+                // Xử lý sự kiện khi click vào nút tăng
+                increaseButton.addEventListener('click', function() {
+                    // Tăng giá trị số lượng
+                    let quantity = parseInt(quantityInput.value);
+                    quantity++;
+                    quantityInput.value = quantity;
+                });
+
+        </script>
            <!--  Script chuyển ảnh sản phẩm  -->
            <script>
-            var ProductImg = document.getElementById("lage-img__img");
-            var SmallImg = document.getElementsByClassName("small-img__img");
-            SmallImg[0].onclick = function()
-            {
-                ProductImg.src = SmallImg[0].src;
+
+            function swapImageClasses(image) {
+              const smallImages = document.getElementsByClassName("small-img__img");
+              const smallImagesArray = Array.from(smallImages); // Chuyển HTMLCollection thành mảng
+            
+              const largeImage = document.getElementById("large-img__img");
+        
+              
+              
+              smallImagesArray.forEach((img) => {
+                img.classList.remove("boder-img");
+                img.classList.add("opacity-img");
+              });
+            
+              image.classList.remove("opacity-img");
+              image.classList.add("boder-img");
+            
+              largeImage.src = image.src;      
+            
             }
-            SmallImg[1].onclick = function()
-            {
-                ProductImg.src = SmallImg[1].src;
-            }
-            SmallImg[2].onclick = function()
-            {
-                ProductImg.src = SmallImg[2].src;
-            }
-            SmallImg[3].onclick = function()
-            {
-                ProductImg.src = SmallImg[3].src;
-            }
-            SmallImg[4].onclick = function()
-            {
-                ProductImg.src = SmallImg[4].src;
-            }
-            SmallImg[5].onclick = function()
-            {
-                ProductImg.src = SmallImg[5].src;
-            }
-           </script>
+            
+        </script>
+         
+          
+
+            
 
 
           
@@ -187,6 +225,7 @@
                                 <br/>2. Align all the tiles on one of your pattern lines. 
                                 <br/>3. Tile a wall in the wonderful Evora palace and score points!
                             </p>
+                            
                             <p>
                                 Contents:
                                 <br/> 100 Resin Tiles (15x15mm)
@@ -196,6 +235,8 @@
                                 <br/>1 Linen Bag
                                 <br/>1 Rulebook
                             </p>
+
+                            
                          
                             <p>
                                 Ages: 8+
@@ -203,43 +244,55 @@
                                 <br/> Game Length: 30-45 minutes
                             </p>
         
-                            <!--  san pham tuong tu  -->
-                        <div class="similar-content">
-                            <div class="similar-product__title">
-                                <svg class="similar-product__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
-                                    </svg>
-                                <div class="similar-product__title__content">  Sản phẩm tương tự </div>   
-                            </div>
-                             <img src="../public/similar-product__btn-next.svg" alt="" class="btn-next">
-                            <div class="similar-item">
-                                <!--  item  -->
-                                <div class=" product-section__item-shop colum-4">
-                                    <div class="item-shop__favourite">
-                                        <div class="item-shop__favourite__content">
-                                            <img src="../public/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
-                                            <b class="item-shop__likes">99</b>
-                                        </div>
-                                    </div>
-                                    <img src="../public/nh-sn-phm10@2x.png" alt=" Beyond the Sun: Leaders of the New Dawn Expansion " class="item-shop__image-product">
-                                    
-                                    <a href=" https://www.miniaturemarket.com/village-big-box-esg50200en.html " class="item-shop__title-product"> Beyond the Sun: Leaders of the New Dawn Expansion  </a>
-                                    <div class="item-shop__rent">
-                                        <b class="item-shop__rent__title"> Giá Thuê</b>
-                                        <b class="item-shop__rent__cost">270.000VND</b>
-                                    </div>
-                                   
-                                    <div class="item-shop__rent-btn">
-                                        <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                           
+                        </div>
+                    </div>
+
+                     <!--  san pham tuong tu  -->
+                     <div class="similar-content">
+                        <div class="similar-product__title">
+                            <svg class="similar-product__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
+                                </svg>
+                            <div class="btn-next__title__content">  Sản phẩm tương tự </div>   
+                        </div>
+                        <div class="btn-next">
+                            <button class="btn-next__back">
+                                <img src="../public/btn-next__back.svg" alt="">
+                            </button>
+                            <button class="btn-next__next">
+                                <img src="../public/btn-next__next.svg" alt="" >
+                            </button>
+                        </div>
+                         <!-- <img src="../public/similar-product__btn-next.svg" alt="" class="btn-next"> -->
+                        <div class="similar-item">
+                            <!--  item  -->
+                            <div class=" product-section__item-shop colum-4">
+                                <div class="item-shop__favourite">
+                                    <div class="item-shop__favourite__content">
+                                        <img src="../public/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                        <b class="item-shop__likes">99</b>
                                     </div>
                                 </div>
-        
-                                 
+                                <img src="../public/nh-sn-phm10@2x.png" alt=" Beyond the Sun: Leaders of the New Dawn Expansion " class="item-shop__image-product">
                                 
-        
-        
+                                <a href=" https://www.miniaturemarket.com/village-big-box-esg50200en.html " class="item-shop__title-product"> Beyond the Sun: Leaders of the New Dawn Expansion  </a>
+                                <div class="item-shop__rent">
+                                    <b class="item-shop__rent__title"> Giá Thuê</b>
+                                    <b class="item-shop__rent__cost">270.000VND</b>
+                                </div>
+                               
+
+                                <button class="item-shop__rent-btn">
+                                    <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                                </button>
+
                             </div>
-                        </div>
+    
+                             
+                            
+    
+    
                         </div>
                     </div>
                    
