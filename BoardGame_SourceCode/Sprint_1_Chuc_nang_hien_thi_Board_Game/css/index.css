@@ -512,9 +512,13 @@ background: #002144;
     line-height: 18px;
 }
 .product-section__page__number--active{
+    display: none;
     background-color: red;
     color: var(--color-white) !important;
     border-radius:  var(--br-8xs);
+}
+.active__on{
+    display: block !important;
 }
 
 /* Footer */
