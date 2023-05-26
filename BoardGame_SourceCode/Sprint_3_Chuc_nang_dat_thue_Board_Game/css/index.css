@@ -383,6 +383,17 @@ color: #000000;
 
 }
 
+.quantity-btn__rental-time select{
+	box-sizing: border-box;
+    width: 51px;
+    height: 28px;
+    background: #F0F4F5;
+    border: 1px solid #002144;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
 .quantity-btn input{
 	box-sizing: border-box;
 	width: 51px;
