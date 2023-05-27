@@ -140,8 +140,66 @@
             }
            </script>
 
+        <div class="grid">
+            <div class="grid__row">
+                    <div class="product-information__title">
+                        <div class="product-information__title__head">
+                            <svg class="product-information__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
+                                </svg>
+                            <div class="product-information__title__content">  Thông tin sản phẩm </div>   
+                        </div>
+                    <div class="product-information__content">
+                        <p><%- boardgame.description.replace(/\n/g, '<br>') %></p>
+                    </div>
+                </div>
 
-            <div class="ThongTinSP">
+                 <!--  san pham tuong tu  -->
+                 <div class="similar-content">
+                    <div class="similar-product__title">
+                        <svg class="similar-product__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
+                            </svg>
+                        <div class="btn-next__title__content">  Sản phẩm tương tự </div>   
+                    </div>
+                    <div class="btn-next">
+                        <button class="btn-next__back">
+                            <img src="/assets/images/btn-next__back.svg" alt="">
+                        </button>
+                        <button class="btn-next__next">
+                            <img src="/assets/images/btn-next__next.svg" alt="" >
+                        </button>
+                    </div>
+                     <!-- <img src="/assets/images/similar-product__btn-next.svg" alt="" class="btn-next"> -->
+                    <div class="similar-item">
+                <!-- item  -->
+                        <% boardgames.forEach((boardgame) =>{ %>
+                            <div class=" product-section__item-shop col-4">
+                                <div class="item-shop__favourite">
+                                    <div class="item-shop__favourite__content">
+                                        <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                        <b class="item-shop__likes">99</b>
+                                    </div>
+                                </div>
+                                <a href="/store/<%= boardgame._id %>">
+                                    <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                                </a>
+                                <a href="/store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
+                                <div class="item-shop__rent">
+                                    <b class="item-shop__rent__title"> Giá Thuê</b>
+                                    <b class="item-shop__rent__cost"><%= boardgame.price %></b>
+                                </div>
+                                
+                                <div class="item-shop__rent-btn">
+                                    <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                                </div>
+                            </div>
+                        <%}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- <div class="ThongTinSP">
                 <div class="grid">
                     <div class="grid__row">
                         <div class="product-information__title">
@@ -156,11 +214,11 @@
             </div>
         </div>
         </div>
-    
+     -->
 
 
     <!--  san pham tuong tu  -->
-        <div class="similar-content">
+        <!-- <div class="similar-content">
             <div class="similar-product__title">
                 <svg class="similar-product__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
@@ -174,11 +232,11 @@
                 <button class="btn-next__next">
                     <img src="/assets/images/btn-next__next.svg" alt="" >
                 </button>
-            </div>
+            </div> -->
             <!-- <img src="/assets/images/similar-product__btn-next.svg" alt="" class="btn-next"> -->
-            <div class="similar-item">
+            <!-- <div class="similar-item"> -->
                 <!-- item  -->
-                <% boardgames.forEach((boardgame) =>{ %>
+                <!-- <% boardgames.forEach((boardgame) =>{ %>
                     <div class=" product-section__item-shop col-4">
                     <div class="item-shop__favourite">
                         <div class="item-shop__favourite__content">
@@ -201,7 +259,7 @@
                     </div>
                 <%}) %>
             </div>
-        </div>
+        </div> -->
      <!-- San pham tuong tu  -->
         <!-- <div class="similar-product">
             <div class="grid">
