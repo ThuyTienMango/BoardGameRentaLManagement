@@ -234,12 +234,12 @@ background: #002144;
     padding-left: 8px;
     padding-right: 8px;
 }
-.lage-img{
+.large-img{
 	display: flex;
 	width: 540px;
 	height: 540px;
 }
-#lage-img__img{
+#large-img__img{
 	width: 540px;
 	height: 540px;
 }
