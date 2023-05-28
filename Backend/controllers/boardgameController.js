@@ -28,11 +28,28 @@ class boardgameController {
     async show(req, res, next) {
         try {
             const boardgames = await Boardgame.find({});
+            const boardgame = await Boardgame.findById(req.params.id);
+            const randomGames = shuffle(boardgames).slice(0, 5);
             res.render('boardgames/detail', { 
-                boardgame: mongooseToObject(boardgames),
+                boardgame: mongooseToObject(boardgame),
+                boardgames: multipleMongooseToObject(randomGames)
              });
+             // Hàm xáo trộn mảng sản phẩm
+            function shuffle(array) {
+                let currentIndex = array.length, temporaryValue, randomIndex;
+            
+                while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+            
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+                }
+            
+                return array;
             }
-        catch (error) {
+          } catch (error) {
             next(error);
         }
     }
