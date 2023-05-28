@@ -22,6 +22,16 @@ class boardgameController {
             next(error);
         }
     }
+
+    //[GET] /store/:id 
+    async show(req, res, next) {
+        try {
+            res.render('boardgames/detail');
+            }
+        catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = new boardgameController();
