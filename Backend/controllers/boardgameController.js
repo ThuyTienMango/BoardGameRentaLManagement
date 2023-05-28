@@ -6,7 +6,10 @@ class boardgameController {
     //[GET] /store
     async index(req, res, next) {
         try {
-            res.render('layout/main');
+            const boardgames = await Boardgame.find({});
+            res.render('layout/main', {
+                boardgames: multipleMongooseToObject(boardgames),
+            });
         } catch (error) {
             next(error);
         }
