@@ -2,13 +2,24 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 1800px;
+
+
+   
+
+
     overflow: hidden;
     text-align: left;
     font-size: var(--font-size-base);
     color: var(--color-black);
     font-family: var(--font-helvetica);
 }
+
+
+.app a{
+    text-decoration: none;
+}
+
+
 /*Header*/
 .header{
 	height: 80px;
@@ -98,15 +109,53 @@ cursor: pointer;
 	justify-content: space-between;
 }
 .header_navbar-list{
+
+
+
+   display: flex;
+
+
+
     position: relative;
     left: 55%;
 	list-style: none;
 }
 .header_navbar-item{
-	display: inline-block;
-	margin: 0 8px;
+
+
+
+    display: flex;
+	justify-content: center;
+	margin: 0 10px;
     padding: 10px 10px;
 }
+.header_navbar-item__content {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+.content__active{
+    font-weight: 700;
+}
+.header_navbar-item--active{
+display: none;   
+position: absolute;
+bottom: 10%;
+width: 72px;
+height: 3px;
+
+background: #002144;
+}
+.active__visibly
+{
+    display: block;
+
+}
+
+
 .header_navbar-item:hover{
 	cursor: pointer;
 	color: rgba(0,0,0,0.7);
@@ -139,28 +188,77 @@ cursor: pointer;
 	cursor:pointer;
 }
 
+
+
+
+
+
+
+
+
 .header-end{
 	background: #F0F4F5;
 	width: 100%;
 	height: 4px;
 }
 
+
+
+/*  nav-status-page */
+
+.nav-status{
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+    width: 100%;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #002144;
+}
+.nav-status__page, 
+.nav-status__page__link {
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 15px;
+color: #002144;
+margin-right: 5px;
+
+}
+
+.nav-status__page--now{
+	font-weight: 300;
+
+}
+
+
 /*  Khung san pham  */
 .container-section{
+   height: 1700px;
+   
+
+
     top: 85px;
     left: 0;
     background-color:var(--color-white);
     width: 100%;
-    height: 1400px;
+
+
+   
 } 
 
-.nav-status{
-	background: #333;
-	width: 100%;
-	height: 30px;
-}
+
+
+
 .single-item{
-	margin-top: 20px;
+	margin-top: 5px;
+
 }
 
 .grid__colum-1{
@@ -197,7 +295,9 @@ cursor: pointer;
 	width: 540px;
 	height: 540px;
 }
-#lage-img__img{
+
+#large-img__img{
+
 	width: 540px;
 	height: 540px;
 }
@@ -236,7 +336,13 @@ color: #000000;
 height: 20px;
 font-family: 'Helvetica';
 font-style: normal;
-font-weight: 300;
+
+
+
+font-weight: 400;
+
+
+
 font-size: 16px;
 line-height: 18px;
 
@@ -323,6 +429,60 @@ a{
 	margin-right: 5px;
 
 }
+
+
+
+
+.button-rent__quantity{
+
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+/* identical to box height */
+
+text-align: center;
+
+color: #48494A;
+    position: relative;
+    display: flex;
+    width: 51px;
+    height: 28px
+}
+
+.button-rent__increase,
+.button-rent__decrease{
+    cursor: pointer;
+    position: absolute;
+    width: 12px;
+   height: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: none;
+   outline: none;
+
+}
+
+.button-rent__increase{
+     
+   
+   
+    right: 10%;
+    top: 5%;
+
+}
+
+.button-rent__decrease{
+     
+   
+    right: 10%;
+    bottom: 5%;
+
+
+}
+
 .ren-btn__title{
 
 position: absolute;
@@ -367,23 +527,105 @@ color: #000000;
 
 /*  Thong tin san pham  */
 .ThongTinSP{
-	width: 100%;
-	height: 376px;
-	background-color: #333;
+
+
+
+    width: 100%;
+	display: flex;
+   
 }
+.product-information__title{
+    width: 100%;
+    height: 445px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+	top: 0;
+	left: 0;
+}
+
+
+.product-information__title__retangle{
+	width: 5px;
+	height: 25px;
+	background: #002144;
+}
+.product-information__title__content{
+    /* width: 100%; */
+	position: absolute;
+	left: 1%;
+	top: -1%;
+    height: 38px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+    
+	
+}
+
+.row__responsive{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.product-information__content{
+    height: 400px ;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+top: 20px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+margin-top: 10px;
+color: #000000;
+}
+
+.product-information__content p{
+    width: 100%;
+}
+
+
+
+
+
+
 
 /*  san pham tuong tu  */
 .similar-content{
 	position: relative;
-	height: 523px;
-	width: 100%;
+
+	height: 370px;
+
+	width: 124.7%;
+
+
 	margin-top:15px;
 }
 .similar-product__title{
 	position: relative;
 	display: flex;
+
+    align-items: center;
+
 	top: 0;
 	left: 0;
+
+
+
 
 
 }
@@ -410,12 +652,36 @@ color: #000000;
 	
 }
 
+.btn-next__title__content{
+    margin-left: 8px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+
 .btn-next{
 	position: absolute;
 	top: -1%;
-	right: 0;
-	width: 97px;
-height: 40px;
+
+	right: 0%;
+	width: 130px;
+    height: 40px;
+}
+
+.btn-next button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    
+
+
 }
 .circle-btn-left{
 	position: absolute;
@@ -430,7 +696,13 @@ height: 40px;
 }
 
 .colum-4{
-	width: 20%;
+
+
+
+	width: 18.5%;
+
+
+
 }
 .product-section__item-shop:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16),
@@ -573,16 +845,22 @@ height: 40px;
 	padding-top: 16px;
     position: absolute;
     left: 0;
-    /* top: 2817px; */
-	bottom: 0;
+
+
+
+    bottom: 0%;
     width: 100%;
-    height: 200px;
+    height: 220px;
+
     background-color: var(--color-gray-100);
 }
 .footer__heading{
-	font-size: 0.85rem;
+	font-size: 0.7rem;
 	text-transform: uppercase;
 	color: white;
+    text-decoration: none;
+
+
 }
 .footer__list{
 	padding-left: 0;
