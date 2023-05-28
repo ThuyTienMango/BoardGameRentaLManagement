@@ -1,5 +1,6 @@
 const Boardgame = require('../models/Boardgame');
 const { multipleMongooseToObject } = require('../util/mogoose');
+const { mongooseToObject } = require('../util/mogoose');
 
 
 class boardgameController {
@@ -26,7 +27,10 @@ class boardgameController {
     //[GET] /store/:id 
     async show(req, res, next) {
         try {
-            res.render('boardgames/detail');
+            const boardgames = await Boardgame.find({});
+            res.render('boardgames/detail', { 
+                boardgame: mongooseToObject(boardgames),
+             });
             }
         catch (error) {
             next(error);
