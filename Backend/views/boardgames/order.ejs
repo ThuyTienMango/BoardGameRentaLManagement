@@ -71,11 +71,11 @@
                             <div class="info-oder__item">
                                 <div class="info-oder__card info-oder__col4 ">
                                     <a href="https://student.uit.edu.vn/">
-                                        <img src="/assets/images/it1.jpg" alt="" class="info-oder__card__img">
+                                        <img src="<%= boardgame.image %>" alt="" class="info-oder__card__img">
                                     </a>
-                                    <a href=" https://student.uit.edu.vn/" class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </a>
+                                    <a href=" https://student.uit.edu.vn/" class="info-oder__card__title"> <%= boardgame.name %> </a>
                                     <!-- <div class="info-oder__card__title">  </div> -->
-                                    <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
+                                    <!-- <div class="info-oder__card__quantity">  Còn lại: 20+ </div> -->
                                 </div>
                             
                                 <div class="info-oder__properties info-oder__col5">
@@ -103,13 +103,13 @@
                                     
     
                                     <div class="info-oder__colum-1 quantity-btn__cost ">
-                                        55,000
+                                        <%= boardgame.price %>
                                     </div>
                                     <div class="info-oder__colum-1 quantity-btn__total ">
-                                        550,000
+                                        <%= boardgame.price %>
                                     </div>
                                 </div>
-                            </div>  
+                            </div> 
                         </div>
                         
                         <svg class="info-oder__retangle-mini" width="772" height="1" viewBox="0 0 772 1" fill="none" xmlns="http://www.w3.org/2000/svg">
