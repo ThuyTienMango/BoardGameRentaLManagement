@@ -2,7 +2,6 @@ const Boardgame = require('../models/Boardgame');
 const { multipleMongooseToObject } = require('../util/mogoose');
 const { mongooseToObject } = require('../util/mogoose');
 
-
 class boardgameController {
     //[GET] /store
     async index(req, res, next) {
@@ -23,7 +22,7 @@ class boardgameController {
             next(error);
         }
     }
-
+    
     //[GET] /store/:id 
     async show(req, res, next) {
         try {
