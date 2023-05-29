@@ -18,7 +18,7 @@
         
 
         <!-- Header -->
-        <%- include('../partials/header.ejs'); -%>
+        <%- include('../partials/header_store.ejs'); -%>
 
        <div class="header-end">
 
@@ -29,22 +29,23 @@
         </div>
 
 <!--  Hien thi anh va gia san pham  -->
-           <div class="single-item">
+    <!-- <form action="/booking" method="get"> -->
+        <div class="single-item">
             <div class="grid">
                 <div class="grid__row">
                     <div class="grid__colum-1">
 
                         <div class="small-img ">
-                            <img src="<%= boardgame.image %>" alt="" class="small-img__img boder-img">
-                            <img src="/assets/images/it2.jpg" alt="" class="small-img__img opacity-img">
-                            <img src="/assets/images/it3.jpg" alt="" class="small-img__img opacity-img">
-                            <img src="/assets/images/it4.jpg" alt="" class="small-img__img opacity-img">
-                            <img src="/assets/images/it5.jpg" alt="" class="small-img__img opacity-img">
+                            <img src="<%= boardgame.image %>" alt="" class="small-img__img boder-img"  onclick="swapImageClasses(this)" >
+                            <img src="/assets/images/it2.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
+                            <img src="/assets/images/it3.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
+                            <img src="/assets/images/it4.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
+                            <img src="/assets/images/it5.jpg" alt="" class="small-img__img opacity-img"  onclick="swapImageClasses(this)" >
                         </div>
                     </div>
                     <div class="grid__colum-6">
-                        <div class="lage-img">
-                            <img src="<%= boardgame.image %>" alt="" id="lage-img__img">
+                        <div class="large-img">
+                            <img src="<%= boardgame.image %>" alt="" id="large-img__img">
                         </div>
                     </div>
 
@@ -60,11 +61,21 @@
                             <div class="rental__remain"> 20+ còn lại  </div>
                         </div>
                         <div class="button-rent">
-                            <input type="number" value="1">
-                            <div class="ren-btn">
-                                <a href="" class="ren-btn__title"> Đặt thuê  </a>
+                            <div class="button-rent__quantity">
+                                <button class="button-rent__increase" >
+                                    <img src="/assets/images/button-rent__increase.svg" alt="" >
+                                </button>
+                                <button class="button-rent__decrease">
+                                    <img src="/assets/images/button-rent__decrease.svg" alt="" >
+                                </button>
+
+                                <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" readonly>
                             </div>
                            
+                            <button class="ren-btn">
+                                <a href="" class="ren-btn__title"> Đặt thuê  </a>
+                            </button>
+
                             <div class="add-wishlist">
                                 <svg  class="add-wishlist__icon-heart" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.49744 17.2053C9.22356 17.2053 8.95852 17.1706 8.73765 17.0928C5.36274 15.9593 0 11.9359 0 5.99169C0 2.96334 2.50026 0.506042 5.57478 0.506042C7.06786 0.506042 8.46377 1.0771 9.49744 2.09809C10.5311 1.0771 11.927 0.506042 13.4201 0.506042C16.4946 0.506042 18.9949 2.97199 18.9949 5.99169C18.9949 11.9446 13.6321 15.9593 10.2572 17.0928C10.0364 17.1706 9.77132 17.2053 9.49744 17.2053ZM5.57478 1.80391C3.23355 1.80391 1.32522 3.68149 1.32522 5.99169C1.32522 11.9013 7.12971 15.1892 9.17055 15.8728C9.32958 15.9247 9.67414 15.9247 9.83317 15.8728C11.8652 15.1892 17.6785 11.91 17.6785 5.99169C17.6785 3.68149 15.7702 1.80391 13.4289 1.80391C12.086 1.80391 10.8403 2.41823 10.0364 3.48248C9.78899 3.81127 9.22356 3.81127 8.97619 3.48248C8.15455 2.40958 6.91767 1.80391 5.57478 1.80391Z" fill="white"/>
@@ -74,47 +85,121 @@
                                     <path d="M2.49946 5.09316C2.34761 5.09316 2.22168 4.96983 2.22168 4.82112V0.468424C2.22168 0.319707 2.34761 0.196381 2.49946 0.196381C2.65131 0.196381 2.77724 0.319707 2.77724 0.468424V4.82112C2.77724 4.96983 2.65131 5.09316 2.49946 5.09316Z" fill="white"/>
                                 </svg>     
                             </div>
-
                         </div>
-
                     </div>
-                   
                 </div>
             </div>
-        
-         </div>
+        </div>
+        <!-- Script giới hạn nhập liệu ô số lượng   -->
+        <script>
+            //  tăng giảm số lượng bằng cách click 
+                        // Lấy các phần tử từ DOM
+                const decreaseButton = document.querySelector('.button-rent__decrease');
+                const increaseButton = document.querySelector('.button-rent__increase');
+                const quantityInput = document.querySelector('.button-rent__quantityInput');
+
+                // Xử lý sự kiện khi click vào nút giảm
+                decreaseButton.addEventListener('click', function() {
+                    // Giảm giá trị số lượng
+                    let quantity = parseInt(quantityInput.value);
+                    if (quantity > 1) {
+                        quantity--;
+                        quantityInput.value = quantity;
+                    }
+                });
+
+                // Xử lý sự kiện khi click vào nút tăng
+                increaseButton.addEventListener('click', function() {
+                    // Tăng giá trị số lượng
+                    let quantity = parseInt(quantityInput.value);
+                    quantity++;
+                    quantityInput.value = quantity;
+                });
+
+        </script>
+        <!-- </form>     -->
            <!--  Script chuyển ảnh sản phẩm  -->
            <script>
-            var ProductImg = document.getElementById("lage-img__img");
-            var SmallImg = document.getElementsByClassName("small-img__img");
-            SmallImg[0].onclick = function()
-            {
-                ProductImg.src = SmallImg[0].src;
-            }
-            SmallImg[1].onclick = function()
-            {
-                ProductImg.src = SmallImg[1].src;
-            }
-            SmallImg[2].onclick = function()
-            {
-                ProductImg.src = SmallImg[2].src;
-            }
-            SmallImg[3].onclick = function()
-            {
-                ProductImg.src = SmallImg[3].src;
-            }
-            SmallImg[4].onclick = function()
-            {
-                ProductImg.src = SmallImg[4].src;
-            }
-            SmallImg[5].onclick = function()
-            {
-                ProductImg.src = SmallImg[5].src;
+            function swapImageClasses(image) {
+                const smallImages = document.getElementsByClassName("small-img__img");
+                const smallImagesArray = Array.from(smallImages); // Chuyển HTMLCollection thành mảng
+  
+                const largeImage = document.getElementById("large-img__img");
+  
+  
+  
+                smallImagesArray.forEach((img) => {
+                  img.classList.remove("boder-img");
+                  img.classList.add("opacity-img");
+                });
+  
+                image.classList.remove("opacity-img");
+                image.classList.add("boder-img");
+  
+                largeImage.src = image.src;   
             }
            </script>
 
+        <div class="grid">
+            <div class="grid__row">
+                    <div class="product-information__title">
+                        <div class="product-information__title__head">
+                            <svg class="product-information__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
+                                </svg>
+                            <div class="product-information__title__content">  Thông tin sản phẩm </div>   
+                        </div>
+                    <div class="product-information__content">
+                        <p><%- boardgame.description.replace(/\n/g, '<br>') %></p>
+                    </div>
+                </div>
 
-            <div class="ThongTinSP">
+                 <!--  san pham tuong tu  -->
+                 <div class="similar-content">
+                    <div class="similar-product__title">
+                        <svg class="similar-product__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
+                            </svg>
+                        <div class="btn-next__title__content">  Sản phẩm tương tự </div>   
+                    </div>
+                    <div class="btn-next">
+                        <button class="btn-next__back">
+                            <img src="/assets/images/btn-next__back.svg" alt="">
+                        </button>
+                        <button class="btn-next__next">
+                            <img src="/assets/images/btn-next__next.svg" alt="" >
+                        </button>
+                    </div>
+                     <!-- <img src="/assets/images/similar-product__btn-next.svg" alt="" class="btn-next"> -->
+                    <div class="similar-item">
+                <!-- item  -->
+                        <% boardgames.forEach((boardgame) =>{ %>
+                            <div class=" product-section__item-shop col-4">
+                                <div class="item-shop__favourite">
+                                    <div class="item-shop__favourite__content">
+                                        <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                        <b class="item-shop__likes">99</b>
+                                    </div>
+                                </div>
+                                <a href="/store/<%= boardgame._id %>">
+                                    <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                                </a>
+                                <a href="/store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
+                                <div class="item-shop__rent">
+                                    <b class="item-shop__rent__title"> Giá Thuê</b>
+                                    <b class="item-shop__rent__cost"><%= boardgame.price %></b>
+                                </div>
+                                
+                                <div class="item-shop__rent-btn">
+                                    <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                                </div>
+                            </div>
+                        <%}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- <div class="ThongTinSP">
                 <div class="grid">
                     <div class="grid__row">
                         <div class="product-information__title">
@@ -129,9 +214,54 @@
             </div>
         </div>
         </div>
+     -->
 
-    <!--  San pham tuong tu  -->
-        <div class="similar-product">
+
+    <!--  san pham tuong tu  -->
+        <!-- <div class="similar-content">
+            <div class="similar-product__title">
+                <svg class="similar-product__title__retangle" width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0H5V25H0V12.5V0Z" fill="#002144"/>
+                    </svg>
+                <div class="btn-next__title__content">  Sản phẩm tương tự </div>   
+            </div>
+            <div class="btn-next">
+                <button class="btn-next__back">
+                    <img src="/assets/images/btn-next__back.svg" alt="">
+                </button>
+                <button class="btn-next__next">
+                    <img src="/assets/images/btn-next__next.svg" alt="" >
+                </button>
+            </div> -->
+            <!-- <img src="/assets/images/similar-product__btn-next.svg" alt="" class="btn-next"> -->
+            <!-- <div class="similar-item"> -->
+                <!-- item  -->
+                <!-- <% boardgames.forEach((boardgame) =>{ %>
+                    <div class=" product-section__item-shop col-4">
+                    <div class="item-shop__favourite">
+                        <div class="item-shop__favourite__content">
+                            <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                            <b class="item-shop__likes">99</b>
+                        </div>
+                    </div>
+                    <a href="/store/<%= boardgame._id %>">
+                        <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                    </a>
+                    <a href="/store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
+                    <div class="item-shop__rent">
+                        <b class="item-shop__rent__title"> Giá Thuê</b>
+                        <b class="item-shop__rent__cost"><%= boardgame.price %></b>
+                    </div>
+                    
+                    <div class="item-shop__rent-btn">
+                        <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                    </div>
+                    </div>
+                <%}) %>
+            </div>
+        </div> -->
+     <!-- San pham tuong tu  -->
+        <!-- <div class="similar-product">
             <div class="grid">
                 <div class="grid__row">
                     <div class="similar-content">
@@ -183,9 +313,9 @@
                                     </svg>
                                    
                         </div>
-                        <div class="similar-item">
+                        <div class="similar-item"> -->
                             <!-- item  -->
-                            <% boardgames.forEach((boardgame) =>{ %>
+                            <!-- <% boardgames.forEach((boardgame) =>{ %>
                                 <div class=" product-section__item-shop col-4">
                                   <div class="item-shop__favourite">
                                       <div class="item-shop__favourite__content">
@@ -212,7 +342,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs'); -%>

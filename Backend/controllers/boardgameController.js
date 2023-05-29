@@ -52,15 +52,6 @@ class boardgameController {
             next(error);
         }
     }
-
-    async order(req, res, next){
-        try {
-            res.render('boardgames/order');
-        }
-        catch(error){
-            next(error);
-        }
-    }
 }
 
 module.exports = new boardgameController();
