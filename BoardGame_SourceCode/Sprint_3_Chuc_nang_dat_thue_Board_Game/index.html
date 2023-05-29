@@ -202,6 +202,7 @@
                                             </button>
                                             <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" readonly>
                                         </div>
+                                        
                                     </div>
                                     
     
@@ -570,6 +571,44 @@
             quantity++;
             quantityInput.value = quantity;
         });
+
+
+
+// // Lấy các phần tử từ DOM ban đầu
+// const originalDecreaseButton = document.querySelector('.button-rent__decrease');
+// const originalIncreaseButton = document.querySelector('.button-rent__increase');
+// const originalQuantityInput = document.querySelector('.button-rent__quantityInput');
+
+// // Sao chép các phần tử sang thẻ mới
+// const newDecreaseButton = originalDecreaseButton.cloneNode(true);
+// const newIncreaseButton = originalIncreaseButton.cloneNode(true);
+// const newQuantityInput = originalQuantityInput.cloneNode(true);
+
+// // Gán lại các sự kiện cho các phần tử trong thẻ mới
+// newDecreaseButton.addEventListener('click', handleDecrease);
+// newIncreaseButton.addEventListener('click', handleIncrease);
+
+// // Xử lý sự kiện khi click vào nút giảm
+// function handleDecrease() {
+//   let quantity = parseInt(newQuantityInput.value);
+//   if (quantity > 1) {
+//     quantity--;
+//     newQuantityInput.value = quantity;
+//   }
+// }
+
+// // Xử lý sự kiện khi click vào nút tăng
+// function handleIncrease() {
+//   let quantity = parseInt(newQuantityInput.value);
+//   quantity++;
+//   newQuantityInput.value = quantity;
+// }
+
+// // Thêm các phần tử mới vào thẻ mới
+// const newContainer = document.getElementById('new-container');
+// newContainer.appendChild(newDecreaseButton);
+// newContainer.appendChild(newIncreaseButton);
+// newContainer.appendChild(newQuantityInput);
 
 </script>
 </body>
