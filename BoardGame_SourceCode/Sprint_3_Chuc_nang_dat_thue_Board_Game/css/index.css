@@ -3,7 +3,7 @@
     background-color: var(--color-white);
     width: 100%;
 
-    height: 1100px;
+    height: 1180px;
 
     overflow: hidden;
     text-align: left;
@@ -308,6 +308,14 @@ line-height: 14px;
 color: rgba(0, 0, 0, 0.7);
 }
 
+.info-oder__item__container{
+	width: 100%;
+	height: 330px;
+	display: flex;
+	overflow-y: auto;
+	flex-direction: column;
+}
+
 .info-oder__item{
 	width: 100%;
 	display: flex;
@@ -383,6 +391,17 @@ color: #000000;
 
 }
 
+.quantity-btn__rental-time select{
+	box-sizing: border-box;
+    width: 51px;
+    height: 28px;
+    background: #F0F4F5;
+    border: 1px solid #002144;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
 .quantity-btn input{
 	box-sizing: border-box;
 	width: 51px;
@@ -395,6 +414,56 @@ border-radius: 5px;
 }
 input :focus {
 	outline: none;
+}
+
+.button-rent__quantity{
+	font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+/* identical to box height */
+
+text-align: center;
+
+color: #48494A;
+
+    position: relative;
+    display: flex;
+    width: 51px;
+    height: 28px
+}
+
+.button-rent__increase,
+.button-rent__decrease{
+    cursor: pointer;
+    position: absolute;
+    width: 12px;
+   height: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: none;
+   outline: none;
+
+}
+
+.button-rent__increase{
+     
+   
+   
+    right: 10%;
+    top: 5%;
+
+}
+
+.button-rent__decrease{
+     
+   
+    right: 10%;
+    bottom: 5%;
+
+
 }
 
 
@@ -476,7 +545,7 @@ left: 2.46%;
 right: 3.11%;
 top: 18.39%;
 bottom: 81.27%;
-
+width: 93%;
 background: rgba(0, 33, 68, 0.5);
 }
 
@@ -525,38 +594,43 @@ height: 243px;
 	transition: all 0.3s ease;
 }
 .customer-form__input-name{
-	width: 148px;
+	width: 19.2%;
 
 }
 .customer-form__input-email{
-	width: 179px;
+	width: 23.5%;
 }
 .customer-form__input-phone{
-	width: 214px;
+	width: 28%;
 
 }
 .customer-form__input-identity{
-	width:260px;
+	width:34%;
 
 }
 .customer-form__input-address{
-	width:645px;
+	width:84%;
 }
 .customer-form__input-identity-img{
-	width:294px;
+	width:38%;
 	
 }
 
 
-.customer-form__inputfied input {
-	font-family: 'Helvetica';
+.customer-form__inputfied .div_content {
+font-family: 'Helvetica';
+display: flex;
+align-items: center;
+text-align: center;
 font-style: normal;
 font-weight: 400;
-font-size: 12px;
+font-size: 14px;
 line-height: 14px;
+color: #000000;
+}
 
-color: rgba(0, 0, 0, 0.5);
-
+.customer-form__text {
+	margin-left: 8px ;
 }
 
 /* Khung hien thi thong tin dat thue */
