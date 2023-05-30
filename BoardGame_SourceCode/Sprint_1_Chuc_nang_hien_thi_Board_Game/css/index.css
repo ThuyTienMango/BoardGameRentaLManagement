@@ -236,7 +236,7 @@ background: #002144;
 .filter-category{
     
     width: 242px;
-    height: 618px;
+    height: 668px;
     left: 36px;
     top: 125px;
 
@@ -352,6 +352,16 @@ top: 0px;
 background: #48494A;
 border-radius: 5px;
 }
+.rectangle-playingtime-4{
+    width: 15px;
+height: 4px;
+left: 323px;
+top: 538px;
+
+background: #48494A;
+border-radius: 5px;
+
+}
 .budget{
     font-family: 'Helvetica';
 font-style: normal;
@@ -397,17 +407,18 @@ border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
 }
-.age-filter-1{
-   
+.age-filter{
+    margin-right: 22px;
+    margin-top: 10px;
     width: 45px;
-height: 18px;
-left: 151px;
-top: 653px;
-
-background: #002144;
-border-radius: 5px;
+    height: 18px;
+    background: #002144;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.age-content-1{
+.age-content{
     
     width: 21px;
 height: 15px;
@@ -421,28 +432,9 @@ text-align: center;
 
 color: #FFFFFF;
 }
-.age-filter-2{
-    
-    width: 45px;
-height: 18px;
-margin-left: 27px;
 
-background: #002144;
-border-radius: 5px;
-}
-.age-content-2{
-    width: 21px;
-height: 15px;
-
-
-font-family: 'Helvetica';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 16px;
-text-align: center;
-
-color: #FFFFFF;
+.retangle-filter{
+    width: 100%;
 }
 
 
