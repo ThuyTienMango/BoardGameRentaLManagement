@@ -80,12 +80,14 @@
                             
                                 <div class="info-oder__properties info-oder__col5">
                                     <div class="quantity-btn info-oder__colum-1  quantity-btn__rental-time ">
-                                        <select id="booking-duration">
-                                            <option value="7">7</option>
-                                            <option value="14">14</option>
-                                            <option value="30">30 </option>
-                                            <option value="60">60</option>
-                                          </select>
+                                        <form action="/store/order/<%= boardgame._id %>" method="POST">
+                                            <select id="booking-duration" name="bookingduration">
+                                                <option value="7">7</option>
+                                                <option value="14">14</option>
+                                                <option value="30">30 </option>
+                                                <option value="60">60</option>
+                                            </select>
+                                        </form>
                                         <!-- <input type="number" value="10"> -->
                                     </div>
                                     <div class="quantity-btn info-oder__colum-1 quantity-btn__quantity ">
