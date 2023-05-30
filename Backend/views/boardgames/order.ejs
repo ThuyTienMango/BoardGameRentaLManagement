@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css_sprint3/global.css" />
     <link rel="stylesheet" href="/css_sprint3/index.css" />
     <link rel="stylesheet" href="/css_sprint3/responsive.css">
-    
+    <title>Đặt thuê <%= boardgame.name %></title>
 
    
 
@@ -70,10 +70,10 @@
                             <!--  1 item  -->
                             <div class="info-oder__item">
                                 <div class="info-oder__card info-oder__col4 ">
-                                    <a href="https://student.uit.edu.vn/">
+                                    <a href="/store/<%= boardgame._id %>">
                                         <img src="<%= boardgame.image %>" alt="" class="info-oder__card__img">
                                     </a>
-                                    <a href=" https://student.uit.edu.vn/" class="info-oder__card__title"> <%= boardgame.name %> </a>
+                                    <a href="/store/<%= boardgame._id %>" class="info-oder__card__title"> <%= boardgame.name %> </a>
                                     <!-- <div class="info-oder__card__title">  </div> -->
                                     <!-- <div class="info-oder__card__quantity">  Còn lại: 20+ </div> -->
                                 </div>
