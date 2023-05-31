@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const Boardgame = new Schema(
+const boardgameSchema = new Schema(
     {
         name: { type: String, required: true, },
         image: { type: String },
@@ -16,7 +16,7 @@ const Boardgame = new Schema(
         timestamps: true, }
 );
 
-module.exports = mongoose.model('Boardgame', Boardgame);
+module.exports = mongoose.model('Boardgame', boardgameSchema);
 
 
 
