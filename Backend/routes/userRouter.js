@@ -3,8 +3,7 @@ var router = express.Router();
 
 const userController = require('../controllers/userController');
 
-//router.get('/:id', userController.show);
-router.get('/', userController.index);
+router.post('/save-cus-info', userController.save);
 
 
 module.exports = router;
