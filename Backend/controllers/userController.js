@@ -3,7 +3,14 @@ const { multipleMongooseToObject } = require('../util/mogoose');
 const { mongooseToObject } = require('../util/mogoose');
 
 class userController {
-    //[POST] /user/save-cus-info
+
+    //[GET] /user/customer-info
+    
+
+
+
+
+    //[POST] /user/save-customer-info
     async save(req, res, next){
         try {
             // Lấy dữ liệu từ request body

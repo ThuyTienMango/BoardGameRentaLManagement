@@ -3,7 +3,7 @@ var router = express.Router();
 
 const userController = require('../controllers/userController');
 
-router.post('/save-cus-info', userController.save);
-
+router.post('/save-customer-info', userController.save);
+router.get('/customer-info',userController.index);
 
 module.exports = router;
