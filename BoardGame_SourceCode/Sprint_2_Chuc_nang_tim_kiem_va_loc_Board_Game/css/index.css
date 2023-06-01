@@ -394,7 +394,7 @@ color: #48494A;
 .button-rent{
 	position: absolute;
     left: 10%;
-    top: 45%;
+    top: 52%;
 	display: flex;
 
 
@@ -482,6 +482,28 @@ color: #48494A;
 
 
 }
+.quantity-btn__rental-time select {
+    box-sizing: border-box;
+    width: 88px;
+    height: 28px;
+    background: #F0F4F5;
+    /* border: 1px solid #002144; */
+    text-align: center;
+   margin-top: 8px;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+
+    border: none;
+  outline: none;
+    
+    /* border-radius: 5px; */
+}
+
 
 .ren-btn__title{
 
