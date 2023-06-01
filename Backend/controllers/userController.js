@@ -4,10 +4,14 @@ const { mongooseToObject } = require('../util/mogoose');
 
 class userController {
 
-    //[GET] /user/customer-info
-    
-
-
+    //[GET] /user
+    async index(req, res, next){
+        try {
+            res.render('users/info');
+        } catch(error) {
+            next(error);
+        }
+    }
 
 
     //[POST] /user/save-customer-info
