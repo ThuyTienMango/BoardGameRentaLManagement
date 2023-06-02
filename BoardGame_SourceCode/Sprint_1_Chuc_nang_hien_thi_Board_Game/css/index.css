@@ -244,18 +244,28 @@ background: #002144;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 0px 5px 5px;
 }
+.filter-title-head{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding-top: 12px;
+}
 .filter-title{
     width: 100%;
     display: flex;
     align-items: center;
-    height: 38px;
+    justify-content: center;
+    height: 30px;
+   
 }
 .filter-name-col-1{
-    width: 57%;
+    width: 75%;
     margin-left:10%;
 }
 .filter-name-col-2{
-    width:40%;
+    width:25%;
 }
 .filter-name{
     font-family: 'Helvetica';
@@ -285,12 +295,46 @@ background: #002144;
 
     color: #000000;
 }
+.filter__line{
+    height: 22px;
+    width: 100%;
+    display: flex;
+}
+.circle-object {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    position: relative;
+    cursor: pointer;
+  }
+  
+.filter__retangle-small{
+    margin-left: 7%;
+}
+  .circle-object::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease;
+  }
+  
+  .circle-object.clicked::before {
+    background-color: #002144;
+  }
+  
+  
 .rectangle-playingtime-1{
     width: 15px;
 height: 4px;
-left: 172px;
-top: 0px;
-
+margin-left: 5px;
 background: #48494A;
 border-radius: 5px;
 
