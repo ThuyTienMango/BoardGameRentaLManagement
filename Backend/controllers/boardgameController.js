@@ -15,7 +15,7 @@ class boardgameController {
             const boardgamesPage = boardgames.slice(startIndex, endIndex);
             res.render('layout/main', {
                 boardgames: multipleMongooseToObject(boardgamesPage),
-                currentPage,
+                currentPage : currentPage,
                 totalPages: Math.ceil(boardgames.length / itemsPerPage)
             });
         } catch (error) {
