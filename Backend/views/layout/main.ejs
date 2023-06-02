@@ -192,21 +192,21 @@
                         <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
                         <div class="tf-sort__layout">
                             <div class="layout__grid layout__grid--btn-primary">
-                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
+                                <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-grid-2.svg" />
                                 <b class=" layout__content ">Grid</b>
                             </div>
                             <div class="layout__line">
-                                 <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
+                                 <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-menu.svg" />
                         
                                 <b class=" layout__content ">Line</b>
                             </div>
                             
                         </div>
                         <div class="filter-price">
-                            <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
+                            <img class="tf-sort__layout__icon   " alt="" src="assets/images/-icon-filter.svg" />
                     
                             <b class=" layout__content "> Giá:</b>
-                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
+                            <img class="tf-sort__layout__icon  " alt="" src="assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
                             <ul class="filter-price__list">
                                 <li class="filter-price__list__item">
                                     <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
@@ -225,24 +225,24 @@
                          <!--  San pham  -->
                          <% boardgames.forEach((boardgame) =>{ %>
                             <div class=" product-section__item-shop col-4">
-                                <div class="item-shop__favourite">
-                                    <div class="item-shop__favourite__content">
-                                        <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
-                                        <b class="item-shop__likes">99</b>
-                                    </div>
-                                </div>
-                                <a href="store/<%= boardgame._id %>">
-                                    <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
-                                </a>
-                                <a href="store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
-                                <div class="item-shop__rent">
-                                    <b class="item-shop__rent__title"> Giá Thuê</b>
-                                    <b class="item-shop__rent__cost"><%= boardgame.price %></b>
-                                </div>
-                                
-                                <a href="/store/order/<%= boardgame._id %>" class="item-shop__rent-btn">
-                                    <b class="item-shop__rent-btn__title">Thuê ngay</b>
-                                </a>
+                              <div class="item-shop__favourite">
+                                  <div class="item-shop__favourite__content">
+                                      <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                      <b class="item-shop__likes">99</b>
+                                  </div>
+                              </div>
+                              <a href="store/<%= boardgame._id %>">
+                                  <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                              </a>
+                              <a href="store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
+                              <div class="item-shop__rent">
+                                  <b class="item-shop__rent__title"> Giá Thuê</b>
+                                  <b class="item-shop__rent__cost"><%= boardgame.price %></b>
+                              </div>
+                             
+                              <div class="item-shop__rent-btn">
+                                  <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                              </div>
                             </div>
                           <%}) %>
 

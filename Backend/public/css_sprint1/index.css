@@ -681,8 +681,7 @@ color: #FFFFFF;
     color: var(--color-white);
 
 }
-.product-section__page{
-
+.pagination{
     margin-top: 20px ;
 
     position: absolute;
@@ -697,7 +696,7 @@ color: #FFFFFF;
 
     display: inline-flex;
 }
-.product-section__page__number{
+.pagination a {
     text-decoration: none;
     color:var( --color-darkgray);
     padding: 4px 5px ;
@@ -708,15 +707,14 @@ color: #FFFFFF;
     font-size: 16px;
     line-height: 18px;
 }
-.product-section__page__number--active{
-    display: none;
+
+.pagination .active {
     background-color: red;
     color: var(--color-white) !important;
-    border-radius:  var(--br-8xs);
+    border-radius: var(--br-8xs);
 }
-.active__on{
-    display: block !important;
-}
+
+
 
 /* Footer */
 .footer{
