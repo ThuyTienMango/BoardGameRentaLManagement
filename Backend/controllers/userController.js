@@ -18,15 +18,16 @@ class userController {
     async save(req, res, next){
         try {
             // Lấy dữ liệu từ request body
-            const { name, email, phone, identity, address } = req.body;
+            const { name, email, phone_number, ID_card, address, image } = req.body;
         
             // Tạo một bản ghi mới
             const order = new Order({
               name,
               email,
-              phone,
-              identity,
-              address
+              phone_number,
+              ID_card,
+              address,
+              image
             });
         
             // Lưu bản ghi vào collection
