@@ -4,10 +4,10 @@ const { mongooseToObject } = require('../util/mogoose');
 
 class userController {
 
-    //[GET] /user
-    async index(req, res, next){
+    //[GET] /user/register
+    async reg(req, res, next){
         try {
-            res.render('users/info');
+            res.render('user/register');
         } catch(error) {
             next(error);
         }
@@ -16,28 +16,26 @@ class userController {
 
     //[POST] /user/save-customer-info
     async save(req, res, next){
-        try {
-            // Lấy dữ liệu từ request body
-            const { name, email, phone_number, ID_card, address, image } = req.body;
-        
-            // Tạo một bản ghi mới
-            const order = new Order({
-              name,
-              email,
-              phone_number,
-              ID_card,
-              address,
-              image
-            });
-        
-            // Lưu bản ghi vào collection
-            await order.save();
-        
-            res.status(200).json({ success: true, message: 'Thông tin khách hàng đã được lưu thành công' });
-          } catch (error) {
-            console.log('Lỗi khi lưu thông tin khách hàng:', error);
-            res.status(500).json({ success: false, message: 'Đã xảy ra lỗi khi lưu thông tin khách hàng' });
-          }
+      try {
+        const formData = req.body;
+        const user = new User(formData);
+        user.save();
+        res.redirect(`/user/${user._id}`);
+      } catch(error) {
+        next(error);
+      }
+    }
+
+    //[GET] /user/:id
+    async show(req, res, next){
+      try {
+        const user = await User.findById(req.params.id);
+        res.render('user/info', { 
+          user: mongooseToObject(user),
+        });
+      } catch(error) {
+        next(error);
+      }
     }
 }
 
