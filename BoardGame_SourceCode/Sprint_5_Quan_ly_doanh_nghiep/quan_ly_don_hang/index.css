@@ -1,0 +1,19 @@
+.app{
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+
+
+    min-height: 2150px;
+
+
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    font-family: var(--font-helvetica);
+}
+
+.app a{
+    text-decoration: none;
+}
