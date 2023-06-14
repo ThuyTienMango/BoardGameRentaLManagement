@@ -197,11 +197,115 @@ cursor: pointer;
 }
 
 
-
-
-
-
-
-
-
 /*  end side bar */
+
+/*  start list oder */
+
+.list-oder-section{
+    margin-top: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    height: 800px;
+    background: #FFFFFF;
+    border: 1px solid #002144;
+    border-radius: 20px;
+}
+.col-9{
+    width: 72%;
+}
+.list-oder__container{
+    width: 100%;
+    height: 100%;
+    margin: 10px 10px  ;
+    display: flex;
+    flex-direction: column;
+    
+}
+.list-oder__sort{
+    width: 100%;
+    height: 66px;   
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 15px;
+}
+.list-oder__sort-title{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #718096;
+}
+.sort-title--active{
+    font-weight: 700 !important;
+    color: #002144;
+}
+.sort-title__divider{
+   
+    width: 50px;
+    height: 3px;
+    background: #FABE0A;
+}
+.list-oder__line-table{
+   margin-left: -10px;
+    width: 100%;
+    border: 1px solid #737373;
+}
+.list-oder__title-table{
+    margin-left: 15px;
+    width: 100%;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.list-oder__title-table-id{
+width: 82px;
+}
+.list-oder__title-table-product{
+width: 236px;
+}
+.list-oder__title-table-date{
+width:150px  ;
+}
+.list-oder__title-table-customer{
+width: 128px;
+}
+.list-oder__title-table-cost{
+width: 100px;
+}
+.list-oder__title-table-status{
+width: 86px;
+}
+
+.list-oder__oder-line{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -10px;
+}
+.oder-info__line-end{
+    border: 1px solid rgba(115, 115, 115, 0.6);
+    width: 90%;
+}
+.list-oder__oder-info{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+
+/*  end list oder */
