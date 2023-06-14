@@ -681,42 +681,37 @@ color: #FFFFFF;
     color: var(--color-white);
 
 }
-.product-section__page{
-
-    margin-top: 20px ;
-
+.pagination {
+    margin-top: 20px;
     position: absolute;
     width: 9px;
     text-align: center;
     align-items: center;
     height: 17px;
     left: 40%;
-
-    bottom:-60px;
-
-
+    bottom: -60px;
     display: inline-flex;
-}
-.product-section__page__number{
+  }
+  
+  .pagination a {
     text-decoration: none;
-    color:var( --color-darkgray);
-    padding: 4px 5px ;
-    margin: 5px 5px ;
+    color: var(--color-darkgray);
+    padding: 4px 5px;
+    margin: 5px 5px;
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-}
-.product-section__page__number--active{
-    display: none;
+  }
+  
+  .pagination a.active {
     background-color: red;
     color: var(--color-white) !important;
-    border-radius:  var(--br-8xs);
-}
-.active__on{
-    display: block !important;
-}
+    border-radius: var(--br-8xs);
+  }
+  
+
 
 /* Footer */
 .footer{
