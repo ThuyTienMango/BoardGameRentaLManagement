@@ -197,11 +197,290 @@ cursor: pointer;
 }
 
 
-
-
-
-
-
-
-
 /*  end side bar */
+/*  start list oder */
+
+.list-oder-section{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    height: 800px;
+    background: #FFFFFF;
+    border: 1px solid #002144;
+    border-radius: 20px;
+}
+.col-9{
+    width: 72%;
+}
+.list-oder__container{
+    width: 100%;
+    height: 100%;
+    margin: 10px 10px  ;
+    display: flex;
+    flex-direction: column;
+    
+}
+.list-oder__sort{
+    width: 100%;
+    height: 66px;   
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 15px;
+}
+.list-oder__sort-title{
+    display: flex;
+    flex-direction: column;
+    width: 110px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #718096;
+    cursor: pointer;
+}
+.sort-title--active{
+    font-weight: 700 !important;
+    color: #002144;
+}
+.sort-title__divider{
+   
+    width: 50px;
+    height: 3px;
+    background: #FABE0A;
+}
+.list-oder__line-table{
+   margin-left: -10px;
+    width: 100%;
+    border: 1px solid #737373;
+}
+.list-oder__flex-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: -10px;
+    height: 600px;
+    
+
+}
+.list-oder__title-table{
+    margin-left: 15px;
+    width: 100%;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.list-oder__title-table-id,
+.list-oder__title-table-product{
+height: 100%;
+display: flex;
+align-items: center;
+}
+.list-oder__col-1{
+    width: 10%;
+}
+
+
+.list-oder__col-3{
+    width: 28%;
+}
+.list-oder__title-table-date,
+.list-oder__title-table-customer,
+.list-oder__title-table-cost,
+.list-oder__title-table-status{
+    height: 100%;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+}
+.list-oder__col-2{
+    width: 15%;
+}
+
+.list-oder__col-1-1{
+width: 14%;
+}
+
+.list-oder__col-1-2{
+    width: 12%;
+}
+
+.list-oder__oder-line{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.oder-info__line-end{
+    border: 1px solid rgba(115, 115, 115, 0.6);
+    width: 90%;
+}
+.list-oder__oder-info{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.oder-info__id{
+   
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    height: 100%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+    cursor: pointer;
+}
+.oder-info__product{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+.oder-info__date{
+  display: flex;
+  flex-direction: column;
+   justify-content: center;
+        
+}
+.oder-info__customer{
+    cursor: pointer;
+}
+.oder-info__customer,
+.oder-info__cost,
+.oder-info__revenue,
+.oder-info__date{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+.oder-info__cost{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.oder-info__product-img{
+    width: 35px;
+    height: 35px;
+   margin-right: 5px;
+    
+border-radius: 5px;
+}
+.oder-info__product__text{
+    display: flex;
+    flex-direction: column;
+}
+.product__text-title{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #081332;
+}
+.product__text-quantity{
+    margin-top: 3px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.oder-info__date-day,
+.oder-info__date-time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oder-info__status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oder-info__icon{
+    display: flex;
+    flex-direction: column;
+}
+
+.oder-info__edit,
+.oder-info__delete{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: -8px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.list-oder__page-number{
+    
+    height: 40px;
+    position: absolute;
+    bottom: 0%;
+    left: 43%;
+    cursor: pointer;
+    
+}
+.page-number__container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+.page-number__number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    color: #A0AEC0;
+}
+.page--active{
+    width: 25px;
+    height: 25px;
+    background: rgba(0, 33, 68, 0.6);
+    border-radius: 12px;
+}
+.page-number__icon-back-page,
+.page-number__icon-next-page{
+    cursor: pointer;
+}
+
+
+
+/*  end list oder */
