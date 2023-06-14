@@ -204,6 +204,7 @@
                                             </button>
                                             <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" readonly>
                                         </div>
+                                        
                                     </div>
                                     
     
@@ -688,32 +689,70 @@
 </div>
 
 <script>
-    // Lấy danh sách các đối tượng "info-oder__item"
-    const infoItems = document.querySelectorAll('.info-oder__item');
-  
-    // Lặp qua các đối tượng và gán sự kiện cho từng đối tượng
-    infoItems.forEach(function (infoItem) {
-      const decreaseButton = infoItem.querySelector('.button-rent__decrease');
-      const increaseButton = infoItem.querySelector('.button-rent__increase');
-      const quantityInput = infoItem.querySelector('.button-rent__quantityInput');
-  
-      // Xử lý sự kiện khi click vào nút giảm
-      decreaseButton.addEventListener('click', function() {
-        let quantity = parseInt(quantityInput.value);
-        if (quantity > 1) {
-          quantity--;
-          quantityInput.value = quantity;
-        }
-      });
-  
-      // Xử lý sự kiện khi click vào nút tăng
-      increaseButton.addEventListener('click', function() {
-        let quantity = parseInt(quantityInput.value);
-        quantity++;
-        quantityInput.value = quantity;
-      });
-    });
-  </script>
-  
+
+    //  tăng giảm số lượng bằng cách click 
+                // Lấy các phần tử từ DOM
+        const decreaseButton = document.querySelector('.button-rent__decrease');
+        const increaseButton = document.querySelector('.button-rent__increase');
+        const quantityInput = document.querySelector('.button-rent__quantityInput');
+
+        // Xử lý sự kiện khi click vào nút giảm
+        decreaseButton.addEventListener('click', function() {
+            // Giảm giá trị số lượng
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantity--;
+                quantityInput.value = quantity;
+            }
+        });
+
+        // Xử lý sự kiện khi click vào nút tăng
+        increaseButton.addEventListener('click', function() {
+            // Tăng giá trị số lượng
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
+            quantityInput.value = quantity;
+        });
+
+
+
+// // Lấy các phần tử từ DOM ban đầu
+// const originalDecreaseButton = document.querySelector('.button-rent__decrease');
+// const originalIncreaseButton = document.querySelector('.button-rent__increase');
+// const originalQuantityInput = document.querySelector('.button-rent__quantityInput');
+
+// // Sao chép các phần tử sang thẻ mới
+// const newDecreaseButton = originalDecreaseButton.cloneNode(true);
+// const newIncreaseButton = originalIncreaseButton.cloneNode(true);
+// const newQuantityInput = originalQuantityInput.cloneNode(true);
+
+// // Gán lại các sự kiện cho các phần tử trong thẻ mới
+// newDecreaseButton.addEventListener('click', handleDecrease);
+// newIncreaseButton.addEventListener('click', handleIncrease);
+
+// // Xử lý sự kiện khi click vào nút giảm
+// function handleDecrease() {
+//   let quantity = parseInt(newQuantityInput.value);
+//   if (quantity > 1) {
+//     quantity--;
+//     newQuantityInput.value = quantity;
+//   }
+// }
+
+// // Xử lý sự kiện khi click vào nút tăng
+// function handleIncrease() {
+//   let quantity = parseInt(newQuantityInput.value);
+//   quantity++;
+//   newQuantityInput.value = quantity;
+// }
+
+// // Thêm các phần tử mới vào thẻ mới
+// const newContainer = document.getElementById('new-container');
+// newContainer.appendChild(newDecreaseButton);
+// newContainer.appendChild(newIncreaseButton);
+// newContainer.appendChild(newQuantityInput);
+
+</script>
+
 </body>
 </html>
