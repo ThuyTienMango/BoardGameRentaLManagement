@@ -140,11 +140,17 @@
                                                 </div>
                                                 <!-- <input class=" customer-form__input-identity " type="text" id="identity" name="identity"> -->
             
-                                                <label for="identity-img" style="padding-right: 0px;width: 40px; " >Ảnh:  </label>
-            
-                                                <div class=" div_content   customer-form__input-identity-img "> 
-                                                    <div class="customer-form__text" style=" opacity: 0.7;text-decoration: underline; " > <%= user.image %> </div>
+                                                <label for="identity-img" style="padding-right: 0px;width: 40px;">Ảnh:</label>
+                                                <div class="div_content customer-form__input-identity-img">
+                                                    <% if (user.image) { %>
+                                                        <a href="/uploads/<%= user.image %>" target="_blank">Xem ảnh</a>
+                                                    <% } else { %>
+                                                        <div class="customer-form__text" style="opacity: 0.7;text-decoration: underline;">Chưa có ảnh</div>
+                                                    <% } %>
                                                 </div>
+
+
+
                                                 <!-- <input class=" customer-form__input-identity-img " type="file" id="identity-img" name="identity-img"  style="
                                                 margin-right: 25px;"> -->
                                             </div>
