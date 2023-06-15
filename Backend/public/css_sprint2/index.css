@@ -394,7 +394,7 @@ color: #48494A;
 .button-rent{
 	position: absolute;
     left: 10%;
-    top: 45%;
+    top: 52%;
 	display: flex;
 
 
@@ -482,6 +482,47 @@ color: #48494A;
 
 
 }
+.quantity-btn__rental-time{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 16px;
+}
+
+.quantity-btn__rental-time__title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 16px;
+
+color: #000000;
+}
+.quantity-btn__rental-time select {
+    box-sizing: border-box;
+    width: 45px;
+    height: 20px;
+    background: #F0F4F5;
+   
+    text-align: center;
+  
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+
+    border: none;
+  outline: none;
+  cursor: pointer;
+    border-radius: 5px;
+}
+
 
 .ren-btn__title{
 
