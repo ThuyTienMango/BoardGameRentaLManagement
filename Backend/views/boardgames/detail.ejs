@@ -92,35 +92,35 @@
                     </div>
 
                     <!-- Script giới hạn nhập liệu ô số lượng   -->
-        <script>
-            //  tăng giảm số lượng bằng cách click 
-                        // Lấy các phần tử từ DOM
-                const decreaseButton = document.querySelector('.button-rent__decrease');
-                const increaseButton = document.querySelector('.button-rent__increase');
-                var quantityInput = document.querySelector('.button-rent__quantityInput');
+                    <script>
+                        //  tăng giảm số lượng bằng cách click 
+                                    // Lấy các phần tử từ DOM
+                            const decreaseButton = document.querySelector('.button-rent__decrease');
+                            const increaseButton = document.querySelector('.button-rent__increase');
+                            var quantityInput = document.querySelector('.button-rent__quantityInput');
 
-                // Xử lý sự kiện khi click vào nút giảm
-                decreaseButton.addEventListener('click', function() {
-                    // Giảm giá trị số lượng
-                    let quantity = parseInt(quantityInput.value);
-                    if (quantity > 1) {
-                        quantity--;
-                        quantityInput.value = quantity;
-                    }
-                });
+                            // Xử lý sự kiện khi click vào nút giảm
+                            decreaseButton.addEventListener('click', function() {
+                                // Giảm giá trị số lượng
+                                let quantity = parseInt(quantityInput.value);
+                                if (quantity > 1) {
+                                    quantity--;
+                                    quantityInput.value = quantity;
+                                }
+                            });
 
-                // Xử lý sự kiện khi click vào nút tăng
-                increaseButton.addEventListener('click', function() {
-                    // Tăng giá trị số lượng
-                    let quantity = parseInt(quantityInput.value);
-                    quantity++;
-                    quantityInput.value = quantity;
-                });
+                            // Xử lý sự kiện khi click vào nút tăng
+                            increaseButton.addEventListener('click', function() {
+                                // Tăng giá trị số lượng
+                                let quantity = parseInt(quantityInput.value);
+                                quantity++;
+                                quantityInput.value = quantity;
+                            });
 
-        </script>
+                    </script>
 
                     <script>
-                        // Function to swap image classes
+                        // Hàm chuyển ảnh
                         function swapImageClasses(img) {
                             const largeImg = document.getElementById('large-img__img');
                             const smallImgs = document.querySelectorAll('.small-img__img');
@@ -136,23 +136,23 @@
                             largeImg.src = img.src;
                         }
 
-                        // Get select and input elements from the DOM
+                        // Nhận các phần tử được chọn và nhập từ DOM
                         const durationSelect = document.getElementById('booking-duration');
                         var quantityInput = document.querySelector('.button-rent__quantityInput');
 
-                        // Listen for click event on "Đặt thuê" button
+                        // Lắng nghe sự kiện nhấp vào nút "Đặt thuê"
                         const rentButton = document.querySelector('.ren-btn__title');
                         rentButton.addEventListener('click', function (event) {
                             event.preventDefault();
 
-                            // Get the selected rental duration and quantity
+                            // Nhận thời hạn thuê và số lượng đã chọn
                             const durationValue = durationSelect.value;
                             const quantityValue = quantityInput.value;
 
-                            // Create a new URL with the rental duration and quantity parameters
+                            // Tạo một URL mới với các thông số về thời lượng thuê và số lượng
                             const orderURL = `/store/order/<%= boardgame._id %>?duration=${durationValue}&quantity=${quantityValue}`;
 
-                            // Redirect to the order page with the new URL
+                            // Chuyển hướng đến trang đặt hàng với URL mới
                             window.location.href = orderURL;
                         });
                     </script>
