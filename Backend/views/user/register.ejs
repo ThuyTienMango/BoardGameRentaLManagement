@@ -1,64 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Register</title>
-    <link rel="stylesheet" href="/css_style_login_reg/style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./public/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css_sprint4/global.css" />
+    <link rel="stylesheet" href="/css_sprint4/index.css" />
+    <link rel="stylesheet" href="/css_sprint4/responsive.css">
+    
+   <title> Hồ sơ cá nhân </title>
 </head>
 <body>
-    <div class="container">
-        <div class="box">
-            <div class="form sign_up">
-                <h3>Đăng ký</h3>
-                <span></span>
+    <div class="app">
 
-                <form action="#" id="form_input">
-                    <div class="type">
-                        <input type="text" name="" placeholder="Tên đăng nhập" id="name">
-                    </div>
-                    <div class="type">
-                        <input type="password" name="" placeholder="Mật khẩu" id="password">
-                    </div>
-                    <div class="type">
-                        <input type="email" name="" placeholder="Email" id="email">
-                    </div>
-                    <div class="type">
-                        <input type="tel" name="" placeholder="Số điện thoại" id="tel">
-                    </div>
-                    <div class="type ">
-                        <input type="text" name="" placeholder="CCCD" id="identity">
-                    </div>
-                    <div class="type_img_identity">
-                        <span id="placeholder-text">Ảnh CCCD</span>
-                        <input type="file" name="" id="img_identity" class="file-input">
-                        <button class="choose-file-btn" onclick="document.getElementById('img_identity').click()">
-                            Choose File
-                        </button>
-                    </div>
-                    <div class="type">
-                        <input type="text" name="" placeholder="Địa chỉ" id="address">
-                    </div>
-                    <button class="btn bkg">Đăng ký</button>
-                </form>
-            </div>
 
-            <div class="overlay">
-                <div class="page page_signIn">
-                    <h3>Welcome Back!</h3>
-                    <p>Để tiếp tục, vui lòng đăng nhập với thông tin của bạn</p>
-                    <button class="btn btnSign-in">Đăng ký <i class="bi bi-arrow-right"></i></button>
-                </div>
+        <!-- Header -->
+        <%- include('../partials/header_info.ejs'); -%>
+        
 
-                <div class="page page_signUp">
-                    <h3>Hello Friend!</h3>
-                    <p>Cung cấp thông tin của bạn để đăng ký</p>
-                    <button class="btn btnSign-up"><i class="bi bi-arrow-left"></i> Đăng nhập</button>
+       <div class="header-end"></div>
+       <div class="container-section">
+        
+            <div class="cus-profile">
+                <div class="grid">
+                    <div class="grid__row">
+                        <!-- thanh trang thai website -->
+                        <div class="nav-status">
+                            <a href=" https://courses.uit.edu.vn/login/index.php " class="nav-status__page"> Hồ sơ </a>
+                            <div class="nav-status__page__link"> :: </div>
+                            <a href=" https://courses.uit.edu.vn/login/index.php " class="nav-status__page nav-status__page--now">  Hồ sơ của tôi   </a>
+                        </div>
+                        <!-- khung dieu huong  -->
+                        <div class="navigation-left cus-profile__col-3">
+                            <div class="navigation-left__container">
+                                <div class="navigation-left__avatar">
+                                    
+                                
+                                        <img class="navigation-left__avata__img" src="/assets/images/navigation-left__avata__img.svg" alt="">
+                                            
+                                
+
+                                    <div class="navigation-left__avatar__content">
+                                        <div class="avatar__content__name"> Minh Đức Hoàng </div>
+                                        <div class="avatar__content__edit-profile">
+                                            <img src="/assets/images/edit-profile__icon-edit.svg" alt="" class="edit-profile__icon-edit">                                     
+                                            <span class="avatar__content__edit-profile__title"> Sửa Hồ Sơ </span>
+                                        </div> 
+                                    </div>
+                                    <svg class="navigation-left__retangle-end" width="272" height="2" viewBox="0 0 272 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="272" height="2" fill="#002144" fill-opacity="0.5"/>
+                                        </svg>
+                                </div>
+
+                                <div class="navigation-left__function">
+                                    <div class="navigation-left__function-title">
+                                        
+                                        <div class="function-title__icon-profile">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.4" d="M15 30C23.2842 30 30 23.2843 30 15C30 6.71573 23.2842 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z" fill="#002144"/>
+                                                <path d="M15 7.3949C11.895 7.3949 9.375 9.9149 9.375 13.0198C9.375 16.0648 11.76 18.5398 14.925 18.6298H15.06H15.165H15.195C18.225 18.5248 20.61 16.0648 20.625 13.0198C20.625 9.9149 18.105 7.3949 15 7.3949Z" fill="#002144"/>
+                                                <path d="M25.1711 26.025C22.5011 28.485 18.9311 30 15.0011 30C11.0711 30 7.50106 28.485 4.83105 26.025C5.19105 24.66 6.16606 23.415 7.59106 22.455C11.6861 19.725 18.3461 19.725 22.4111 22.455C23.8511 23.415 24.8111 24.66 25.1711 26.025Z" fill="#002144"/>
+                                                </svg>                                            
+                                        </div>
+                                        <div class="function-title"> Tài Khoản Của Tôi </div>
+                                    </div>
+                                    <div class="navigation-left__function__nav-list">
+                                        <a href=" https://courses.uit.edu.vn/login/index.php " class="function__nav-list__title navigation-left__function--active "> Hồ Sơ </a>
+                                        <a href=" https://courses.uit.edu.vn/login/index.php " class="function__nav-list__title"> Lịch sử thuê  </a>
+                                        <a href=" https://courses.uit.edu.vn/login/index.php "class="function__nav-list__title"> Điểm tích luỹ </a>
+                                    </div>
+                                    <div class="navigation-left__function-title">
+                                        <div class="function-title__icon-profile">
+                                            <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M22.544 18.735L21.044 16.245C20.729 15.69 20.444 14.64 20.444 14.025V10.23C20.444 6.705 18.374 3.66 15.389 2.235C14.609 0.855 13.169 0 11.519 0C9.88403 0 8.41409 0.885 7.63409 2.28C4.70909 3.735 2.68409 6.75 2.68409 10.23V14.025C2.68409 14.64 2.39909 15.69 2.08409 16.23L0.569094 18.735C-0.0309063 19.74 -0.165906 20.85 0.209094 21.87C0.569094 22.875 1.42409 23.655 2.53409 24.03C5.44409 25.02 8.5041 25.5 11.564 25.5C14.624 25.5 17.684 25.02 20.594 24.045C21.644 23.7 22.454 22.905 22.844 21.87C23.234 20.835 23.129 19.695 22.544 18.735Z" fill="#002144"/>
+                                                <path d="M15.7787 27.015C15.1487 28.755 13.4837 30 11.5337 30C10.3487 30 9.17873 29.52 8.35371 28.665C7.87371 28.215 7.51371 27.615 7.30371 27C7.49871 27.03 7.69371 27.045 7.90371 27.075C8.24871 27.12 8.60872 27.165 8.96872 27.195C9.82372 27.27 10.6937 27.315 11.5637 27.315C12.4187 27.315 13.2737 27.27 14.1137 27.195C14.4287 27.165 14.7437 27.15 15.0437 27.105C15.2837 27.075 15.5237 27.045 15.7787 27.015Z" fill="#002144"/>
+                                                </svg>                                            
+                                        </div>
+                                        <div class="function-title"> Thông báo </div>
+                                    </div>
+                                    <div class="navigation-left__function-title">
+                                                                            
+                                        <div class="function-title__icon-profile">
+                                            <svg width="27" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.7791 21.9767H7.22093C1.68279 21.9767 0 20.294 0 14.7558V14.1279C0 13.613 0.426977 13.186 0.94186 13.186C2.14744 13.186 3.13953 12.194 3.13953 10.9884C3.13953 9.78279 2.14744 8.7907 0.94186 8.7907C0.426977 8.7907 0 8.36372 0 7.84884V7.22093C0 1.68279 1.68279 0 7.22093 0H19.7791C25.3172 0 27 1.68279 27 7.22093V8.47674C27 8.99163 26.573 9.4186 26.0581 9.4186C24.8526 9.4186 23.8605 10.4107 23.8605 11.6163C23.8605 12.8219 24.8526 13.814 26.0581 13.814C26.573 13.814 27 14.2409 27 14.7558C27 20.294 25.3172 21.9767 19.7791 21.9767ZM1.88372 14.9567C1.90884 19.2767 2.80047 20.093 7.22093 20.093H19.7791C23.9735 20.093 24.9907 19.3521 25.1037 15.5847C23.3079 15.1577 21.9767 13.5377 21.9767 11.6163C21.9767 9.69488 23.3205 8.07488 25.1163 7.64791V7.22093C25.1163 2.73767 24.2749 1.88372 19.7791 1.88372H7.22093C2.80047 1.88372 1.90884 2.7 1.88372 7.02C3.67953 7.44698 5.02326 9.06698 5.02326 10.9884C5.02326 12.9098 3.67953 14.5298 1.88372 14.9567Z" fill="#002144"/>
+                                                <path d="M10.9887 5.02326C10.4739 5.02326 10.0469 4.59628 10.0469 4.0814V0.941861C10.0469 0.426977 10.4739 0 10.9887 0C11.5036 0 11.9306 0.426977 11.9306 0.941861V4.0814C11.9306 4.59628 11.5036 5.02326 10.9887 5.02326Z" fill="#002144"/>
+                                                <path d="M10.9887 14.2286C10.4739 14.2286 10.0469 13.8017 10.0469 13.2868V8.67793C10.0469 8.163 10.4739 7.73602 10.9887 7.73602C11.5036 7.73602 11.9306 8.163 11.9306 8.67793V13.2868C11.9306 13.8142 11.5036 14.2286 10.9887 14.2286Z" fill="#002144"/>
+                                                <path d="M10.9887 21.9767C10.4739 21.9767 10.0469 21.5498 10.0469 21.0349V17.8954C10.0469 17.3805 10.4739 16.9535 10.9887 16.9535C11.5036 16.9535 11.9306 17.3805 11.9306 17.8954V21.0349C11.9306 21.5498 11.5036 21.9767 10.9887 21.9767Z" fill="#002144"/>
+                                                </svg>   
+                                        </div>
+                                        <div class="function-title"> Kho Voucher </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="customer-information cus-profile__col-9 ">
+                            <form action="/user/save-customer-info" method="post" enctype="multipart/form-data">
+                                <div class="customer-information__container">
+                                    <div class="customer-information__title">
+                                        Thông tin khách hàng 
+                                    </div>
+                                    <svg  class=" customer-information__retangle " width="729" height="1" viewBox="0 0 729 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="729" height="1" fill="#002144" fill-opacity="0.5"/>
+                                        </svg>
+                                    <div class="customer-information__form">
+                                        <div class="customer-form__inputfied">
+                                            <label for="name">Tên: </label>
+                                            <input class=" customer-form__input-name " type="text" id="name" name="name">
+                                        </div>
+
+                                        <div class="customer-form__inputfied">
+                                            <label for="email">Email:  </label>
+                                            <input class=" customer-form__input-email " type="email" id="email" name="email">
+                                        </div>
+
+                                        <div class="customer-form__inputfied">
+                                            <label for="phone_number">SĐT:  </label>
+                                            <input class=" customer-form__input-phone " type="tel" id="phone_number" name="phone_number">
+                                        </div>
+
+                                        <div class="customer-form__inputfied">
+                                            <label for="ID_card">CCCD:  </label>
+                                            <input class=" customer-form__input-identity " type="text" id="ID_card" name="ID_card">
+
+                                            <label for="image-img" style="padding-right: 0px;width: 40px; " >Ảnh:  </label>
+                                            <input class=" customer-form__input-identity-img " type="file" id="image" name="image"  style="
+                                            margin-right: 25px;">
+                                        </div>  
+
+                                        <div class="customer-form__inputfied">
+                                            <label for="address">Địa chỉ:  </label>
+                                            <input class=" customer-form__input-address " type="text" id="address" name="address">
+                                        </div>
+                                    </div>
+                                </div>   
+                                <button class="customer-form__update-profile" type="submit"> Lưu </button>
+                            </form> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="main.js"></script>
+       
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs'); -%>
+
+</div>
+    
+
 </body>
 </html>
