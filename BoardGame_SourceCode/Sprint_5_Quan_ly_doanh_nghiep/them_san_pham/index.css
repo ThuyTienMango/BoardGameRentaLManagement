@@ -194,14 +194,86 @@ cursor: pointer;
     line-height: 18px;
     color: #FFFFFF;
     cursor: pointer;
+    
+}
+/*  end side bar */
+/*  start thong tin co ban */
+.col-9{
+    width: 74%;
+   
+}
+.section-basic-infor{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    background: #FFFFFF;
+    border: 1px solid #002144;
+    border-radius: 20px;
+    height: 435px;
+    margin: 20px 0px 20px 20px;
+    padding: 10px 10px ;
+}
+.basic-infor__head-title{
+    margin-left: 10px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+
+    color: #000000;
+}
+.basic-infor__line{
+    border: 1px solid #737373;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.basic-infor__product-img{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.product-img__title{
+    width: 145px;
+}
+.product-img__box-add-img{
+    width: 70px;
+    height: 70px;
+    background: #FFFFFF;
+    border: 1px dashed #737373;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 
+.product-img__container-img{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px ;
+    height: 70px;
+}
 
+.container-img__item{
+    width: 70px ;
+    height: 70px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #737373;
+   
+}
+.container-img__item__fill{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-
-
-
-
-
-/*  end side bar */
+/*  end thong tin co ban */

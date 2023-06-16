@@ -86,6 +86,30 @@
                     </div>
                 </div>
                 <!--  end side bar -->
+                <div class="col-9">
+                    <!--  start thong tin co ban  -->
+                    <div class="section-basic-infor">
+                        <div class="basic-infor__head-title">Thông tin cơ bản</div>
+                        <div class="basic-infor__line"></div>
+                        <div class="basic-infor__product-img">
+                            <div class="product-img__title"> Hình ảnh sản phẩm </div>
+                         
+                        <div class="product-img__container-img">
+                            <div class="container-img__item">
+                                <img src="../../public/it1.jpg" alt="" class="container-img__item__fill">
+                            </div>
+                            <div class="product-img__box-add-img">
+                                <img src="../../public/box-add-img__icon.svg" alt="" class="box-add-img__icon">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--  end thong tin co ban  -->
+
+
+
+                </div>
+
             </div>
         </div>
        
@@ -93,5 +117,56 @@
 
 
     </div>
+
+    <script>
+       function showImageInput() {
+    // Tạo phần tử input cho người dùng tải lên ảnh
+    var inputElement = document.createElement('input');
+    inputElement.type = 'file';
+    inputElement.accept = 'image/*';
+    inputElement.style.display = 'none'; // Ẩn input mặc định
+    
+    // Khi người dùng chọn file, kích hoạt sự kiện 'change' và xử lý tải lên ảnh
+    inputElement.addEventListener('change', handleImageUpload);
+    
+    // Thêm input vào DOM
+    document.body.appendChild(inputElement);
+    
+    // Kích hoạt sự kiện click cho input (ảo)
+    inputElement.click();
+  }
+  
+  function handleImageUpload(event) {
+    var file = event.target.files[0];
+    
+    // Xử lý tải lên ảnh và lưu vào server tại đây
+    // Sau khi tải lên thành công, bạn có thể tạo một container mới để hiển thị ảnh vừa tải
+    
+    // Tạo phần tử container mới
+    var containerNewItem = document.createElement('div');
+    containerNewItem.classList.add('container-img__item');
+    
+    // Tạo phần tử <img> để hiển thị ảnh vừa tải
+    var imageElement = document.createElement('img');
+    imageElement.src = URL.createObjectURL(file);
+    imageElement.classList.add('container-img__item__fill');
+    
+    // Thêm ảnh vào container mới
+    containerNewItem.appendChild(imageElement);
+    
+    // Tìm container gần nhất để chèn container mới vào sau
+    var containerItems = document.querySelectorAll('.container-img__item');
+    var lastContainerItem = containerItems[containerItems.length - 1];
+    lastContainerItem.parentNode.insertBefore(containerNewItem, lastContainerItem.nextSibling);
+    
+    // Hiển thị lại nút "product-img__box-add-img"
+    var containerImg = document.querySelector('.product-img__container-img');
+    containerImg.innerHTML += '<div class="product-img__box-add-img" onclick="showImageInput()"><img src="../../public/box-add-img__icon.svg" alt="" class="box-add-img__icon"></div>';
+    
+    // Xóa phần tử input
+    event.target.remove();
+  }
+      
+    </script>
 </body>
 </html>
