@@ -2,12 +2,41 @@ const bcrypt = require('bcrypt');
 const users = require('../db');
 const User = require('../models/User');
 
+// class authController {
+//   //[GET] /login
+//   async getLoginPage(req, res, next){
+//     try{
+//       res.render('log_reg');
+//     } catch(error) {
+//         next(error);
+//     }
+// }
+//   //[GET] /register
+//   async getLoginPage(req, res, next){
+//     try{
+//       res.render('log_reg');
+//     } catch(error) {
+//         next(error);
+//     }
+// }
+//   //[POST] /register
+//   async getLoginPage(req, res, next){
+//     try{
+//       res.render('log_reg');
+//     } catch(error) {
+//         next(error);
+//     }
+// }
+//   //[POST] /login
+//   //[GET] /logout
+// }
+
 exports.getLoginPage = (req, res) => {
-  res.render('log_reg');
+  res.render('login');
 };
 
 exports.getRegisterPage = (req, res) => {
-  res.render('log_reg');
+  res.render('register');
 };
 
 exports.registerUser = async (req, res) => {
