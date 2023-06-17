@@ -231,13 +231,16 @@ cursor: pointer;
     width: 100%;
     margin-bottom: 10px;
 }
-.basic-infor__product-img{
+.basic-infor__product-img,
+.basic-infor__product-name{
     margin-left: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: flex-start;
 }
-.product-img__title{
+.product-img__title,
+.product-name__title{
     width: 145px;
 }
 .product-img__box-add-img{
@@ -300,4 +303,12 @@ cursor: pointer;
     align-items: center;
     justify-content: flex-start;
     gap: 5px ;
+  }
+
+  .product-name__input{
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    width: 630px;
+    height: 30px;
   }
