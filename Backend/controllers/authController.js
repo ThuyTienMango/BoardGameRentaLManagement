@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const mongoose = require('mongoose');
-const { mongooseToObject } = require('../util/mogoose');
+const { mongooseToObject } = require('../util/mongoose');
 const multer = require('multer');
 const path = require('path');
 
@@ -56,65 +56,72 @@ class authController {
     }
   }
 
-//[POST] /save-register
-async registerUser(req, res, next) {
-  try {
-    upload(req, res, async (err) => {
-      if (err) {
-        return res.status(400).json({ message: err.message });
-      }
-
-      const { name, username, email, password, tel, identity, address } = req.body;
-
-      // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
-      if (!name || !username || !email || !password || !tel || !identity) {
-        return res.status(400).json({ message: 'Missing required fields.' });
-      }
-
-      const user = new User({
-        name,
-        username,
-        email,
-        password,
-        tel,
-        identity,
-        address
-      });
-
-      // Kiểm tra xem có file đã được tải lên hay không
-      if (req.file) {
-        user.avatar = req.file.filename; // Lưu tên file vào trường avatar
-        user.avatarUrl = '/uploads/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
-      }
-
-      await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
-      res.redirect('/login');
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('An error occurred during registration.');
-  }
-}
-
-
-  //[POST] /save-login
-  async loginUser(req, res, next) {
+  //[POST] /register
+  async registerUser(req, res, next) {
     try {
-      const { username, password } = req.body;
+      upload(req, res, async (err) => {
+        if (err) {
+          return res.status(400).json({ message: err.message });
+        }
 
+        const { name, username, email, password, tel, identity, address } = req.body;
+
+        // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
+        if (!name || !username || !email || !password || !tel || !identity) {
+          return res.status(400).json({ message: 'Missing required fields.' });
+        }
+
+        const user = new User({
+          name,
+          username,
+          email,
+          password,
+          tel,
+          identity,
+          address
+        });
+
+        // Kiểm tra xem có file đã được tải lên hay không
+        if (req.file) {
+          user.avatar = req.file.filename; // Lưu tên file vào trường avatar
+          user.avatarUrl = '/uploads/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
+        }
+
+        await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
+        res.redirect('/login');
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('An error occurred during registration.');
+    }
+  }
+
+  //[POST] /login
+  //[POST] /login
+  async loginUser(req, res) {
+    const { username, password } = req.body;
+    
+    try {
+      // Tìm kiếm người dùng trong cơ sở dữ liệu
       const user = await User.findOne({ username });
 
       if (!user) {
-        return res.render('login', { error: 'Invalid username or password.' });
+        // Người dùng không tồn tại, chuyển hướng đến trang đăng nhập lại
+        console.log('Sai ten nguoi dung');
+        return res.redirect('/login');
       }
 
-      const passwordMatch = await bcrypt.compare(password, user.password);
+      // Kiểm tra mật khẩu
+    if (password !== user.password) {
+      // Mật khẩu không khớp, chuyển hướng đến trang đăng nhập lại
+      console.log('Sai mat khau');
+      return res.redirect('/login');
+    }
 
-      if (!passwordMatch) {
-        return res.render('login', { error: 'Invalid username or password.' });
-      }
-    
+      // Lưu thông tin người dùng vào session
       req.session.user = user;
+
+      // Chuyển hướng đến trang cửa hàng
       res.redirect('/store');
     } catch (error) {
       console.error(error);
@@ -123,11 +130,23 @@ async registerUser(req, res, next) {
   }
 
 
+
   //[GET] /logout
   async logoutUser(req, res, next) {
     try {
       req.session.destroy();
       res.redirect('/login');
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async checkLogin(req, res, next) {
+    try {
+      if (!req.session.user) {
+        return res.redirect('/login');
+      }
+      next(); // Thêm dòng này để chuyển quyền điều hướng tiếp theo
     } catch (error) {
       next(error);
     }

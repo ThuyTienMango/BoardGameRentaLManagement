@@ -1,6 +1,6 @@
 const Boardgame = require('../models/Boardgame');
-const { multipleMongooseToObject } = require('../util/mogoose');
-const { mongooseToObject } = require('../util/mogoose');
+const { multipleMongooseToObject } = require('../util/mongoose');
+const { mongooseToObject } = require('../util/mongoose');
 
 class storeController {
     //[GET] /store

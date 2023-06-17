@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const mongoose = require('mongoose');
-const { mongooseToObject } = require('../util/mogoose');
+const { mongooseToObject } = require('../util/mongoose');
 const multer = require('multer');
 const path = require('path');
 const express = require('express');
