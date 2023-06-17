@@ -168,7 +168,7 @@ body {
 }
 
 #form_input .type,
-.type_img_identity {
+.type_avatar {
     width: 330px;
     height: 45px;
     background-color: #EEEDEF;
@@ -197,7 +197,7 @@ body {
     background-color:  #002144;
     
 }
-.type_img_identity{
+.type_avatar{
     position: relative;
     display: flex;
     align-items: center;
@@ -226,7 +226,7 @@ body {
      
 }
 
-.type_img_identity {
+.type_avatar {
     display: flex;
     justify-content: flex-start;
     align-items: center;
