@@ -7,11 +7,11 @@ class orderController {
     //[GET] /order/:id
     async order(req, res, next){
         try{
+            const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
             const boardgame = await Boardgame.findById(req.params.id);
-            const user = await User.findOne({});
             res.render('boardgames/order', { 
                 boardgame: mongooseToObject(boardgame),
-                user: mongooseToObject(user),
+                user: user,
              });
         } catch(error) {
             next(error);

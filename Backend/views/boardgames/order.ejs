@@ -131,50 +131,65 @@
                                 <div class="customer-form__inputfied">
                                     <label for="name">Tên: </label>
                                     <div class=" div_content customer-form__input-name"> 
-                                        <div class="customer-form__text"><%= user.name %>   </div>
+                                        <% if (user && user.name) { %>
+                                            <div class="customer-form__text"><%= user.name %></div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %>                                          
                                     </div>
-                                    <!-- <input class=" customer-form__input-name " type="text" id="name" name="name"> -->
                                 </div>
 
                                 <div class="customer-form__inputfied">
                                     <label for="email">Email:  </label>
                                     <div class=" div_content  customer-form__input-email"> 
-                                        <div class="customer-form__text"> <%= user.email %>  </div>
+                                        <% if (user && user.email) { %>
+                                            <div class="customer-form__text"> <%= user.email %></div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %> 
                                     </div>
-                                    <!-- <input class=" customer-form__input-email " type="email" id="email" name="email"> -->
                                 </div>
 
                                 <div class="customer-form__inputfied">
                                     <label for="phone">SĐT:  </label>
                                     <div class=" div_content   customer-form__input-phone "> 
-                                        <div class="customer-form__text"> <%= user.phone_number %>  </div>
+                                        <% if (user && user.tel) { %>
+                                            <div class="customer-form__text"> <%= user.tel %>  </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %> 
                                     </div>
-                                    
-                                    <!-- <input class=" customer-form__input-phone " type="tel" id="phone" name="phone"> -->
                                 </div>
 
                                 <div class="customer-form__inputfied">
                                     <label for="identity">CCCD:  </label>
                                     <div class=" div_content   customer-form__input-identity "> 
-                                        <div class="customer-form__text"> <%= user.ID_card %> </div>
+                                        <% if (user && user.identity) { %>
+                                            <div class="customer-form__text"> <%= user.identity %> </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %> 
                                     </div>
-                                    <!-- <input class=" customer-form__input-identity " type="text" id="identity" name="identity"> -->
-
                                     <label for="identity-img" style="padding-right: 0px;width: 40px; " >Ảnh:  </label>
 
-                                    <div class=" div_content   customer-form__input-identity-img "> 
-                                        <div class="customer-form__text" style=" opacity: 0.7;text-decoration: underline; " > <%= user.image %> </div>
+                                    <div class=" div_content   customer-form__input-identity-img ">
+                                        <% if (user && user.avatarUrl) { %>
+                                            <div class="customer-form__text" style=" opacity: 0.7;text-decoration: underline; " > <a href="<%= user.avatarUrl %>"> Xem Avatar </a> </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %>  
                                     </div>
-                                    <!-- <input class=" customer-form__input-identity-img " type="file" id="identity-img" name="identity-img"  style="
-                                    margin-right: 25px;"> -->
                                 </div>
 
                                 <div class="customer-form__inputfied">
                                     <label for="address">Địa chỉ:  </label>
                                     <div class=" div_content   customer-form__input-address "> 
-                                        <div class="customer-form__text"> <%= user.address %> </div>
+                                        <% if (user && user.address) { %> 
+                                            <div class="customer-form__text"> <%= user.address %> </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %>
                                     </div>
-                                    <!-- <input class=" customer-form__input-address " type="text" id="address" name="address"> -->
                                 </div>
                               </div>
                         </div>   

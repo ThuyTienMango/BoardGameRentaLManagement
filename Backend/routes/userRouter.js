@@ -4,8 +4,6 @@ var router = express.Router();
 const userController = require('../controllers/userController');
 
 
-router.get('/register', userController.reg);
-router.post('/save-customer-info', userController.save);
-router.get('/:id', userController.show);
+router.get('/profile', userController.profile);
 
 module.exports = router;

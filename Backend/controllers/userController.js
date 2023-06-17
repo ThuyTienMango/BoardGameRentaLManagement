@@ -1,73 +1,79 @@
 const User = require('../models/User');
 const mongoose = require('mongoose');
 const { mongooseToObject } = require('../util/mongoose');
-const multer = require('multer');
-const path = require('path');
-const express = require('express');
 
-
-const app = express();
-
-// Cấu hình lưu trữ và tên file cho multer
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/uploads/'); // Thư mục để lưu trữ ảnh
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9); // Tạo số duy nhất cho tên file
-    const fileExtension = path.extname(file.originalname); // Lấy phần mở rộng của tên file gốc
-    cb(null, file.fieldname + '-' + uniqueSuffix + fileExtension); // Tạo tên file mới
-  }
-});
-
-const upload = multer({ storage: storage, limits: { fileSize: 10 * 1024 * 1024 } }).single('image');
 
 class userController {
-  //[GET] /user/register
-  async reg(req, res, next) {
+  //[GET] /profile
+  async profile(req, res, next) {
     try {
-      res.render('user/register');
+      // Kiểm tra xem người dùng đã đăng nhập hay chưa
+      if (req.session.user) {
+        // Người dùng đã đăng nhập, truy xuất thông tin người dùng từ cơ sở dữ liệu
+        const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
+
+        // Render trang profile và truyền thông tin người dùng
+        res.render('user/profile', { user: user });
+      } else {
+        // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        res.redirect('/login');
+      }
     } catch (error) {
-      next(error);
-    }
-  }
-
-  //[POST] /user/save-customer-info
-  async save(req, res, next) {
-    try {
-      upload(req, res, async (err) => {
-        if (err) {
-          next(err);
-        } else {
-          const formData = req.body;
-          const user = new User(formData);
-
-          // Kiểm tra xem có file đã được tải lên hay không
-          if (req.file) {
-            user.image = req.file.filename; // Lưu tên file vào trường image
-            user.imageUrl = '/uploads/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
-          }
-
-          await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
-          res.redirect(`/user/${user._id}`);
-        }
-      });
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  //[GET] /user/:id
-  async show(req, res, next) {
-    try {
-      const user = await User.findById(req.params.id);
-      res.render('user/info', { 
-        user: mongooseToObject(user),
-      });
-    } catch (error) {
-      next(error);
+      // Xử lý lỗi nếu có
+      console.error(error);
+      res.status(500).send('Internal Server Error');
     }
   }
 }
 
 module.exports = new userController();
+
+// class userController {
+//   //[GET] /user/register
+//   async reg(req, res, next) {
+//     try {
+//       res.render('user/register');
+//     } catch (error) {
+//       next(error);
+//     }
+//   }
+
+//   //[POST] /user/save-customer-info
+//   async save(req, res, next) {
+//     try {
+//       upload(req, res, async (err) => {
+//         if (err) {
+//           next(err);
+//         } else {
+//           const formData = req.body;
+//           const user = new User(formData);
+
+//           // Kiểm tra xem có file đã được tải lên hay không
+//           if (req.file) {
+//             user.image = req.file.filename; // Lưu tên file vào trường image
+//             user.imageUrl = '/uploads/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
+//           }
+
+//           await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
+//           res.redirect(`/user/${user._id}`);
+//         }
+//       });
+//     } catch (error) {
+//       next(error);
+//     }
+//   }
+
+//   //[GET] /user/:id
+//   async show(req, res, next) {
+//     try {
+//       const user = await User.findById(req.params.id);
+//       res.render('user/info', { 
+//         user: mongooseToObject(user),
+//       });
+//     } catch (error) {
+//       next(error);
+//     }
+//   }
+// }
+
+// module.exports = new userController();

@@ -127,7 +127,7 @@
                                             <div class="customer-form__inputfied">
                                                 <label for="phone">SĐT:  </label>
                                                 <div class=" div_content   customer-form__input-phone "> 
-                                                    <div class="customer-form__text"> <%= user.phone_number %>  </div>
+                                                    <div class="customer-form__text"> <%= user.tel %>  </div>
                                                 </div>
                                                 
                                                 <!-- <input class=" customer-form__input-phone " type="tel" id="phone" name="phone"> -->
@@ -136,14 +136,14 @@
                                             <div class="customer-form__inputfied">
                                                 <label for="identity">CCCD:  </label>
                                                 <div class=" div_content   customer-form__input-identity "> 
-                                                    <div class="customer-form__text"> <%= user.ID_card %> </div>
+                                                    <div class="customer-form__text"> <%= user.identity %> </div>
                                                 </div>
                                                 <!-- <input class=" customer-form__input-identity " type="text" id="identity" name="identity"> -->
             
                                                 <label for="identity-img" style="padding-right: 0px;width: 40px;">Ảnh:</label>
                                                 <div class="div_content customer-form__input-identity-img">
-                                                    <% if (user.image) { %>
-                                                        <a href="/uploads/<%= user.image %>" target="_blank">Xem ảnh</a>
+                                                    <% if (user.avatar) { %>
+                                                        <a href="<%= user.avatarUrl %>" target="_blank">Xem Avatar</a>
                                                     <% } else { %>
                                                         <div class="customer-form__text" style="opacity: 0.7;text-decoration: underline;">Chưa có ảnh</div>
                                                     <% } %>
