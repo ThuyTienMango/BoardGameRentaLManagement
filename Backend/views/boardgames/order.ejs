@@ -90,10 +90,10 @@
                                         </div>
                                     </div>
                                     <div class="info-oder__colum-1 quantity-btn__cost ">
-                                        <%= boardgame.price %>
+                                        <%= formattedPrice %>
                                     </div>
                                     <div class="info-oder__colum-1 quantity-btn__total ">
-                                        <%= boardgame.price %>
+                                        <%= formattedTotal %>
                                     </div>
                                 </div>
                             </div> 
@@ -188,7 +188,7 @@
                         <div class="hire-info__container__title">
                             <div class="tien-hang       hire-info__container__title__col-3 "> Tiền hàng </div>
                             <div class="gia-tri-don-hang  hire-info__container__title__col-2">
-                                <div class="gia-tien-hang    "> 760,000 </div>
+                                <div class="gia-tien-hang    "> <%= formattedTotal %> </div>
                                 <div class="don-vi-tien-hang  "> VNĐ </div>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
                         <div class="hire-info__container__title">
                             <div class="tong-thanh-toan     hire-info__container__title__col-3 "> Tổng thanh toán </div>
                             <div class="gia-tri-don-hang-con   hire-info__container__title__col-2">
-                                <div class="tong-gia-tien-hang    "> 760,000 </div>
+                                <div class="tong-gia-tien-hang    "> <%= formattedTotal %> </div>
                                 <div class="tong-don-vi-tien-hang  "> VNĐ </div>
                             </div>
                         </div>
