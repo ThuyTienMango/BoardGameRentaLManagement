@@ -304,19 +304,24 @@ margin-right: 5px;
 
 
 .grid__colum-5{
-	position: relative;
+	
 	margin-top: 15px;
 	width: 35%;
     padding-left: 8px;
     padding-right: 8px;
 
 }
-
+.infor-product{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+    padding-top: 7%;
+}
 
 .info{
-	position: absolute;
-    left: 10%;
-    top: 18%;
+	
+    
 }
 .info__title{
 	width: 175px;
@@ -350,9 +355,7 @@ color: #000000;
 
 }
 .rental{
-	position: absolute;
-    left: 10%;
-    top: 30%;
+	
 
 }
 
@@ -391,14 +394,7 @@ line-height: 15px;
 color: #48494A;
 
 }
-.button-rent{
-	position: absolute;
-    left: 10%;
-    top: 52%;
-	display: flex;
 
-
-}
 .button-rent input{
 	box-sizing: border-box;
 	width: 51px;
@@ -418,7 +414,9 @@ a{
 	color: #ffff	 ;
 }
 .ren-btn{
-	position: relative;
+	position: absolute;
+    left: 14%;
+    top: 49.3%;
 	text-align: center;
 	width: 102px;
 	height: 28px;
@@ -440,8 +438,8 @@ font-style: normal;
 font-weight: 400;
 font-size: 13px;
 line-height: 15px;
-/* identical to box height */
 
+overflow: hidden;
 text-align: center;
 
 color: #48494A;
@@ -486,6 +484,7 @@ color: #48494A;
     display: flex;
     justify-content: flex-start;
     margin-top: 16px;
+    margin-bottom: 10px;
 }
 
 .quantity-btn__rental-time__title{
@@ -501,7 +500,7 @@ line-height: 16px;
 
 color: #000000;
 }
-.quantity-btn__rental-time select {
+.rental-time-select {
     box-sizing: border-box;
     width: 45px;
     height: 20px;
@@ -539,38 +538,19 @@ text-align: center;
 color: #FFFFFF;
 }
 .add-wishlist{
-	position: relative;
+	
 	box-sizing: border-box;
 	width: 37px;
 height: 28px;
 background: #002144;
 border: 1px solid #F0F4F5;
-}
-.add-wishlist__icon-heart{
-	
-	position: absolute;
-	
-	left: 20%;
-    top: 10%;
-    width: 20.99px;
-    height: 21.7px;
-color: #000000;
-
-}
-.add-wishlist__icon-add{
-	position: absolute;
-	bottom: 3%;
-    right: 6%;
-    width: 10px;
-    height: 6.9px;
-
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 /*  Thong tin san pham  */
 .ThongTinSP{
-
-
-
     width: 100%;
 	display: flex;
    
@@ -958,3 +938,4 @@ color: #000000;
 	padding-right: 5px;
 	width: 19%;
 }
+
