@@ -215,7 +215,7 @@ cursor: pointer;
     margin: 10px 10px  ;
     display: flex;
     flex-direction: column;
-    
+    position: relative;
 }
 .list-oder__sort{
     width: 100%;
@@ -225,6 +225,25 @@ cursor: pointer;
     flex-wrap: wrap;
     gap: 10px;
     margin-left: 15px;
+    width: 70%;
+}
+.btn__add-product{
+    background: #002144;
+    border-radius: 5px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 32px;
+    position: absolute;
+    top: 2%;
+    right: 4%;
 }
 .list-oder__sort-title{
     display: flex;
