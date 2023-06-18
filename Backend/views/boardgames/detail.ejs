@@ -39,7 +39,6 @@
                                 <img src="<%= boardgame.image %>" alt="" id="large-img__img">
                             </div>
                         </div>
-
                         <div class="grid__colum-5">
                             <div class="info">
                                 <div class="info__title"><%= boardgame.name %></div>
@@ -48,30 +47,32 @@
                                 <div class="rental__rent">Giá Thuê:</div>
                                 <div class="rental__price"><%= boardgame.price %></div>
                                 <div class="rental__remain">20+ còn lại</div>
-                                <div class="quantity-btn quantity-btn__rental-time">
-                                    <div class="quantity-btn__rental-time__title">Số ngày thuê:</div>
-                                    <select id="booking-duration">
-                                        <option value="7">7</option>
-                                        <option value="14">14</option>
-                                        <option value="30">30</option>
-                                        <option value="60">60</option>
+                            </div>
+                            <form action="#" >
+                                <div class="quantity-btn   quantity-btn__rental-time ">
+                                    <div class="quantity-btn__rental-time__title"> Số ngày thuê: </div>
+                                    <select id="booking-duration" class="rental-time-select">
+                                        <option value="7">7 </option>
+                                        <option value="14">14 </option>
+                                        <option value="30">30  </option>
+                                        <option value="60">60 </option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="button-rent">
-                                <div class="button-rent__quantity">
-                                    <button class="button-rent__increase">
-                                        <img src="/assets/images/button-rent__increase.svg" alt="">
-                                    </button>
-                                    <input type="text" class="button-rent__quantityInput" value="1" readonly>
-                                    <button class="button-rent__decrease">
-                                        <img src="/assets/images/button-rent__decrease.svg" alt="">
-                                    </button>
+                                <div class="button-rent">
+                                    <div class="button-rent__quantity">
+                                        <button class="button-rent__increase" >
+                                            <img src="../public/button-rent__increase.svg" alt="" >
+                                        </button>
+                                        <button class="button-rent__decrease">
+                                            <img src="../public/button-rent__decrease.svg" alt="" >
+                                        </button>
+                                        <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" readonly>
+                                    </div>
                                 </div>
                                 <button class="ren-btn">
-                                    <a href="#" class="ren-btn__title">Đặt thuê</a>
+                                    <a href="" class="ren-btn__title"> Đặt thuê  </a>
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -137,7 +138,7 @@
                         }
 
                         // Nhận các phần tử được chọn và nhập từ DOM
-                        const durationSelect = document.getElementById('booking-duration');
+                        var durationSelect = document.getElementById('booking-duration');
                         var quantityInput = document.querySelector('.button-rent__quantityInput');
 
                         // Lắng nghe sự kiện nhấp vào nút "Đặt thuê"
