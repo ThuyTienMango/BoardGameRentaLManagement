@@ -202,20 +202,23 @@ cursor: pointer;
     width: 74%;
    
 }
-.section-basic-infor{
+.section-basic-infor,
+.section-sale-infor{
     display: flex;
     flex-direction: column;
     padding: 10px 10px;
     background: #FFFFFF;
     border: 1px solid #002144;
     border-radius: 20px;
-    height: 435px;
     margin: 20px 0px 20px 20px;
     padding: 10px 10px ;
 }
+.section-basic-infor{
+    height: 435px;
+}
 .basic-infor__head-title{
     margin-left: 10px;
-    height: 65px;
+    height: 50px;
     display: flex;
     align-items: center;
     font-family: 'Helvetica';
@@ -223,8 +226,7 @@ cursor: pointer;
     font-weight: 700;
     font-size: 22px;
     line-height: 25px;
-
-    color: #000000;
+    color: #002144;
 }
 .basic-infor__line{
     border: 1px solid #737373;
@@ -232,11 +234,15 @@ cursor: pointer;
     margin-bottom: 10px;
 }
 .basic-infor__product-img,
-.basic-infor__product-name{
+.basic-infor__product-name,
+.basic-infor__product-description,
+.basic-infor__product-quantity,
+.basic-infor__product-cost{
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
+    gap: 5px;
     justify-content: flex-start;
 }
 .product-img__title,
@@ -280,7 +286,7 @@ cursor: pointer;
     object-fit: contain;
 }
 
-/*  end thong tin co ban */
+
 
  /* Ẩn thẻ input */
  .product-img__box-add-img input[type="file"] {
@@ -304,11 +310,66 @@ cursor: pointer;
     justify-content: flex-start;
     gap: 5px ;
   }
-
-  .product-name__input{
+  .product-description__input,
+  .product-name__input,
+  .product-quantity__input{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 14px;
+    padding: 5px 5px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
+  }
+
+  .product-name__input{
+   
     width: 630px;
     height: 30px;
+    font-weight: bold;
   }
+  .product-description__input{
+   
+    width: 630px;
+    height: 177px; 
+    resize: none;
+  }
+  /*  end thong tin co ban */
+  /* start thong tin ban hang  */
+  .section-sale-infor{
+    height: 220px;
+  }
+.product-quantity__input{
+    width: 90px;
+    height: 30px;
+    font-weight: bold;
+}
+.basic-infor__btn-save{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.btn-save{
+    width: 130px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #002144;
+    border-radius: 5px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 10px 10px 5px 5px ;
+}
+
+
+  /* end thong tin ban hang  */

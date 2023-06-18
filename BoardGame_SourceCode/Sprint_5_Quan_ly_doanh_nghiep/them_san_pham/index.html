@@ -94,8 +94,7 @@
                         <div class="basic-infor__product-img">
                             <div class="product-img__title"> Hình ảnh sản phẩm </div>
                         <div class="product-img__container-img">
-                            <div class="product-img__box-container">  
-                            </div>
+                            <div class="product-img__box-container"></div>
                             <div class="product-img__box-add-img" multiple  >
                               <input type="file" id="file-input" accept="image/*" multiple>
                               <label for="file-input" class="choose-file-button">
@@ -104,17 +103,38 @@
                             </div>
                         <div id="upload-message" class="upload-message"></div>
                         </div>
-                    </div>
+                        </div>
                     <div class="basic-infor__product-name">
                         <div class="product-name__title"> Tên sản phẩm </div>
                         <input type="text" name="product_name" class="product-name__input">
-
                     </div>
-                    <!--  end thong tin co ban  -->
-
-
-
+                    <div class="basic-infor__product-description">
+                        <div class="product-name__title"> Mô tả sản phẩm </div>
+                        <textarea name="product-description" id="" cols="30" rows="10" class="product-description__input"></textarea>
+                    </div>
                 </div>
+                  <!--  end thong tin co ban  -->
+                 <!--  start thong tin ban hang  -->
+                 <div class="section-sale-infor">
+                    <div class="basic-infor__head-title">Thông tin bán hàng</div>
+                    <div class="basic-infor__line"></div>
+                    <div class="basic-infor__product-quantity">
+                        <div class="product-name__title"> Số lượng sản phẩm </div>
+                        <input type="text" name="product-quantity" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                    <div class="basic-infor__product-cost">
+                        <div class="product-name__title"> Giá thuê 7 ngày </div>
+                        <input type="text" name="product-quantity" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                    <div class="basic-infor__btn-save">
+                        <div class="btn-save"> Lưu & Hiển thị</div>
+                    </div>
+                 </div>
+
+
+
+
+                 <!--  end thong tin ban hang  -->
 
             </div>
         </div>
