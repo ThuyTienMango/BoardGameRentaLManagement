@@ -86,6 +86,72 @@
                     </div>
                 </div>
                 <!--  end side bar -->
+                <div class="col-9">
+                    <!--  start thong tin co ban  -->
+                    <div class="section-basic-infor">
+                        <div class="basic-infor__head-title">Thông tin cơ bản</div>
+                        <div class="basic-infor__line"></div>
+                        <div class="basic-infor__product-img">
+                            <div class="product-img__title"> Hình ảnh sản phẩm </div>
+                        <div class="product-img__container-img">
+                            <div class="product-img__box-container">
+                                <img src="../../public/it1.jpg" alt="" class="container-img__item">
+                            </div>
+                            
+                        </div>
+                        </div>
+                        <div class="basic-infor__product-name">
+                            <div class="product-name__title"> Tên sản phẩm </div>
+                            <div class="product-name__input" id="product-name"> Unmatched: Marvel - For King & Country (New Arrival)</div>
+                            <img src="../../public/product__icon-edit.svg" alt="" class="product__icon-edit edit-name" onclick="enableEditProductName()">
+
+                          </div>
+                          <div class="basic-infor__product-description">
+                            <div class="product-name__title"> Mô tả sản phẩm </div>
+                            <div class="product-description__content" id="product-description" contenteditable>
+                              Unmatched is a highly asymmetrical miniature fighting game for two or four players. Each hero is represented by a unique deck designed to evoke their style and legend. Tactical movement and no-luck combat resolution create a unique play experience that rewards expertise, but just when you've mastered one set, new heroes arrive to provide all new match-ups.
+                          
+                              Unmatched: Marvel - For King & Country features three characters from the Marvel comics universe: Black Widow, Black Panther, and Winter Soldier.
+                          
+                              Black Widow
+                              From the Moscow Protocol to the Budapest Gambit, Black Widow is mission ready. She'll have you caught in her web before you even know she's there. Sidekick: Maria Hill.
+                          
+                              Winter Soldier
+                              A bionic arm and marksman's eye made the boy named Bucky into a lethal fighter. When he was programmed to kill without remorse, then he became the Winter Soldier.
+                          
+                              Black Panther
+                              With his vibranium suit, the stalking panther absorbs your strikes and unleashes them back with his cat-like reflexes. Sidekick: Shuri.
+                            </div>
+                            <img src="../../public/product__icon-edit.svg" alt="" class="product__icon-edit edit-description" onclick="enableEditProductDescription()">
+
+                          </div>
+                          
+                </div>
+                  <!--  end thong tin co ban  -->
+                 <!--  start thong tin ban hang  -->
+                 <div class="section-sale-infor">
+                    <div class="basic-infor__head-title">Thông tin bán hàng</div>
+                    <div class="basic-infor__line"></div>
+                    <div class="basic-infor__product-quantity">
+                        <div class="product-name__title"> Số lượng sản phẩm </div>
+                        <div class="product-quantity__input" id="product-quantity"> 250</div>
+                        <img src="../../public/product__icon-edit.svg" alt="" class="product__icon-edit edit-quantity" onclick="enableEditProductQuantity()" >
+                       </div>
+                    <div class="basic-infor__product-cost">
+                        <div class="product-name__title"> Giá thuê 7 ngày </div>
+                        <div class="product-quantity__input"  id="product-cost"> 250.000</div>
+                        <img src="../../public/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="enableEditProductCost()">
+                    </div>
+                    <div class="basic-infor__btn-save">
+                        <div class="btn-save"> Cập nhật </div>
+                    </div>
+                 </div>
+
+
+
+
+                 <!--  end thong tin ban hang  -->
+
             </div>
         </div>
        
@@ -93,5 +159,8 @@
 
 
     </div>
+
+    
+    <script src="./main.js"></script>
 </body>
 </html>
