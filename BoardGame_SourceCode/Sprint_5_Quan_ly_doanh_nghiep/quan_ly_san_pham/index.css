@@ -244,6 +244,7 @@ cursor: pointer;
     position: absolute;
     top: 2%;
     right: 4%;
+    cursor: pointer;
 }
 .list-oder__sort-title{
     display: flex;
