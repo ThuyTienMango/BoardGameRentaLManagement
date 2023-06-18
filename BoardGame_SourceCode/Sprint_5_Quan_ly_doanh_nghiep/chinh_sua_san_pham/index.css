@@ -4,12 +4,8 @@
     align-items: center;
     background: #F0F4F5;
     width: 100%;
-
-    min-height: 2150px;
-
-
+    min-height: 950px;
     overflow: hidden;
-   
     font-family: var(--font-helvetica);
 }
 
@@ -52,12 +48,16 @@ height: 96px;
     margin-top: 20px;
     width: 100%;
     height: 31px;
-    
     font-weight: 700;
     font-size: 24px;
     line-height: 130%;
-
     color: #002144;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.top-bar__title__id-product{
+    color: #FD6A6A;
 }
 .top-bar__title-page__head-2{
     margin-bottom: 10px;

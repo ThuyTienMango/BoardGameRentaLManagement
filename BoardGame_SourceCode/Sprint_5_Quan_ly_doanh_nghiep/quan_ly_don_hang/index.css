@@ -4,12 +4,8 @@
     align-items: center;
     background: #F0F4F5;
     width: 100%;
-
-    min-height: 2150px;
-
-
+    min-height: 950px;
     overflow: hidden;
-   
     font-family: var(--font-helvetica);
 }
 

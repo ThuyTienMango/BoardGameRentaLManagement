@@ -4,12 +4,8 @@
     align-items: center;
     background: #F0F4F5;
     width: 100%;
-
-    min-height: 2150px;
-
-
+    min-height: 950px;
     overflow: hidden;
-   
     font-family: var(--font-helvetica);
 }
 
@@ -58,6 +54,12 @@ height: 96px;
     line-height: 130%;
 
     color: #002144;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.top-bar__title-page__id-oder{
+    color: #FD6A6A;
 }
 .top-bar__title-page__head-2{
     margin-bottom: 10px;
