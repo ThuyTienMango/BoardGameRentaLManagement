@@ -351,7 +351,7 @@ cursor: pointer;
 .product-quantity__input{
     width: 90px;
     height: 30px;
-    
+    font-weight: bold;
 }
 .basic-infor__btn-save{
     height: 40px;
