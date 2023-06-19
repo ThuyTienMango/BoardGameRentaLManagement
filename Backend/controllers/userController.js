@@ -24,6 +24,16 @@ class userController {
       res.status(500).send('Internal Server Error');
     }
   }
+
+  //[GET] /user/orderhistory
+  async orderHistory(req, res, next){
+    try {
+      const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
+      res.render('user/orderHistory',{ user: user });
+    } catch(error){
+      next(error);
+    }
+  }
 }
 
 module.exports = new userController();
