@@ -231,16 +231,166 @@ background: #002144;
 
    min-height: 1800px;
    overflow: hidden;
-
-
 } 
-.filter-category{
-    width: 90%;
-    height: 887px;
-    border-radius: var(--br-8xs);
-    
-    
+
+/*  thanh filter */
+.retangle-filter{
+    width: 100%;
 }
+
+.filter-category{
+    
+    width: 242px;
+    height: 645px;
+    left: 36px;
+    top: 125px;
+
+    background: #F0F4F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 5px 5px;
+}
+.filter-title-head{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding-top: 12px;
+}
+.filter-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+   
+}
+.filter-name-col-1{
+    width: 75%;
+    margin-left:10%;
+}
+.filter-name-col-2{
+    width:25%;
+}
+.filter-name{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #002144;
+
+}
+.reset{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #48494A;
+
+}
+.playingtime{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #000000;
+}
+.filter__line{
+    height: 22px;
+    width: 100%;
+    display: flex;
+}
+.circle-object {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    position: relative;
+    cursor: pointer;
+  }
+  
+.filter__retangle-small{
+    margin-left: 7%;
+}
+  .circle-object::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease;
+  }
+  
+  .circle-object.clicked::before {
+    background-color: #002144;
+  }
+  
+  
+.rectangle-playingtime-1{
+    width: 15px;
+height: 4px;
+margin-left: 5px;
+background: #48494A;
+border-radius: 5px;
+cursor: pointer;
+
+}
+.minutes{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+
+color: #000000;
+}
+
+.filter-age-content{
+    width: 100%;
+    margin-left:10%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.age-filter{
+    margin-right: 22px;
+    margin-top: 10px;
+    width: 45px;
+    height: 18px;
+    background: #002144;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.age-content{
+    
+    width: 21px;
+height: 15px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+
+
+
 
 .tf-sort{
     height: 30px;
