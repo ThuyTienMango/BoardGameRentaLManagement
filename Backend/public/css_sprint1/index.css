@@ -231,16 +231,213 @@ background: #002144;
 
    min-height: 1800px;
    overflow: hidden;
-
-
 } 
+
 .filter-category{
-    width: 90%;
-    height: 887px;
-    border-radius: var(--br-8xs);
     
-    
+    width: 242px;
+    height: 668px;
+    left: 36px;
+    top: 125px;
+
+    background: #F0F4F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 5px 5px;
 }
+.filter-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 38px;
+}
+.filter-name-col-1{
+    width: 57%;
+    margin-left:10%;
+}
+.filter-name-col-2{
+    width:40%;
+}
+.filter-name{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #002144;
+
+}
+.reset{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #48494A;
+
+}
+.playingtime{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #000000;
+}
+.rectangle-playingtime-1{
+    width: 15px;
+height: 4px;
+left: 172px;
+top: 0px;
+
+background: #48494A;
+border-radius: 5px;
+
+}
+.minutes{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+
+color: #000000;
+}
+.rectangle-playingtime-2{
+    width: 15px;
+height: 4px;
+left: 172px;
+top: 0px;
+
+background: #48494A;
+border-radius: 5px;
+}
+.playerminium{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.numbers{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+
+color: #000000;
+
+}
+.playermaximum{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.rectangle-playingtime-3{
+width: 15px;
+height: 4px;
+left: 172px;
+top: 0px;
+
+background: #48494A;
+border-radius: 5px;
+}
+.rectangle-playingtime-4{
+    width: 15px;
+height: 4px;
+left: 323px;
+top: 538px;
+
+background: #48494A;
+border-radius: 5px;
+
+}
+.budget{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.budget-filter{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+
+color: #000000;
+
+}
+.age{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;
+}
+.rectangle-playingtime-5{
+    width: 15px;
+height: 4px;
+left: 323px;
+top: 634px;
+
+background: #48494A;
+border-radius: 5px;
+}
+
+.filter-age-content{
+    width: 100%;
+    margin-left:10%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.age-filter{
+    margin-right: 22px;
+    margin-top: 10px;
+    width: 45px;
+    height: 18px;
+    background: #002144;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.age-content{
+    
+    width: 21px;
+height: 15px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.retangle-filter{
+    width: 100%;
+}
+
+
 
 .tf-sort{
     height: 30px;
@@ -484,39 +681,36 @@ background: #002144;
     color: var(--color-white);
 
 }
-
-.pagination{
-    margin-top: 20px ;
-
+.pagination {
+    margin-top: 20px;
     position: absolute;
     width: 9px;
     text-align: center;
     align-items: center;
     height: 17px;
     left: 40%;
-
-    bottom:-60px;
-
-
+    bottom: -60px;
     display: inline-flex;
-}
-.pagination a {
+  }
+  
+  .pagination a {
     text-decoration: none;
-    color:var( --color-darkgray);
-    padding: 4px 5px ;
-    margin: 5px 5px ;
+    color: var(--color-darkgray);
+    padding: 4px 5px;
+    margin: 5px 5px;
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-}
-
-.pagination .active {
+  }
+  
+  .pagination a.active {
     background-color: red;
     color: var(--color-white) !important;
     border-radius: var(--br-8xs);
-}
+  }
+  
 
 
 /* Footer */

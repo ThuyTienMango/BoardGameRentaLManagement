@@ -1,6 +1,6 @@
 const Boardgame = require('../models/Boardgame');
-const { multipleMongooseToObject } = require('../util/mogoose');
-const { mongooseToObject } = require('../util/mogoose');
+const { multipleMongooseToObject } = require('../util/mongoose');
+const { mongooseToObject } = require('../util/mongoose');
 
 class storeController {
     //[GET] /store
@@ -11,7 +11,6 @@ class storeController {
             const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = currentPage * itemsPerPage;
-    
             const boardgamesPage = boardgames.slice(startIndex, endIndex);
             res.render('layout/main', {
                 boardgames: multipleMongooseToObject(boardgamesPage),
@@ -28,10 +27,12 @@ class storeController {
         try {
             const boardgames = await Boardgame.find({});
             const boardgame = await Boardgame.findById(req.params.id);
+            const formattedPrice = boardgame.price.toLocaleString('vi-VN');
             const randomGames = shuffle(boardgames).slice(0, 5);
             res.render('boardgames/detail', { 
                 boardgame: mongooseToObject(boardgame),
-                boardgames: multipleMongooseToObject(randomGames)
+                boardgames: multipleMongooseToObject(randomGames),
+                formattedPrice
              });
              // Hàm xáo trộn mảng sản phẩm
             function shuffle(array) {

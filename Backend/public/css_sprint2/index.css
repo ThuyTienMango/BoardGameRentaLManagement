@@ -3,7 +3,9 @@
     background-color: var(--color-white);
     width: 100%;
 
+
    
+
 
     overflow: hidden;
     text-align: left;
@@ -12,9 +14,11 @@
     font-family: var(--font-helvetica);
 }
 
+
 .app a{
     text-decoration: none;
 }
+
 
 /*Header*/
 .header{
@@ -107,7 +111,9 @@ cursor: pointer;
 .header_navbar-list{
 
 
+
    display: flex;
+
 
 
     position: relative;
@@ -115,6 +121,7 @@ cursor: pointer;
 	list-style: none;
 }
 .header_navbar-item{
+
 
 
     display: flex;
@@ -147,6 +154,7 @@ background: #002144;
     display: block;
 
 }
+
 
 .header_navbar-item:hover{
 	cursor: pointer;
@@ -186,11 +194,14 @@ background: #002144;
 
 
 
+
+
 .header-end{
 	background: #F0F4F5;
 	width: 100%;
 	height: 4px;
 }
+
 
 
 /*  nav-status-page */
@@ -232,10 +243,12 @@ margin-right: 5px;
    height: 1700px;
    
 
+
     top: 85px;
     left: 0;
     background-color:var(--color-white);
     width: 100%;
+
 
    
 } 
@@ -245,6 +258,7 @@ margin-right: 5px;
 
 .single-item{
 	margin-top: 5px;
+
 }
 
 .grid__colum-1{
@@ -276,53 +290,59 @@ margin-right: 5px;
     padding-left: 8px;
     padding-right: 8px;
 }
-.large-img{
+.lage-img{
 	display: flex;
 	width: 540px;
 	height: 540px;
 }
+
 #large-img__img{
+
 	width: 540px;
 	height: 540px;
 }
 
 
 .grid__colum-5{
-	position: relative;
+	
 	margin-top: 15px;
 	width: 35%;
     padding-left: 8px;
     padding-right: 8px;
 
 }
-
-
-.info{
-	position: absolute;
-    left: 10%;
-    top: 18%;
+.infor-product{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+    padding-top: 7%;
 }
+
+
 .info__title{
 	width: auto;
-    height: 26px;
+height: 43.5px;
 
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 23px;
-    line-height: 26px;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 23px;
+line-height: 26px;
 
-    color: #000000;
+color: #000000;
 
 }
-/* .info__product-id{
+.info__product-id{
 	width: 391px;
 height: 20px;
 font-family: 'Helvetica';
 font-style: normal;
 
 
+
 font-weight: 400;
+
 
 
 font-size: 16px;
@@ -330,13 +350,8 @@ line-height: 18px;
 
 color: #000000;
 
-} */
-.rental{
-	position: absolute;
-    left: 10%;
-    top: 30%;
-
 }
+
 
 .rental__rent{
 width: 391px;
@@ -373,14 +388,7 @@ line-height: 15px;
 color: #48494A;
 
 }
-.button-rent{
-	position: absolute;
-    left: 10%;
-    top: 45%;
-	display: flex;
 
-
-}
 .button-rent input{
 	box-sizing: border-box;
 	width: 51px;
@@ -400,7 +408,9 @@ a{
 	color: #ffff	 ;
 }
 .ren-btn{
-	position: relative;
+	position: absolute;
+    left: 14%;
+    top: 49.3%;
 	text-align: center;
 	width: 102px;
 	height: 28px;
@@ -414,6 +424,7 @@ a{
 
 
 
+
 .button-rent__quantity{
 
     font-family: 'Helvetica';
@@ -421,8 +432,8 @@ font-style: normal;
 font-weight: 400;
 font-size: 13px;
 line-height: 15px;
-/* identical to box height */
 
+overflow: hidden;
 text-align: center;
 
 color: #48494A;
@@ -463,6 +474,49 @@ color: #48494A;
 
 
 }
+.quantity-btn__rental-time{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+.quantity-btn__rental-time__title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 16px;
+
+color: #000000;
+}
+.rental-time-select {
+    box-sizing: border-box;
+    width: 45px;
+    height: 20px;
+    background: #F0F4F5;
+   
+    text-align: center;
+  
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+
+    border: none;
+  outline: none;
+  cursor: pointer;
+    border-radius: 5px;
+}
+
+
 .ren-btn__title{
 
 position: absolute;
@@ -478,37 +532,19 @@ text-align: center;
 color: #FFFFFF;
 }
 .add-wishlist{
-	position: relative;
+	
 	box-sizing: border-box;
 	width: 37px;
 height: 28px;
 background: #002144;
 border: 1px solid #F0F4F5;
-}
-.add-wishlist__icon-heart{
-	
-	position: absolute;
-	
-	left: 20%;
-    top: 10%;
-    width: 20.99px;
-    height: 21.7px;
-color: #000000;
-
-}
-.add-wishlist__icon-add{
-	position: absolute;
-	bottom: 3%;
-    right: 6%;
-    width: 10px;
-    height: 6.9px;
-
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 /*  Thong tin san pham  */
 .ThongTinSP{
-
-
     width: 100%;
 	display: flex;
    
@@ -591,14 +627,19 @@ color: #000000;
 
 	width: 124.7%;
 
+
 	margin-top:15px;
 }
 .similar-product__title{
 	position: relative;
 	display: flex;
+
     align-items: center;
+
 	top: 0;
 	left: 0;
+
+
 
 
 
@@ -625,6 +666,7 @@ align-items: center;
 color: #000000;
 	
 }
+
 .btn-next__title__content{
     margin-left: 8px;
     font-family: 'Helvetica';
@@ -637,9 +679,11 @@ color: #000000;
     color: #000000;
 }
 
+
 .btn-next{
 	position: absolute;
 	top: -1%;
+
 	right: 0%;
 	width: 130px;
     height: 40px;
@@ -651,6 +695,7 @@ color: #000000;
     cursor: pointer;
     background-color: #FFFFFF;
     
+
 
 }
 .circle-btn-left{
@@ -668,7 +713,9 @@ color: #000000;
 .colum-4{
 
 
+
 	width: 18.5%;
+
 
 
 }
@@ -815,6 +862,7 @@ color: #000000;
     left: 0;
 
 
+
     bottom: 0%;
     width: 100%;
     height: 220px;
@@ -826,6 +874,7 @@ color: #000000;
 	text-transform: uppercase;
 	color: white;
     text-decoration: none;
+
 
 }
 .footer__list{
