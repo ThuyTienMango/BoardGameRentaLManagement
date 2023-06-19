@@ -530,7 +530,10 @@ button {
   }
 
 
-
+.customer-form__text{
+	margin-top: 5px;
+	margin-left: 8px;
+}
 
 /* Footer */
 .footer{
