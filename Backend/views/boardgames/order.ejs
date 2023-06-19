@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./public/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css_sprint3/global.css" />
+    <link rel="stylesheet" href="/css_sprint3/index.css" />
+    <link rel="stylesheet" href="/css_sprint3/responsive.css">
+    <title>Đặt thuê <%= boardgame.name %></title>
+
+   
+
+</head>
+<body>
+    <div class="app">
+        
+
+        <!-- Header -->
+        <%- include('../partials/header_order.ejs'); -%>
+
+       <div class="header-end"></div>
+       <div class="container-section">
+        <!--  Khung hien thi thong tin don hang  -->
+        <div class="info-oder">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="nav-status">
+                        <a href=" https://courses.uit.edu.vn/login/index.php " class="nav-status__page"> Đặt thuê </a>
+                        <div class="nav-status__page__link"> :: </div>
+                        <a href=" https://courses.uit.edu.vn/login/index.php " class="nav-status__page nav-status__page--now">  Xác nhận đơn hàng   </a>
+                        
+                    </div>
+                    <div class="info-oder__col-8">                        
+                        <div class="info-oder__container">
+                           
+                            <svg  class="retangle-top-oder" width="772" height="4" viewBox="0 0 772 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="772" height="4" fill="#002144"/>
+                                </svg>
+                        <div class="info-oder__table-tile">
+                            <div class="table-title__product-title  info-oder__col4 ">  Sản phẩm  </div>
+                                <div class="table-title__properties info-oder__col5 ">
+                                <div class="table-title__title-2 "> 
+                                        <div class="table-title__title-2__head "> Thời gian thuê  </div>
+                                        <div class="table-title__title-2__unit">( Ngày )</div>
+                                </div>
+                                <div class="table-title__title-2  "> 
+                                    <div class="table-title__title-2__head">Số lượng </div>
+                                    <div class="table-title__title-2__unit">( Cái )</div>
+                                </div>
+                                <div class="table-title__title-2 "> 
+                                    <div class="table-title__title-2__head"> Giá Thuê</div>
+                                    <div class="table-title__title-2__unit">( Vnđ ) </div>
+                                </div>
+                                <div class="table-title__title-2 "> 
+                                    <div class="table-title__title-2__head">Thành tiền</div>
+                                    <div class="table-title__title-2__unit">( Vnđ ) </div>
+                                </div>
+                            </div>
+                        </div>
+                        <svg class="retangle-top-oder__end" width="772" height="1" viewBox="0 0 772 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="772" height="1" fill="#002144" fill-opacity="0.5"/>
+                            </svg>
+                            
+
+
+                        <div class="info-oder__item__container">
+
+                            <!--  1 item  -->
+                            <div class="info-oder__item">
+                                <div class="info-oder__card info-oder__col4 ">
+                                    <a href="/store/<%= boardgame._id %>">
+                                        <img src="<%= boardgame.image %>" alt="" class="info-oder__card__img">
+                                    </a>
+                                    <a href="/store/<%= boardgame._id %>" class="info-oder__card__title"> <%= boardgame.name %> </a>
+                                    <!-- <div class="info-oder__card__title">  </div> -->
+                                    <!-- <div class="info-oder__card__quantity">  Còn lại: 20+ </div> -->
+                                </div>
+                            
+                                <div class="info-oder__properties info-oder__col5">
+                                    <div class="quantity-btn info-oder__colum-1  quantity-btn__rental-time ">
+                                        <div class="booking-duration">
+                                            7
+                                        </div>
+                                    </div>
+                                    <div class="quantity-btn info-oder__colum-1 quantity-btn__quantity ">
+                                        <div class="button-rent__quantity">
+                                            1
+                                        </div>
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__cost ">
+                                        <%= formattedPrice %>
+                                    </div>
+                                    <div class="info-oder__colum-1 quantity-btn__total ">
+                                        <%= formattedTotal %>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        
+                        <svg class="info-oder__retangle-mini" width="772" height="1" viewBox="0 0 772 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="772" height="1" fill="#002144" fill-opacity="0.5"/>
+                            </svg>
+                    </div> 
+                    
+                     <!-- Khung thong tin khach hang  -->
+                     <div class="customer-information">
+                        <div class="customer-information__container">
+                            <div class="customer-information__title">
+                                Hồ Sơ Của Tôi 
+                            </div>
+                          
+                                <img src="/assets/images/customer-infomation__retangle.svg" alt="" class="customer-information__retangle">
+                              <div class="customer-information__form">
+                                <div class="customer-form__inputfied">
+                                    <label for="name">Tên: </label>
+                                    <div class=" div_content customer-form__input-name"> 
+                                        <% if (user && user.name) { %>
+                                            <div class="customer-form__text"><%= user.name %></div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %>                                          
+                                    </div>
+                                </div>
+
+                                <div class="customer-form__inputfied">
+                                    <label for="email">Email:  </label>
+                                    <div class=" div_content  customer-form__input-email"> 
+                                        <% if (user && user.email) { %>
+                                            <div class="customer-form__text"> <%= user.email %></div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %> 
+                                    </div>
+                                </div>
+
+                                <div class="customer-form__inputfied">
+                                    <label for="phone">SĐT:  </label>
+                                    <div class=" div_content   customer-form__input-phone "> 
+                                        <% if (user && user.tel) { %>
+                                            <div class="customer-form__text"> <%= user.tel %>  </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %> 
+                                    </div>
+                                </div>
+
+                                <div class="customer-form__inputfied">
+                                    <label for="identity">CCCD:  </label>
+                                    <div class=" div_content   customer-form__input-identity "> 
+                                        <% if (user && user.identity) { %>
+                                            <div class="customer-form__text"> <%= user.identity %> </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %> 
+                                    </div>
+                                    <label for="identity-img" style="padding-right: 0px;width: 40px; " >Ảnh:  </label>
+
+                                    <div class=" div_content   customer-form__input-identity-img ">
+                                        <% if (user && user.avatarUrl) { %>
+                                            <div class="customer-form__text" style=" opacity: 0.7;text-decoration: underline; " > <a href="<%= user.avatarUrl %> " target="_blank"> Xem Avatar </a> </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %>  
+                                    </div>
+                                </div>
+
+                                <div class="customer-form__inputfied">
+                                    <label for="address">Địa chỉ:  </label>
+                                    <div class=" div_content   customer-form__input-address "> 
+                                        <% if (user && user.address) { %> 
+                                            <div class="customer-form__text"> <%= user.address %> </div>
+                                          <% } else { %>
+                                            <div class="customer-form__text">Unknown</div>
+                                          <% } %>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>   
+                    </div>
+
+                    </div>
+                     <!-- Khung hien thi thong tin dat thue  -->
+                    <div class="info-order__col-4">
+                        <div class="hire-info__container">
+                        <img src="/assets/images/retangle-top-oder-right.svg" alt="" class="retangle-top-oder-right">
+                        <div class="hire-info__container__title">
+                            <div class="tien-hang       hire-info__container__title__col-3 "> Tiền hàng </div>
+                            <div class="gia-tri-don-hang  hire-info__container__title__col-2">
+                                <div class="gia-tien-hang    "> <%= formattedTotal %> </div>
+                                <div class="don-vi-tien-hang  "> VNĐ </div>
+                            </div>
+                        </div>
+                        <svg  class="retangle-bottom-oder-right " width="288" height="2" viewBox="0 0 288 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="288" height="2" fill="#002144" fill-opacity="0.5"/>
+                            </svg>
+                        <div class="hire-info__container__content">
+                            <div class="hire-info__line   ">
+                                <div class="diem-tich-luy hire-info__container__title__col-3">  Điểm tích lũy </div>
+                                <div class="gia-tri-don-hang-con  hire-info__container__title__col-2">
+                                    <div class="gia-tien    "> -0 </div>
+                                    <div class="don-vi-tinh  "> VNĐ </div>
+                                </div>
+
+                            </div>
+                            <div class="hire-info__line   ">
+                                <div class="diem-tich-luy hire-info__container__title__col-3">  Phiếu giảm giá </div>
+                                <div class="gia-tri-don-hang-con  hire-info__container__title__col-2">
+                                    <div class="gia-tien    "> -0 </div>
+                                    <div class="don-vi-tinh  "> VNĐ </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <svg width="289" height="1" viewBox="0 0 289 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="289" height="1" fill="#002144" fill-opacity="0.5"/>
+                            </svg>
+
+                        <div class="hire-info__container__title">
+                            <div class="tong-thanh-toan     hire-info__container__title__col-3 "> Tổng thanh toán </div>
+                            <div class="gia-tri-don-hang-con   hire-info__container__title__col-2">
+                                <div class="tong-gia-tien-hang    "> <%= formattedTotal %> </div>
+                                <div class="tong-don-vi-tien-hang  "> VNĐ </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dieu-khoan-thue-container">
+                            <div class="dieu-khoan-title">Điều khoản thuê boardgame</div>
+                            <div class="dieu-khoan-content">
+                                <p>
+                                    <b>1.Giá trị thuê theo ngày:</b>
+                                    <br/>a. Các mặt hàng board game được cho thuê trên trang web này có giá trị thuê được tính theo ngày. Giá thuê được hiển thị rõ ràng trên trang thông tin của mỗi board game. 
+                                    <br/>b. Khách hàng sẽ chịu trách nhiệm thanh toán số tiền thuê board game dựa trên số ngày thuê đã được xác nhận.
+                                    <br/><b> 2.Xác nhận đặt thuê:</b>
+                                    <br/>a. Sau khi khách hàng hoàn thành quá trình đặt thuê board game trên trang web, một xác nhận đặt thuê sẽ được gửi đến khách hàng qua email hoặc thông báo trên trang web. 
+                                    <br/>b. Xác nhận đặt thuê sẽ bao gồm thông tin chi tiết về board game, ngày thuê, giá thuê và thông tin khác liên quan.
+                                    <br/><b> 3.Giữ chỗ board game:</b>
+                                    <br/>a. Sau khi xác nhận đặt thuê thành công, khách hàng sẽ có quyền giữ chỗ cho chiếc board game vừa đặt thuê trong vòng 12 tiếng kể từ thời gian đặt thuê.
+                                    <br/>b. Khách hàng sẽ trực tiếp đến địa chỉ cửa hàng để nhận và kiểm tra boardgame.         
+                                    <br/><b> 4.Sử dụng và chăm sóc:</b>
+                                    <br/>a. Người thuê phải sử dụng boardgame theo cách đúng, không gây hư hỏng hoặc tổn thất.
+                                    <br/>b. Người thuê cần chăm sóc boardgame để tránh các vết xước, hư hỏng, hoặc mất mát không cần thiết.
+                                    <br/>c. Không được làm bất kỳ thay đổi nào cho boardgame mà không có sự đồng ý của cửa hàng.
+                                    <br/><b> 5.Điều khoản và bảo hành:</b>
+                                    <br/>a. Cửa hàng không chịu trách nhiệm cho bất kỳ tổn thất nào gây ra do việc sử dụng boardgame thuê.
+                                    <br/>b. Boardgame được bảo hành nếu có lỗi kỹ thuật hoặc hư hỏng trước khi người thuê nhận hàng. Người thuê cần thông báo cho cửa hàng ngay sau khi phát
+                                    <br/>c. Cửa hàng kiểm tra boardgame trước khi trả lại nếu có tổn thất và hư hại đáng kể khách hàng chịu hoàn toàn trách nhiệm bồi thường tương ứng với hư hại của boardgame.
+                                </p>                          
+                            </div>
+                            <div class="tick-dong-y-dieu-khoan">
+                                <input class="tick-check " type="checkbox" id="myCheckbox">
+                                <div class="tick-dong-y-dieu-khoan__title">  Tôi đồng ý với các điều khoản  </div>
+                            </div>
+                        </div>
+                        <div class="dat-thue-container">
+                                <div class="dat-thue-content">
+                                    <b> Đặt thuê</b>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!--  footer  -->
+        <%- include('../partials/footer.ejs'); -%>
+    </div>
+    
+<script>
+    //  tăng giảm số lượng bằng cách click 
+                // Lấy các phần tử từ DOM
+        const decreaseButton = document.querySelector('.button-rent__decrease');
+        const increaseButton = document.querySelector('.button-rent__increase');
+        const quantityInput = document.querySelector('.button-rent__quantityInput');
+
+        // Xử lý sự kiện khi click vào nút giảm
+        decreaseButton.addEventListener('click', function() {
+            // Giảm giá trị số lượng
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantity--;
+                quantityInput.value = quantity;
+            }
+        });
+
+        // Xử lý sự kiện khi click vào nút tăng
+        increaseButton.addEventListener('click', function() {
+            // Tăng giá trị số lượng
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
+            quantityInput.value = quantity;
+        });
+
+</script>
+</body>
+</html>
