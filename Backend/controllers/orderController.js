@@ -23,6 +23,7 @@ class orderController {
                 productId : boardgame._id,
                 productName: boardgame.name,
                 productImage: boardgame.image,
+                productPrice: boardgame.price,
                 duration : duration,
                 quantity : quantity,
                 totalPrice : total,

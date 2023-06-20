@@ -122,7 +122,7 @@
                             </div>
                             <img src="../../public/customer-history__retangle-top2.svg" alt="" class="customer-history__retangle-top2">
                             <!--  1 item  -->
-                            <% orders.forEach(function(order) { %>
+                            <% orders.forEach((order) => { %>
                                 <div class="info-oder__item">
                                   <div class="info-oder__card info-oder__col4">
                                     <img src="<%= order.productImage %>" alt="" class="info-oder__card__img">
@@ -137,7 +137,7 @@
                                       <div class="quantity__value quantity-btn"><%= order.quantity %></div>
                                     </div>
                                     <div class="info-oder__colum-1 quantity-btn__cost">
-                                      <%= order.productId.price %>
+                                      <%= order.productPrice %>
                                     </div>
                                     <div class="info-oder__colum-1 quantity-btn__total">
                                       <%= order.totalPrice %>

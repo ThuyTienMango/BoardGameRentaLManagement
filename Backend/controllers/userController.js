@@ -32,8 +32,6 @@ class userController {
     try {
       const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
       const orders = await Order.find({ customerId: user._id }).sort({ createdAt: -1 }); // Tìm các đơn hàng dựa trên customerId
-
-      console.log(orders); // In ra console để kiểm tra kết quả
       res.render('user/orderHistory',
       { 
         user: user,
