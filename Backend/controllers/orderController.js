@@ -1,5 +1,6 @@
 const Boardgame = require('../models/Boardgame');
 const User = require('../models/User');
+const Order = require('../models/Order');
 const { multipleMongooseToObject } = require('../util/mongoose');
 const { mongooseToObject } = require('../util/mongoose');
 
@@ -17,9 +18,23 @@ class orderController {
             }
             const formattedPrice = boardgame.price.toLocaleString('vi-VN');
             const formattedTotal = total.toLocaleString('vi-VN');
+            const order = new Order({
+                customerId : user._id,
+                productId : boardgame._id,
+                productName: boardgame.name,
+                productImage: boardgame.image,
+                duration : duration,
+                quantity : quantity,
+                totalPrice : total,
+                // orderStatus ,
+                // notes
+              });
+            await order.save();
             res.render('boardgames/order', { 
                 boardgame: mongooseToObject(boardgame),
                 user: user,
+                duration,
+                quantity,
                 formattedPrice,
                 formattedTotal,
              });

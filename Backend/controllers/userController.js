@@ -1,4 +1,6 @@
+const Boardgame = require('../models/Boardgame');
 const User = require('../models/User');
+const Order = require('../models/Order');
 const mongoose = require('mongoose');
 const { mongooseToObject } = require('../util/mongoose');
 
@@ -29,7 +31,14 @@ class userController {
   async orderHistory(req, res, next){
     try {
       const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
-      res.render('user/orderHistory',{ user: user });
+      const orders = await Order.find({ customerId: user._id }).sort({ createdAt: -1 }); // Tìm các đơn hàng dựa trên customerId
+
+      console.log(orders); // In ra console để kiểm tra kết quả
+      res.render('user/orderHistory',
+      { 
+        user: user,
+        orders: orders 
+      });
     } catch(error){
       next(error);
     }
