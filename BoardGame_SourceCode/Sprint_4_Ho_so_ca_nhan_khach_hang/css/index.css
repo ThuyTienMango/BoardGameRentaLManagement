@@ -274,7 +274,7 @@ margin-right: 5px;
 		width: 100%;
 	}
 	
-	.avatar__content__edit-profile{
+	.avatar__content__logout{
 		margin-top: 5px;
 		position: relative;
 		font-family: 'Helvetica';
@@ -282,13 +282,13 @@ margin-right: 5px;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 16px;
-	/* identical to box height */
+	cursor: pointer;
 	
 	
 	color: rgba(0, 0, 0, 0.7);
 		width: 100%;
 	}
-	.edit-profile__icon-edit{
+	.edit-profile__icon-logout{
 		position: absolute;
 		top: 0%;
 		left: 0%;
@@ -298,6 +298,7 @@ margin-right: 5px;
 		left: 10%;
 		top: 0%;
 	}
+	
 	
 	
 	
@@ -606,3 +607,4 @@ button {
 	padding-right: 5px;
 	width: 19%;
 }
+
