@@ -29,7 +29,7 @@
                         </div>
                         <div class="grid__colum-1">
                             <div class="small-img">
-                                <img src="<%= boardgame.image %>" alt="" class="small-img__img border-img" onclick="swapImageClasses(this)">
+                                <img src="<%= boardgame.image %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
                                 <img src="<%= boardgame.image1 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
                                 <img src="<%= boardgame.image2 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
                             </div>
@@ -117,45 +117,56 @@
                                 quantity++;
                                 quantityInput.value = quantity;
                             });
+                        </script>
 
-                    </script>
 
-                    <script>
-                        // Hàm chuyển ảnh
-                        function swapImageClasses(img) {
-                            const largeImg = document.getElementById('large-img__img');
-                            const smallImgs = document.querySelectorAll('.small-img__img');
+                            
+                        <script>
 
-                            smallImgs.forEach(smallImg => {
-                                smallImg.classList.remove('border-img');
-                                smallImg.classList.add('opacity-img');
-                            });
+                                function swapImageClasses(image) {
+                                const smallImages = document.getElementsByClassName("small-img__img");
+                                const smallImagesArray = Array.from(smallImages); // Chuyển HTMLCollection thành mảng
+                                
+                                const largeImage = document.getElementById("large-img__img");
+                                
+                                smallImagesArray.forEach((img) => {
+                                    img.classList.remove("boder-img");
+                                    img.classList.add("opacity-img");
+                                });
+                                
+                                image.classList.remove("opacity-img");
+                                image.classList.add("boder-img");
+                                
+                                largeImage.src = image.src;      
+                                
+                                }
+                                
+                        </script>
 
-                            img.classList.remove('opacity-img');
-                            img.classList.add('border-img');
 
-                            largeImg.src = img.src;
-                        }
+                     <script>
 
-                        // Nhận các phần tử được chọn và nhập từ DOM
-                        var durationSelect = document.getElementById('booking-duration');
-                        var quantityInput = document.querySelector('.button-rent__quantityInput');
+                         // Nhận các phần tử được chọn và nhập từ DOM
+                         var durationSelect = document.getElementById('booking-duration');
+                         var quantityInput = document.querySelector('.button-rent__quantityInput');
+ 
+                         // Lắng nghe sự kiện nhấp vào nút "Đặt thuê"
+                         const rentButton = document.querySelector('.ren-btn__title');
+                         rentButton.addEventListener('click', function (event) {
+                             event.preventDefault();
+ 
+                             // Nhận thời hạn thuê và số lượng đã chọn
+                             const durationValue = durationSelect.value;
+                             const quantityValue = quantityInput.value;
+ 
+                             // Tạo một URL mới với các thông số về thời lượng thuê và số lượng
+                             const orderURL = `/store/order/<%= boardgame._id %>?duration=${durationValue}&quantity=${quantityValue}`;
+ 
+                             // Chuyển hướng đến trang đặt hàng với URL mới
+                             window.location.href = orderURL;
+                         });
+                     </script>
 
-                        // Lắng nghe sự kiện nhấp vào nút "Đặt thuê"
-                        const rentButton = document.querySelector('.ren-btn__title');
-                        rentButton.addEventListener('click', function (event) {
-                            event.preventDefault();
-
-                            // Nhận thời hạn thuê và số lượng đã chọn
-                            const durationValue = durationSelect.value;
-                            const quantityValue = quantityInput.value;
-
-                            // Tạo một URL mới với các thông số về thời lượng thuê và số lượng
-                            const orderURL = `/store/order/<%= boardgame._id %>?duration=${durationValue}&quantity=${quantityValue}`;
-
-                            // Chuyển hướng đến trang đặt hàng với URL mới
-                            window.location.href = orderURL;
-                        });
                     </script>
 
                     <!--  san pham tuong tu  -->
