@@ -43,6 +43,34 @@ class orderController {
             next(error);
         }
     }
+    
+    // async placeOrder(req, res){
+    //     try{
+    //         const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
+    //         const boardgame = await Boardgame.findById(req.params.id);
+    //         const duration = req.query.duration;
+    //         const quantity = req.query.quantity;
+    //         const order = new Order({
+    //             customerId : user._id,
+    //             productId : boardgame._id,
+    //             productName: boardgame.name,
+    //             productImage: boardgame.image,
+    //             productPrice: boardgame.price,
+    //             duration : duration,
+    //             quantity : quantity,
+    //             totalPrice : total,
+    //             // orderStatus ,
+    //             // notes
+    //           });
+    //         await order.save();
+    //         // Chuyển hướng đến trang lịch sử thuê
+    //         res.redirect('/user/orderhistory');
+    //     }catch(error){
+    //         // Xử lý lỗi nếu có
+    //         console.error(error);
+    //         res.status(500).json({ message: 'Đã xảy ra lỗi khi đặt hàng' });
+    //     }
+    // }
 }
 
 module.exports = new orderController();

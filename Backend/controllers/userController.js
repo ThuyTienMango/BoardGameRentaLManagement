@@ -32,10 +32,17 @@ class userController {
     try {
       const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
       const orders = await Order.find({ customerId: user._id }).sort({ createdAt: -1 }); // Tìm các đơn hàng dựa trên customerId
+      const itemsPerPage = 3; // Số sản phẩm trên mỗi trang
+      const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = currentPage * itemsPerPage;
+      const ordersPage = orders.slice(startIndex, endIndex);
       res.render('user/orderHistory',
       { 
         user: user,
-        orders: orders 
+        orders: ordersPage,
+        currentPage,
+        totalPages: Math.ceil(orders.length / itemsPerPage), 
       });
     } catch(error){
       next(error);

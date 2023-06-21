@@ -274,21 +274,19 @@ margin-right: 5px;
 		width: 100%;
 	}
 	
-	.avatar__content__edit-profile{
+	.avatar__content__logout{
 		margin-top: 5px;
 		position: relative;
 		font-family: 'Helvetica';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 16px;
-	/* identical to box height */
-	
-	
-	color: rgba(0, 0, 0, 0.7);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		cursor: pointer;
+		color: rgba(0, 0, 0, 0.7);
 		width: 100%;
 	}
-	.edit-profile__icon-edit{
+	.edit-profile__icon-logout{
 		position: absolute;
 		top: 0%;
 		left: 0%;
@@ -297,6 +295,7 @@ margin-right: 5px;
 		position: absolute;
 		left: 10%;
 		top: 0%;
+		margin-left: 20px;
 	}
 	
 	

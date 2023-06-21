@@ -4,324 +4,170 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="css_sprint1/global.css" />
-    <link rel="stylesheet" href="css_sprint1/index.css" />
-    <link rel="stylesheet" href="css_sprint1/responsive.css">
-    <title>Cửa hàng</title>
+    <link rel="stylesheet" href="css_home_page/index.css" />
+    <link rel="stylesheet" href="css_home_page/global.css">
+    <title> Trang chủ </title>
 
 </head>
 <body>
-    <div class="app">
-        
-       <!-- Header -->
-        <%- include('../partials/header_store.ejs'); -%>
+    <div class="app">   
 
-      <!-- thanh cong cu loc  -->
-      <div class="sort-section">
-        <div class="grid ">
-            <div class="grid_row sort-section__content ">
+        <!-- Header -->
+        <%- include('../partials/header_homepage.ejs'); -%>
 
-                <a href="https://courses.uit.edu.vn/login/index.php" class="  sort-section__name  sort-section__name--active"> Board Game</a>
-               
-                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
-                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name "> Phổ Biến</a>
-
-            </div>
-        </div>
-    </div>
-    
-    <div class="container-section">
         <div class="grid">
-            <div class="grid__row">
-                <div class="grid__colum-2">
-                    <div class="filter-category">
-                        
-                        <div class="filter-title-head">
-                            <div class="filter-name filter-name-col-1">Filter</div>
-                            <div class="reset filter-name-col-2">reset</div>
-                                
-                        </div>
-                        <svg class="retangle-filter" width="230" height="2" viewBox="0 0 230 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="230" height="2" fill="#002144"/>
-                            </svg>
-                        <div class="filter-category__playing-time">
-
-                            <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Playing time</div>
-                                <div class="filter-title__hide filter-name-col-2 ">
-                                    <div class="rectangle-playingtime-1 "></div>
-                                </div>
-                            </div>
-                            <div class="filter-playingtime-content">
-                                <div class="filter-playingtime-content-line">
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">15 minutes or less</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">30 minutes or less</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">40 minutes or less</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">60 minutes or less</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">90 minutes or less</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                   
-                                </div>    
-                            </div>    
-                        </div>
-
- 
-                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
-                       <!--  thuoc tinh thu Players - Minimum  -->
-                        <div class="filter-category__player">
-                            <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Players - Minimum</div>
-                                <div class="filter-title__hide filter-name-col-2 ">
-                                    <div class="rectangle-playingtime-1 "></div>
-                                </div>
-                            </div>
-                            <div class="filter-playingtime-content">
-                                <div class="filter-playingtime-content-line">
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">1 (215)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">2 (213)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">4 (217)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    
-                                                                   
-                                </div>    
-                            </div>    
-                        </div>
-                            
-                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
-
-                        <!--  thuoc tinh thu Players - Maximum  -->
-                        <div class="filter-category__player">
-                            <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Players - Maximum</div>
-                                <div class="filter-title__hide filter-name-col-2 ">
-                                    <div class="rectangle-playingtime-1 "></div>
-                                </div>
-                            </div>
-                            <div class="filter-playingtime-content">
-                                <div class="filter-playingtime-content-line">
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">3  (215)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">6  (213)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">12 (217)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">15 (230)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">18 (120)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                                                   
-                                </div>    
-                            </div>    
-                        </div>
-                            
-                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
-                     <div class="filter-category__Suggested-Age">
-
-                         <div class="filter-title">
-                             <div class="playingtime filter-name-col-1">Suggested Age</div>
-                             <div class="filter-title__hide filter-name-col-2 ">
-                                 <div class="rectangle-playingtime-1 "></div>
-                             </div>
-                         </div>
-                             
-                         <div class="filter-age-content">
-                            <div class="age-filter">
-                             <div class="age-content">3+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">5+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">8+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">12+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">18+</div>
-                            </div>
-                         </div>
-                     </div>
-                    </div>
+            <div class="home-page-model">
+                <img src="/assets/images/home-page__slide.svg" alt="" class="slide">
+                <img src="/assets/images/home-page__best-seller.svg" alt="" class="best-seller">
+                <div class="home__infor">
+                    <img src="/assets/images/home-page__rental.svg" alt="" class="home-page__rental">
+                    <img src="/assets/images/home-page__step.svg" alt="" class="home-page__step">
                 </div>
+            </div>
 
-                <div class=" grid__colum-10">
-                    <div class="tf-sort">
-                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
-                        <div class="tf-sort__layout">
-                            <div class="layout__grid layout__grid--btn-primary">
-                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
-                                <b class=" layout__content ">Grid</b>
-                            </div>
-                            <div class="layout__line">
-                                 <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
-                        
-                                <b class=" layout__content ">Line</b>
-                            </div>
+        </div>
+
+      
+    
+  
+
+    <!--  footer  -->
+<footer class="footer">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__column-2-4">
+
+                <a href="" class="footer__heading">
+                <h3>Chăm sóc khách hàng</h3>
+                </a>
+
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Trung Tâm Trợ Giúp</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Địa chỉ</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Hướng dẫn đặt thuê</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+
+                <a href="" class="footer__heading">
+                <h3 >Giới thiệu</h3>
+                </a>
+
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Về chúng tôi</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Tuyển dụng</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Điều khoản</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+
+                <a href="" class="footer__heading">
+                <h3>Tài khoản</h3>
+                </a>
+
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Mục yêu thích</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Lịch sử thuê</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">Đặt lịch</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+
+                <a href="" class="footer__heading">
+                <h3 >Theo dõi</h3>
+                </a>    
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">
+
                             
-                        </div>
-                        <div class="filter-price">
-                            <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
-                    
-                            <b class=" layout__content "> Giá:</b>
-                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
-                            <ul class="filter-price__list">
-                                <li class="filter-price__list__item">
-                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
-                                    
-                                </li>
-                                <li class="filter-price__list__item">
-                                    <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <!--  San pham tong/ hiện 5 hàng sản phẩm, mỗi hàng 4 sp    -->
+                            <div class="footer-itm__icon">
+                            <svg width="20" height="20" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M42 29.799C42 37.443 37.443 42 29.799 42H27.3C26.145 42 25.2 41.055 25.2 39.9V27.783C25.2 27.216 25.662 26.733 26.229 26.733L29.925 26.67C30.219 26.649 30.471 26.439 30.534 26.145L31.269 22.134C31.332 21.756 31.038 21.399 30.639 21.399L26.166 21.462C25.578 21.462 25.116 21 25.095 20.433L25.011 15.288C25.011 14.952 25.284 14.658 25.641 14.658L30.681 14.574C31.038 14.574 31.311 14.301 31.311 13.944L31.227 8.90398C31.227 8.54698 30.954 8.274 30.597 8.274L24.927 8.35802C21.441 8.42102 18.669 11.277 18.732 14.763L18.837 20.538C18.858 21.126 18.396 21.588 17.808 21.609L15.288 21.651C14.931 21.651 14.658 21.924 14.658 22.281L14.721 26.271C14.721 26.628 14.994 26.901 15.351 26.901L17.871 26.859C18.459 26.859 18.921 27.321 18.942 27.888L19.131 39.858C19.152 41.034 18.207 42 17.031 42H12.201C4.557 42 0 37.443 0 29.778V12.201C0 4.557 4.557 0 12.201 0H29.799C37.443 0 42 4.557 42 12.201V29.799Z" fill="white"/>
+                                </svg>
+                            </div>    
 
-                    <div class="product-section grid__row">
-                        <!-- San pham -->
-                        <% boardgames.forEach((boardgame) => { %>
-                        <div class="product-section__item-shop col-4">
-                            <div class="item-shop__favourite">
-                                <div class="item-shop__favourite__content">
-                                    <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
-                                    <b class="item-shop__likes">99</b>
-                                </div>
-                            </div>
-                            <a href="store/<%= boardgame._id %>">
-                                <img src="<%= boardgame.image %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
-                            </a>
-                            <a href="store/<%= boardgame._id %>" class="item-shop__title-product"><%= boardgame.name %></a>
-                            <div class="item-shop__rent">
-                                <b class="item-shop__rent__title">Giá Thuê</b>
-                                <b class="item-shop__rent__cost"><%= boardgame.price %> đ</b>
-                            </div>
-                        
-                            <div class="item-shop__rent-btn">
-                                <b class="item-shop__rent-btn__title">Thuê ngay</b>
-                            </div>
-                        </div>
-                        <% }) %>
-                      
-                        <!-- Phân trang -->
-                        <div class="pagination">
-                            <% for (let i = 1; i <= totalPages; i++) { %>
-                                <a href="/store?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
-                                    <%= i %>
-                                </a>
-                            <% } %>
-                        </div>
-                    </div>                      
+
+                            Facebook</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">
+
+
+                            <div class="footer-itm__icon">
+                                <svg width="20" height="20" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M29.799 0H12.201C4.557 0 0 4.557 0 12.201V29.778C0 37.443 4.557 42 12.201 42H29.778C37.422 42 41.979 37.443 41.979 29.799V12.201C42 4.557 37.443 0 29.799 0ZM21 29.148C16.506 29.148 12.852 25.494 12.852 21C12.852 16.506 16.506 12.852 21 12.852C25.494 12.852 29.148 16.506 29.148 21C29.148 25.494 25.494 29.148 21 29.148ZM33.432 10.248C33.327 10.5 33.18 10.731 32.991 10.941C32.781 11.13 32.55 11.277 32.298 11.382C32.046 11.487 31.773 11.55 31.5 11.55C30.933 11.55 30.408 11.34 30.009 10.941C29.82 10.731 29.673 10.5 29.568 10.248C29.463 9.996 29.4 9.723 29.4 9.45C29.4 9.177 29.463 8.904 29.568 8.652C29.673 8.379 29.82 8.169 30.009 7.959C30.492 7.476 31.227 7.245 31.899 7.392C32.046 7.413 32.172 7.455 32.298 7.518C32.424 7.56 32.55 7.623 32.676 7.707C32.781 7.77 32.886 7.875 32.991 7.959C33.18 8.169 33.327 8.379 33.432 8.652C33.537 8.904 33.6 9.177 33.6 9.45C33.6 9.723 33.537 9.996 33.432 10.248Z" fill="white"/>
+                                    </svg>
+                                    
+                                </div>    
+
+
+                            Instagram</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a href="" class="footer-item__link">
+
+
+                            <div class="footer-itm__icon">
+                                <svg width="20" height="20" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34.6875 0H11.5625C4.625 0 0 5.25 0 13.125V28.875C0 36.75 4.625 42 11.5625 42H34.6875C41.625 42 46.25 36.75 46.25 28.875V13.125C46.25 5.25 41.625 0 34.6875 0ZM27.4956 23.7037L21.7837 27.5888C19.4712 29.1638 17.575 27.9562 17.575 24.885V17.0888C17.575 14.0175 19.4712 12.81 21.7837 14.385L27.4956 18.27C29.6925 19.7925 29.6925 22.2075 27.4956 23.7037Z" fill="white"/>
+                                </svg>
+                                </div>   
+                            Youtube</a>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__column-2-4">
+
+                <a href="" class="footer__heading">
+                <h3 >Vào cửa hàng trên ứng dụng</h3>
+                </a>
+                <div class="footer__download">
+
+                    <img src="/assets/images/QR.png" alt="Download QR" class="footer__download-QR">
+                    <div class="footer__download-apps">
+                        <a href="" class="footer__download-app-link">
+                            <img src="/assets/images/GGplay.png" alt="Google Play" class="footer__download-app-img">
+                        </a>
+                        <a href="" class="footer__download-app-link">
+                            <img src="/assets/images/appstore.png" alt="App Store" class="footer__download-app-img">
+
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs'); -%>
+  
+        <div class="grid__row">
+            <p class="footer__text">© 2023 - Bản quyền thuộc về Công ty TNHH Astro</p>
+        </div>
+  
+    </div>
+  </footer>
 </div>
     
-<!--  Script chuyển màu button tại filter  -->
-<script>
-    //     const circleObject = document.querySelector('.circle-object');
-    
-    // circleObject.addEventListener('click', function() {
-    //   circleObject.classList.toggle('clicked');
-    // });
-    
-    
-    
-    // const buttonSelects = document.querySelectorAll('.filter__button-select');
-    
-    // buttonSelects.forEach(buttonSelect => {
-    //   const circleObject = buttonSelect.querySelector('.circle-object');
-    //   circleObject.addEventListener('click', function() {
-    //     circleObject.classList.toggle('clicked');
-    //   });
-    // });
-    
-    
-    const filterLines = document.querySelectorAll('.filter-playingtime-content-line');
-    
-    filterLines.forEach(filterLine => {
-      const circleObjects = filterLine.querySelectorAll('.circle-object');
-      circleObjects.forEach(circleObject => {
-        circleObject.addEventListener('click', function() {
-          if (circleObject.classList.contains('clicked')) {
-            return; // Không làm gì nếu circle-object đã được chọn trước đó
-          }
-    
-          const activeCircleObject = filterLine.querySelector('.circle-object.clicked');
-          if (activeCircleObject) {
-            activeCircleObject.classList.remove('clicked');
-          }
-          
-          circleObject.classList.add('clicked');
-        });
-      });
-    });
-</script>
+
 
 </body>
 </html>

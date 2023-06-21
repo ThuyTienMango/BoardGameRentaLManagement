@@ -15,7 +15,7 @@ class storeController {
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = currentPage * itemsPerPage;
             const boardgamesPage = boardgames.slice(startIndex, endIndex);
-            res.render('layout/main', {
+            res.render('boardgames/store', {
                 boardgames: multipleMongooseToObject(boardgamesPage),
                 currentPage,
                 totalPages: Math.ceil(boardgames.length / itemsPerPage),

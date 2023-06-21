@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css_sprint1/global.css" />
+    <link rel="stylesheet" href="css_sprint1/index.css" />
+    <link rel="stylesheet" href="css_sprint1/responsive.css">
+    <title>Cửa hàng</title>
+
+</head>
+<body>
+    <div class="app">
+        
+       <!-- Header -->
+        <%- include('../partials/header_store.ejs'); -%>
+
+      <!-- thanh cong cu loc  -->
+      <div class="sort-section">
+        <div class="grid ">
+            <div class="grid_row sort-section__content ">
+
+                <a href="https://courses.uit.edu.vn/login/index.php" class="  sort-section__name  sort-section__name--active"> Board Game</a>
+               
+                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
+                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name "> Phổ Biến</a>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-section">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__colum-2">
+                    <div class="filter-category">
+                        
+                        <div class="filter-title-head">
+                            <div class="filter-name filter-name-col-1">Filter</div>
+                            <div class="reset filter-name-col-2">reset</div>
+                                
+                        </div>
+                        <svg class="retangle-filter" width="230" height="2" viewBox="0 0 230 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="230" height="2" fill="#002144"/>
+                            </svg>
+                        <div class="filter-category__playing-time">
+
+                            <div class="filter-title">
+                                <div class="playingtime filter-name-col-1">Playing time</div>
+                                <div class="filter-title__hide filter-name-col-2 ">
+                                    <div class="rectangle-playingtime-1 "></div>
+                                </div>
+                            </div>
+                            <div class="filter-playingtime-content">
+                                <div class="filter-playingtime-content-line">
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">15 minutes or less</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">30 minutes or less</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">40 minutes or less</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">60 minutes or less</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">90 minutes or less</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>    
+                            </div>    
+                        </div>
+
+ 
+                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
+                       <!--  thuoc tinh thu Players - Minimum  -->
+                        <div class="filter-category__player">
+                            <div class="filter-title">
+                                <div class="playingtime filter-name-col-1">Players - Minimum</div>
+                                <div class="filter-title__hide filter-name-col-2 ">
+                                    <div class="rectangle-playingtime-1 "></div>
+                                </div>
+                            </div>
+                            <div class="filter-playingtime-content">
+                                <div class="filter-playingtime-content-line">
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">1 (215)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">2 (213)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">4 (217)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    
+                                                                   
+                                </div>    
+                            </div>    
+                        </div>
+                            
+                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
+
+                        <!--  thuoc tinh thu Players - Maximum  -->
+                        <div class="filter-category__player">
+                            <div class="filter-title">
+                                <div class="playingtime filter-name-col-1">Players - Maximum</div>
+                                <div class="filter-title__hide filter-name-col-2 ">
+                                    <div class="rectangle-playingtime-1 "></div>
+                                </div>
+                            </div>
+                            <div class="filter-playingtime-content">
+                                <div class="filter-playingtime-content-line">
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">3  (215)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">6  (213)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">12 (217)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">15 (230)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__line">
+                                        <div class="minutes filter-name-col-1">18 (120)</div>
+                                        <div class="filter__button-select filter-name-col-2"> 
+                                            <div class="circle-object  "></div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                                                   
+                                </div>    
+                            </div>    
+                        </div>
+                            
+                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
+                     <div class="filter-category__Suggested-Age">
+
+                         <div class="filter-title">
+                             <div class="playingtime filter-name-col-1">Suggested Age</div>
+                             <div class="filter-title__hide filter-name-col-2 ">
+                                 <div class="rectangle-playingtime-1 "></div>
+                             </div>
+                         </div>
+                             
+                         <div class="filter-age-content">
+                            <div class="age-filter">
+                             <div class="age-content">3+</div>
+                            </div>
+                            <div class="age-filter">
+                             <div class="age-content">5+</div>
+                            </div>
+                            <div class="age-filter">
+                             <div class="age-content">8+</div>
+                            </div>
+                            <div class="age-filter">
+                             <div class="age-content">12+</div>
+                            </div>
+                            <div class="age-filter">
+                             <div class="age-content">18+</div>
+                            </div>
+                         </div>
+                     </div>
+                    </div>
+                </div>
+
+                <div class=" grid__colum-10">
+                    <div class="tf-sort">
+                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
+                        <div class="tf-sort__layout">
+                            <div class="layout__grid layout__grid--btn-primary">
+                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
+                                <b class=" layout__content ">Grid</b>
+                            </div>
+                            <div class="layout__line">
+                                 <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
+                        
+                                <b class=" layout__content ">Line</b>
+                            </div>
+                            
+                        </div>
+                        <div class="filter-price">
+                            <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
+                    
+                            <b class=" layout__content "> Giá:</b>
+                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
+                            <ul class="filter-price__list">
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
+                                    
+                                </li>
+                                <li class="filter-price__list__item">
+                                    <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <!--  San pham tong/ hiện 5 hàng sản phẩm, mỗi hàng 4 sp    -->
+
+                    <div class="product-section grid__row">
+                        <!-- San pham -->
+                        <% boardgames.forEach((boardgame) => { %>
+                        <div class="product-section__item-shop col-4">
+                            <div class="item-shop__favourite">
+                                <div class="item-shop__favourite__content">
+                                    <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
+                                    <b class="item-shop__likes">99</b>
+                                </div>
+                            </div>
+                            <a href="store/<%= boardgame._id %>">
+                                <img src="<%= boardgame.image %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
+                            </a>
+                            <a href="store/<%= boardgame._id %>" class="item-shop__title-product"><%= boardgame.name %></a>
+                            <div class="item-shop__rent">
+                                <b class="item-shop__rent__title">Giá Thuê</b>
+                                <b class="item-shop__rent__cost"><%= boardgame.price %> đ</b>
+                            </div>
+                        
+                            <div class="item-shop__rent-btn">
+                                <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                            </div>
+                        </div>
+                        <% }) %>
+                      
+                        <!-- Phân trang -->
+                        <div class="pagination">
+                            <% for (let i = 1; i <= totalPages; i++) { %>
+                                <a href="/store?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                    <%= i %>
+                                </a>
+                            <% } %>
+                        </div>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+    
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs'); -%>
+</div>
+    
+<!--  Script chuyển màu button tại filter  -->
+<script>
+    //     const circleObject = document.querySelector('.circle-object');
+    
+    // circleObject.addEventListener('click', function() {
+    //   circleObject.classList.toggle('clicked');
+    // });
+    
+    
+    
+    // const buttonSelects = document.querySelectorAll('.filter__button-select');
+    
+    // buttonSelects.forEach(buttonSelect => {
+    //   const circleObject = buttonSelect.querySelector('.circle-object');
+    //   circleObject.addEventListener('click', function() {
+    //     circleObject.classList.toggle('clicked');
+    //   });
+    // });
+    
+    
+    const filterLines = document.querySelectorAll('.filter-playingtime-content-line');
+    
+    filterLines.forEach(filterLine => {
+      const circleObjects = filterLine.querySelectorAll('.circle-object');
+      circleObjects.forEach(circleObject => {
+        circleObject.addEventListener('click', function() {
+          if (circleObject.classList.contains('clicked')) {
+            return; // Không làm gì nếu circle-object đã được chọn trước đó
+          }
+          
+          const activeCircleObject = filterLine.querySelector('.circle-object.clicked');
+          if (activeCircleObject) {
+            activeCircleObject.classList.remove('clicked');
+          }
+          
+          circleObject.classList.add('clicked');
+        });
+      });
+    });
+</script>
+
+</body>
+</html>
