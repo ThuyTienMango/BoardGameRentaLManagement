@@ -10,11 +10,14 @@ class orderController {
         try{
             const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
             const boardgame = await Boardgame.findById(req.params.id);
-            const duration = req.query.duration;
-            const quantity = req.query.quantity;
+            const duration = parseInt(req.query.duration);
+            const quantity = parseInt(req.query.quantity);
             let total = 0;
-            if(duration == 7 && quantity == 1) {
-                total = 100000 + boardgame.price*quantity;
+            switch(duration) {
+                case 7: total = 100000 + quantity*boardgame.price; break;
+                case 14: total = 200000 + quantity*boardgame.price; break;
+                case 30: total = 300000 + quantity*boardgame.price; break;
+                case 60: total = 500000 + quantity*boardgame.price; break;
             }
             const formattedPrice = boardgame.price.toLocaleString('vi-VN');
             const formattedTotal = total.toLocaleString('vi-VN');

@@ -122,7 +122,7 @@ class authController {
       req.session.user = user;
 
       // Chuyển hướng đến trang cửa hàng
-      res.redirect('/store');
+      res.redirect('/');
     } catch (error) {
       console.error(error);
       res.status(500).send('An error occurred during login.');
