@@ -273,10 +273,17 @@
 
     <script>
         function placeOrder() {
-          // Gửi yêu cầu đặt hàng tới máy chủ (có thể sử dụng AJAX hoặc Fetch API)
-          // Sau khi đặt hàng thành công, hiển thị thông báo và chuyển hướng đến trang lịch sử thuê
-          alert("Đặt thuê thành công! Xem chi tiết tại lịch sử thuê.");
-          window.location.href = "/user/orderhistory";
+            const checkbox = document.getElementById('myCheckbox');
+          
+            if (checkbox.checked) {
+                // Gửi yêu cầu đặt hàng tới máy chủ (có thể sử dụng AJAX hoặc Fetch API)
+                // Sau khi đặt hàng thành công, hiển thị thông báo và chuyển hướng đến trang lịch sử thuê
+                alert("Đặt thuê thành công! Xem chi tiết tại lịch sử thuê.");
+                window.location.href = "/user/orderhistory";
+            } else {
+                // Hiển thị thông báo "Bạn chưa đồng ý với các điều khoản"
+                alert("Bạn chưa đồng ý với các điều khoản");
+            }
         }
       </script>
       
