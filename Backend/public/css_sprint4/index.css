@@ -252,7 +252,8 @@ margin-right: 5px;
 	}
 	.navigation-left__avatar__content{
 		
-		
+		display: flex;
+		flex-direction: column;
 		width: 70%;
 		margin-left: 5px;
 		height: 100%;
@@ -295,7 +296,7 @@ margin-right: 5px;
 		position: absolute;
 		left: 10%;
 		top: 0%;
-		margin-left: 20px;
+		
 	}
 	
 	
