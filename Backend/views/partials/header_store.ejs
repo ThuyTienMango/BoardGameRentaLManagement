@@ -1,6 +1,38 @@
 <header class="header">
   <div class="grid">
    <div class="grid__row">
+      <div class="header__container">
+          <a href="/" class="header__logo">
+              <img src="/assets/images/logo.jpg" alt="" class="header__logo-img">
+          </a>
+          <div class="header__search">
+              <img src="/assets/images/header__search-icon.svg" alt="" class="header__search-icon">
+              <input type="text" placeholder="Tên sản phẩm, bộ sưu tập " class="input_search">
+          </div>
+          <div class="header__nav">
+              <div class="header__nav-page">
+                  <a href="/" class="header__nav-title ">Trang Chủ
+                  </a>
+                  <a href="/store" class="header__nav-title nav-title__bold">Cửa Hàng
+                    <div class="nav-title__active"></div>
+                  </a>
+                  <a href="/user/orderhistory" class="header__nav-title">Lịch Sử Thuê
+                  </a>
+              </div>
+              <a href="/user/profile" class="header__nav-avatar">
+                  <img src="<%= user.avatarUrl %>" style="width: 40px; border-radius: 50%" alt="" class="nav-avatar__customer">
+              </a>
+          </div>
+      </div> 
+   </div>
+  </div>
+
+</header>
+
+
+<!-- <header class="header">
+  <div class="grid">
+   <div class="grid__row">
       
        <div class="header__search">
            <div class="header__search_icon">
@@ -58,4 +90,4 @@
        
   </header>
 
-
+ -->
