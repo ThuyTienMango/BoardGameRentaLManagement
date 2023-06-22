@@ -32,14 +32,13 @@
                     <div class="navigation-left cus-profile__col-3">
                         <div class="navigation-left__container">
                             <div class="navigation-left__avatar">
-                                
-                             
-                                    <img class="navigation-left__avata__img" src="<%= user.avatarUrl %>" style="width: 45px; height: 60px; border-radius: 35%" alt="">
-                                        
-                              
-
+                                <a href="/user/profile">
+                                    <img class="navigation-left__avata__img" src="<%= user.avatarUrl %>" style="width: 45px; height: 50px; border-radius: 50%" alt="">
+                                </a>
                                 <div class="navigation-left__avatar__content">
-                                    <div class="avatar__content__name"> <%= user.name %> </div>
+                                    <a href="/user/profile">
+                                        <div class="avatar__content__name"> <%= user.name %> </div>
+                                    </a>
                                     <div class="avatar__content__edit-profile">
                                           <img src="/assets/images/edit-profile__icon-edit.svg" alt="" class="edit-profile__icon-edit">                                     
                                         <span class="avatar__content__edit-profile__title"> Sửa Hồ Sơ </span>
