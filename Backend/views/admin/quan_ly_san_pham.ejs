@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>Quản lý sản phẩm</title>
+</head>
+<body>
+    <div class="app">
+        <div class="grid">
+            <div class="grid__row">
+                 <!--  start top bar -->
+                 <div class="top-bar">
+                    <div class="top-bar__logo">
+                        <a href="" class="">
+                            <img src="../../public/logo.jpg" alt="" class="top-bar__logo-img">
+                        </a>
+                    </div>
+                    <div class="top-bar__title-page">
+                        
+                        <div class="top-bar__title-page__head-1">
+                            <a href="">   Sản phẩm </a>
+                        </div>
+                        <div class="top-bar__title-page__head-2">
+                            Quản lý sản phẩm của bạn
+                        </div>
+                    </div>
+                    <div class="top-bar__profile">
+                        <div class="top-bar__profile__noti">
+                            <img src="../../public/profile__noti__icon.svg" alt="" class="profile__noti__icon">
+                        </div>
+                        <img src="../../public/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
+                        <img src="../../public/top-bar__profile__avt.svg" alt="" class="top-bar__profile__avt">
+                        <div class="top-bar__profile__detail">
+                            <div class="profile__detail__head-1">
+                                Thuỷ Tiên
+                            </div>
+                            <div class="profile__detail__head-2">
+                                Quản lý cửa hàng
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  end top bar -->
+                <!-- start side bar -->
+                <div class="side-bar col-3">
+                    <div class="side-bar__nav">
+                        <a href="" class="side-bar__nav-container background-white">
+                            <img src="../../public/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
+                            <div class="side-bar__nav-container-title text-grey">
+                                Tổng quan
+                            </div>
+                        </a>
+                        <a href="" class="side-bar__nav-container background-white">
+                            <img src="../../public/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
+                            <div class="side-bar__nav-container-title text-grey">
+                                Đơn hàng
+                            </div>
+                        </a>
+                        <a href="" class="side-bar__nav-container background-white">
+                            <img src="../../public/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
+                            <div class="side-bar__nav-container-title text-grey">
+                                Thống kê
+                            </div>
+                        </a>
+                        <a href="" class="side-bar__nav-container background-white">
+                            <img src="../../public/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                            <div class="side-bar__nav-container-title text-grey">
+                                Khách hàng
+                            </div>
+                        </a>
+                        <a href="" class="side-bar__nav-container">
+                            <img src="../../public/side-bar__icon-product-white.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                            <div class="side-bar__nav-container-title ">
+                               Sản phẩm
+                            </div>
+                        </a>
+                        <a href="" class="side-bar__logout">
+                            <img src="../../public/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
+                            <div class="side-bar__logout-title">
+                                Đăng xuất
+                            </div>
+                        </a> 
+                    </div>
+                </div>
+                <!--  end side bar -->
+
+                  <!--  start customer list  8 item  -->
+                <div class="list-oder-section col-9">
+                    <div class="list-oder__container">
+                        <div class="list-oder__sort">
+                            <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
+                            <div class="sort-title__divider"></div>
+                            </div>
+                            <div class="list-oder__sort-title" > Đang cho thuê </div>
+                            <div class="list-oder__sort-title" style=" margin-left: 15px; " > Hết hàng</div>
+                           
+                        </div>
+                        <a href="" class="btn__add-product">Thêm sản phẩm</a>
+                        <div class="list-oder__line-table"></div>
+                        <div class="list-oder__title-table">
+                            <div class="list-oder__title-table-id list-oder__col-1 ">ID</div>
+                            <div class="list-oder__title-table-product list-oder__col-3">Sản phẩm</div>
+                            <div class="list-oder__title-table-date list-oder__col-2">Ngày thêm</div>
+                            <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng</div>
+                            <div class="list-oder__title-table-cost list-oder__col-1-2">Giá thuê/ngày</div>
+                            <div class="list-oder__title-table-status list-oder__col-2">Doanh thu</div>
+                        </div>
+                        <div class="list-oder__line-table"></div>
+                        <div class="list-oder__flex-box">
+                            <!--  1 oder start -->
+                            <div class="list-oder__oder-line">
+                                <div class="list-oder__oder-info">
+                                    <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
+                                    <div class="oder-info__product list-oder__col-3">
+                                        <a href="">
+                                            <img src="../../public/it1.jpg" alt="" class="oder-info__product-img">
+                                        </a>
+                                        <div class="oder-info__product__text">
+                                            <a href="" class="product__text-title"> 
+                                                The Quest for El Dorado (2nd Edition)
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="oder-info__date list-oder__col-2">
+                                        <div class="oder-info__date-day"> 11-7-2023</div>
+                                        <div class="oder-info__date-time"> 13:00 PM</div>
+                                    </div>
+                                    <div class="oder-info__customer list-oder__col-1-1"> 70</div>
+                                    <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
+                                    <div class="oder-info__revenue list-oder__col-2">  
+                                            1.250.000
+                                    </div>
+                                    <div class="oder-info__icon">
+                                        <a href="" class="oder-info__edit">
+                                            <img src="../../public/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
+                                        </a>
+                                        <a href="" class="oder-info__delete">
+                                            <img src="../../public/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="oder-info__line-end"></div>
+    
+                            </div>
+                            <!-- oder end  -->
+
+                           
+                             
+
+                            <div class="list-oder__page-number">
+                                <div class="page-number__container">
+                                    <img src="../../public/page-number__icon-back-page.svg" alt="" class="page-number__icon-back-page">
+                                    <div class="page-number__number page--active"> 1 </div>
+                                    <div class="page-number__number"> 2 </div>
+                                    <div class="page-number__number"> 3 </div>
+                                    <div class="page-number__number"> ... </div>
+                                    <div class="page-number__number"> 10 </div>
+                                    <img src="../../public/page-number__icon-next-page.svg" alt="" class="page-number__icon-next-page">
+                                </div>
+                            </div>
+                           
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--  end customer list  -->
+
+            </div>
+        </div>
+       
+
+
+
+    </div>
+</body>
+</html>
