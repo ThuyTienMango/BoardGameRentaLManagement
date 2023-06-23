@@ -15,7 +15,7 @@ class storeController {
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = currentPage * itemsPerPage;
             const boardgamesPage = boardgames.slice(startIndex, endIndex);
-            res.render('boardgames/store', {
+            res.render('customer_website/boardgames/store', {
                 boardgames: multipleMongooseToObject(boardgamesPage),
                 currentPage,
                 totalPages: Math.ceil(boardgames.length / itemsPerPage),
@@ -34,7 +34,7 @@ class storeController {
             const user = await User.findOne({ _id: req.session.user });
             const formattedPrice = boardgame.price.toLocaleString('vi-VN');
             const randomGames = shuffle(boardgames).slice(0, 5);
-            res.render('boardgames/detail', { 
+            res.render('customer_website/boardgames/detail', { 
                 boardgame: mongooseToObject(boardgame),
                 boardgames: multipleMongooseToObject(randomGames),
                 formattedPrice,

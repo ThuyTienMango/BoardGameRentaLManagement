@@ -15,7 +15,7 @@ class userController {
         const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
 
         // Render trang profile và truyền thông tin người dùng
-        res.render('user/profile', { user: user });
+        res.render('customer_website/user/profile', { user: user });
       } else {
         // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
         res.redirect('/login');
@@ -37,7 +37,7 @@ class userController {
       const startIndex = (currentPage - 1) * itemsPerPage;
       const endIndex = currentPage * itemsPerPage;
       const ordersPage = orders.slice(startIndex, endIndex);
-      res.render('user/orderHistory',
+      res.render('customer_website/user/orderHistory',
       { 
         user: user,
         orders: ordersPage,

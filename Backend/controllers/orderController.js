@@ -42,7 +42,7 @@ class orderController {
             //     // notes
             //   });
             // await order.save();
-            res.render('boardgames/order', { 
+            res.render('customer_website/boardgames/order', { 
                 boardgame: mongooseToObject(boardgame),
                 user: user,
                 duration,
