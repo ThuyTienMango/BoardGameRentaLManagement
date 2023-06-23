@@ -500,3 +500,9 @@ border-radius: 5px;
 
 
 /*  end list oder */
+/* start fix tổng cho BE  */
+.top-bar__title-page__head-1>a{
+    color: #002144;
+    }
+
+    /* start fix tổng cho BE  */

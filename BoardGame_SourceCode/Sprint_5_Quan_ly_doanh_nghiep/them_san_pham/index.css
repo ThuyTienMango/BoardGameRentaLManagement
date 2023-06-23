@@ -369,3 +369,19 @@ cursor: pointer;
 
 
   /* end thong tin ban hang  */
+
+  /* start fix tổng cho BE  */
+.top-bar__title-page__head-1>a{
+    color: #002144;
+    }
+.form__container{
+    position: relative;
+}  
+.basic-infor__btn-save {
+    border: none;
+    position: absolute;
+    right: 0%;
+    bottom: 2%;
+    background: none;
+}
+    /* start fix tổng cho BE  */

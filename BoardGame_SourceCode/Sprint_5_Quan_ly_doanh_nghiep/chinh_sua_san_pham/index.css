@@ -12,7 +12,19 @@
 .app a{
     text-decoration: none;
 }
-
+/* start fix tổng cho BE  */
+.top-bar__title-page__head-1>a{
+    color: #002144;
+    }
+.basic-infor__btn-save {
+    border: none;
+    position: absolute;
+    right: 0%;
+    bottom: 2%;
+    background: none;
+}
+  
+    /* start fix tổng cho BE  */
 /* start top bar  */
 .top-bar{
     display: flex;
@@ -198,6 +210,9 @@ cursor: pointer;
 }
 /*  end side bar */
 /*  start thong tin co ban */
+.form__container{
+    position: relative;
+}
 .col-9{
     width: 74%;
    
@@ -400,3 +415,4 @@ cursor: pointer;
     left: 26.5%;
     cursor: pointer;
   }
+
