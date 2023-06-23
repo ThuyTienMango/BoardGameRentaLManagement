@@ -30,8 +30,12 @@
                         <div class="grid__colum-1">
                             <div class="small-img">
                                 <img src="<%= boardgame.image %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
+                                <% if (boardgame.image1) { %>
                                 <img src="<%= boardgame.image1 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% } %>
+                                <% if (boardgame.image2) { %>
                                 <img src="<%= boardgame.image2 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% } %>
                             </div>
                         </div>
                         <div class="grid__colum-6">
