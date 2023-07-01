@@ -120,16 +120,17 @@ class authController {
       // Lưu thông tin người dùng vào session
       req.session.user = user;
 
-      // Chuyển hướng đến trang cửa hàng
-      res.redirect('/');
-      // // Chuyển hướng dựa trên vai trò của người dùng
-      // if (user.role === 'admin') {
-      //   // Chuyển hướng đến trang dành cho admin
-      //   return res.redirect('/admin');
-      // } else {
-      //   // Chuyển hướng đến trang dành cho khách hàng
-      //   return res.redirect('/');
-      // }
+      // // Chuyển hướng đến trang cửa hàng
+      // res.redirect('/');
+
+      // Chuyển hướng dựa trên vai trò của người dùng
+      if (user.username === 'admin') {
+        // Chuyển hướng đến trang dành cho admin
+        return res.redirect('/admin/addboardgame');
+      } else {
+        // Chuyển hướng đến trang dành cho khách hàng
+        return res.redirect('/');
+      }
     } catch (error) {
       console.error(error);
       res.status(500).send('An error occurred during login.');
@@ -154,7 +155,7 @@ class authController {
         return res.redirect('/login');
       }
       // // Nếu người dùng đã đăng nhập, bạn có thể kiểm tra vai trò của người dùng
-      // if (req.session.user.role === 'admin') {
+      // if (req.session.user.username === 'admin') {
       //   // Nếu là admin, chuyển hướng đến trang admin
       //   return res.redirect('/admin');
       // } else {

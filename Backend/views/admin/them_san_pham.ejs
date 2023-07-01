@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="/css_sprint5/them_san_pham/global.css">
+    <link rel="stylesheet" href="/css_sprint5/them_san_pham/index.css">
     <title>Thêm sản phẩm</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
                  <div class="top-bar">
                     <div class="top-bar__logo">
                         <a href="" class="">
-                            <img src="../../public/logo.jpg" alt="" class="top-bar__logo-img">
+                            <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
                     <div class="top-bar__title-page">
@@ -29,13 +29,13 @@
                     </div>
                     <div class="top-bar__profile">
                         <div class="top-bar__profile__noti">
-                            <img src="../../public/profile__noti__icon.svg" alt="" class="profile__noti__icon">
+                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
                         </div>
-                        <img src="../../public/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
-                        <img src="../../public/top-bar__profile__avt.svg" alt="" class="top-bar__profile__avt">
+                        <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
+                        <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
                         <div class="top-bar__profile__detail">
                             <div class="profile__detail__head-1">
-                                Thuỷ Tiên
+                                <%= user.name %>
                             </div>
                             <div class="profile__detail__head-2">
                                 Quản lý cửa hàng
@@ -48,38 +48,38 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
+                        <a href="/admin" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
                             <div class="side-bar__nav-container-title text-grey">
                                 Tổng quan
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
+                        <a href="/admin/manageorder" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title text-grey">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
+                        <a href="/admin/thongke" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
                             <div class="side-bar__nav-container-title text-grey">
                                 Thống kê
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                        <a href="/admin/khachhang" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container">
-                            <img src="../../public/side-bar__icon-product-white.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                        <a href="/admin/manageboardgame" class="side-bar__nav-container">
+                            <img src="/assets/images/side-bar__icon-product-white.svg" alt="" class="side-bar__icon side-bar__icon-product">
                             <div class="side-bar__nav-container-title ">
                                Sản phẩm
                             </div>
                         </a>
-                        <a href="" class="side-bar__logout">
-                            <img src="../../public/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
+                        <a href="/logout" class="side-bar__logout">
+                            <img src="/assets/images/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
                             <div class="side-bar__logout-title">
                                 Đăng xuất
                             </div>
@@ -88,7 +88,7 @@
                 </div>
                 <!--  end side bar -->
                 <div class="col-9">
-                    <form action="" class="form__container">
+                    <form action="/admin/addboardgame" method="post" class="form__container" enctype="multipart/form-data">
                         <!--  start thong tin co ban  -->
                         <div class="section-basic-infor">
                             <div class="basic-infor__head-title">Thông tin cơ bản</div>
@@ -98,9 +98,9 @@
                             <div class="product-img__container-img">
                                 <div class="product-img__box-container"></div>
                                 <div class="product-img__box-add-img" multiple  >
-                                  <input type="file" id="file-input" accept="image/*" multiple>
+                                  <input type="file" name="image" id="file-input" accept="image/*" multiple>
                                   <label for="file-input" class="choose-file-button">
-                                    <img src="../../public/box-add-img__icon.svg" alt="" class="box-add-img__icon">
+                                    <img src="/assets/images/box-add-img__icon.svg" alt="" class="box-add-img__icon">
                                   </label>
                                 </div>
                             <div id="upload-message" class="upload-message"></div>
@@ -108,16 +108,16 @@
                             </div>
                         <div class="basic-infor__product-name">
                             <div class="product-name__title"> Tên sản phẩm </div>
-                            <input type="text" name="product_name" class="product-name__input">
+                            <input type="text" name="name" class="product-name__input">
                         </div>
                         <div class="basic-infor__product-description">
                             <div class="product-name__title"> Mô tả sản phẩm </div>
-                            <textarea name="product-description" id="" cols="30" rows="10" class="product-description__input"></textarea>
+                            <textarea name="description" id="" cols="30" rows="10" class="product-description__input"></textarea>
                         </div>
                     </div>
                       <!--  end thong tin co ban  -->
                      <!--  start thong tin ban hang  -->
-                     <div class="section-sale-infor">
+                     <!-- <div class="section-sale-infor">
                         <div class="basic-infor__head-title">Thông tin bán hàng</div>
                         <div class="basic-infor__line"></div>
                         <div class="basic-infor__product-quantity">
@@ -129,7 +129,7 @@
                             <input type="text" name="product-quantity" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                        
-                     </div>
+                     </div> -->
                      <!--  end thong tin ban hang  -->
                      <button class="basic-infor__btn-save">
                         <div class="btn-save"> Lưu & Hiển thị</div>
@@ -145,7 +145,7 @@
     </div>
 
     
-    <script src="./main.js"></script>
+    <script src="/css_sprint5/them_san_pham/main.js"></script>
 
 </body>
 </html>
