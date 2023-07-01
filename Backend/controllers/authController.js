@@ -41,7 +41,7 @@ class authController {
   //[GET] /login
   async getLoginPage(req, res, next) {
     try {
-      res.render('login');
+      res.render('login'); //render ra trang đăng nhập nằm trong path: views/login.ejs
     } catch (error) {
       next(error);
     }
@@ -50,7 +50,7 @@ class authController {
   //[GET] /register
   async getRegisterPage(req, res, next) {
     try {
-      res.render('register');
+      res.render('register'); //render ra trang đăng ký nằm trong path: views/register.ejs
     } catch (error) {
       next(error);
     }
@@ -59,12 +59,12 @@ class authController {
   //[POST] /register
   async registerUser(req, res, next) {
     try {
-      upload(req, res, async (err) => {
+      upload(req, res, async (err) => { // Phương thức sử dụng middleware upload để xử lý tải lên tệp tin (avatar)
         if (err) {
-          return res.status(400).json({ message: err.message });
+          return res.status(400).json({ message: err.message }); //Nếu có lỗi xảy ra trong quá trình tải lên, một thông báo lỗi sẽ được trả về cho client
         }
 
-        const { name, username, email, password, tel, identity, address } = req.body;
+        const { name, username, email, password, tel, identity, address } = req.body; //thông tin người dùng được lấy từ yêu cầu 
 
         // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
         if (!name || !username || !email || !password || !tel || !identity) {
@@ -79,7 +79,7 @@ class authController {
           tel,
           identity,
           address
-        });
+        });// một đối tượng User mới được tạo với thông tin người dùng và được lưu trong cơ sở dữ liệu.
 
         // Kiểm tra xem có file đã được tải lên hay không
         if (req.file) {
@@ -92,11 +92,10 @@ class authController {
       });
     } catch (error) {
       console.error(error);
-      res.status(500).send('An error occurred during registration.');
+      res.status(500).send('An error occurred during registration.'); //Nếu xảy ra bất kỳ lỗi nào trong quá trình xử lý, thông báo lỗi sẽ được ghi vào console và client sẽ nhận được một thông báo lỗi 500.
     }
   }
 
-  //[POST] /login
   //[POST] /login
   async loginUser(req, res) {
     const { username, password } = req.body;
@@ -112,17 +111,25 @@ class authController {
       }
 
       // Kiểm tra mật khẩu
-    if (password !== user.password) {
-      // Mật khẩu không khớp, chuyển hướng đến trang đăng nhập lại
-      console.log('Sai mat khau');
-      return res.redirect('/login');
-    }
+      if (password !== user.password) {
+        // Mật khẩu không khớp, chuyển hướng đến trang đăng nhập lại
+        console.log('Sai mat khau');
+        return res.redirect('/login');
+      }
 
       // Lưu thông tin người dùng vào session
       req.session.user = user;
 
       // Chuyển hướng đến trang cửa hàng
       res.redirect('/');
+      // // Chuyển hướng dựa trên vai trò của người dùng
+      // if (user.role === 'admin') {
+      //   // Chuyển hướng đến trang dành cho admin
+      //   return res.redirect('/admin');
+      // } else {
+      //   // Chuyển hướng đến trang dành cho khách hàng
+      //   return res.redirect('/');
+      // }
     } catch (error) {
       console.error(error);
       res.status(500).send('An error occurred during login.');
@@ -146,7 +153,15 @@ class authController {
       if (!req.session.user) {
         return res.redirect('/login');
       }
-      next(); // Thêm dòng này để chuyển quyền điều hướng tiếp theo
+      // // Nếu người dùng đã đăng nhập, bạn có thể kiểm tra vai trò của người dùng
+      // if (req.session.user.role === 'admin') {
+      //   // Nếu là admin, chuyển hướng đến trang admin
+      //   return res.redirect('/admin');
+      // } else {
+      //   // Nếu là khách hàng, chuyển hướng đến trang khách hàng
+      //   return res.redirect('/');
+      // }
+      next();
     } catch (error) {
       next(error);
     }

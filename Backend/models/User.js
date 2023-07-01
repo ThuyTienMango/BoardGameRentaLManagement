@@ -31,7 +31,12 @@ const userSchema = new Schema({
   },
   avatar: String,
   avatarUrl: String,
-  address: String
+  address: String,
+  // role: {
+  //   type: String,
+  //   enum: ['customer', 'admin'],
+  //   default: 'customer',
+  // },
 });
 
 module.exports = mongoose.model('User', userSchema);;
