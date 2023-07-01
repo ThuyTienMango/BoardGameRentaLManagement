@@ -126,7 +126,7 @@ class authController {
       // Chuyển hướng dựa trên vai trò của người dùng
       if (user.username === 'admin') {
         // Chuyển hướng đến trang dành cho admin
-        return res.redirect('/admin/addboardgame');
+        return res.redirect('/admin/manageboardgame');
       } else {
         // Chuyển hướng đến trang dành cho khách hàng
         return res.redirect('/');

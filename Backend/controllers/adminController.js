@@ -3,6 +3,7 @@ const User = require('../models/User');
 const Boardgame = require('../models/Boardgame');
 const mongoose = require('mongoose');
 const { mongooseToObject } = require('../util/mongoose');
+const { multipleMongooseToObject } = require('../util/mongoose');
 const multer = require('multer');
 const path = require('path');
 
@@ -101,7 +102,23 @@ class adminController {
 
   //[GET] /admin/manageboardgame
   async getManageBoardgamePage(req, res, next){
-   
+    try{
+        const boardgames = await Boardgame.find({});
+        const user = await User.findOne({ _id: req.session.user });
+        const itemsPerPage = 7; // Số sản phẩm trên mỗi trang
+        const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = currentPage * itemsPerPage;
+        const boardgamesPage = boardgames.slice(startIndex, endIndex);
+        res.render('admin/quan_ly_san_pham',{
+            user: user,
+            boardgames: multipleMongooseToObject(boardgamesPage),
+            totalPages: Math.ceil(boardgames.length / itemsPerPage),
+            currentPage,
+        })
+    } catch(error){
+        next(error);
+    }
   }
 
   //[GET] /admin/manageorder

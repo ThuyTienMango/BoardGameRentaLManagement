@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="/css_sprint5/quan_ly_san_pham/global.css">
+    <link rel="stylesheet" href="/css_sprint5/quan_ly_san_pham/index.css">
     <title>Quản lý sản phẩm</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
                  <div class="top-bar">
                     <div class="top-bar__logo">
                         <a href="" class="">
-                            <img src="../../public/logo.jpg" alt="" class="top-bar__logo-img">
+                            <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
                     <div class="top-bar__title-page">
@@ -29,13 +29,13 @@
                     </div>
                     <div class="top-bar__profile">
                         <div class="top-bar__profile__noti">
-                            <img src="../../public/profile__noti__icon.svg" alt="" class="profile__noti__icon">
+                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
                         </div>
-                        <img src="../../public/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
-                        <img src="../../public/top-bar__profile__avt.svg" alt="" class="top-bar__profile__avt">
+                        <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
+                        <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
                         <div class="top-bar__profile__detail">
                             <div class="profile__detail__head-1">
-                                Thuỷ Tiên
+                                <%= user.name %>
                             </div>
                             <div class="profile__detail__head-2">
                                 Quản lý cửa hàng
@@ -48,38 +48,38 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
+                        <a href="/admin" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
                             <div class="side-bar__nav-container-title text-grey">
                                 Tổng quan
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
+                        <a href="/admin/manageorder" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title text-grey">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
+                        <a href="/admin/thongke" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
                             <div class="side-bar__nav-container-title text-grey">
                                 Thống kê
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                        <a href="/admin/khachhang" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container">
-                            <img src="../../public/side-bar__icon-product-white.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                        <a href="/admin/manageboardgame" class="side-bar__nav-container">
+                            <img src="/assets/images/side-bar__icon-product-white.svg" alt="" class="side-bar__icon side-bar__icon-product">
                             <div class="side-bar__nav-container-title ">
                                Sản phẩm
                             </div>
                         </a>
-                        <a href="" class="side-bar__logout">
-                            <img src="../../public/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
+                        <a href="/logout" class="side-bar__logout">
+                            <img src="/assets/images/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
                             <div class="side-bar__logout-title">
                                 Đăng xuất
                             </div>
@@ -99,7 +99,7 @@
                             <div class="list-oder__sort-title" style=" margin-left: 15px; " > Hết hàng</div>
                            
                         </div>
-                        <a href="" class="btn__add-product">Thêm sản phẩm</a>
+                        <a href="/admin/addboardgame" class="btn__add-product">Thêm sản phẩm</a>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__title-table">
                             <div class="list-oder__title-table-id list-oder__col-1 ">ID</div>
@@ -112,16 +112,17 @@
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__flex-box">
                             <!--  1 oder start -->
+                            <% boardgames.forEach((boardgame) => { %>
                             <div class="list-oder__oder-line">
                                 <div class="list-oder__oder-info">
-                                    <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
+                                    <a href="" class="oder-info__id list-oder__col-1"><%= boardgame._id %></a>
                                     <div class="oder-info__product list-oder__col-3">
                                         <a href="">
-                                            <img src="../../public/it1.jpg" alt="" class="oder-info__product-img">
+                                            <img src="<%= boardgame.image %>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
                                             <a href="" class="product__text-title"> 
-                                                The Quest for El Dorado (2nd Edition)
+                                                <%= boardgame.name %>
                                             </a>
                                         </div>
                                     </div>
@@ -136,31 +137,28 @@
                                     </div>
                                     <div class="oder-info__icon">
                                         <a href="" class="oder-info__edit">
-                                            <img src="../../public/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
+                                            <img src="/assets/images/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
                                         </a>
                                         <a href="" class="oder-info__delete">
-                                            <img src="../../public/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
+                                            <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="oder-info__line-end"></div>
     
                             </div>
+                            <% }) %>
                             <!-- oder end  -->
 
                            
                              
-
-                            <div class="list-oder__page-number">
-                                <div class="page-number__container">
-                                    <img src="../../public/page-number__icon-back-page.svg" alt="" class="page-number__icon-back-page">
-                                    <div class="page-number__number page--active"> 1 </div>
-                                    <div class="page-number__number"> 2 </div>
-                                    <div class="page-number__number"> 3 </div>
-                                    <div class="page-number__number"> ... </div>
-                                    <div class="page-number__number"> 10 </div>
-                                    <img src="../../public/page-number__icon-next-page.svg" alt="" class="page-number__icon-next-page">
-                                </div>
+                            <!-- Phân trang -->
+                            <div class="pagination">
+                                <% for (let i = 1; i <= totalPages; i++) { %>
+                                    <a href="/admin/manageboardgame?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                        <%= i %>
+                                    </a>
+                                <% } %>
                             </div>
                            
 
