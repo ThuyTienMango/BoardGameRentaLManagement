@@ -98,7 +98,6 @@ class adminController {
   //[GET] /admin/editboardgame
   async getEditBoardgamePage(req, res, next){
     try{
-      const boardgames = await Boardgame.find({});
       const boardgame = await Boardgame.findById(req.params.id);
       const user = await User.findOne({ _id: req.session.user });
       res.render('admin/chinh_sua_san_pham',{
@@ -158,7 +157,8 @@ class adminController {
     
             const boardgame = new Boardgame({
               name,
-              description
+              description,
+              
             });// một đối tượng User mới được tạo với thông tin người dùng và được lưu trong cơ sở dữ liệu.
     
             // Kiểm tra xem có file đã được tải lên hay không
