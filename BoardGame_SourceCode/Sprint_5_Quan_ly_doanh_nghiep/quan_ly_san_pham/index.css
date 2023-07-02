@@ -310,12 +310,12 @@ display: flex;
 align-items: center;
 }
 .list-oder__col-1{
-    width: 10%;
+    width: 12%;
 }
 
 
 .list-oder__col-3{
-    width: 28%;
+    width: 37%;
 }
 .list-oder__title-table-date,
 .list-oder__title-table-customer,
@@ -332,11 +332,11 @@ align-items: center;
 }
 
 .list-oder__col-1-1{
-width: 14%;
+width: 16%;
 }
 
 .list-oder__col-1-2{
-    width: 12%;
+    width: 14%;
 }
 
 .list-oder__oder-line{
