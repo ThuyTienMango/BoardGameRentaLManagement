@@ -79,6 +79,30 @@ function handleImageUpload(event) {
     productDescriptionInput.contentEditable = true;
     productDescriptionInput.focus();
   }
-  
+
+   // chỉnh sửa tuổi
+   function enableEditAges() {
+    var productDescriptionInput = document.getElementById("ages");
+    productDescriptionInput.contentEditable = true;
+    productDescriptionInput.focus();
+  }
+  // chỉnh sửa người chơi tối đa
+  function enableEditPlayerMax() {
+    var productDescriptionInput = document.getElementById("playerMax");
+    productDescriptionInput.contentEditable = true;
+    productDescriptionInput.focus();
+  }
+   // chỉnh sửa người chơi tối thiểu
+   function enableEditPlayerMin() {
+    var productDescriptionInput = document.getElementById("playerMin");
+    productDescriptionInput.contentEditable = true;
+    productDescriptionInput.focus();
+  }
+  // chỉnh sửa thời gian chơi
+  function enableEditLength() {
+    var productDescriptionInput = document.getElementById("length");
+    productDescriptionInput.contentEditable = true;
+    productDescriptionInput.focus();
+  }
   
   
