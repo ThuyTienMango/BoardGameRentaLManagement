@@ -185,14 +185,13 @@ class adminController {
     try{
       const { _id, name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu 
     
-      // // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
-      // if (!_id || !name || !description || !price || !ages || !playerMin || !playerMax || !length || !quantity) {
-      //    return res.status(400).json({ message: 'Missing required fields.' });
-      // }
+      // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
+      if (!_id || !name || !description || !price || !ages || !playerMin || !playerMax || !length || !quantity) {
+         return res.status(400).json({ message: 'Missing required fields.' });
+      }
       
       // Tìm sản phẩm theo ID trong cơ sở dữ liệu
-      //const boardgame = await Boardgame.findById(_id);
-      const boardgame = await Boardgame.findById(req.params.id);
+      const boardgame = await Boardgame.findById(_id);
 
       if (!boardgame) {
         return res.status(404).json({ message: 'Boardgame not found.' });
