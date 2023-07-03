@@ -296,19 +296,28 @@ cursor: pointer;
     line-height: 24px;
     color: rgba(0, 0, 0, 0.7);
 }
+.list-oder__title-unit{
+    position: absolute;
+    top: 110px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 22px;
+}
 .list-oder__title-table-id,
 .list-oder__title-table-product{
 height: 100%;
 display: flex;
 align-items: center;
+justify-content: center;
+position: relative;
 }
 .list-oder__col-1{
-    width: 10%;
+    width: 12%;
 }
 
 
 .list-oder__col-3{
-    width: 28%;
+    width: 37%;
 }
 .list-oder__title-table-date,
 .list-oder__title-table-customer,
@@ -324,11 +333,11 @@ align-items: center;
 }
 
 .list-oder__col-1-1{
-width: 14%;
+width: 16%;
 }
 
 .list-oder__col-1-2{
-    width: 12%;
+    width: 14%;
 }
 
 .list-oder__oder-line{
@@ -340,6 +349,7 @@ width: 14%;
     align-items: center;
    
 }
+
 .oder-info__line-end{
     border: 1px solid rgba(115, 115, 115, 0.6);
     width: 90%;
@@ -440,6 +450,7 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 25px;
 }
 .oder-info__status{
     display: flex;

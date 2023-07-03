@@ -54,31 +54,108 @@ function handleImageUpload(event) {
 
   // js chỉnh sửa thông tin sản phẩm 
 
-  // chỉnh sửa tên sản phẩm 
-  function enableEditProductName() {
-    var productNameInput = document.getElementById("product-name");
-    productNameInput.contentEditable = true;
-    productNameInput.focus();
-  }
+  // // chỉnh sửa tên sản phẩm 
+  // function enableEditProductName() {
+  //   var productNameInput = document.getElementById("product-name");
+  //   productNameInput.contentEditable = true;
+  //   productNameInput.focus();
+  // }
 
-  // chỉnh sửa mô tả sp 
-  function enableEditProductDescription() {
-    var productDescriptionInput = document.getElementById("product-description");
-    productDescriptionInput.contentEditable = true;
-    productDescriptionInput.focus();
-  }
-  // chỉnh sửa số lượng sp 
-  function enableEditProductQuantity() {
-    var productDescriptionInput = document.getElementById("product-quantity");
-    productDescriptionInput.contentEditable = true;
-    productDescriptionInput.focus();
-  }
-   // chỉnh sửa giá thuê
-   function enableEditProductCost() {
-    var productDescriptionInput = document.getElementById("product-cost");
-    productDescriptionInput.contentEditable = true;
-    productDescriptionInput.focus();
-  }
+  // // chỉnh sửa mô tả sp 
+  // function enableEditProductDescription() {
+  //   var productDescriptionInput = document.getElementById("product-description");
+  //   productDescriptionInput.contentEditable = true;
+  //   productDescriptionInput.focus();
+  // }
+  // // chỉnh sửa số lượng sp 
+  // function enableEditProductQuantity() {
+  //   var productDescriptionInput = document.getElementById("product-quantity");
+  //   productDescriptionInput.contentEditable = true;
+  //   productDescriptionInput.focus();
+  // }
+  //  // chỉnh sửa giá thuê
+  //  function enableEditProductCost() {
+  //   var productDescriptionInput = document.getElementById("product-cost");
+  //   productDescriptionInput.contentEditable = true;
+  //   productDescriptionInput.focus();
+  // }
   
-  
-  
+  // chỉnh sửa tên sản phẩm 
+function enableEditProductName() {
+  var productNameInput = document.getElementById("product-name");
+  productNameInput.contentEditable = true;
+  productNameInput.focus();
+}
+
+// chỉnh sửa mô tả sp 
+function enableEditProductDescription() {
+  var productDescriptionInput = document.getElementById("product-description");
+  productDescriptionInput.contentEditable = true;
+  productDescriptionInput.focus();
+}
+
+// tạo thẻ input mới chứa nội dung cũ và cho phép sửa đổi
+function createInputField(elementId) {
+  var element = document.getElementById(elementId);
+  var content = element.innerHTML.trim();
+  element.innerHTML = '';
+  var input = document.createElement("input");
+  input.type = "text";
+  input.value = content;
+  element.appendChild(input);
+  input.focus();
+}
+
+// chỉnh sửa số lượng sp 
+function enableEditProductQuantity() {
+  createInputField("product-quantity");
+}
+
+// chỉnh sửa giá thuê
+function enableEditProductCost() {
+  createInputField("product-cost");
+}
+
+// chỉnh sửa tuổi
+function enableEditAges() {
+  createInputField("ages");
+}
+
+// chỉnh sửa người chơi tối đa
+function enableEditPlayerMax() {
+  createInputField("playerMax");
+}
+
+// chỉnh sửa người chơi tối thiểu
+function enableEditPlayerMin() {
+  createInputField("playerMin");
+}
+
+// chỉnh sửa thời gian chơi
+function enableEditLength() {
+  createInputField("length");
+}
+
+// lưu các thay đổi sau khi nhấn nút "Cập nhật"
+function saveChanges() {
+  var productNameInput = document.getElementById("product-name");
+  productNameInput.contentEditable = false;
+  var productDescriptionInput = document.getElementById("product-description");
+  productDescriptionInput.contentEditable = false;
+  var productQuantityInput = document.getElementById("product-quantity");
+  productQuantityInput.parentNode.innerHTML = productQuantityInput.value;
+  var productCostInput = document.getElementById("product-cost");
+  productCostInput.parentNode.innerHTML = productCostInput.value;
+  var agesInput = document.getElementById("ages");
+  agesInput.parentNode.innerHTML = agesInput.value;
+  var playerMaxInput = document.getElementById("playerMax");
+  playerMaxInput.parentNode.innerHTML = playerMaxInput.value;
+  var playerMinInput = document.getElementById("playerMin");
+  playerMinInput.parentNode.innerHTML = playerMinInput.value;
+  var lengthInput = document.getElementById("length");
+  lengthInput.parentNode.innerHTML = lengthInput.value;
+}
+
+// gắn sự kiện click cho nút "Cập nhật"
+var saveButton = document.querySelector(".basic-infor__btn-save");
+saveButton.addEventListener("click", saveChanges);

@@ -48,22 +48,10 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="/admin" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Tổng quan
-                            </div>
-                        </a>
                         <a href="/admin/manageorder" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title text-grey">
                                 Đơn hàng
-                            </div>
-                        </a>
-                        <a href="/admin/thongke" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Thống kê
                             </div>
                         </a>
                         <a href="/admin/khachhang" class="side-bar__nav-container background-white">
@@ -105,9 +93,13 @@
                             <div class="list-oder__title-table-id list-oder__col-1 ">ID</div>
                             <div class="list-oder__title-table-product list-oder__col-3">Sản phẩm</div>
                             <div class="list-oder__title-table-date list-oder__col-2">Ngày thêm</div>
-                            <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng</div>
-                            <div class="list-oder__title-table-cost list-oder__col-1-2">Giá thuê/ngày</div>
-                            <div class="list-oder__title-table-status list-oder__col-2">Doanh thu</div>
+                            <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng
+                                <div class="list-oder__title-unit">( Cái )</div>
+                            </div>
+                            <div class="list-oder__title-table-cost list-oder__col-1-2">Giá thuê
+                                <div class="list-oder__title-unit">( VNĐ )</div>
+                            </div>
+                            
                         </div>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__flex-box">
@@ -118,7 +110,7 @@
                                     <a href="" class="oder-info__id list-oder__col-1"><%= boardgame._id %></a>
                                     <div class="oder-info__product list-oder__col-3">
                                         <a href="">
-                                            <img src="<%= boardgame.image %>" alt="" class="oder-info__product-img">
+                                            <img src="<%= boardgame.imageUrl %>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
                                             <a href="" class="product__text-title"> 
@@ -127,14 +119,11 @@
                                         </div>
                                     </div>
                                     <div class="oder-info__date list-oder__col-2">
-                                        <div class="oder-info__date-day"> 11-7-2023</div>
-                                        <div class="oder-info__date-time"> 13:00 PM</div>
+                                        <div class="oder-info__date-day"> <%= boardgame.createdAt %> </div>
+                                        <!-- <div class="oder-info__date-time"> 13:00 PM</div> -->
                                     </div>
-                                    <div class="oder-info__customer list-oder__col-1-1"> 70</div>
-                                    <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                    <div class="oder-info__revenue list-oder__col-2">  
-                                            1.250.000
-                                    </div>
+                                    <div class="oder-info__customer list-oder__col-1-1"> <%= boardgame.quantity %> </div>
+                                    <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price %> </div>
                                     <div class="oder-info__icon">
                                         <a href="/admin/editboardgame/<%= boardgame._id %>" class="oder-info__edit">
                                             <img src="/assets/images/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">

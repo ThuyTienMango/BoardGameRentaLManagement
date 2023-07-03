@@ -86,7 +86,7 @@ class adminController {
   //[GET] /admin/addboardgame
   async getAddBoardgamePage(req, res, next){
    try{
-    const user = await User.findOne({ _id: req.session.user }); //sử dụng phương thức findOne để tìm kiếm một người dùng trong cơ sở dữ liệu dựa trên giá trị _id lấy từ session (req.session.user) (phiên người dùng hiện tại sau khi đăng nhập)
+    const user = await User.findOne({ _id: req.session.user }); //sử dụng phương thức findOne để tìm kiếm một boardgame trong cơ sở dữ liệu dựa trên giá trị _id lấy từ session (req.session.user) (phiên boardgame hiện tại sau khi đăng nhập)
     res.render('admin/them_san_pham',{
         user: user,
     })
@@ -148,18 +148,23 @@ class adminController {
               return res.status(400).json({ message: err.message }); //Nếu có lỗi xảy ra trong quá trình tải lên, một thông báo lỗi sẽ được trả về cho client
             }
     
-            const { name, description } = req.body; //thông tin người dùng được lấy từ yêu cầu 
+            const { name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu 
     
             // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
-            if (!name || !description) {
+            if (!name || !description ||  !price || !ages || !playerMin || !playerMax || !length ||!quantity) {
               return res.status(400).json({ message: 'Missing required fields.' });
             }
     
             const boardgame = new Boardgame({
               name,
               description,
-              
-            });// một đối tượng User mới được tạo với thông tin người dùng và được lưu trong cơ sở dữ liệu.
+              price,
+              ages,
+              playerMin,
+              playerMax,
+              length,
+              quantity,
+            });// một đối tượng Boardgame mới được tạo với thông tin boardgame và được lưu trong cơ sở dữ liệu.
     
             // Kiểm tra xem có file đã được tải lên hay không
             if (req.file) {
@@ -167,7 +172,7 @@ class adminController {
               boardgame.imageUrl = '/Boardgame_img/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
             }
     
-            await boardgame.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
+            await boardgame.save(); // Lưu thông tin boardgame vào cơ sở dữ liệu
             res.redirect('/admin/addboardgame');
         });
     } catch(error){
@@ -177,7 +182,37 @@ class adminController {
 
   //[POST] /admin/editboardgame
   async editBoardgame(req, res, next){
-   
+    try{
+      const { _id, name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu 
+    
+      // // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
+      // if (!_id || !name || !description || !price || !ages || !playerMin || !playerMax || !length || !quantity) {
+      //    return res.status(400).json({ message: 'Missing required fields.' });
+      // }
+      
+      // Tìm sản phẩm theo ID trong cơ sở dữ liệu
+      //const boardgame = await Boardgame.findById(_id);
+      const boardgame = await Boardgame.findById(req.params.id);
+
+      if (!boardgame) {
+        return res.status(404).json({ message: 'Boardgame not found.' });
+      }
+
+      // Cập nhật thông tin của sản phẩm
+      boardgame.name = name;
+      boardgame.description = description;
+      boardgame.price = price;
+      boardgame.ages = ages;
+      boardgame.playerMin = playerMin;
+      boardgame.playerMax = playerMax;
+      boardgame.length = length;
+      boardgame.quantity = quantity;
+    
+      await boardgame.save(); // Lưu thông tin boardgame đã chỉnh sửa vào cơ sở dữ liệu
+      res.redirect(`/admin/editboardgame/${boardgame._id}`);
+    } catch(error){
+      next(error)
+    }
   }
 
   //[POST] /admin/orderdetail
