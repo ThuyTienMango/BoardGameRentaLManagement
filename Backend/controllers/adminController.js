@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const Boardgame = require('../models/Boardgame');
+const Order = require('../models/Order');
 const mongoose = require('mongoose');
 const { mongooseToObject } = require('../util/mongoose');
 const { multipleMongooseToObject } = require('../util/mongoose');
@@ -130,17 +131,22 @@ class adminController {
     }
   }
 
-  //[GET] /admin/manageorder
-  async getManageOrderPage(req, res, next){
-   try{
-    const user = await User.findOne({ _id: req.session.user }); //sử dụng phương thức findOne để tìm kiếm một boardgame trong cơ sở dữ liệu dựa trên giá trị _id lấy từ session (req.session.user) (phiên boardgame hiện tại sau khi đăng nhập)
-    res.render('admin/quan_ly_don_hang',{
-        user: user,
-    })
-   } catch(error){
+ //[GET] /admin/manageorder
+async getManageOrderPage(req, res, next) {
+  try {
+    const user = await User.findOne({ _id: req.session.user });
+    const orders = await Order.find();
+    const users = await User.find();
+    res.render('admin/quan_ly_don_hang', {
+      user: user,
+      orders: orders,
+      users: users,
+    });
+  } catch (error) {
     next(error);
-   }
   }
+}
+
 
   //[GET] /admin/orderdetail
   async getOrderDetailPage(req, res, next){

@@ -103,145 +103,52 @@
                         <!--  list oder 8 item  -->
                         <div class="list-oder__flex-box">
                            <!--  1 oder start -->
-                           <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">64916c96b2c775a61a80ab84</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="/assets/images/it1.jpg" alt="" class="oder-info__product-img">
-                                    </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
+                           <!-- Vòng lặp để hiển thị danh sách đơn hàng -->
+                            <% orders.forEach((order) => { %>
+                                <div class="list-oder__oder-line">
+                                    <div class="list-oder__oder-info">
+                                    <a href="#" class="oder-info__id list-oder__col-1"><%= order._id %></a>
+                                    <div class="oder-info__product list-oder__col-3">
+                                        <a href="#">
+                                        <img src="<%= order.productImage %>" alt="" class="oder-info__product-img">
                                         </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
-                                    </div>
-
-                                </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--returned">
-                                         Đã trả
-                                    </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-                        <!--  1 oder start -->
-                        <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="/assets/images/it1.jpg" alt="" class="oder-info__product-img">
-                                    </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
+                                        <div class="oder-info__product__text">
+                                        <a href="#" class="product__text-title">
+                                            <%= order.productName %>
                                         </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
+                                        <div class="product__text-quantity">SL: <%= order.quantity %></div>
+                                        </div>
                                     </div>
-
-                                </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--due">
-                                        Đến hạn trả
+                                    <div class="oder-info__date list-oder__col-2">
+                                        <div class="oder-info__date-day"><%= order.createdAt %></div>
                                     </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-                         <!--  1 oder start -->
-                         <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="/assets/images/it1.jpg" alt="" class="oder-info__product-img">
+                                    <a href="#" class="oder-info__customer list-oder__col-1-1">
+                                        <% // Tìm khách hàng tương ứng với order.customerId %>
+                                        <% const customer = users.find((user) => user._id.toString() === order.customerId.toString()); %>
+                                        <%= customer ? customer.name : '' %> <% // Hiển thị tên khách hàng nếu có, nếu không hiển thị chuỗi rỗng %>
+                                    </a>                                            
+                                    <div class="oder-info__cost list-oder__col-1-2"><%= order.totalPrice %></div> 
+                                    <div class="oder-info__status list-oder__col-2">
+                                        <% let orderStatus = '';
+                                        switch(order.orderStatus) {
+                                            case 1: orderStatus = 'Chưa thanh toán'; break;
+                                            case 2: orderStatus = 'Đang thuê'; break;
+                                            case 3: orderStatus = 'Đến hạn trả'; break;
+                                            case 4: orderStatus = 'Đã trả'; break;
+                                        } %>
+                                        <div class="oder-info__status-btn status-btn--due">
+                                            <%= orderStatus %>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="oder-info__edit">
+                                        <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
                                     </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
-                                        </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
                                     </div>
-
+                                    <div class="oder-info__line-end"></div>
                                 </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--hired">
-                                         Đang thuê
-                                    </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-                        <!--  1 oder start -->
-                        <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="/assets/images/it1.jpg" alt="" class="oder-info__product-img">
-                                    </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
-                                        </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
-                                    </div>
-
-                                </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--unpaid">
-                                        Chưa thanh toán
-                                    </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
+                            <% }); %>
+                            <!-- oder end -->
+                            
 
                              
 
