@@ -67,12 +67,12 @@ class orderController {
             customerId: user._id,
             productId: boardgame._id,
             productName: boardgame.name,
-            productImage: boardgame.image,
+            productImage: boardgame.imageUrl,
             productPrice: boardgame.price,
             duration: duration,
             quantity: quantity,
             totalPrice: total,
-            // orderStatus: 'Đang chờ xử lý',
+            orderStatus: 1,
             // notes: ''
           });
           await order.save();

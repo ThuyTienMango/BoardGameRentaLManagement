@@ -132,7 +132,14 @@ class adminController {
 
   //[GET] /admin/manageorder
   async getManageOrderPage(req, res, next){
-   
+   try{
+    const user = await User.findOne({ _id: req.session.user }); //sử dụng phương thức findOne để tìm kiếm một boardgame trong cơ sở dữ liệu dựa trên giá trị _id lấy từ session (req.session.user) (phiên boardgame hiện tại sau khi đăng nhập)
+    res.render('admin/quan_ly_don_hang',{
+        user: user,
+    })
+   } catch(error){
+    next(error);
+   }
   }
 
   //[GET] /admin/orderdetail

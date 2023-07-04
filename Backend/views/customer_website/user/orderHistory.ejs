@@ -141,39 +141,20 @@
                                     <div class="info-oder__colum-1 quantity-btn__total">
                                       <%= order.totalPrice %>
                                     </div>
+                                    <% let orderStatus = '';
+                                    switch(order.orderStatus) {
+                                        case 1: orderStatus = 'Chưa thanh toán'; break;
+                                        case 2: orderStatus = 'Đang thuê'; break;
+                                        case 3: orderStatus = 'Đến hạn trả'; break;
+                                        case 4: orderStatus = 'Đã trả'; break;
+                                    } %>
                                     <div class="info-oder__colum-1 quantity-btn__status">
-                                      <%= order.status %>
+                                    <%= orderStatus %>
                                     </div>
                                   </div>
                                 </div>
                             <% }); %>
-                            <!-- <div class="info-oder__item">
-                                <div class="info-oder__card info-oder__col4 ">
-                                    <img src="/assets/images/it2.jpg" alt="" class="info-oder__card__img">
-                                    <div class="info-oder__card__title"> The Quest for El Dorado (2nd Edition) </div>
-                                    <div class="info-oder__card__quantity">  Còn lại: 20+ </div>
-                                </div>
-                            
-                                <div class="info-oder__properties info-oder__col5">
-                                    <div class=" info-oder__colum-1   quantity-btn__rental-time ">
-                                        <div class="rental-time__value quantity-btn"> 10 </div>
-                                    </div>
-                                    <div class=" info-oder__colum-1 quantity-btn__quantity ">
-                                        <div class="quantity__value quantity-btn "> 1  </div>
-                                    </div>
-                                    <div class="info-oder__colum-1 quantity-btn__cost ">
-                                        55,000
-                                    </div>
-                                    <div class="info-oder__colum-1 quantity-btn__total ">
-                                        550,000
-                                    </div>
-                                    <div class="info-oder__colum-1 quantity-btn__status ">
-                                        Chờ lấy
-                                    </div>
-                                </div>
-
-                            </div>  -->
-                
+            
                              <!-- Phân trang -->
                             <div class="pagination">
                                 <% for (let i = 1; i <= totalPages; i++) { %>

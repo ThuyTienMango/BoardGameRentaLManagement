@@ -37,8 +37,8 @@ const orderSchema = new Schema(
       required: true
     },
     orderStatus: {
-      type: String,
-    //   required: true
+      type: Number,
+      required: true
     },
     notes: {
       type: String
