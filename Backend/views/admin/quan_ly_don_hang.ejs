@@ -104,7 +104,7 @@
                         <div class="list-oder__flex-box">
                            <!--  1 oder start -->
                            <!-- Vòng lặp để hiển thị danh sách đơn hàng -->
-                            <% orders.forEach((order) => { %>
+                            <% ordersPage.forEach((order) => { %>
                                 <div class="list-oder__oder-line">
                                     <div class="list-oder__oder-info">
                                     <a href="#" class="oder-info__id list-oder__col-1"><%= order._id %></a>
@@ -150,11 +150,18 @@
                             <!-- oder end -->
                             
 
-                             
+                             <!-- Phân trang -->
+                            <div class="pagination">
+                                <% for (let i = 1; i <= totalPages; i++) { %>
+                                    <a href="/admin/manageorder?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                        <%= i %>
+                                    </a>
+                                <% } %>
+                            </div>
 
                              
 
-                            <div class="list-oder__page-number">
+                            <!-- <div class="list-oder__page-number">
                                 <div class="page-number__container">
                                     <img src="/assets/images/page-number__icon-back-page.svg" alt="" class="page-number__icon-back-page">
                                     <div class="page-number__number page--active"> 1 </div>
@@ -164,7 +171,7 @@
                                     <div class="page-number__number"> 10 </div>
                                     <img src="/assets/images/page-number__icon-next-page.svg" alt="" class="page-number__icon-next-page">
                                 </div>
-                            </div>
+                            </div> -->
                            
 
 

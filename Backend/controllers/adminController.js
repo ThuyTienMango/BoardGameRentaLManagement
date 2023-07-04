@@ -135,12 +135,19 @@ class adminController {
 async getManageOrderPage(req, res, next) {
   try {
     const user = await User.findOne({ _id: req.session.user });
-    const orders = await Order.find();
+    const orders = await Order.find().sort({ createdAt: -1 });
     const users = await User.find();
+    const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
+    const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
+    const startIndex = (currentPage - 1) * ordersPerPage;
+    const endIndex = currentPage * ordersPerPage;
+    const ordersPage = orders.slice(startIndex, endIndex);
     res.render('admin/quan_ly_don_hang', {
       user: user,
-      orders: orders,
       users: users,
+      ordersPage: multipleMongooseToObject(ordersPage),
+      totalPages: Math.ceil(orders.length / ordersPerPage),
+      currentPage,
     });
   } catch (error) {
     next(error);
