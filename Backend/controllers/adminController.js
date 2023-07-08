@@ -200,89 +200,35 @@ async getManageOrderPage(req, res, next) {
     }
   }
 
-// // JS gốc của Hoàng 
-//   //[POST] /admin/editboardgame
-//   async editBoardgame(req, res, next){
-//     try{
-//       const { _id, name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu 
-    
-//       // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
-//       if (!_id || !name || !description || !price || !ages || !playerMin || !playerMax || !length || !quantity) {
-//          return res.status(400).json({ message: 'Missing required fields.' });
-//       }
-      
-//       // Tìm sản phẩm theo ID trong cơ sở dữ liệu
-//       const boardgame = await Boardgame.findById(_id);
+  ///[POST] /admin/editboardgame/:id
+  async editBoardgame(req, res, next) {
+    try {
+      const filter = { _id : req.params.id };
+      console.log(filter);
+      console.log(req.body);
+      const update = {
+        name: req.body.name,
+        description: req.body.description,
+        ages: req.body.ages,
+        playerMax: req.body.playerMax,
+        playerMin: req.body.playerMin,
+        length: req.body.length,
+        price: req.body.price,
+        quantity: req.body.quantity
+      }
 
-//       if (!boardgame) {
-//         return res.status(404).json({ message: 'Boardgame not found.' });
-//       }
+      //console.log(update);
 
-//       // Cập nhật thông tin của sản phẩm
-//       boardgame.name = name;
-//       boardgame.description = description;
-//       boardgame.price = price;
-//       boardgame.ages = ages;
-//       boardgame.playerMin = playerMin;
-//       boardgame.playerMax = playerMax;
-//       boardgame.length = length;
-//       boardgame.quantity = quantity;
-    
-//       await boardgame.save(); // Lưu thông tin boardgame đã chỉnh sửa vào cơ sở dữ liệu
-//       res.redirect(`/admin/editboardgame/${boardgame._id}`);
-//     } catch(error){
-//       next(error)
-//     }
-//   }
-
-
-// JS Đức sửa 
-
-//[POST] /admin/editboardgame
-async editBoardgame(req, res, next) {
-  try {
-    const { _id, name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu
-
-    // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
-    if (!_id || !name || !description || !price || !ages || !playerMin || !playerMax || !length || !quantity) {
-      return res.status(400).json({ message: 'Missing required fields.' });
+      // `doc` is the document _after_ `update` was applied because of
+      // `new: true`
+      const doc = await Boardgame.findOneAndUpdate(filter, update, {
+        new: true
+      });
+      res.redirect('/admin/manageboardgame');
+    } catch (error) {
+      next(error);
     }
-
-    // Tìm sản phẩm theo ID trong cơ sở dữ liệu
-    const boardgame = await Boardgame.findById(_id);
-
-    if (!boardgame) {
-      return res.status(404).json({ message: 'Boardgame not found.' });
-    }
-
-    // Cập nhật thông tin của sản phẩm
-    boardgame.name = name;
-    boardgame.description = description;
-    boardgame.price = price;
-    boardgame.ages = ages;
-    boardgame.playerMin = playerMin;
-    boardgame.playerMax = playerMax;
-    boardgame.length = length;
-    boardgame.quantity = quantity;
-
-    await boardgame.save(); // Lưu thông tin boardgame đã chỉnh sửa vào cơ sở dữ liệu
-    res.redirect(`/admin/editboardgame/${boardgame._id}`);
-  } catch (error) {
-    next(error)
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   //[POST] /admin/orderdetail

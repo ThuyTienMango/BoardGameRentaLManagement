@@ -147,72 +147,71 @@
                         </form>
                     </div> -->
                     <div class="form__container">
-                        <form action="/admin/editboardgame" method="post" class="form__container" enctype="multipart/form-data">
-                          <div class="section-basic-infor">
-                            <div class="basic-infor__head-title">Thông tin cơ bản</div>
-                            <div class="basic-infor__line"></div>
-                            <div class="basic-infor__product-img">
-                              <div class="product-img__title">Hình ảnh sản phẩm</div>
-                              <div class="product-img__container-img">
-                                <div class="product-img__box-container">
-                                  <img src="<%= boardgame.imageUrl %>" alt="" class="container-img__item">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="basic-infor__product-name">
-                              <div class="product-name__title">Tên sản phẩm</div>
-                              <input type="text" name="name" id="product-name" value="<%= boardgame.name %>">
-                              <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-name" onclick="createInputField('product-name')">
-                            </div>
-                            <div class="basic-infor__product-description">
-                              <div class="product-name__title">Mô tả sản phẩm</div>
-                              <div class="product-description__content" id="product-description" contenteditable><%= boardgame.description %></div>
-                              <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-description" onclick="createInputField('product-description')">
-                            </div>
-                            <div class="basic-infor__more-infor">
-                              <div class="basic-infor__more-infor__col-1">
-                                <div class="basic-infor__product-cost">
-                                  <div class="product-name__title">Độ tuổi chơi +</div>
-                                  <input type="text" name="ages" id="ages" value="<%= boardgame.ages %>">
-                                  <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('ages')">
-                                </div>
-                                <div class="basic-infor__product-cost">
-                                  <div class="product-name__title">Người chơi tối đa</div>
-                                  <input type="text" name="playerMax" id="playerMax" value="<%= boardgame.playerMax %>">
-                                  <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('playerMax')">
-                                </div>
-                                <div class="basic-infor__product-cost">
-                                  <div class="product-name__title">Người chơi tối thiểu</div>
-                                  <input type="text" name="playerMin" id="playerMin" value="<%= boardgame.playerMin %>">
-                                  <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('playerMin')">
-                                </div>
-                              </div>
-                              <div class="basic-infor__more-infor__col-1">
-                                <div class="basic-infor__product-cost">
-                                  <div class="product-name__title">Thời lượng (phút)</div>
-                                  <input type="text" name="length" id="length" value="<%= boardgame.length %>">
-                                  <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('length')">
-                                </div>
-                                <div class="basic-infor__product-cost">
-                                  <div class="product-name__title">Giá thuê 7 ngày</div>
-                                  <input type="text" name="price" id="product-cost" value="<%= boardgame.price %>">
-                                  <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('product-cost')">
-                                </div>
-                                <div class="basic-infor__product-quantity">
-                                  <div class="product-name__title">Số lượng sản phẩm</div>
-                                  <input type="text" name="quantity" id="product-quantity" value="<%= boardgame.quantity %>">
-                                  <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-quantity" onclick="createInputField('product-quantity')">
-                                </div>
+                      <form action="/admin/editboardgame/<%= boardgame._id %>" method="post">
+                        <!-- <input type="hidden" name="_id" value="<%= boardgame._id %>"> -->
+                        <div class="section-basic-infor">
+                          <div class="basic-infor__head-title">Thông tin cơ bản</div>
+                          <div class="basic-infor_ _line"></div>
+                          <div class="basic-infor__product-img">
+                            <div class="product-img__title">Hình ảnh sản phẩm</div>
+                            <div class="product-img__container-img">
+                              <div class="product-img__box-container">
+                                <img src="<%= boardgame.imageUrl %>" alt="" class="container-img__item">
                               </div>
                             </div>
                           </div>
-                          <button class="basic-infor__btn-save" id="save-button">
-                            <div class="btn-save">Cập nhật</div>
-                          </button>
-                        </form>
-                      </div>
-                      
-                      
+                          <div class="basic-infor__product-name">
+                            <div class="product-name__title">Tên sản phẩm</div>
+                            <input type="text" name="name" id="product-name" value="<%= boardgame.name %>">
+                            <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-name" onclick="createInputField('product-name')"> -->
+                          </div>
+                          <div class="basic-infor__product-description">
+                            <div class="product-name__title">Mô tả sản phẩm</div>
+                            <textarea name="description" id="product-description"><%= boardgame.description %></textarea>
+                            <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-description" onclick="createInputField('product-description')"> -->
+                          </div>
+                          <div class="basic-infor__more-infor">
+                            <div class="basic-infor__more-infor__col-1">
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Độ tuổi chơi +</div>
+                                <input type="text" name="ages" id="ages" value="<%= boardgame.ages %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('ages')"> -->
+                              </div>
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Người chơi tối đa</div>
+                                <input type="text" name="playerMax" id="playerMax" value="<%= boardgame.playerMax %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('playerMax')"> -->
+                              </div>
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Người chơi tối thiểu</div>
+                                <input type="text" name="playerMin" id="playerMin" value="<%= boardgame.playerMin %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('playerMin')"> -->
+                              </div>
+                            </div>
+                            <div class="basic-infor__more-infor__col-1">
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Thời lượng (phút)</div>
+                                <input type="text" name="length" id="length" value="<%= boardgame.length %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('length')"> -->
+                              </div>
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Giá thuê 7 ngày</div>
+                                <input type="text" name="price" id="product-cost" value="<%= boardgame.price %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('product-cost')"> -->
+                              </div>
+                              <div class="basic-infor__product-quantity">
+                                <div class="product-name__title">Số lượng sản phẩm</div>
+                                <input type="text" name="quantity" id="product-quantity" value="<%= boardgame.quantity %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-quantity" onclick="createInputField('product-quantity')"> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="basic-infor__btn-save" id="save-button">
+                          <div class="btn-save">Cập nhật</div>
+                        </button> 
+                      </form>
+                    </div>
                 </div>
              <!--  Start them thong tin san pham -->
             </div>
