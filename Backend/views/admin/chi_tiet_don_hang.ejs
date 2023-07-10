@@ -94,10 +94,11 @@
                                 <!--  start 1 oder  -->
                                 <div class="section-product-info__detail-oder">
                                     <a href="">
-                                        <img src="<%= order.productImage %>" alt="" class="product-info__detail-oder-img">
+                                        <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
+                                        <img src="<%= game.imageUrl %>" alt="" class="product-info__detail-oder-img">
                                     </a>
                                     <div class="product-info__detail-oder-title">
-                                        <a href="" class="detail-oder-title__head"> <%= order.productName %></a>
+                                        <a href="" class="detail-oder-title__head"> <%= game.name %> </a>
                                         <div class="detail-oder-title__rental-time">
                                             Ngày Thuê: 
                                             <div class="oder-title__rental-time"> <%= order.duration %> </div>

@@ -103,6 +103,7 @@ async getManageOrderPage(req, res, next) {
   try {
     const user = await User.findOne({ _id: req.session.user });
     const orders = await Order.find().sort({ createdAt: -1 });
+    const boardgames = await Boardgame.find();
     const users = await User.find();
     //const formattedTotalPrice = orders.totalPrice.toLocaleString('vi-VN');
     const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
@@ -116,6 +117,7 @@ async getManageOrderPage(req, res, next) {
       ordersPage: multipleMongooseToObject(ordersPage),
       totalPages: Math.ceil(orders.length / ordersPerPage),
       currentPage,
+      boardgames: boardgames,
     });
   } catch (error) {
     next(error);
@@ -127,12 +129,14 @@ async getManageOrderPage(req, res, next) {
     try {
       const user = await User.findOne({ _id: req.session.user });
       const order = await Order.findById(req.params.id);
+      const boardgames = await Boardgame.find();
       const users = await User.find();
       await order.save();
       res.render('admin/chi_tiet_don_hang',{
         user: user,
         users: users,
         order: order,
+        boardgames: boardgames,
       })
     } catch(error){
       next(error);

@@ -109,12 +109,13 @@
                                     <div class="list-oder__oder-info">
                                     <a href="#" class="oder-info__id list-oder__col-1"><%= order._id %></a>
                                     <div class="oder-info__product list-oder__col-3">
+                                        <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
                                         <a href="#">
-                                        <img src="<%= order.productImage %>" alt="" class="oder-info__product-img">
+                                        <img src="<%= game.imageUrl %>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
                                         <a href="#" class="product__text-title">
-                                            <%= order.productName %>
+                                            <%= game.name %>
                                         </a>
                                         <div class="product__text-quantity">SL: <%= order.quantity %></div>
                                         </div>
