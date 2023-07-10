@@ -120,10 +120,9 @@
                                     </div>
                                     <div class="oder-info__date list-oder__col-2">
                                         <div class="oder-info__date-day"> <%= boardgame.createdAt %> </div>
-                                        <!-- <div class="oder-info__date-time"> 13:00 PM</div> -->
                                     </div>
                                     <div class="oder-info__customer list-oder__col-1-1"> <%= boardgame.quantity %> </div>
-                                    <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price %> </div>
+                                    <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price.toLocaleString('vi-VN') %> </div>
                                     <div class="oder-info__icon">
                                         <a href="/admin/editboardgame/<%= boardgame._id %>" class="oder-info__edit">
                                             <img src="/assets/images/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
@@ -149,21 +148,12 @@
                                     </a>
                                 <% } %>
                             </div>
-                           
-
                         </div>
-
-
                     </div>
                 </div>
                 <!--  end customer list  -->
-
             </div>
         </div>
-       
-
-
-
     </div>
 </body>
 </html>

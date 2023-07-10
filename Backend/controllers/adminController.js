@@ -39,39 +39,6 @@ const upload = multer({
     }
   }
 }).single('image'); // Tên trường trong form chứa file boardgame_img
-
-// // Thiết lập storage engine cho multer
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, 'public/Boardgame_img/'); // Đường dẫn thư mục lưu trữ file
-//     },
-//     filename: function (req, file, cb) {
-//       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-//       const extname = path.extname(file.originalname);
-//       cb(null, uniqueSuffix + extname); // Tên file được lưu trữ
-//     }
-//   });
-  
-//   // Tạo middleware upload
-//   const upload = multer({
-//     storage: storage,
-//     limits: {
-//       fileSize: 1024 * 1024 * 5 // Giới hạn kích thước file (ở đây là 5MB)
-//     },
-//     fileFilter: function (req, file, cb) {
-//       // Kiểm tra loại file
-//       if (
-//         file.mimetype === 'image/jpeg' ||
-//         file.mimetype === 'image/jpg' ||
-//         file.mimetype === 'image/png'
-//       ) {
-//         cb(null, true);
-//       } else {
-//         cb(new Error('Only JPEG, JPG, and PNG file formats are allowed.'));
-//       }
-//     }
-//   }).array('boardgame_img', 5); // Tên trường trong form chứa file boardgame_img, cho phép tải lên tối đa 5 ảnh
-  
   
 
 class adminController {
@@ -137,6 +104,7 @@ async getManageOrderPage(req, res, next) {
     const user = await User.findOne({ _id: req.session.user });
     const orders = await Order.find().sort({ createdAt: -1 });
     const users = await User.find();
+    //const formattedTotalPrice = orders.totalPrice.toLocaleString('vi-VN');
     const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
     const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
     const startIndex = (currentPage - 1) * ordersPerPage;
@@ -154,10 +122,21 @@ async getManageOrderPage(req, res, next) {
   }
 }
 
-
   //[GET] /admin/orderdetail
   async getOrderDetailPage(req, res, next){
-   
+    try {
+      const user = await User.findOne({ _id: req.session.user });
+      const order = await Order.findById(req.params.id);
+      const users = await User.find();
+      await order.save();
+      res.render('admin/chi_tiet_don_hang',{
+        user: user,
+        users: users,
+        order: order,
+      })
+    } catch(error){
+      next(error);
+    }
   }
 
   //[POST] /admin/addboardgame
@@ -200,40 +179,70 @@ async getManageOrderPage(req, res, next) {
     }
   }
 
-  ///[POST] /admin/editboardgame/:id
-  async editBoardgame(req, res, next) {
+    //[POST] /admin/editboardgame/:id
+    async editBoardgame(req, res, next) {
+      try {
+        const filter = { _id : req.params.id };
+        const update = {
+          name: req.body.name,
+          description: req.body.description,
+          ages: req.body.ages,
+          playerMax: req.body.playerMax,
+          playerMin: req.body.playerMin,
+          length: req.body.length,
+          price: req.body.price,
+          quantity: req.body.quantity
+        }
+
+        await Boardgame.findOneAndUpdate(filter, update, {
+          new: true
+        });
+        res.redirect('/admin/manageboardgame');
+      } catch (error) {
+        next(error);
+      }
+    }
+
+
+   //[POST] /admin/orderdetail
+   async editOrder(req, res, next) {
     try {
       const filter = { _id : req.params.id };
-      console.log(filter);
-      console.log(req.body);
       const update = {
-        name: req.body.name,
-        description: req.body.description,
-        ages: req.body.ages,
-        playerMax: req.body.playerMax,
-        playerMin: req.body.playerMin,
-        length: req.body.length,
-        price: req.body.price,
-        quantity: req.body.quantity
-      }
+        orderStatus: parseInt(req.body.orderStatus),
+      };
 
-      //console.log(update);
-
-      // `doc` is the document _after_ `update` was applied because of
-      // `new: true`
-      const doc = await Boardgame.findOneAndUpdate(filter, update, {
+      await Order.findOneAndUpdate(filter, update, {
         new: true
       });
-      res.redirect('/admin/manageboardgame');
+
+      const order = await Order.findById(filter);
+      switch(order.orderStatus) {
+          // case 1:
+          //   order.progressTime.created = order.createdAt;
+          //   order.progressTime.confirmed = order.createdAt;
+          //   await order.save();
+          //   break;
+          case 2:
+            order.progressTime.payment = new Date();
+            await order.save();
+            break;
+          case 3:
+            order.progressTime.due = new Date();
+            await order.save();
+            break;
+          case 4:
+            order.progressTime.completed = new Date();
+            await order.save();
+            break;
+          default:
+            await order.save();
+            break;
+      }
+      res.redirect('/admin/manageorder');
     } catch (error) {
       next(error);
     }
-  }
-
-
-  //[POST] /admin/orderdetail
-  async editOrder(req, res, next){
-   
   }
 }
 

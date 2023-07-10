@@ -127,7 +127,7 @@
                                         <% const customer = users.find((user) => user._id.toString() === order.customerId.toString()); %>
                                         <%= customer ? customer.name : '' %> <% // Hiển thị tên khách hàng nếu có, nếu không hiển thị chuỗi rỗng %>
                                     </a>                                            
-                                    <div class="oder-info__cost list-oder__col-1-2"><%= order.totalPrice %></div> 
+                                    <div class="oder-info__cost list-oder__col-1-2"><%= order.totalPrice.toLocaleString('vi-VN') %></div> 
                                     <div class="oder-info__status list-oder__col-2">
                                         <% let orderStatus = '';
                                         switch(order.orderStatus) {
@@ -140,7 +140,7 @@
                                             <%= orderStatus %>
                                         </div>
                                     </div>
-                                    <a href="#" class="oder-info__edit">
+                                    <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
                                         <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
                                     </a>
                                     </div>
@@ -158,34 +158,11 @@
                                     </a>
                                 <% } %>
                             </div>
-
-                             
-
-                            <!-- <div class="list-oder__page-number">
-                                <div class="page-number__container">
-                                    <img src="/assets/images/page-number__icon-back-page.svg" alt="" class="page-number__icon-back-page">
-                                    <div class="page-number__number page--active"> 1 </div>
-                                    <div class="page-number__number"> 2 </div>
-                                    <div class="page-number__number"> 3 </div>
-                                    <div class="page-number__number"> ... </div>
-                                    <div class="page-number__number"> 10 </div>
-                                    <img src="/assets/images/page-number__icon-next-page.svg" alt="" class="page-number__icon-next-page">
-                                </div>
-                            </div> -->
-                           
-
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-       
-
-
-
     </div>
 </body>
 </html>

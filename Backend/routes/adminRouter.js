@@ -8,10 +8,10 @@ router.get('/addboardgame', authController.checkLogin, adminController.getAddBoa
 router.get('/editboardgame/:id', adminController.getEditBoardgamePage);
 router.get('/manageboardgame', adminController.getManageBoardgamePage);
 router.get('/manageorder', adminController.getManageOrderPage);
-router.get('/orderdetail', adminController.getOrderDetailPage);
+router.get('/orderdetail/:id', adminController.getOrderDetailPage);
 router.post('/addboardgame', adminController.addBoardgame);
 router.post('/editboardgame/:id', adminController.editBoardgame);
-router.post('/orderdetail', adminController.editOrder);
+router.post('/orderdetail/:id', adminController.editOrder);
 //router.get('/', adminController.index);
 
 module.exports = router;

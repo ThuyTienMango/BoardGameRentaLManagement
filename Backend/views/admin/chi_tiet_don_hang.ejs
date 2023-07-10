@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="/css_sprint5/chi_tiet_don_hang/global.css">
+    <link rel="stylesheet" href="/css_sprint5/chi_tiet_don_hang/index.css">
     <title>Chi tiết đơn hàng </title>
 </head>
 <body>
@@ -15,7 +15,7 @@
                 <div class="top-bar">
                     <div class="top-bar__logo">
                         <a href="" class="">
-                            <img src="../../public/logo.jpg" alt="" class="top-bar__logo-img">
+                            <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
                     <div class="top-bar__title-page">
@@ -32,13 +32,13 @@
                     </div>
                     <div class="top-bar__profile">
                         <div class="top-bar__profile__noti">
-                            <img src="../../public/profile__noti__icon.svg" alt="" class="profile__noti__icon">
+                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
                         </div>
-                        <img src="../../public/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
-                        <img src="../../public/top-bar__profile__avt.svg" alt="" class="top-bar__profile__avt">
+                        <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
+                        <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
                         <div class="top-bar__profile__detail">
                             <div class="profile__detail__head-1">
-                                Thuỷ Tiên
+                                <%= user.name %>
                             </div>
                             <div class="profile__detail__head-2">
                                 Quản lý cửa hàng
@@ -52,38 +52,26 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Tổng quan
-                            </div>
-                        </a>
-                        <a href="" class="side-bar__nav-container">
-                            <img src="../../public/side-bar__icon-oder-white.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
+                        <a href="/admin/manageorder" class="side-bar__nav-container">
+                            <img src="/assets/images/side-bar__icon-oder-white.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title ">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Thống kê
-                            </div>
-                        </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                        <a href="/admin/khachhang" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-product.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                        <a href="/admin/manageboardgame" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-product.svg" alt="" class="side-bar__icon side-bar__icon-product">
                             <div class="side-bar__nav-container-title text-grey">
                                Sản phẩm
                             </div>
                         </a>
-                        <a href="" class="side-bar__logout">
-                            <img src="../../public/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
+                        <a href="/logout" class="side-bar__logout">
+                            <img src="/assets/images/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
                             <div class="side-bar__logout-title">
                                 Đăng xuất
                             </div>
@@ -91,6 +79,7 @@
                     </div>
                 </div>
                 <!--  end side bar -->
+
                 <div class="oder-col-5">
 
                     <!-- start thong tin san pham  -->
@@ -105,23 +94,23 @@
                                 <!--  start 1 oder  -->
                                 <div class="section-product-info__detail-oder">
                                     <a href="">
-                                        <img src="../../public/it3.jpg" alt="" class="product-info__detail-oder-img">
+                                        <img src="<%= order.productImage %>" alt="" class="product-info__detail-oder-img">
                                     </a>
                                     <div class="product-info__detail-oder-title">
-                                        <a href="" class="detail-oder-title__head"> The Quest for El Dorado (2nd Edition)</a>
+                                        <a href="" class="detail-oder-title__head"> <%= order.productName %></a>
                                         <div class="detail-oder-title__rental-time">
                                             Ngày Thuê: 
-                                            <div class="oder-title__rental-time"> 7 </div>
+                                            <div class="oder-title__rental-time"> <%= order.duration %> </div>
                                         </div>
                                     </div>
                                     <div class="product-info__detail-oder__cost">
                                         <div class="detail-oder__cost-title"> 
-                                            70.000
+                                            
                                             <div class="detail-oder__cost-title-unit"> VND</div>
                                         </div>
                                         <div class="detail-oder__cost-title-quantity"> 
                                             SL:
-                                            <div class="cost-title-quantity-1"> 1 </div>
+                                            <div class="cost-title-quantity-1"> <%= order.quantity %> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +128,7 @@
                         <div class="section-pay__line-info">
                             <div class="section-pay__line-info__title"> Tiền hàng </div>
                             <div class="section-pay__line-info__cost">
-                                1.250.000
+                                <%= order.totalPrice.toLocaleString('vi-VN') %> 
                                 <div class="line-info__cost-init"> VND </div>
                             </div>
                         </div> 
@@ -161,7 +150,7 @@
                         <div class="section-pay__line-info">
                             <div class="section-pay__line-info__title cost-total"> Tổng thanh toán: </div>
                             <div class="section-pay__line-info__cost cost-total">
-                               1.250.000
+                                <%= order.totalPrice.toLocaleString('vi-VN') %> 
                                 <div class="line-info__cost-init"> VND </div>
                             </div>
                         </div> 
@@ -173,33 +162,42 @@
                     <div class="section-customer-infor ">
                         <div class="customer-infor__basic">
                             <div class="customer-infor__basic-text">
-                                <a href="" class="customer-infor__basic-name">Thuỳ Trang Nguyễn</a>
+                                <a href="" class="customer-infor__basic-name">
+                                    <% const customer = users.find((user) => user._id.toString() === order.customerId.toString()); %>
+                                    <%= customer ? customer.name : '' %> <% // Hiển thị tên khách hàng nếu có, nếu không hiển thị chuỗi rỗng %>
+                                </a>
                                 <div class="customer-infor__basic-join"> 
                                     Tham gia ngày 
-                                    <div class="basic-join__date"> 3-6-2023</div>
-                                </div>
-                                <a href="" class="customer-infor__id">  #KH1231243 </a>
+                                    <div class="basic-join__date"> 
+                                      <%= customer ? customer.createdAt.getDate() + '-' + (customer.createdAt.getMonth() + 1) + '-' + customer.createdAt.getFullYear() : '' %>
+                                    </div>
+                                  </div>                                  
+                                <a href="" class="customer-infor__id"> <%= order.customerId %> </a>
                             </div>
                             <a href="">
-                                <img src="../../public/customer-avt.jpg" alt="" class="customer-infor__basic-avt">
+                                <img src="<%= customer.avatarUrl %>" alt="" class="customer-infor__basic-avt">
                             </a>
                         </div>
                         <div class="customer-infor__contact">
                             <a href="" class="">
-                                <img src="../../public/contact-icon-email.svg" alt="" class="contact-icon">
+                                <img src="/assets/images/contact-icon-email.svg" alt="" class="contact-icon">
                             </a>
                             <div class="customer-infor__contact-text">
                                 <div class="customer-infor__contact-title"> Email</div>
-                                <a href="" class="customer-infor__contact-content">21520193@gm.uit.edu.com</a>
+                                <a href="" class="customer-infor__contact-content">
+                                    <%= customer ? customer.email : '' %>
+                                </a>
                             </div>
                         </div>
                         <div class="customer-infor__contact">
                             <a href="">
-                                <img src="../../public/contact-icon-tell.svg" alt="" class="contact-icon">
+                                <img src="/assets/images/contact-icon-tell.svg" alt="" class="contact-icon">
                             </a>
                             <div class="customer-infor__contact-text">
                                 <div class="customer-infor__contact-title"> Điện Thoại </div>
-                                <a href="" class="customer-infor__contact-content"> 0838763146</a>
+                                <a href="" class="customer-infor__contact-content"> 
+                                    <%= customer ? customer.tel : '' %>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -211,122 +209,148 @@
                             <div class="order-journey__box-title-sub-head"> Quản lý hành trình đơn hàng  </div>
                         </div>
                         <div class="order-journey__list">
+
                             <div class="order-journey__list-line">
-                                <img src="../../public/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
-                                <div class="order-journey__text">
-                                    <div class="order-journey__text-head"> Khách hàng tạo đơn đặt thuê board game</div>
-                                    <div class="order-journey__text-date"> 11:00 AM 12-6-2023  </div>
-                                </div>
+                                <% if(order.orderStatus == 1 || order.orderStatus == 2 || order.orderStatus == 3 || order.orderStatus == 4) { %>
+                                    <img src="/assets/images/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Khách hàng tạo đơn đặt thuê board game </div>
+                                        <div class="order-journey__text-date"> <%= order.createdAt %>  </div>
+                                    </div>
+                                <%} else {%>
+                                    <img src="/assets/images/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Khách hàng tạo đơn đặt thuê board game </div>
+                                        <div class="order-journey__text-date">  </div>
+                                    </div>
+                                <% } %>
                             </div>
 
                             <div class="order-journey__list-line">
-                                <img src="../../public/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
-                                <div class="order-journey__text">
-                                    <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê qua email</div>
-                                    <div class="order-journey__text-date"> 11:03 AM 12-6-2023  </div>
-                                </div>
+                                <% if(order.orderStatus == 1 || order.orderStatus == 2 || order.orderStatus == 3 || order.orderStatus == 4) { %>
+                                    <img src="/assets/images/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê qua email</div>
+                                        <div class="order-journey__text-date"> <%= order.createdAt %>  </div>
+                                    </div>
+                                <%} else {%>
+                                    <img src="/assets/images/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê qua email</div>
+                                        <div class="order-journey__text-date">   </div>
+                                    </div>
+                                <% } %>
                             </div>
 
                             <div class="order-journey__list-line">
-                                <img src="../../public/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-unfinished ">
-                                <div class="order-journey__text">
-                                    <div class="order-journey__text-head"> Đến cửa hàng thanh toán và nhận board game </div>
-                                    <div class="order-journey__text-date"> 11:03 AM 13-6-2023  </div>
-                                </div>
+                                <% if(order.orderStatus == 2 || order.orderStatus == 3 || order.orderStatus == 4) { %>
+                                    <img src="/assets/images/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Đến cửa hàng thanh toán và nhận board game </div>
+                                        <div class="order-journey__text-date"> <%= order.progressTime.payment %>  </div>
+                                    </div>
+                                <%} else {%>
+                                    <img src="/assets/images/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Đến cửa hàng thanh toán và nhận board game </div>
+                                        <div class="order-journey__text-date">  </div>
+                                    </div>
+                                <% } %>
                             </div>
 
                             <div class="order-journey__list-line">
-                                <img src="../../public/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-unfinished ">
-                                <div class="order-journey__text">
-                                    <div class="order-journey__text-head"> Đến hẹn trả board game </div>
-                                    <div class="order-journey__text-date"> 11:03 AM 20-6-2023  </div>
-                                </div>
+                                <% if(order.orderStatus == 3 || order.orderStatus == 4) { %>
+                                    <img src="/assets/images/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Đến hẹn trả board game </div>
+                                        <div class="order-journey__text-date"> <%= order.progressTime.due %>  </div>
+                                    </div>
+                                <%} else {%>
+                                    <img src="/assets/images/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Đến hẹn trả board game </div>
+                                        <div class="order-journey__text-date">  </div>
+                                    </div>
+                                <% } %>
                             </div>
 
                             <div class="order-journey__list-line">
-                                <img src="../../public/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-unfinished ">
-                                <div class="order-journey__text">
-                                    <div class="order-journey__text-head"> Đã trả board game - hoàn thành đơn hàng </div>
-                                    <div class="order-journey__text-date"> 17:00 AM 20-6-2023  </div>
-                                </div>
+                                <% if(order.orderStatus == 4) { %>
+                                    <img src="/assets/images/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Đã trả board game - hoàn thành đơn hàng </div>
+                                        <div class="order-journey__text-date"> <%= order.progressTime.completed %>  </div>
+                                    </div>
+                                <%} else {%>
+                                    <img src="/assets/images/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-done ">
+                                    <div class="order-journey__text">
+                                        <div class="order-journey__text-head"> Đã trả board game - hoàn thành đơn hàng </div>
+                                        <div class="order-journey__text-date">  </div>
+                                    </div>
+                                <% } %>
                             </div>
                         </div>
-                        <form action="" class="form__status-oder">
+                        <form action="/admin/orderdetail/<%= order._id %>" method="post" class="form__status-oder">
                             <div class="order-journey__status">
-                                <div class="order-journey__status-title"> Trạng thái </div>
-                                  <div class="custom-select">
-                                    <div value="0" class="select-selected  ">Chọn trạng thái</div>
-                                    <div class="select-items">
-                                      <div value="1"   class="journey__status__unpaid"> Đợi thanh toán</div>
-                                      <div value="2"  class="journey__status__renting">Đang thuê</div>
-                                      <div value="3"  class="journey__status__due">Đến hạn trả</div>
-                                      <div value="4"  class="journey__status__done">Đã trả</div>
-                                    </div>
-                                  </div>
+                              <div class="order-journey__status-title"> Trạng thái </div>
+                              <div class="custom-select">
+                                <select name="orderStatus" class="select-selected">
+                                  <option value="0">Chọn trạng thái</option>
+                                  <option value="1" class="journey__status__unpaid">Chưa thanh toán</option>
+                                  <option value="2" class="journey__status__renting">Đang thuê</option>
+                                  <option value="3" class="journey__status__due">Đến hạn trả</option>
+                                  <option value="4" class="journey__status__done">Đã trả</option>
+                                </select>
+                              </div>
                             </div>
-                            <button class="order-journey__btn-save">
-                                Lưu thay đổi
-                            </button>
-                        </form>
-                    
-
-
-
-
+                            <button type="submit" class="order-journey__btn-save">Lưu thay đổi</button>
+                        </form>                          
                     <!-- end tien trinh don hang -->
                 </div>
-
-             
-  
-
             </div>
         </div>
-       
-
-
-
     </div>
 
     <script>
-// Chuyển option trạng thái. 
-var select = document.querySelector('.custom-select');
-var selected = select.querySelector('.select-selected');
-var items = select.querySelector('.select-items');
-var options = select.querySelectorAll('.select-items div');
+        // Chuyển option trạng thái. 
+        var select = document.querySelector('.custom-select');
+        var selected = select.querySelector('.select-selected');
+        var items = select.querySelector('.select-items');
+        var options = select.querySelectorAll('.select-items div');
 
-selected.addEventListener('click', function() {
-  items.style.display = 'block';
-});
+        selected.addEventListener('click', function() {
+        items.style.display = 'block';
+        });
 
-options.forEach(function(option) {
-  option.addEventListener('click', function() {
-    if (!option.classList.contains('selected')) {
-      selected.textContent = option.textContent;
-      selected.setAttribute('value', option.getAttribute('value'));
-      items.style.display = 'none';
-      options.forEach(function(item) {
-        item.classList.remove('selected');
-      });
-      option.classList.add('selected');
-      selected.setAttribute('class', 'select-selected ' + option.getAttribute('class'));
-    } else {
-      items.style.display = 'none';
-    }
-  });
-});
+        options.forEach(function(option) {
+        option.addEventListener('click', function() {
+            if (!option.classList.contains('selected')) {
+            selected.textContent = option.textContent;
+            selected.setAttribute('value', option.getAttribute('value'));
+            items.style.display = 'none';
+            options.forEach(function(item) {
+                item.classList.remove('selected');
+            });
+            option.classList.add('selected');
+            selected.setAttribute('class', 'select-selected ' + option.getAttribute('class'));
+            } else {
+            items.style.display = 'none';
+            }
+        });
+        });
 
-document.addEventListener('click', function(event) {
-  if (!select.contains(event.target)) {
-    items.style.display = 'none';
-  }
-});
+        document.addEventListener('click', function(event) {
+        if (!select.contains(event.target)) {
+            items.style.display = 'none';
+        }
+        });
 
-// Ẩn các select-item có value giống với select-selected
-options.forEach(function(option) {
-  if (option.getAttribute('value') === selected.getAttribute('value')) {
-    option.style.display = 'none';
-  }
-});
+        // Ẩn các select-item có value giống với select-selected
+        options.forEach(function(option) {
+        if (option.getAttribute('value') === selected.getAttribute('value')) {
+            option.style.display = 'none';
+        }
+        });
     </script>
 </body>
 </html>
