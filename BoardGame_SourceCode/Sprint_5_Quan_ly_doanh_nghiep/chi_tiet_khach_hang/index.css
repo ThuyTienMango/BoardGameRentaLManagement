@@ -1,0 +1,391 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F0F4F5;
+    width: 100%;
+    min-height: 950px;
+    overflow: hidden;
+    font-family: var(--font-helvetica);
+}
+
+.app a{
+    text-decoration: none;
+}
+
+/* start top bar  */
+.top-bar{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background: #FFFFFF;
+border-radius: 20px;
+width: 1140px;
+height: 96px;
+}
+.top-bar__logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25%;
+    cursor: pointer;
+}
+.top-bar__logo-img{
+    width: 203px;   
+    height: 53px;
+}
+.top-bar__title-page{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: 'Helvetica';
+    font-style: normal;
+    height: 100%;
+    width: 50%;
+}
+.top-bar__title-page__head-1{
+    margin-top: 20px;
+    width: 100%;
+    height: 31px;
+    display: flex;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    color: #002144;
+}
+.top-bar__title-page__head-2{
+    margin-bottom: 10px;
+    height: 22px;
+    width: 100%;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+
+    color: #718096;
+}
+.top-bar__profile{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}
+.profile__noti__icon{
+    cursor: pointer;
+    margin: 0px 5px 0px 5px ;
+}
+.top-bar__profile__divider{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.top-bar__profile__avt{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.top-bar__profile__detail{
+    
+   margin:5px 5px 0px 5px ;
+    height: 48px;
+    font-family: 'Helvetica';
+font-style: normal;
+}
+.profile__detail__head-1{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #002144;
+}
+.profile__detail__head-2{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 160%;
+    color: #718096;
+}
+
+/* end top bar */
+
+/*  start side bar  */
+ 
+.col-3{
+    width: 25%;
+}
+.side-bar{
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #002144;
+    border-radius: 20px;
+    width: 251px;
+    height: 800px;
+    padding-top: 10px;
+
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+.side-bar__nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.side-bar__nav-container{
+    width: 216px;
+    height: 56px;
+    background: #001D41;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+.side-bar__icon{
+    margin-left: 10%;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.side-bar__nav-container-title{
+    font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+color: #FFFFFF;
+margin-left: 10px;
+cursor: pointer;
+}
+.background-white{
+    background: #FFFFFF;
+}
+.text-grey{
+    color: #797D8C;
+}
+.side-bar__logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background: #002144;
+    border: 1px solid #002144;
+    border-radius: 0px 0px 20px 20px;
+    height: 48px;
+}
+.side-bar__logout__icon{
+   margin-right: 5px;
+   cursor: pointer;
+}
+.side-bar__logout-title{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+/*  end side bar */
+/* start thong tin khach hang */
+.col-9{
+    width: 74%;
+}
+.customer-infor{
+height: 380px;
+border-radius: 20px;
+border: 1px solid rgba(0, 0, 0, 0.50);
+background: #FBFBFB;
+margin-top: 20px;
+margin-left: 20px;
+display: flex;
+flex-direction: column;
+
+}
+.customer-infor__title{
+color: #002144;
+font-family: Helvetica;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+display: flex;
+align-items: center;
+height: 40px;
+margin-top: 15px;
+margin-left: 15px;
+}
+.customer-infor__line{
+width: 100%;
+height: 1px;
+background: #737373;
+}
+.customer-infor__container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.customer-infor__container-line{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px ;
+}
+.infor-col-1{
+    width: 10%;
+}
+.infor-col-2{
+    width: 24%;
+}
+.infor-col-3{
+    width: 28%;
+}
+.infor-col-4{
+    width: 32%;
+}
+.infor-col-5{
+    width: 36%;
+}
+.infor-col-6{
+    width: 48%;
+}
+.infor-col-7{
+    width: 80%;
+}
+.container__title{
+color: #000;
+font-family: Helvetica;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.container__box{
+border: 1px solid rgba(0, 0, 0, 0.50);
+background: #FBFBFB;
+display: flex;
+align-items: center;
+height: 32px;
+color: rgba(0, 0, 0, 0.50);
+font-family: Helvetica;
+font-size: 12px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+padding-left: 5px;
+}
+.customer-infor__avatar{
+position: absolute;
+width: 150px;
+height: 150px;
+top: 10%;
+right: 12%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.customer-infor__avatar-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+background: url(<path-to-image>), lightgray 0px -79.746px / 99.01% 177.778% no-repeat;
+
+}
+.customer-infor__avatar-title{
+    color: #000;
+font-family: Helvetica;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 10px;
+}
+/* end thong tin khach hang */
+/* start lich su thue */
+.history{
+    height: 330px;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+   
+    justify-content: flex-start;
+    gap: 20px;
+
+}
+.history__rental-history,
+.history__are-renting{
+    width: 424px;
+    min-height: 200px;
+    background: #FBFBFB;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.history__title{
+margin-left: 15px;
+margin-top: 20px;
+color: #002144;
+font-family: Helvetica;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.history__line{
+    background: #737373;
+    width: 100%;
+    height: 1px;
+}
+.history__container{
+    width: 95%;
+   
+   margin: 5px 15px ;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+}
+.history__container__id-oder{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    margin: 10px 0px;
+}
+.id-number{
+color: #FD6A6A;
+font-family: Helvetica;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+
+
+/* end lich su thue */
+
+
+/* start fix tổng cho BE  */
+.top-bar__title-page__head-1>a{
+    color: #002144;
+    }
+    
+.top-bar__title-page__id-customer{
+    color: #FD6A6A;
+}
+    /* start fix tổng cho BE  */
