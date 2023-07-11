@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid');
 
 const Schema = mongoose.Schema;
 
 const boardgameSchema = new Schema(
     {
+        Id: { type: String, default: shortid.generate },
         name: { type: String, required: true },
         description: { type: String, required: true },
         price: { type: Number, required: true },

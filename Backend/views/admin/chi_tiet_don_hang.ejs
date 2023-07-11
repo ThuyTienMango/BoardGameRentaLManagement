@@ -23,7 +23,7 @@
                         <div class="top-bar__title-page__head-1">
                             <a href="">  Đơn hàng </a>
                             <a href="">
-                                <div class="top-bar__title-page__id-oder" id="id-oder"> #425123 </div>
+                                <div class="top-bar__title-page__id-oder" id="id-oder"> <%= order.Id %> </div>
                             </a>
                         </div>
                         <div class="top-bar__title-page__head-2">
@@ -173,7 +173,7 @@
                                       <%= customer ? customer.createdAt.getDate() + '-' + (customer.createdAt.getMonth() + 1) + '-' + customer.createdAt.getFullYear() : '' %>
                                     </div>
                                   </div>                                  
-                                <a href="" class="customer-infor__id"> <%= order.customerId %> </a>
+                                <a href="" class="customer-infor__id"> <%= customer.Id %> </a>
                             </div>
                             <a href="">
                                 <img src="<%= customer.avatarUrl %>" alt="" class="customer-infor__basic-avt">

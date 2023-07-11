@@ -124,7 +124,7 @@
                                     <% orders.forEach((order) => { %>
                                     <a href="/admin/orderdetail/<%= order._id %>" class="history__container__id-oder">
                                         <img src="/assets/images/id-oder__icon.svg" alt="" class="id-oder__icon">
-                                        <div class="id-number"> <%= order._id %></div>
+                                        <div class="id-number"> <%= order.Id %></div>
                                     </a>  
                                     <% }) %>
                                 </div>
@@ -136,7 +136,7 @@
                                     <% ordersRenting.forEach((orderRenting) => { %>
                                         <a href="/admin/orderdetail/<%= orderRenting._id %>" class="history__container__id-oder">
                                             <img src="/assets/images/id-oder__icon.svg" alt="" class="id-oder__icon">
-                                            <div class="id-number"> <%= orderRenting._id %></div>
+                                            <div class="id-number"> <%= orderRenting.Id %></div>
                                         </a>
                                     <% }) %>
                                 </div>

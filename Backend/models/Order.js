@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid');
 
 const Schema = mongoose.Schema;
 
 orderSchema = new Schema(
   {
+      Id: { type: String, default: shortid.generate },
       customerId: { type: String, required: true },
       productId: { type: String, required: true },
       duration: { type: Number, required: true },

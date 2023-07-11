@@ -71,7 +71,7 @@ class authController {
 
         // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
         if (!name || !username || !email || !password || !tel || !identity) {
-          req.flash('errorMessages', 'Bạn chưa điền đầy dủ thông tin'); // Đặt thông báo lỗi và chuyển hướng đến trang đăng ký lại
+          req.flash('errorMessages', 'Bạn chưa điền đầy đủ thông tin'); // Đặt thông báo lỗi và chuyển hướng đến trang đăng ký lại
           return res.redirect('/register');
         }
 
@@ -125,7 +125,7 @@ class authController {
 
       if (!user) {
         // Người dùng không tồn tại, đặt thông báo lỗi và chuyển hướng đến trang đăng nhập lại
-        req.flash('errorMessages', 'Tên đăng nhập không tồn tại');
+        req.flash('errorMessages', 'Tên đăng nhập không đúng');
         return res.redirect('/login');
       }
   
@@ -138,9 +138,6 @@ class authController {
 
       // Lưu thông tin người dùng vào session
       req.session.user = user;
-
-      // // Chuyển hướng đến trang cửa hàng
-      // res.redirect('/');
 
       // Chuyển hướng dựa trên vai trò của người dùng
       if (user.username === 'admin') {
@@ -173,14 +170,6 @@ class authController {
       if (!req.session.user) {
         return res.redirect('/login');
       }
-      // // Nếu người dùng đã đăng nhập, bạn có thể kiểm tra vai trò của người dùng
-      // if (req.session.user.username === 'admin') {
-      //   // Nếu là admin, chuyển hướng đến trang admin
-      //   return res.redirect('/admin');
-      // } else {
-      //   // Nếu là khách hàng, chuyển hướng đến trang khách hàng
-      //   return res.redirect('/');
-      // }
       next();
     } catch (error) {
       next(error);

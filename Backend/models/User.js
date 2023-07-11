@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid');
 
 const Schema = mongoose.Schema;
 
 userSchema = new Schema(
   {
+      Id: { type: String, default: shortid.generate },
       name: { type: String, required: true },
       username: { type: String, required: true, 
         // unique: true 
