@@ -106,14 +106,22 @@ class adminController {
       const boardgames = await Boardgame.find();
       const users = await User.find();
       const orderStatus = req.query.orderStatus || 'all';
-      let filteredOrders;
-      if (orderStatus === 'all') {
-        filteredOrders = orders;
-      } else {
-        filteredOrders = orders.filter((order) => order.orderStatus.toString() === orderStatus);
+      let filteredOrders = orders;
+
+      // Lọc theo trạng thái đơn hàng
+      if (orderStatus !== 'all') {
+        filteredOrders = filteredOrders.filter((order) => order.orderStatus.toString() === orderStatus);
       }
-      //const formattedTotalPrice = orders.totalPrice.toLocaleString('vi-VN');
-      const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
+
+      // Tìm kiếm đơn hàng
+      const searchOrderId = req.query.orderId;
+      if (searchOrderId) {
+        filteredOrders = filteredOrders.filter((order) => {
+          return order.Id.includes(searchOrderId);
+        });
+      }
+
+      const ordersPerPage = 7; // Số đơn hàng trên mỗi trang
       const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
       const startIndex = (currentPage - 1) * ordersPerPage;
       const endIndex = currentPage * ordersPerPage;
@@ -122,12 +130,11 @@ class adminController {
         user: user,
         users: users,
         ordersPage: multipleMongooseToObject(ordersPage),
-        totalPages: Math.ceil(orders.length / ordersPerPage),
+        totalPages: Math.ceil(filteredOrders.length / ordersPerPage),
         currentPage,
         boardgames: boardgames,
         orderStatus: orderStatus,
       });
-      
     } catch (error) {
       next(error);
     }

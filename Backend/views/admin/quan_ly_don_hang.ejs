@@ -78,6 +78,12 @@
                 <!--  end side bar -->
 
                 <div class="list-oder-section col-9">
+                    <div class="search-bar">
+                        <form action="/admin/manageorder" method="GET">
+                            <input type="text" name="orderId" placeholder="Nhập ID đơn hàng">
+                            <button type="submit">Tìm kiếm</button>
+                        </form>
+                    </div>                    
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
                             <a href="/admin/manageorder" class="<%= orderStatus === 'all' ? 'list-oder__sort-title sort-title--active' : '' %>" style="margin-right: -75px;">
