@@ -80,7 +80,7 @@ class adminController {
   //[GET] /admin/manageboardgame
   async getManageBoardgamePage(req, res, next){
     try{
-        const boardgames = await Boardgame.find({});
+        const boardgames = await Boardgame.find({}).sort({ createdAt: -1 });
         const user = await User.findOne({ _id: req.session.user });
         const itemsPerPage = 7; // Số sản phẩm trên mỗi trang
         const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
@@ -98,31 +98,31 @@ class adminController {
     }
   }
 
- //[GET] /admin/manageorder
-async getManageOrderPage(req, res, next) {
-  try {
-    const user = await User.findOne({ _id: req.session.user });
-    const orders = await Order.find().sort({ createdAt: -1 });
-    const boardgames = await Boardgame.find();
-    const users = await User.find();
-    //const formattedTotalPrice = orders.totalPrice.toLocaleString('vi-VN');
-    const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
-    const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
-    const startIndex = (currentPage - 1) * ordersPerPage;
-    const endIndex = currentPage * ordersPerPage;
-    const ordersPage = orders.slice(startIndex, endIndex);
-    res.render('admin/quan_ly_don_hang', {
-      user: user,
-      users: users,
-      ordersPage: multipleMongooseToObject(ordersPage),
-      totalPages: Math.ceil(orders.length / ordersPerPage),
-      currentPage,
-      boardgames: boardgames,
-    });
-  } catch (error) {
-    next(error);
+  //[GET] /admin/manageorder
+  async getManageOrderPage(req, res, next) {
+    try {
+      const user = await User.findOne({ _id: req.session.user });
+      const orders = await Order.find().sort({ createdAt: -1 });
+      const boardgames = await Boardgame.find();
+      const users = await User.find();
+      //const formattedTotalPrice = orders.totalPrice.toLocaleString('vi-VN');
+      const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
+      const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
+      const startIndex = (currentPage - 1) * ordersPerPage;
+      const endIndex = currentPage * ordersPerPage;
+      const ordersPage = orders.slice(startIndex, endIndex);
+      res.render('admin/quan_ly_don_hang', {
+        user: user,
+        users: users,
+        ordersPage: multipleMongooseToObject(ordersPage),
+        totalPages: Math.ceil(orders.length / ordersPerPage),
+        currentPage,
+        boardgames: boardgames,
+      });
+    } catch (error) {
+      next(error);
+    }
   }
-}
 
   //[GET] /admin/orderdetail
   async getOrderDetailPage(req, res, next){
@@ -137,6 +137,30 @@ async getManageOrderPage(req, res, next) {
         users: users,
         order: order,
         boardgames: boardgames,
+      })
+    } catch(error){
+      next(error);
+    }
+  }
+
+  //[GET] /admin/managecustomer
+  async getManageCustomerPage(req, res, next){
+    try {
+      const user = await User.findOne({ _id: req.session.user });
+      const users = await User.find({ username: { $ne: 'admin' } }).sort({ createdAt: -1 });
+      const cusPerPage = 7;
+      const currentPage = req.query.page || 1;
+      const startIndex = (currentPage - 1) * cusPerPage;
+      const endIndex = currentPage * cusPerPage;
+      const cusPage = users.slice(startIndex, endIndex);
+      console.log(cusPage);
+      res.render('admin/quan_ly_khach_hang',{
+        user: user,
+        users: users,
+        currentPage,
+        cusPage: multipleMongooseToObject(cusPage),
+        totalPages: Math.ceil(users.length / cusPerPage),
+        currentPage,
       })
     } catch(error){
       next(error);
@@ -183,33 +207,33 @@ async getManageOrderPage(req, res, next) {
     }
   }
 
-    //[POST] /admin/editboardgame/:id
-    async editBoardgame(req, res, next) {
-      try {
-        const filter = { _id : req.params.id };
-        const update = {
-          name: req.body.name,
-          description: req.body.description,
-          ages: req.body.ages,
-          playerMax: req.body.playerMax,
-          playerMin: req.body.playerMin,
-          length: req.body.length,
-          price: req.body.price,
-          quantity: req.body.quantity
-        }
-
-        await Boardgame.findOneAndUpdate(filter, update, {
-          new: true
-        });
-        res.redirect('/admin/manageboardgame');
-      } catch (error) {
-        next(error);
+  //[POST] /admin/editboardgame/:id
+  async editBoardgame(req, res, next) {
+    try {
+      const filter = { _id : req.params.id };
+      const update = {
+        name: req.body.name,
+        description: req.body.description,
+        ages: req.body.ages,
+        playerMax: req.body.playerMax,
+        playerMin: req.body.playerMin,
+        length: req.body.length,
+        price: req.body.price,
+        quantity: req.body.quantity
       }
+
+      await Boardgame.findOneAndUpdate(filter, update, {
+        new: true
+      });
+      res.redirect('/admin/manageboardgame');
+    } catch (error) {
+      next(error);
     }
+  }
 
 
-   //[POST] /admin/orderdetail
-   async editOrder(req, res, next) {
+  //[POST] /admin/orderdetail
+  async editOrder(req, res, next) {
     try {
       const filter = { _id : req.params.id };
       const update = {

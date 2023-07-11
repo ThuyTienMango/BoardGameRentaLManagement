@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css_sprint5/quan_ly_san_pham/global.css">
-    <link rel="stylesheet" href="/css_sprint5/quan_ly_san_pham/index.css">
-    <title>Quản lý sản phẩm</title>
+    <link rel="stylesheet" href="/css_sprint5/quan_ly_khach_hang/global.css">
+    <link rel="stylesheet" href="/css_sprint5/quan_ly_khach_hang/index.css">
+    <title>Quản lý khách hàng</title>
 </head>
 <body>
     <div class="app">
         <div class="grid">
             <div class="grid__row">
                  <!--  start top bar -->
-                 <div class="top-bar">
+                <div class="top-bar">
                     <div class="top-bar__logo">
                         <a href="" class="">
                             <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
@@ -45,6 +45,7 @@
                     </div>
                 </div>
                 <!--  end top bar -->
+
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
@@ -54,15 +55,15 @@
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="/admin/managecustomer" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
-                            <div class="side-bar__nav-container-title text-grey">
+                        <a href="/admin/managecustomer" class="side-bar__nav-container">
+                            <img src="/assets/images/side-bar__icon-customer-white.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                            <div class="side-bar__nav-container-title">
                                 Khách hàng
                             </div>
                         </a>
-                        <a href="/admin/manageboardgame" class="side-bar__nav-container">
-                            <img src="/assets/images/side-bar__icon-product-white.svg" alt="" class="side-bar__icon side-bar__icon-product">
-                            <div class="side-bar__nav-container-title ">
+                        <a href="/admin/manageboardgame" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-product.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                            <div class="side-bar__nav-container-title text-grey">
                                Sản phẩm
                             </div>
                         </a>
@@ -76,70 +77,59 @@
                 </div>
                 <!--  end side bar -->
 
-                  <!--  start customer list  8 item  -->
+
+                  <!--  start customer list  7 item  -->
                 <div class="list-oder-section col-9">
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
                             <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
                             <div class="sort-title__divider"></div>
                             </div>
-                            <div class="list-oder__sort-title" > Đang cho thuê </div>
-                            <div class="list-oder__sort-title" style=" margin-left: 15px; " > Hết hàng</div>
-                           
                         </div>
-                        <a href="/admin/addboardgame" class="btn__add-product">Thêm sản phẩm</a>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__title-table">
                             <div class="list-oder__title-table-id list-oder__col-1 ">ID</div>
-                            <div class="list-oder__title-table-product list-oder__col-3">Sản phẩm</div>
-                            <div class="list-oder__title-table-date list-oder__col-2">Ngày thêm</div>
-                            <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng
-                                <div class="list-oder__title-unit">( Cái )</div>
-                            </div>
-                            <div class="list-oder__title-table-cost list-oder__col-1-2">Giá thuê
-                                <div class="list-oder__title-unit">( VNĐ )</div>
-                            </div>
+                            <div class="list-oder__title-table-name list-oder__col-3">Tên khách hàng</div>
+                            <div class="list-oder__title-table-date list-oder__col-2">Ngày tham gia </div>
+                            <div class="list-oder__title-table-tel list-oder__col-1-1">Số điện thoại </div>
+                            <div class="list-oder__title-table-email list-oder__col-1-2">Email  </div>
                             
                         </div>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__flex-box">
-                            <!--  1 oder start -->
-                            <% boardgames.forEach((boardgame) => { %>
+                            <!--  1 customer start -->
+                            <% cusPage.forEach((cus) => { %>
                             <div class="list-oder__oder-line">
                                 <div class="list-oder__oder-info">
-                                    <a href="" class="oder-info__id list-oder__col-1"><%= boardgame._id %></a>
+                                    <a href="" class="oder-info__id list-oder__col-1"><%= cus._id %></a>
                                     <div class="oder-info__product list-oder__col-3">
                                         <a href="">
-                                            <img src="<%= boardgame.imageUrl %>" alt="" class="oder-info__product-img">
+                                            <img src="<%= cus.avatarUrl%>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
                                             <a href="" class="product__text-title"> 
-                                                <%= boardgame.name %>
+                                                <%= cus.name %> 
                                             </a>
                                         </div>
                                     </div>
                                     <div class="oder-info__date list-oder__col-2">
-                                        <div class="oder-info__date-day"> <%= boardgame.createdAt %> </div>
+                                        <div class="oder-info__date-day"> <%= cus.createdAt %> </div>
+                                        <!-- <div class="oder-info__date-time"> 13:00 PM</div> -->
                                     </div>
-                                    <div class="oder-info__customer list-oder__col-1-1"> <%= boardgame.quantity %> </div>
-                                    <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price.toLocaleString('vi-VN') %> </div>
+                                    <div class="oder-info__customer list-oder__col-1-1"> <%= cus.tel %> </div>
+                                    <div class="oder-info__cost list-oder__col-1-2 "> <%= cus.email %> </div>
                                     <div class="oder-info__icon">
-                                        <a href="/admin/editboardgame/<%= boardgame._id %>" class="oder-info__edit">
-                                            <img src="/assets/images/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
-                                        </a>
-                                        <a href="" class="oder-info__delete">
-                                            <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
+                                        <a href="" class="oder-info__edit">
+                                            <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="oder-info__line-end"></div>
-    
                             </div>
                             <% }) %>
-                            <!-- oder end  -->
+                            <!-- customer end  -->
 
-                           
-                             
+
                             <!-- Phân trang -->
                             <div class="pagination">
                                 <% for (let i = 1; i <= totalPages; i++) { %>
@@ -152,8 +142,13 @@
                     </div>
                 </div>
                 <!--  end customer list  -->
+
             </div>
         </div>
+       
+
+
+
     </div>
 </body>
 </html>

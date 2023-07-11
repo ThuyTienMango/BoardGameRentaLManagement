@@ -9,6 +9,8 @@ router.get('/editboardgame/:id', adminController.getEditBoardgamePage);
 router.get('/manageboardgame', adminController.getManageBoardgamePage);
 router.get('/manageorder', adminController.getManageOrderPage);
 router.get('/orderdetail/:id', adminController.getOrderDetailPage);
+router.get('/managecustomer', adminController.getManageCustomerPage);
+// router.get('/managecustomer/:id', adminController.getDetailCustomerPage);
 router.post('/addboardgame', adminController.addBoardgame);
 router.post('/editboardgame/:id', adminController.editBoardgame);
 router.post('/orderdetail/:id', adminController.editOrder);

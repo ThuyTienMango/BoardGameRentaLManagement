@@ -106,6 +106,7 @@ class authController {
         }
 
         await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
+        req.flash('errorMessages', 'Bạn đã đăng ký tài khoản thành công');
         res.redirect('/login');
       });
     } catch (error) {
@@ -144,7 +145,7 @@ class authController {
       // Chuyển hướng dựa trên vai trò của người dùng
       if (user.username === 'admin') {
         // Chuyển hướng đến trang dành cho admin
-        return res.redirect('/admin/manageboardgame');
+        return res.redirect('/admin/manageorder');
       } else {
         // Chuyển hướng đến trang dành cho khách hàng
         return res.redirect('/');
