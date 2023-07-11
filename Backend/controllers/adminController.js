@@ -102,15 +102,22 @@ class adminController {
   async getManageOrderPage(req, res, next) {
     try {
       const user = await User.findOne({ _id: req.session.user });
-      const orders = await Order.find().sort({ createdAt: -1 });
+      const orders = await Order.find({ orderStatus: { $in: [1, 2, 3, 4] } }).sort({ createdAt: -1 });
       const boardgames = await Boardgame.find();
       const users = await User.find();
+      const orderStatus = req.query.orderStatus || 'all';
+      let filteredOrders;
+      if (orderStatus === 'all') {
+        filteredOrders = orders;
+      } else {
+        filteredOrders = orders.filter((order) => order.orderStatus.toString() === orderStatus);
+      }
       //const formattedTotalPrice = orders.totalPrice.toLocaleString('vi-VN');
       const ordersPerPage = 7; // Số sản phẩm trên mỗi trang
       const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
       const startIndex = (currentPage - 1) * ordersPerPage;
       const endIndex = currentPage * ordersPerPage;
-      const ordersPage = orders.slice(startIndex, endIndex);
+      const ordersPage = filteredOrders.slice(startIndex, endIndex);
       res.render('admin/quan_ly_don_hang', {
         user: user,
         users: users,
@@ -118,7 +125,9 @@ class adminController {
         totalPages: Math.ceil(orders.length / ordersPerPage),
         currentPage,
         boardgames: boardgames,
+        orderStatus: orderStatus,
       });
+      
     } catch (error) {
       next(error);
     }

@@ -224,7 +224,7 @@ cursor: pointer;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 100px;
     margin-left: 15px;
 }
 .list-oder__sort-title{

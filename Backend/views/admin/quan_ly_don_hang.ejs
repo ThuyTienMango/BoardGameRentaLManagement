@@ -80,13 +80,14 @@
                 <div class="list-oder-section col-9">
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
-                            <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
-                            <div class="sort-title__divider"></div>
-                            </div>
-                            <div class="list-oder__sort-title"> Đợi đến lấy </div>
-                            <div class="list-oder__sort-title"> Đến hạn trả </div>
-                            <div class="list-oder__sort-title"> Quá hạn trả </div>
-                            <div class="list-oder__sort-title"> Đơn huỷ </div>
+                            <a href="/admin/manageorder" class="<%= orderStatus === 'all' ? 'list-oder__sort-title sort-title--active' : '' %>" style="margin-right: -75px;">
+                                Tất cả
+                                <!-- <div class="sort-title__divider"></div> -->
+                               </a>
+                            <a href="/admin/manageorder?orderStatus=1" class="<%= orderStatus === '1' ? 'list-oder__sort-title sort-title--active' : '' %>" style="margin-right: -75px;">Chưa thanh toán</a>
+                            <a href="/admin/manageorder?orderStatus=2" class="<%= orderStatus === '2' ? 'list-oder__sort-title sort-title--active' : '' %>" style="margin-right: -75px;">Đang thuê</a>
+                            <a href="/admin/manageorder?orderStatus=3" class="<%= orderStatus === '3' ? 'list-oder__sort-title sort-title--active' : '' %>" style="margin-right: -75px;">Đến hạn trả</a>
+                            <a href="/admin/manageorder?orderStatus=4" class="<%= orderStatus === '4' ? 'list-oder__sort-title sort-title--active' : '' %>" style="margin-right: -75px;">Đã trả</a>
                         </div>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__title-table">
@@ -102,6 +103,8 @@
 
                         <!--  list oder 8 item  -->
                         <div class="list-oder__flex-box">
+                            <!-- Vòng lặp để hiển thị danh sách đơn hàng -->
+                            
                            <!--  1 oder start -->
                            <!-- Vòng lặp để hiển thị danh sách đơn hàng -->
                             <% ordersPage.forEach((order) => { %>
@@ -148,6 +151,7 @@
                                     <div class="oder-info__line-end"></div>
                                 </div>
                             <% }); %>
+                           
                             <!-- oder end -->
                             
 
