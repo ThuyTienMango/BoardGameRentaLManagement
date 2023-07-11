@@ -61,6 +61,11 @@
 
                     <button class="btn bkg">Đăng ký</button>
                 </form>
+                <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+                    <script>
+                        alert('<%= flash.errorMessages[0] %>');
+                    </script>
+                <% } %>
             </div>
         </div>
 

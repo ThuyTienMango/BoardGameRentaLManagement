@@ -10,7 +10,6 @@
     <!-- link icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
 </head>
@@ -25,33 +24,33 @@
                     </div>
                     <div class="type">
                         <input type="password" placeholder="Mật khẩu" name="password" id="password">
-
                     </div>
 
                     <div class="forgot">
                         <span>Quên mật khẩu?</span>
                     </div>
 
-                    <button class="btn bkg">Đăng nhập  </button>
+                    <button class="btn bkg">Đăng nhập</button>
                 </form>
             </div>
-    
-           
+
+            <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+                <script>
+                    alert('<%= flash.errorMessages[0] %>');
+                </script>
+            <% } %>
+              
+              
         </div>
 
         <div class="overlay">
             <div class="page page_signIn">
                 <h3>Welcome Back!</h3>
-                <p> Để tiếp tục, vui lòng đăng nhập với thông tin của bạn </p>
+                <p>Để tiếp tục, vui lòng đăng nhập với thông tin của bạn</p>
 
                 <a href="/register"><button class="btn btnSign-in">Đăng ký <i class="bi bi-arrow-right"></i></button></a>
             </div>
-           
         </div>
     </div>
-    
-
-    <!-- link script
-    <script src="/css_style_login_reg/main.js"></script> -->
 </body>
 </html>

@@ -3,11 +3,15 @@ const morgan = require('morgan');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
+const flash = require('connect-flash');
+
 
 const db = require('./db');
 const route = require('./routes');
 
 const app = express();
+
+app.use(flash());
 
 // Sử dụng body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
