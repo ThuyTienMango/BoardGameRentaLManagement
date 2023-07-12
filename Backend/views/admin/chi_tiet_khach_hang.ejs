@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css_sprint5/chi_tiet_khach_hang/global.css">
+    <link rel="stylesheet" href="/css_sprint5/chi_tiet_khach_hang/index.css">
+    <title>Hồ sơ khách hàng</title>
+</head>
+<body>
+    <div class="app">
+        <div class="grid">
+            <div class="grid__row">
+                 <!--  start top bar -->
+                <div class="top-bar">
+                    <div class="top-bar__logo">
+                        <a href="" class="">
+                            <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
+                        </a>
+                    </div>
+                    <div class="top-bar__title-page">
+                        
+                        <div class="top-bar__title-page__head-1">
+                            <a href="">   Sản phẩm </a>
+                        </div>
+                        <div class="top-bar__title-page__head-2">
+                            Quản lý sản phẩm của bạn
+                        </div>
+                    </div>
+                    <div class="top-bar__profile">
+                        <div class="top-bar__profile__noti">
+                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
+                        </div>
+                        <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
+                        <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
+                        <div class="top-bar__profile__detail">
+                            <div class="profile__detail__head-1">
+                                <%= user.name %>
+                            </div>
+                            <div class="profile__detail__head-2">
+                                Quản lý cửa hàng
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--  end top bar -->
+
+                <!-- start side bar -->
+                <div class="side-bar col-3">
+                    <div class="side-bar__nav">
+                        <a href="/admin/manageorder" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
+                            <div class="side-bar__nav-container-title text-grey">
+                                Đơn hàng
+                            </div>
+                        </a>
+                        <a href="/admin/managecustomer" class="side-bar__nav-container">
+                            <img src="/assets/images/side-bar__icon-customer-white.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                            <div class="side-bar__nav-container-title">
+                                Khách hàng
+                            </div>
+                        </a>
+                        <a href="/admin/manageboardgame" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-product.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                            <div class="side-bar__nav-container-title text-grey">
+                               Sản phẩm
+                            </div>
+                        </a>
+                        <a href="/logout" class="side-bar__logout">
+                            <img src="/assets/images/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
+                            <div class="side-bar__logout-title">
+                                Đăng xuất
+                            </div>
+                        </a> 
+                    </div>
+                </div>
+                <!--  end side bar -->
+                    <div class="col-9">
+                        <!--  start thong tin khach hang -->
+                        <div class="customer-infor ">
+                          <div class="customer-infor__title"> Hồ Sơ Khách Hàng</div>
+                          <div class="customer-infor__line"></div>
+                          <div class="customer-infor__container">
+                              <div class="customer-infor__container-line">
+                                  <div class="container__title infor-col-1"> Tên:</div>
+                                  <div class="container__box infor-col-2"> <%= cus.name %> </div>
+                              </div>
+                              <div class="customer-infor__container-line">
+                                  <div class="container__title infor-col-1"> SĐT:</div>
+                                  <div class="container__box infor-col-3"> <%= cus.tel %> </div>
+                              </div>
+                              <div class="customer-infor__container-line">
+                                  <div class="container__title infor-col-1">Email:</div>
+                                  <div class="container__box infor-col-4"> <%= cus.email %> </div>
+                              </div>
+                              <div class="customer-infor__container-line">
+                                  <div class="container__title infor-col-1">CCCD:</div>
+                                  <div class="container__box infor-col-5"> <%= cus.identity %> </div>
+                              </div>
+                              <div class="customer-infor__container-line">
+                                  <div class="container__title infor-col-1"> Địa chỉ:</div>
+                                  <div class="container__box infor-col-6"> <%= cus.address %> </div>
+                              </div>
+                              <div class="customer-infor__container-line">
+                                  <div class="container__title infor-col-1"> Tham gia:</div>
+                                  <div class="container__box infor-col-7"> <%= cus.createdAt %></div>
+                              </div>
+                              <div class="customer-infor__avatar">
+                                <a href="" class="">
+                                    <img src="<%= cus.avatarUrl %>" alt="" class="customer-infor__avatar-img">
+                                </a>
+                                  <div class="customer-infor__avatar-title"> Ảnh đại diện </div>
+                              </div>
+                          </div>
+                        </div>
+                        <!--  end thong tin khach hang -->
+                        <!-- start lich su thue  -->
+                        <div class="history">
+                            <div class="history__rental-history">
+                                <div class="history__title"> Lịch sử thuê </div>
+                                <div class="history__line"></div>
+                                <div class="history__container">
+                                    <% orders.forEach((order) => { %>
+                                    <a href="/admin/orderdetail/<%= order._id %>" class="history__container__id-oder">
+                                        <img src="/assets/images/id-oder__icon.svg" alt="" class="id-oder__icon">
+                                        <div class="id-number"> <%= order.Id %></div>
+                                    </a>  
+                                    <% }) %>
+                                </div>
+                            </div>
+                            <div class="history__are-renting">
+                                <div class="history__title"> Đang thuê </div>
+                                <div class="history__line"></div>
+                                <div class="history__container">
+                                    <% ordersRenting.forEach((orderRenting) => { %>
+                                        <a href="/admin/orderdetail/<%= orderRenting._id %>" class="history__container__id-oder">
+                                            <img src="/assets/images/id-oder__icon.svg" alt="" class="id-oder__icon">
+                                            <div class="id-number"> <%= orderRenting.Id %></div>
+                                        </a>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- end lich su thue  -->
+                    </div>
+
+            </div>
+        </div>
+       
+
+
+
+    </div>
+</body>
+</html>
