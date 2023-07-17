@@ -22,11 +22,6 @@
             <div class="single-item">
                 <div class="grid">
                     <div class="grid__row">
-                        <div class="nav-status">
-                            <a href="https://courses.uit.edu.vn/login/index.php" class="nav-status__page">Cửa hàng</a>
-                            <div class="nav-status__page__link">::</div>
-                            <a href="https://courses.uit.edu.vn/login/index.php" class="nav-status__page nav-status__page--now">Azul Mini</a>
-                        </div>
                         <div class="grid__colum-1">
                             <div class="small-img">
                                 <img src="<%= boardgame.imageUrl %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
@@ -50,7 +45,7 @@
                             <div class="rental">
                                 <div class="rental__rent">Giá Thuê:</div>
                                 <div class="rental__price"><%= formattedPrice %> đ</div>
-                                <div class="rental__remain">20+ còn lại</div>
+                                <div class="rental__remain"><%= boardgame.quantity %> còn lại</div>
                             </div>
                             <form action="" >
                                 <div class="quantity-btn   quantity-btn__rental-time ">
@@ -70,7 +65,7 @@
                                         <div class="button-rent__decrease">
                                             <img src="/assets/images/button-rent__decrease.svg" alt="" >
                                         </div>
-                                        <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" readonly>
+                                        <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" max="<%= boardgame.quantity %>" readonly>
                                     </div>
                                 </div>
                                 <button class="ren-btn">
@@ -118,8 +113,11 @@
                             increaseButton.addEventListener('click', function() {
                                 // Tăng giá trị số lượng
                                 let quantity = parseInt(quantityInput.value);
-                                quantity++;
-                                quantityInput.value = quantity;
+                                let maxQuantity = parseInt(quantityInput.max); // Lấy giá trị max từ thuộc tính max của input
+                                if (quantity < maxQuantity) {
+                                    quantity++;
+                                    quantityInput.value = quantity;
+                                }
                             });
                         </script>
 
@@ -179,27 +177,18 @@
                                 </svg>
                             <div class="btn-next__title__content">  Sản phẩm tương tự </div>   
                         </div>
-                        <div class="btn-next">
-                            <button class="btn-next__back">
-                                <img src="/assets/images/btn-next__back.svg" alt="">
-                            </button>
-                            <button class="btn-next__next">
-                                <img src="/assets/images/btn-next__next.svg" alt="" >
-                            </button>
-                        </div>
-                        <!-- <img src="/assets/images/similar-product__btn-next.svg" alt="" class="btn-next"> -->
                         <div class="similar-item">
                     <!-- item  -->
                             <% boardgames.forEach((boardgame) =>{ %>
                                 <div class=" product-section__item-shop col-4">
-                                    <div class="item-shop__favourite">
+                                    <!-- <div class="item-shop__favourite">
                                         <div class="item-shop__favourite__content">
                                             <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
                                             <b class="item-shop__likes">99</b>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <a href="/store/<%= boardgame._id %>">
-                                        <img src="<%= boardgame.image %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                                        <img src="<%= boardgame.imageUrl %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
                                     </a>
                                     <a href="/store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
                                     <div class="item-shop__rent">

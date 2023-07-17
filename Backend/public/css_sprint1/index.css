@@ -324,9 +324,12 @@ color: #FFFFFF;
 .tf-sort{
     height: 30px;
     display: flex;
+    justify-content: space-between;
     margin: 10px 0px;
 }
 .tf-sort__quantity{
+    display: flex;
+    gap: 5px;
     color: var(--color-gray-100);
     font-size: var(--font-size-xl);
     width: 158px;
@@ -362,8 +365,10 @@ color: #FFFFFF;
     background:var(--color-gray-100)!important;
 }
 .layout__content{
-    /* padding-right: 100px; */
-    line-height: normal;
+    display: flex;
+    align-items: center;
+    width: 70%;
+   height: 100%;
 }
 .layout__line{
     display: flex;
@@ -378,11 +383,10 @@ color: #FFFFFF;
 
 .filter-price{
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    /* min-width: 209px ; */
-    /* margin-left: auto;   */
+    justify-content: flex-start;
+    gap: 5px;
     height: 100%;
     width: 23.6%;
     color:var(--color-white);
@@ -398,8 +402,8 @@ color: #FFFFFF;
     z-index: 2;
     left: 0;
     right: 0;
-    top: 49%;
-    background: var(--color-gainsboro);
+    top: 14px;
+    background: #9DB2BF;
     border-radius: 5px;
     font-weight: bolder;
     text-decoration: none;
@@ -413,7 +417,7 @@ color: #FFFFFF;
     display: block;
     padding: 4px 5px;
     text-decoration: none;
-    color:var(--color-white);
+    color:#FFFFFF;
 }
 .filter-price__link:hover{
     color: var( --color-gray-100);
@@ -439,7 +443,7 @@ color: #FFFFFF;
 
 .product-section__item-shop{
     position: relative;
-    min-height: 306px;
+    min-height: 290px;
     margin-top: 10px;
     margin-left: 12px;
     border-radius: var(--br-8xs);
@@ -513,13 +517,11 @@ color: #FFFFFF;
 }
 .item-shop__rent{
     position: absolute;
-    left: 0;
-    right: 54.57%;
-    top: 80.64%;
-    bottom: 11%;
+    bottom: 10%;
     width: 92%;
     box-sizing: border-box;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
     vertical-align: middle;
     overflow: hidden;
     margin: 5px 8px;
@@ -530,9 +532,6 @@ color: #FFFFFF;
     color: var(--color-gray-200);
 }
 .item-shop__rent__cost{
-    position: absolute;
-    right: 4%;
-    bottom: -10%;
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 700;

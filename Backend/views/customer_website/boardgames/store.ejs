@@ -25,8 +25,7 @@
                 <a href="https://courses.uit.edu.vn/login/index.php" class="  sort-section__name  sort-section__name--active"> Board Game</a>
                
                 <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
-                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name "> Phổ Biến</a>
-
+                
             </div>
         </div>
     </div>
@@ -38,8 +37,8 @@
                     <div class="filter-category">
                         
                         <div class="filter-title-head">
-                            <div class="filter-name filter-name-col-1">Filter</div>
-                            <div class="reset filter-name-col-2">reset</div>
+                            <div class="filter-name filter-name-col-1">Bộ lọc</div>
+                            <div class="reset filter-name-col-2">Đặt lại</div>
                                 
                         </div>
                         <svg class="retangle-filter" width="230" height="2" viewBox="0 0 230 2" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +47,7 @@
                         <div class="filter-category__playing-time">
 
                             <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Playing time</div>
+                                <div class="playingtime filter-name-col-1">Thời gian chơi</div>
                                 <div class="filter-title__hide filter-name-col-2 ">
                                     <div class="rectangle-playingtime-1 "></div>
                                 </div>
@@ -56,31 +55,31 @@
                             <div class="filter-playingtime-content">
                                 <div class="filter-playingtime-content-line">
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">15 minutes or less</div>
+                                        <div class="minutes filter-name-col-1">15 phút hoặc ít hơn</div>
                                         <div class="filter__button-select filter-name-col-2"> 
                                             <div class="circle-object  "></div>
                                         </div>
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">30 minutes or less</div>
+                                        <div class="minutes filter-name-col-1">30 phút hoặc ít hơn</div>
                                         <div class="filter__button-select filter-name-col-2"> 
                                             <div class="circle-object  "></div>
                                         </div>
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">40 minutes or less</div>
+                                        <div class="minutes filter-name-col-1">40 phút hoặc ít hơn</div>
                                         <div class="filter__button-select filter-name-col-2"> 
                                             <div class="circle-object  "></div>
                                         </div>
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">60 minutes or less</div>
+                                        <div class="minutes filter-name-col-1">60 phút hoặc ít hơn</div>
                                         <div class="filter__button-select filter-name-col-2"> 
                                             <div class="circle-object  "></div>
                                         </div>
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">90 minutes or less</div>
+                                        <div class="minutes filter-name-col-1">90 phút hoặc ít hơn</div>
                                         <div class="filter__button-select filter-name-col-2"> 
                                             <div class="circle-object  "></div>
                                         </div>
@@ -95,7 +94,7 @@
                        <!--  thuoc tinh thu Players - Minimum  -->
                         <div class="filter-category__player">
                             <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Players - Minimum</div>
+                                <div class="playingtime filter-name-col-1">Số người chơi tối thiểu</div>
                                 <div class="filter-title__hide filter-name-col-2 ">
                                     <div class="rectangle-playingtime-1 "></div>
                                 </div>
@@ -131,7 +130,7 @@
                         <!--  thuoc tinh thu Players - Maximum  -->
                         <div class="filter-category__player">
                             <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Players - Maximum</div>
+                                <div class="playingtime filter-name-col-1">Số người chơi tối đa</div>
                                 <div class="filter-title__hide filter-name-col-2 ">
                                     <div class="rectangle-playingtime-1 "></div>
                                 </div>
@@ -179,7 +178,7 @@
                      <div class="filter-category__Suggested-Age">
 
                          <div class="filter-title">
-                             <div class="playingtime filter-name-col-1">Suggested Age</div>
+                             <div class="playingtime filter-name-col-1">Độ tuổi</div>
                              <div class="filter-title__hide filter-name-col-2 ">
                                  <div class="rectangle-playingtime-1 "></div>
                              </div>
@@ -208,24 +207,13 @@
 
                 <div class=" grid__colum-10">
                     <div class="tf-sort">
-                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 Items</b>
-                        <div class="tf-sort__layout">
-                            <div class="layout__grid layout__grid--btn-primary">
-                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-grid-2.svg" />
-                                <b class=" layout__content ">Grid</b>
-                            </div>
-                            <div class="layout__line">
-                                 <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-menu.svg" />
-                        
-                                <b class=" layout__content ">Line</b>
-                            </div>
-                            
-                        </div>
+                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> <%= boardgamesCount %>
+                            <div>Items</div> 
+                         </b>
                         <div class="filter-price">
                             <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
-                    
                             <b class=" layout__content "> Giá:</b>
-                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" style="position: absolute;right: 2%;" />
+                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" />
                             <ul class="filter-price__list">
                                 <li class="filter-price__list__item">
                                     <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
@@ -244,12 +232,12 @@
                         <!-- San pham -->
                         <% boardgames.forEach((boardgame) => { %>
                         <div class="product-section__item-shop col-4">
-                            <div class="item-shop__favourite">
+                            <!-- <div class="item-shop__favourite">
                                 <div class="item-shop__favourite__content">
                                     <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
                                     <b class="item-shop__likes">99</b>
                                 </div>
-                            </div>
+                            </div> -->
                             <a href="store/<%= boardgame._id %>">
                                 <img src="<%= boardgame.imageUrl %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
                             </a>
@@ -259,9 +247,11 @@
                                 <b class="item-shop__rent__cost"><%= boardgame.price %> đ</b>
                             </div>
                         
-                            <div class="item-shop__rent-btn">
-                                <b class="item-shop__rent-btn__title">Thuê ngay</b>
-                            </div>
+                            <a href="/store/order/<%= boardgame._id %>?duration=7&quantity=1">
+                                <div class="item-shop__rent-btn">
+                                    <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                                </div>
+                            </a>
                         </div>
                         <% }) %>
                       
