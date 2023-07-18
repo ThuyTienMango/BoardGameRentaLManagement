@@ -78,14 +78,27 @@
 
                   <!--  start customer list  8 item  -->
                 <div class="list-oder-section col-9">
+                    <div class="search-bar">
+                        <form class="search-bar__form" action="/admin/manageboardgame/" method="GET">
+                            <input class="search-bar__input" type="text" name="boardgameId" placeholder="Nhập ID boardgame">
+                            <button class="search-bar__btn" type="submit">
+                                <img src="/assets/images/header__search-icon.svg" alt="">
+                            </button>
+                        </form>
+                    </div>   
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
-                            <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
+                            <a href="/admin/manageboardgame" class="<%= checkStock === 'all' ? ' sort-title--active' : 'list-oder__sort-title' %>">
+                                Tất cả
+                                <!-- <div class="sort-title__divider"></div> -->
+                               </a>
+                            <a href="/admin/manageboardgame?checkStock=0" class="<%= checkStock === '0' ? ' sort-title--active' : 'list-oder__sort-title' %>" style=" margin-left: 15px; ">Hết hàng</a>
+                            <!-- <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
                             <div class="sort-title__divider"></div>
                             </div>
                             <div class="list-oder__sort-title" > Đang cho thuê </div>
                             <div class="list-oder__sort-title" style=" margin-left: 15px; " > Hết hàng</div>
-                           
+                            -->
                         </div>
                         <a href="/admin/addboardgame" class="btn__add-product">Thêm sản phẩm</a>
                         <div class="list-oder__line-table"></div>
@@ -127,9 +140,11 @@
                                         <a href="/admin/editboardgame/<%= boardgame._id %>" class="oder-info__edit">
                                             <img src="/assets/images/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
                                         </a>
-                                        <a href="" class="oder-info__delete">
-                                            <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
-                                        </a>
+                                        <form action="/admin/deleteboardgame/<%= boardgame._id %>" method="POST" onsubmit="return confirmDelete()">
+                                            <button type="submit" class="oder-info__delete">
+                                              <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="oder-info__line-end"></div>
@@ -138,6 +153,17 @@
                             <% }) %>
                             <!-- oder end  -->
 
+                            <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+                                <script>
+                                    alert('<%= flash.errorMessages[0] %>');
+                                </script>
+                            <% } %>
+
+                            <script>
+                                function confirmDelete() {
+                                  return confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+                                }
+                            </script>
                            
                              
                             <!-- Phân trang -->

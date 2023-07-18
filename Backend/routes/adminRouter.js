@@ -13,6 +13,7 @@ router.get('/managecustomer', adminController.getManageCustomerPage);
 router.get('/managecustomer/:id', adminController.getDetailCustomerPage);
 router.post('/addboardgame', adminController.addBoardgame);
 router.post('/editboardgame/:id', adminController.editBoardgame);
+router.post('/deleteboardgame/:id', adminController.deleteBoardgame);
 router.post('/orderdetail/:id', adminController.editOrder);
 //router.get('/', adminController.index);
 

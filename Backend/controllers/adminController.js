@@ -80,18 +80,37 @@ class adminController {
   //[GET] /admin/manageboardgame
   async getManageBoardgamePage(req, res, next){
     try{
+        const flash = req.flash();
         const boardgames = await Boardgame.find({}).sort({ createdAt: -1 });
         const user = await User.findOne({ _id: req.session.user });
+        const checkStock = req.query.checkStock || 'all';
+        let filteredBoardgames = boardgames;
+
+        //Lọc sản phẩm hết hàng
+        if (checkStock !== 'all') {
+          filteredBoardgames = filteredBoardgames.filter((boardgame) => boardgame.quantity.toString() === checkStock);
+        }
+
+        //Tìm kiếm sản phẩm theo id
+        const boardgameSearchId = req.query.boardgameId;
+        if (boardgameSearchId) {
+          filteredBoardgames = filteredBoardgames.filter((boardgame) => {
+            return boardgame.Id.includes(boardgameSearchId);
+          });
+        } 
+
         const itemsPerPage = 7; // Số sản phẩm trên mỗi trang
         const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = currentPage * itemsPerPage;
-        const boardgamesPage = boardgames.slice(startIndex, endIndex);
+        const boardgamesPage = filteredBoardgames.slice(startIndex, endIndex);
         res.render('admin/quan_ly_san_pham',{
+            flash,
             user: user,
             boardgames: multipleMongooseToObject(boardgamesPage),
-            totalPages: Math.ceil(boardgames.length / itemsPerPage),
+            totalPages: Math.ceil(filteredBoardgames.length / itemsPerPage),
             currentPage,
+            checkStock: checkStock,
         })
     } catch(error){
         next(error);
@@ -192,7 +211,6 @@ class adminController {
       const startIndex = (currentPage - 1) * cusPerPage;
       const endIndex = currentPage * cusPerPage;
       const cusPage = users.slice(startIndex, endIndex);
-      console.log(cusPage);
       res.render('admin/quan_ly_khach_hang',{
         flash,
         user: user,
@@ -258,7 +276,7 @@ class adminController {
             }
     
             await boardgame.save(); // Lưu thông tin boardgame vào cơ sở dữ liệu
-            res.redirect('/admin/addboardgame');
+            res.redirect('/admin/manageboardgame');
         });
     } catch(error){
         next(error);
@@ -289,8 +307,29 @@ class adminController {
     }
   }
 
+  // [POST] /admin/deleteBoardgame/:id
+  async deleteBoardgame (req, res, next){
+    try{
+      const boardgameId = req.params.id;
+      const flash = req.flash();
+      // Kiểm tra xem sản phẩm có tồn tại không
+      const boardgame = await Boardgame.findById(boardgameId);
+      if (!boardgame) {
+        req.flash('errorMessages', 'Sản phẩm không tồn tại');
+        return res.redirect('/admin/manageboardgame');
+      }
 
-  //[POST] /admin/orderdetail
+      // Thực hiện xóa sản phẩm
+      await Boardgame.findByIdAndRemove(boardgameId);
+
+      req.flash('errorMessages', 'Sản phẩm đã được xóa');
+      res.redirect('/admin/manageboardgame');
+    } catch (error){
+      next(error);
+    }
+  }
+
+  //[POST] /admin/orderdetail/:id
   async editOrder(req, res, next) {
     try {
       const filter = { _id : req.params.id };
