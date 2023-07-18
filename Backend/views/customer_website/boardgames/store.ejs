@@ -22,7 +22,7 @@
         <div class="grid ">
             <div class="grid_row sort-section__content ">
 
-                <a href="https://courses.uit.edu.vn/login/index.php" class="  sort-section__name  sort-section__name--active"> Board Game</a>
+                <a href="/store" class="  sort-section__name  sort-section__name--active"> Boardgame</a>
                
                 <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
                 
@@ -210,21 +210,28 @@
                         <b class="tf-sort__quantity" style=" margin-top: 10px; "> <%= boardgamesCount %>
                             <div>Items</div> 
                          </b>
-                        <div class="filter-price">
-                            <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
-                            <b class=" layout__content "> Giá:</b>
-                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" />
-                            <ul class="filter-price__list">
-                                <li class="filter-price__list__item">
-                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
+                         <form action="/store" method="GET" class="form__status-oder">
+                            <div class="filter-price">
+                                <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />\
+                                <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" />
+                                <select name="priceList" class="filter-price__list">
+                                    <option value="0" class=" layout__content ">Giá</option>
+                                    <option value="1" class="filter-price__link">Giá: Thấp đến cao</option>
+                                    <option value="2" class="filter-price__link">Giá: Cao đến thấp</option>
+                                </select>
+                                <!-- <ul class="filter-price__list">
+                                    <li class="filter-price__list__item">
+                                        <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
+                                        
+                                    </li>
+                                    <li class="filter-price__list__item">
+                                        <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
+                                    </li>
                                     
-                                </li>
-                                <li class="filter-price__list__item">
-                                    <a href="# " class="filter-price__link"> Giá: Cao đến thấp </a>
-                                </li>
-                                
-                            </ul>
-                        </div>
+                                </ul> -->
+                            </div>
+                            <button type="submit" class="order-journey__btn-save">Lưu thay đổi</button>
+                        </form>  
                     </div>
                     <!--  San pham tong/ hiện 5 hàng sản phẩm, mỗi hàng 4 sp    -->
 
@@ -244,7 +251,7 @@
                             <a href="store/<%= boardgame._id %>" class="item-shop__title-product"><%= boardgame.name %></a>
                             <div class="item-shop__rent">
                                 <b class="item-shop__rent__title">Giá Thuê</b>
-                                <b class="item-shop__rent__cost"><%= boardgame.price %> đ</b>
+                                <b class="item-shop__rent__cost"><%= boardgame.price.toLocaleString('vi-VN') %> đ</b>
                             </div>
                         
                             <a href="/store/order/<%= boardgame._id %>?duration=7&quantity=1">

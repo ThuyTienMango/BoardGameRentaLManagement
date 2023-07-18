@@ -107,6 +107,8 @@ class adminController {
       const users = await User.find();
       const orderStatus = req.query.orderStatus || 'all';
       let filteredOrders = orders;
+      const flash = req.flash();
+
 
       // Lọc theo trạng thái đơn hàng
       if (orderStatus !== 'all') {
@@ -116,9 +118,14 @@ class adminController {
       // Tìm kiếm đơn hàng
       const searchOrderId = req.query.orderId;
       if (searchOrderId) {
-        filteredOrders = filteredOrders.filter((order) => {
-          return order.Id.includes(searchOrderId);
-        });
+        const orderSearch = await Order.findOne({ Id: searchOrderId });
+        if (orderSearch) {
+          const order_idSearch = orderSearch._id;
+          return res.redirect(`/admin/orderdetail/${order_idSearch}`);
+        } else {
+          req.flash('errorMessages', 'Đơn hàng không tồn tại');
+          return res.redirect('/admin/manageorder');
+        }
       }
 
       const ordersPerPage = 7; // Số đơn hàng trên mỗi trang
@@ -127,6 +134,7 @@ class adminController {
       const endIndex = currentPage * ordersPerPage;
       const ordersPage = filteredOrders.slice(startIndex, endIndex);
       res.render('admin/quan_ly_don_hang', {
+        flash,
         user: user,
         users: users,
         ordersPage: multipleMongooseToObject(ordersPage),
@@ -164,6 +172,21 @@ class adminController {
     try {
       const user = await User.findOne({ _id: req.session.user });
       const users = await User.find({ username: { $ne: 'admin' } }).sort({ createdAt: -1 });
+      const flash = req.flash();
+
+      //Tìm kiếm khách hàng theo Id
+      const customerSearchId = req.query.customerId;//Lấy Id khách hàng trên Url từ name = 'customerId' từ input 
+      if(customerSearchId){
+        const customerSearch = await User.findOne({ Id: customerSearchId});
+        if(customerSearch){
+          let customerSearch_id = customerSearch._id;
+          res.redirect(`/admin/managecustomer/${customerSearch_id}`)
+        } else {
+          req.flash('errorMessages', 'Khách hàng không tồn tại');
+          return res.redirect('/admin/managecustomer/');
+        }
+      }
+
       const cusPerPage = 7;
       const currentPage = req.query.page || 1;
       const startIndex = (currentPage - 1) * cusPerPage;
@@ -171,6 +194,7 @@ class adminController {
       const cusPage = users.slice(startIndex, endIndex);
       console.log(cusPage);
       res.render('admin/quan_ly_khach_hang',{
+        flash,
         user: user,
         users: users,
         currentPage,

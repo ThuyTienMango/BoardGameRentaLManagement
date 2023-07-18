@@ -263,9 +263,9 @@ cursor: pointer;
     gap: 40px;
     margin-left: 15px;
 }
-.list-oder__sort > a {
+/* .list-oder__sort > a {
     
-}
+} */
 .list-oder__sort-title{
     display: flex;
     flex-direction: column;

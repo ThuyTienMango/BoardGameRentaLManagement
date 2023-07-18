@@ -14,17 +14,17 @@
                 <!--  start top bar -->
                 <div class="top-bar">
                     <div class="top-bar__logo">
-                        <a href="" class="">
+                        <a href="/admin/manageorder" class="">
                             <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
                     <div class="top-bar__title-page">
                         
                         <div class="top-bar__title-page__head-1">
-                            <a href="">   Sản phẩm </a>
+                            <a href=""> Khách hàng </a>
                         </div>
                         <div class="top-bar__title-page__head-2">
-                            Quản lý sản phẩm của bạn
+                            Quản lý khách hàng của bạn
                         </div>
                     </div>
                     <div class="top-bar__profile">
@@ -80,6 +80,14 @@
 
                   <!--  start customer list  7 item  -->
                 <div class="list-oder-section col-9">
+                    <div class="search-bar">
+                        <form class="search-bar__form" action="/admin/managecustomer/" method="GET">
+                            <input class="search-bar__input" type="text" name="customerId" placeholder="Nhập ID khách hàng">
+                            <button class="search-bar__btn" type="submit">
+                                <img src="/assets/images/header__search-icon.svg" alt="">
+                            </button>
+                        </form>
+                    </div>
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
                             <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
@@ -145,10 +153,11 @@
 
             </div>
         </div>
-       
-
-
-
+        <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+            <script>
+                alert('<%= flash.errorMessages[0] %>');
+            </script>
+        <% } %>
     </div>
 </body>
 </html>

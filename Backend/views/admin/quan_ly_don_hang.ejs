@@ -14,17 +14,17 @@
                 <!--  start top bar -->
                 <div class="top-bar">
                     <div class="top-bar__logo">
-                        <a href="" class="">
+                        <a href="/admin/manageorder" class="">
                             <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
                     <div class="top-bar__title-page">
                         
                         <div class="top-bar__title-page__head-1">
-                            <a href="">   Sản phẩm </a>
+                            <a href=""> Đơn hàng </a>
                         </div>
                         <div class="top-bar__title-page__head-2">
-                            Quản lý sản phẩm của bạn
+                            Quản lý đơn hàng của bạn
                         </div>
                     </div>
                     <div class="top-bar__profile">
@@ -79,7 +79,7 @@
 
                 <div class="list-oder-section col-9">
                     <div class="search-bar">
-                        <form class="search-bar__form" action="/admin/manageorder" method="GET">
+                        <form class="search-bar__form" action="/admin/manageorder/" method="GET">
                             <input class="search-bar__input" type="text" name="orderId" placeholder="Nhập ID đơn hàng">
                             <button class="search-bar__btn" type="submit">
                                 <img src="/assets/images/header__search-icon.svg" alt="">
@@ -119,14 +119,14 @@
                             <% ordersPage.forEach((order) => { %>
                                 <div class="list-oder__oder-line">
                                     <div class="list-oder__oder-info">
-                                    <a href="#" class="oder-info__id list-oder__col-1"><%= order.Id %></a>
+                                    <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__id list-oder__col-1"><%= order.Id %></a>
                                     <div class="oder-info__product list-oder__col-3">
                                         <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
                                         <a href="#">
                                         <img src="<%= game.imageUrl %>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title">
+                                        <a href="/admin/orderdetail/<%= order._id %>" class="product__text-title">
                                             <%= game.name %>
                                         </a>
                                         <div class="product__text-quantity">SL: <%= order.quantity %></div>
@@ -135,9 +135,9 @@
                                     <div class="oder-info__date list-oder__col-2">
                                         <div class="oder-info__date-day"><%= order.createdAt %></div>
                                     </div>
-                                    <a href="#" class="oder-info__customer list-oder__col-1-1">
-                                        <% // Tìm khách hàng tương ứng với order.customerId %>
-                                        <% const customer = users.find((user) => user.Id.toString() === order.customerId.toString()); %>
+                                    <% // Tìm khách hàng tương ứng với order.customerId %>
+                                    <% const customer = users.find((user) => user._id.toString() === order.customerId.toString()); %>
+                                    <a href="/admin/managecustomer/<%= customer._id %>" class="oder-info__customer list-oder__col-1-1">
                                         <%= customer ? customer.name : '' %> <% // Hiển thị tên khách hàng nếu có, nếu không hiển thị chuỗi rỗng %>
                                     </a>                                            
                                     <div class="oder-info__cost list-oder__col-1-2"><%= order.totalPrice.toLocaleString('vi-VN') %></div> 
@@ -177,6 +177,11 @@
                 </div>
             </div>
         </div>
+        <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+            <script>
+                alert('<%= flash.errorMessages[0] %>');
+            </script>
+        <% } %>
     </div>
 </body>
 </html>
