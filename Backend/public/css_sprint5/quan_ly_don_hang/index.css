@@ -289,7 +289,7 @@ cursor: pointer;
     background: #FABE0A;
 }
 .list-oder__line-table{
-   margin-left: -10px;
+    margin-left: -10px;
     width: 100%;
     border: 1px solid #737373;
 }
@@ -323,17 +323,19 @@ height: 100%;
 display: flex;
 align-items: center;
 }
-
+.list-oder__title-table-id{
+    margin-left: 10px;
+}
 .list-oder__title-table-product{
     margin-left: -10px;
 }
 .list-oder__col-1{
-    width: 10%;
+    width: 8%;
 }
 
 
 .list-oder__col-3{
-    width: 28%;
+    width: 26%;
 }
 .list-oder__title-table-date,
 .list-oder__title-table-customer,
@@ -345,15 +347,15 @@ align-items: center;
    justify-content: center;
 }
 .list-oder__col-2{
-    width: 15%;
+    width: 13%
 }
 
 .list-oder__col-1-1{
-width: 14%;
+width: 17%;
 }
 
 .list-oder__col-1-2{
-    width: 12%;
+    width: 10%;
 }
 
 .list-oder__oder-line{
@@ -367,9 +369,11 @@ width: 14%;
 }
 .oder-info__line-end{
     border: 1px solid rgba(115, 115, 115, 0.6);
-    width: 90%;
+    width: 97%;
+   
 }
 .list-oder__oder-info{
+    gap: 10px;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -379,21 +383,17 @@ width: 14%;
     
 }
 .oder-info__id{
-   
     display: flex;
-    text-align: justify;
     align-items: center;
     margin-left: 10px;
-    
     height: 100%;
     font-family: 'Helvetica';
     font-style: normal;
-    font-weight: 300;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 12px;
     line-height: 14px;
     color: #000000;
     cursor: pointer;
-    word-break: break-all;
     
     
 }
@@ -411,8 +411,7 @@ width: 14%;
 .oder-info__customer{
     cursor: pointer;
 }
-/* .oder-info__customer,
-.oder-info__cost, */
+
 .oder-info__date{
     display: flex;
     align-items: center;
@@ -445,17 +444,12 @@ width: 14%;
     justify-content: center;
     font-family: 'Helvetica';
     font-style: normal;
-    font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    color: #000000;
-    margin-right: 35px;
+    color: #ff0606;
+    font-weight: 600 !important;
 }
-.oder-info__status{
-width: 16%;
-margin-right: 35px;
-margin-left: -35px;
-}
+
 .oder-info__product-img{
     width: 35px;
     height: 35px;
@@ -492,7 +486,7 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 25px;
+    
 }
 .oder-info__status{
     display: flex;
@@ -508,10 +502,8 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 70px;
     height: 25px;
-    
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -538,7 +530,6 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     height: 100%;
-    margin-left: -8px;
 }
 
 .list-oder__page-number{
@@ -552,7 +543,9 @@ border-radius: 5px;
 }
 
 .pagination {
-    height: 100%;
+    position: absolute;
+    bottom: 1%;
+    right: 50%;
     display: flex;
     align-items: center;
     gap: 8px;
