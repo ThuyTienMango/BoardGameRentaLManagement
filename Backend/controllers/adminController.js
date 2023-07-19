@@ -54,9 +54,11 @@ class adminController {
   //[GET] /admin/addboardgame
   async getAddBoardgamePage(req, res, next){
    try{
+    const flash = req.flash();
     const user = await User.findOne({ _id: req.session.user }); //sử dụng phương thức findOne để tìm kiếm một boardgame trong cơ sở dữ liệu dựa trên giá trị _id lấy từ session (req.session.user) (phiên boardgame hiện tại sau khi đăng nhập)
     res.render('admin/them_san_pham',{
-        user: user,
+      flash,
+      user: user,
     })
    } catch(error){
     next(error);
@@ -78,44 +80,49 @@ class adminController {
   }
 
   //[GET] /admin/manageboardgame
-  async getManageBoardgamePage(req, res, next){
-    try{
-        const flash = req.flash();
-        const boardgames = await Boardgame.find({}).sort({ createdAt: -1 });
-        const user = await User.findOne({ _id: req.session.user });
-        const checkStock = req.query.checkStock || 'all';
-        let filteredBoardgames = boardgames;
+  async getManageBoardgamePage(req, res, next) {
+    try {
+      const flash = req.flash();
+      const boardgames = await Boardgame.find({}).sort({ createdAt: -1 });
+      const user = await User.findOne({ _id: req.session.user });
+      const checkStock = req.query.checkStock || 'all';
+      let filteredBoardgames = boardgames;
 
-        //Lọc sản phẩm hết hàng
-        if (checkStock !== 'all') {
-          filteredBoardgames = filteredBoardgames.filter((boardgame) => boardgame.quantity.toString() === checkStock);
+      // Lọc sản phẩm hết hàng
+      if (checkStock !== 'all') {
+        filteredBoardgames = filteredBoardgames.filter((boardgame) => boardgame.quantity.toString() === checkStock);
+      }
+
+      // Tìm kiếm sản phẩm theo id
+      const boardgameSearchId = req.query.boardgameId;
+      if (boardgameSearchId) {
+        const boardgameSearch = await Boardgame.findOne({ Id: boardgameSearchId });
+        if (boardgameSearch) {
+          filteredBoardgames = [boardgameSearch];
+        } else {
+          req.flash('errorMessages', 'Sản phẩm không tồn tại');
+          return res.redirect('/admin/manageboardgame');
         }
+      }
 
-        //Tìm kiếm sản phẩm theo id
-        const boardgameSearchId = req.query.boardgameId;
-        if (boardgameSearchId) {
-          filteredBoardgames = filteredBoardgames.filter((boardgame) => {
-            return boardgame.Id.includes(boardgameSearchId);
-          });
-        } 
-
-        const itemsPerPage = 7; // Số sản phẩm trên mỗi trang
-        const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = currentPage * itemsPerPage;
-        const boardgamesPage = filteredBoardgames.slice(startIndex, endIndex);
-        res.render('admin/quan_ly_san_pham',{
-            flash,
-            user: user,
-            boardgames: multipleMongooseToObject(boardgamesPage),
-            totalPages: Math.ceil(filteredBoardgames.length / itemsPerPage),
-            currentPage,
-            checkStock: checkStock,
-        })
-    } catch(error){
-        next(error);
+      const itemsPerPage = 7; // Số sản phẩm trên mỗi trang
+      const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = currentPage * itemsPerPage;
+      const boardgamesPage = filteredBoardgames.slice(startIndex, endIndex);
+      res.render('admin/quan_ly_san_pham', {
+        flash,
+        user: user,
+        boardgames: multipleMongooseToObject(boardgamesPage),
+        totalPages: Math.ceil(filteredBoardgames.length / itemsPerPage),
+        currentPage,
+        checkStock: checkStock,
+      });
+    } catch (error) {
+      next(error);
     }
   }
+
 
   //[GET] /admin/manageorder
   async getManageOrderPage(req, res, next) {
@@ -250,12 +257,14 @@ class adminController {
             if (err) {
               return res.status(400).json({ message: err.message }); //Nếu có lỗi xảy ra trong quá trình tải lên, một thông báo lỗi sẽ được trả về cho client
             }
-    
+            
+            const flash = req.flash();
             const { name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu 
     
             // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
             if (!name || !description ||  !price || !ages || !playerMin || !playerMax || !length ||!quantity) {
-              return res.status(400).json({ message: 'Missing required fields.' });
+              req.flash('errorMessages','Chưa điền đầy đủ thông tin')
+              return res.redirect('/admin/addboardgame');
             }
     
             const boardgame = new Boardgame({
@@ -274,7 +283,14 @@ class adminController {
               boardgame.image = req.file.filename; // Lưu tên file vào trường avatar
               boardgame.imageUrl = '/Boardgame_img/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
             }
-    
+            
+            //Kiểm tra sản phẩm tồn tại
+            const existBoardgame = await Boardgame.findOne({name : boardgame.name});
+            if(existBoardgame){
+              req.flash('errorMessages','Tên sản phẩm đã tồn tại');
+              return res.redirect(`/admin/addboardgame`);
+            }
+
             await boardgame.save(); // Lưu thông tin boardgame vào cơ sở dữ liệu
             res.redirect('/admin/manageboardgame');
         });
@@ -286,6 +302,7 @@ class adminController {
   //[POST] /admin/editboardgame/:id
   async editBoardgame(req, res, next) {
     try {
+      const boardgames = await Boardgame.find();
       const filter = { _id : req.params.id };
       const update = {
         name: req.body.name,
@@ -297,6 +314,11 @@ class adminController {
         price: req.body.price,
         quantity: req.body.quantity
       }
+
+      // if(req.body.name === boardgames.name){
+      //   req.flash('errorMessages','Tên sản phẩm đã tồn tại');
+      //   return res.redirect(`/admin/editboardgame/${filter}`);
+      // }
 
       await Boardgame.findOneAndUpdate(filter, update, {
         new: true

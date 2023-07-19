@@ -141,6 +141,11 @@
                 </div>
             </div>
         </div>
+        <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+            <script>
+                alert('<%= flash.errorMessages[0] %>');
+            </script>
+        <% } %>
     </div>
 
     <script src="/css_sprint5/them_san_pham/main.js"></script>
