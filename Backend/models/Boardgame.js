@@ -14,8 +14,10 @@ const boardgameSchema = new Schema(
         playerMax: { type: Number, required: true},
         length: {type: Number, required: true},
         quantity: {type: Number, required: true},
-        image: { type: String },
-        imageUrl: { type: String },
+        // image: { type: String },
+        // imageUrl: { type: String },
+        images: { type: Array },
+        imageUrls: { type: Array },
     }, {
         timestamps: true, }
 );

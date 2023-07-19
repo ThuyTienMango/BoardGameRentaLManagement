@@ -38,7 +38,8 @@ const upload = multer({
       cb(new Error('Only JPEG, JPG, and PNG file formats are allowed.'));
     }
   }
-}).single('image'); // Tên trường trong form chứa file boardgame_img
+}).array('images', 5); // Tên trường trong form chứa các tệp tin ảnh (giới hạn là 5 ảnh)
+
   
 
 class adminController {
@@ -251,53 +252,50 @@ class adminController {
   }
 
   //[POST] /admin/addboardgame
-  async addBoardgame(req, res, next){
-    try{
-        upload(req, res, async (err) => { // Phương thức sử dụng middleware upload để xử lý tải lên tệp tin (boargame_img)
-            if (err) {
-              return res.status(400).json({ message: err.message }); //Nếu có lỗi xảy ra trong quá trình tải lên, một thông báo lỗi sẽ được trả về cho client
-            }
-            
-            const flash = req.flash();
-            const { name, description, price, ages, playerMin, playerMax, length, quantity } = req.body; //thông tin boardgame được lấy từ yêu cầu 
-    
-            // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
-            if (!name || !description ||  !price || !ages || !playerMin || !playerMax || !length ||!quantity) {
-              req.flash('errorMessages','Chưa điền đầy đủ thông tin')
-              return res.redirect('/admin/addboardgame');
-            }
-    
-            const boardgame = new Boardgame({
-              name,
-              description,
-              price,
-              ages,
-              playerMin,
-              playerMax,
-              length,
-              quantity,
-            });// một đối tượng Boardgame mới được tạo với thông tin boardgame và được lưu trong cơ sở dữ liệu.
-    
-            // Kiểm tra xem có file đã được tải lên hay không
-            if (req.file) {
-              boardgame.image = req.file.filename; // Lưu tên file vào trường avatar
-              boardgame.imageUrl = '/Boardgame_img/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
-            }
-            
-            //Kiểm tra sản phẩm tồn tại
-            const existBoardgame = await Boardgame.findOne({name : boardgame.name});
-            if(existBoardgame){
-              req.flash('errorMessages','Tên sản phẩm đã tồn tại');
-              return res.redirect(`/admin/addboardgame`);
-            }
+async addBoardgame(req, res, next){
+  try{
+    upload(req, res, async (err) => {
+      if (err) {
+        return res.status(400).json({ message: err.message });
+      }
+      
+      const { name, description, price, ages, playerMin, playerMax, length, quantity } = req.body;
 
-            await boardgame.save(); // Lưu thông tin boardgame vào cơ sở dữ liệu
-            res.redirect('/admin/manageboardgame');
-        });
-    } catch(error){
-        next(error);
-    }
+      if (!name || !description ||  !price || !ages || !playerMin || !playerMax || !length ||!quantity) {
+        req.flash('errorMessages','Chưa điền đầy đủ thông tin')
+        return res.redirect('/admin/addboardgame');
+      }
+
+      const boardgame = new Boardgame({
+        name,
+        description,
+        price,
+        ages,
+        playerMin,
+        playerMax,
+        length,
+        quantity,
+      });
+
+      if (req.files) {
+        boardgame.images = req.files.map(file => file.filename); // Lưu danh sách tên file vào trường images
+        boardgame.imageUrls = req.files.map(file => '/Boardgame_img/' + file.filename); // Lưu danh sách đường dẫn đầy đủ của ảnh
+      }
+
+      const existBoardgame = await Boardgame.findOne({name : boardgame.name});
+      if(existBoardgame){
+        req.flash('errorMessages','Tên sản phẩm đã tồn tại');
+        return res.redirect(`/admin/addboardgame`);
+      }
+
+      await boardgame.save();
+      res.redirect('/admin/manageboardgame');
+    });
+  } catch(error){
+    next(error);
   }
+}
+
 
   //[POST] /admin/editboardgame/:id
   async editBoardgame(req, res, next) {
