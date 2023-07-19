@@ -236,8 +236,9 @@ margin-right: 5px;
 	.navigation-left__function{
 		height: 55%;
 		width: 100%;
-		
+		margin-top: 10px;
 		display: flex;
+		gap: 10px;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -247,7 +248,7 @@ margin-right: 5px;
 		width: 100%;
 		display: flex;
 		align-items: center;
-		
+		gap: 8px;
 		height: 45px;
 		
 	}
@@ -266,11 +267,11 @@ margin-right: 5px;
 	line-height: 18px;
 	display: flex;
 	align-items: center;
-	text-align: center;
-	
-	color: #000000;
-	
-		
+	text-align: center;	
+	}
+	.function-title__active {
+		color: #002144;
+		font-weight: 700;
 	}
 	
 	.navigation-left__function__nav-list{
