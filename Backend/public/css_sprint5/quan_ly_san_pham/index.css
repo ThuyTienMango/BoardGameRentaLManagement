@@ -209,13 +209,47 @@ cursor: pointer;
 .col-9{
     width: 72%;
 }
+.search-bar{
+    position: absolute;
+    top: 2.05%;
+    right: 20%;
+    
+
+}
+.search-bar__form{
+    background: #F0F4F5;
+    border-radius: 5px;
+    padding: 5px 5px;
+    display: flex;
+    justify-content: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.search-bar__input{
+    width: 172px;
+    margin-left: 5px;
+    border: none;
+    background: #F0F4F5;
+    color: rgba(0, 0, 0, 0.80);
+    font-family: Helvetica;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.search-bar__btn{
+    border: none;
+
+}
+.search-bar__btn > img{
+    cursor: pointer;
+}
 .list-oder__container{
     width: 100%;
     height: 100%;
     margin: 10px 10px  ;
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 .list-oder__sort{
     width: 100%;
@@ -249,7 +283,7 @@ cursor: pointer;
 .list-oder__sort-title{
     display: flex;
     flex-direction: column;
-    width: 110px;
+  
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
@@ -296,19 +330,28 @@ cursor: pointer;
     line-height: 24px;
     color: rgba(0, 0, 0, 0.7);
 }
+.list-oder__title-unit{
+    position: absolute;
+    top: 117px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 22px;
+}
 .list-oder__title-table-id,
 .list-oder__title-table-product{
 height: 100%;
 display: flex;
 align-items: center;
+justify-content: center;
+position: relative;
 }
 .list-oder__col-1{
-    width: 10%;
+    width: 12%;
 }
 
 
 .list-oder__col-3{
-    width: 28%;
+    width: 37%;
 }
 .list-oder__title-table-date,
 .list-oder__title-table-customer,
@@ -324,11 +367,11 @@ align-items: center;
 }
 
 .list-oder__col-1-1{
-width: 14%;
+width: 16%;
 }
 
 .list-oder__col-1-2{
-    width: 12%;
+    width: 14%;
 }
 
 .list-oder__oder-line{
@@ -340,6 +383,7 @@ width: 14%;
     align-items: center;
    
 }
+
 .oder-info__line-end{
     border: 1px solid rgba(115, 115, 115, 0.6);
     width: 90%;
@@ -357,17 +401,15 @@ width: 14%;
    
     display: flex;
     align-items: center;
-    margin-left: 10px;
-    margin-right: 15px;
+    margin-left: 20px;
     height: 100%;
     font-family: 'Helvetica';
     font-style: normal;
-    font-weight: 400px;
-    font-size: 10px;
+    font-weight: 400;
+    font-size: 12px;
     line-height: 14px;
     color: #000000;
     cursor: pointer;
-    word-break: break-all;
 }
 .oder-info__product{
     display: flex;
@@ -440,6 +482,7 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 25px;
 }
 .oder-info__status{
     display: flex;

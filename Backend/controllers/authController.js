@@ -41,7 +41,8 @@ class authController {
   //[GET] /login
   async getLoginPage(req, res, next) {
     try {
-      res.render('login'); //render ra trang đăng nhập nằm trong path: views/login.ejs
+      const flash = req.flash();
+      res.render('login', { flash }); // render ra trang đăng nhập nằm trong path: views/login.ejs và truyền biến flash vào template
     } catch (error) {
       next(error);
     }
@@ -50,7 +51,8 @@ class authController {
   //[GET] /register
   async getRegisterPage(req, res, next) {
     try {
-      res.render('register'); //render ra trang đăng ký nằm trong path: views/register.ejs
+      const flash = req.flash();
+      res.render('register', { flash }); // render ra trang đăng ký nằm trong path: views/register.ejs và truyền biến flash vào template
     } catch (error) {
       next(error);
     }
@@ -61,14 +63,30 @@ class authController {
     try {
       upload(req, res, async (err) => { // Phương thức sử dụng middleware upload để xử lý tải lên tệp tin (avatar)
         if (err) {
-          return res.status(400).json({ message: err.message }); //Nếu có lỗi xảy ra trong quá trình tải lên, một thông báo lỗi sẽ được trả về cho client
+          req.flash('errorMessages', err.message); // Nếu có lỗi xảy ra trong quá trình tải lên, đặt thông báo lỗi và chuyển hướng đến trang đăng ký lại
+          return res.redirect('/register');
         }
 
         const { name, username, email, password, tel, identity, address } = req.body; //thông tin người dùng được lấy từ yêu cầu 
 
         // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay không
         if (!name || !username || !email || !password || !tel || !identity) {
-          return res.status(400).json({ message: 'Missing required fields.' });
+          req.flash('errorMessages', 'Bạn chưa điền đầy đủ thông tin'); // Đặt thông báo lỗi và chuyển hướng đến trang đăng ký lại
+          return res.redirect('/register');
+        }
+
+        // Kiểm tra xem username đã tồn tại trong cơ sở dữ liệu chưa
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+          req.flash('errorMessages', 'Tên đăng nhập đã được sử dụng');
+          return res.redirect('/register');
+        }
+
+        // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
+        const existingEmail = await User.findOne({ email });
+        if (existingEmail) {
+          req.flash('errorMessages', 'Email đã được sử dụng');
+          return res.redirect('/register');
         }
 
         const user = new User({
@@ -88,6 +106,7 @@ class authController {
         }
 
         await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
+        req.flash('errorMessages', 'Bạn đã đăng ký tài khoản thành công');
         res.redirect('/login');
       });
     } catch (error) {
@@ -105,28 +124,25 @@ class authController {
       const user = await User.findOne({ username });
 
       if (!user) {
-        // Người dùng không tồn tại, chuyển hướng đến trang đăng nhập lại
-        console.log('Sai ten nguoi dung');
+        // Người dùng không tồn tại, đặt thông báo lỗi và chuyển hướng đến trang đăng nhập lại
+        req.flash('errorMessages', 'Tên đăng nhập không đúng');
         return res.redirect('/login');
       }
-
+  
       // Kiểm tra mật khẩu
       if (password !== user.password) {
-        // Mật khẩu không khớp, chuyển hướng đến trang đăng nhập lại
-        console.log('Sai mat khau');
+        // Mật khẩu không khớp, đặt thông báo lỗi và chuyển hướng đến trang đăng nhập lại
+        req.flash('errorMessages', 'Mật khẩu không đúng');
         return res.redirect('/login');
       }
 
       // Lưu thông tin người dùng vào session
       req.session.user = user;
 
-      // // Chuyển hướng đến trang cửa hàng
-      // res.redirect('/');
-
       // Chuyển hướng dựa trên vai trò của người dùng
       if (user.username === 'admin') {
         // Chuyển hướng đến trang dành cho admin
-        return res.redirect('/admin/manageboardgame');
+        return res.redirect('/admin/manageorder');
       } else {
         // Chuyển hướng đến trang dành cho khách hàng
         return res.redirect('/');
@@ -154,14 +170,6 @@ class authController {
       if (!req.session.user) {
         return res.redirect('/login');
       }
-      // // Nếu người dùng đã đăng nhập, bạn có thể kiểm tra vai trò của người dùng
-      // if (req.session.user.username === 'admin') {
-      //   // Nếu là admin, chuyển hướng đến trang admin
-      //   return res.redirect('/admin');
-      // } else {
-      //   // Nếu là khách hàng, chuyển hướng đến trang khách hàng
-      //   return res.redirect('/');
-      // }
       next();
     } catch (error) {
       next(error);

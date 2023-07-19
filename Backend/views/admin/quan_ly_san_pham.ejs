@@ -14,7 +14,7 @@
                  <!--  start top bar -->
                  <div class="top-bar">
                     <div class="top-bar__logo">
-                        <a href="" class="">
+                        <a href="/admin/manageorder" class="">
                             <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
@@ -48,25 +48,13 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="/admin" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Tổng quan
-                            </div>
-                        </a>
                         <a href="/admin/manageorder" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title text-grey">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="/admin/thongke" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Thống kê
-                            </div>
-                        </a>
-                        <a href="/admin/khachhang" class="side-bar__nav-container background-white">
+                        <a href="/admin/managecustomer" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
@@ -90,14 +78,27 @@
 
                   <!--  start customer list  8 item  -->
                 <div class="list-oder-section col-9">
+                    <div class="search-bar">
+                        <form class="search-bar__form" action="/admin/manageboardgame/" method="GET">
+                            <input class="search-bar__input" type="text" name="boardgameId" placeholder="Nhập ID boardgame">
+                            <button class="search-bar__btn" type="submit">
+                                <img src="/assets/images/header__search-icon.svg" alt="">
+                            </button>
+                        </form>
+                    </div>   
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
-                            <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
+                            <a href="/admin/manageboardgame" class="<%= checkStock === 'all' ? ' sort-title--active' : 'list-oder__sort-title' %>">
+                                Tất cả
+                                <!-- <div class="sort-title__divider"></div> -->
+                               </a>
+                            <a href="/admin/manageboardgame?checkStock=0" class="<%= checkStock === '0' ? ' sort-title--active' : 'list-oder__sort-title' %>" style=" margin-left: 15px; ">Hết hàng</a>
+                            <!-- <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
                             <div class="sort-title__divider"></div>
                             </div>
                             <div class="list-oder__sort-title" > Đang cho thuê </div>
                             <div class="list-oder__sort-title" style=" margin-left: 15px; " > Hết hàng</div>
-                           
+                            -->
                         </div>
                         <a href="/admin/addboardgame" class="btn__add-product">Thêm sản phẩm</a>
                         <div class="list-oder__line-table"></div>
@@ -105,9 +106,13 @@
                             <div class="list-oder__title-table-id list-oder__col-1 ">ID</div>
                             <div class="list-oder__title-table-product list-oder__col-3">Sản phẩm</div>
                             <div class="list-oder__title-table-date list-oder__col-2">Ngày thêm</div>
-                            <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng</div>
-                            <div class="list-oder__title-table-cost list-oder__col-1-2">Giá thuê/ngày</div>
-                            <div class="list-oder__title-table-status list-oder__col-2">Doanh thu</div>
+                            <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng
+                                <div class="list-oder__title-unit">( Cái )</div>
+                            </div>
+                            <div class="list-oder__title-table-cost list-oder__col-1-2">Giá thuê
+                                <div class="list-oder__title-unit">( VNĐ )</div>
+                            </div>
+                            
                         </div>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__flex-box">
@@ -115,10 +120,10 @@
                             <% boardgames.forEach((boardgame) => { %>
                             <div class="list-oder__oder-line">
                                 <div class="list-oder__oder-info">
-                                    <a href="" class="oder-info__id list-oder__col-1"><%= boardgame._id %></a>
+                                    <a href="" class="oder-info__id list-oder__col-1"><%= boardgame.Id %></a>
                                     <div class="oder-info__product list-oder__col-3">
                                         <a href="">
-                                            <img src="<%= boardgame.image %>" alt="" class="oder-info__product-img">
+                                            <img src="<%= boardgame.imageUrl %>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
                                             <a href="" class="product__text-title"> 
@@ -127,21 +132,19 @@
                                         </div>
                                     </div>
                                     <div class="oder-info__date list-oder__col-2">
-                                        <div class="oder-info__date-day"> 11-7-2023</div>
-                                        <div class="oder-info__date-time"> 13:00 PM</div>
+                                        <div class="oder-info__date-day"> <%= boardgame.createdAt %> </div>
                                     </div>
-                                    <div class="oder-info__customer list-oder__col-1-1"> 70</div>
-                                    <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                    <div class="oder-info__revenue list-oder__col-2">  
-                                            1.250.000
-                                    </div>
+                                    <div class="oder-info__customer list-oder__col-1-1"> <%= boardgame.quantity %> </div>
+                                    <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price.toLocaleString('vi-VN') %> </div>
                                     <div class="oder-info__icon">
-                                        <a href="/admin/editboardgame" class="oder-info__edit">
+                                        <a href="/admin/editboardgame/<%= boardgame._id %>" class="oder-info__edit">
                                             <img src="/assets/images/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
                                         </a>
-                                        <a href="" class="oder-info__delete">
-                                            <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
-                                        </a>
+                                        <form action="/admin/deleteboardgame/<%= boardgame._id %>" method="POST" onsubmit="return confirmDelete()">
+                                            <button type="submit" class="oder-info__delete">
+                                              <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="oder-info__line-end"></div>
@@ -150,6 +153,17 @@
                             <% }) %>
                             <!-- oder end  -->
 
+                            <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+                                <script>
+                                    alert('<%= flash.errorMessages[0] %>');
+                                </script>
+                            <% } %>
+
+                            <script>
+                                function confirmDelete() {
+                                  return confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+                                }
+                            </script>
                            
                              
                             <!-- Phân trang -->
@@ -160,21 +174,12 @@
                                     </a>
                                 <% } %>
                             </div>
-                           
-
                         </div>
-
-
                     </div>
                 </div>
                 <!--  end customer list  -->
-
             </div>
         </div>
-       
-
-
-
     </div>
 </body>
 </html>

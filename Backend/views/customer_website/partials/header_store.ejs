@@ -6,8 +6,14 @@
               <img src="/assets/images/logo.jpg" alt="" class="header__logo-img">
           </a>
           <div class="header__search">
-              <img src="/assets/images/header__search-icon.svg" alt="" class="header__search-icon">
-              <input type="text" placeholder="Tên sản phẩm, bộ sưu tập " class="input_search">
+            <form action="/store" method="GET">
+                <input type="text" name="name" placeholder="Nhập tên sản phẩm " class="input_search">
+                <button type="submit" style="position: absolute;">
+                    <img src="/assets/images/header__search-icon.svg" alt="" class="header__search-icon">
+                </button>
+            </form>
+              <!-- <img src="/assets/images/header__search-icon.svg" alt="" class="header__search-icon">
+              <input type="text" placeholder="Tên sản phẩm, bộ sưu tập " class="input_search"> -->
           </div>
           <div class="header__nav">
               <div class="header__nav-page">

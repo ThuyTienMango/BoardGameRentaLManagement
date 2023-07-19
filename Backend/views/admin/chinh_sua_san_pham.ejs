@@ -14,7 +14,7 @@
                 <!--  start top bar -->
                 <div class="top-bar">
                     <div class="top-bar__logo">
-                        <a href="" class="">
+                        <a href="/admin/manageorder" class="">
                             <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
@@ -24,7 +24,7 @@
                             <a href="">   Sản phẩm </a>
                         </div>
                         <div class="top-bar__title-page__head-2">
-                            Quản lý sản phẩm của bạn
+                            Chỉnh sửa thông tin sản phẩm
                         </div>
                     </div>
                     <div class="top-bar__profile">
@@ -48,25 +48,13 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="/admin" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Tổng quan
-                            </div>
-                        </a>
                         <a href="/admin/manageorder" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title text-grey">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="/admin/thongke" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Thống kê
-                            </div>
-                        </a>
-                        <a href="/admin/khachhang" class="side-bar__nav-container background-white">
+                        <a href="/admin/managecustomer" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
@@ -87,82 +75,80 @@
                     </div>
                 </div>
                 <!--  end side bar -->
+                <!--  Start them thong tin san pham -->
                 <div class="col-9">
                     <div class="form__container">
-                        <form action="">
-                            <!--  start thong tin co ban  -->
-                                <div class="section-basic-infor">
-                                        <div class="basic-infor__head-title">Thông tin cơ bản</div>
-                                        <div class="basic-infor__line"></div>
-                                        <div class="basic-infor__product-img">
-                                            <div class="product-img__title"> Hình ảnh sản phẩm </div>
-                                        <div class="product-img__container-img">
-                                            <div class="product-img__box-container">
-                                                <img src="/assets/images/it1.jpg" alt="" class="container-img__item">
-                                            </div>
-                                            
-                                        </div>  
-                                        </div>
-                                        <div class="basic-infor__product-name">
-                                            <div class="product-name__title"> Tên sản phẩm </div>
-                                            <div class="product-name__input" id="product-name"> Unmatched: Marvel - For King & Country (New Arrival)</div>
-                                            <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-name" onclick="enableEditProductName()">
-                
-                                        </div>
-                                        <div class="basic-infor__product-description">
-                                            <div class="product-name__title"> Mô tả sản phẩm </div>
-                                            <div class="product-description__content" id="product-description" contenteditable>
-                                            Unmatched is a highly asymmetrical miniature fighting game for two or four players. Each hero is represented by a unique deck designed to evoke their style and legend. Tactical movement and no-luck combat resolution create a unique play experience that rewards expertise, but just when you've mastered one set, new heroes arrive to provide all new match-ups.
-                                        
-                                            Unmatched: Marvel - For King & Country features three characters from the Marvel comics universe: Black Widow, Black Panther, and Winter Soldier.
-                                        
-                                            Black Widow
-                                            From the Moscow Protocol to the Budapest Gambit, Black Widow is mission ready. She'll have you caught in her web before you even know she's there. Sidekick: Maria Hill.
-                                        
-                                            Winter Soldier
-                                            A bionic arm and marksman's eye made the boy named Bucky into a lethal fighter. When he was programmed to kill without remorse, then he became the Winter Soldier.
-                                        
-                                            Black Panther
-                                            With his vibranium suit, the stalking panther absorbs your strikes and unleashes them back with his cat-like reflexes. Sidekick: Shuri.
-                                            </div>
-                                            <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-description" onclick="enableEditProductDescription()">
-                
-                                        </div>
-                                        
-                                </div>
-                                <!--  end thong tin co ban  -->
-                                <!--  start thong tin ban hang  -->
-                                <!-- <div class="section-sale-infor">
-                                    <div class="basic-infor__head-title">Thông tin bán hàng</div>
-                                    <div class="basic-infor__line"></div>
-                                    <div class="basic-infor__product-quantity">
-                                        <div class="product-name__title"> Số lượng sản phẩm </div>
-                                        <div class="product-quantity__input" id="product-quantity"> 250</div>
-                                        <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-quantity" onclick="enableEditProductQuantity()" >
-                                    </div>
-                                    <div class="basic-infor__product-cost">
-                                        <div class="product-name__title"> Giá thuê 7 ngày </div>
-                                        <div class="product-quantity__input"  id="product-cost"> 250.000</div>
-                                        <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="enableEditProductCost()">
-                                    </div> 
-                                </div> -->
-                                <button class="basic-infor__btn-save">
-                                    <div class="btn-save"> Cập nhật </div>
-                                </button>
-                            <!--  end thong tin ban hang  -->
-                        </form>
-                        
+                      <form action="/admin/editboardgame/<%= boardgame._id %>" method="post">
+                        <!-- <input type="hidden" name="_id" value="<%= boardgame.Id %>"> -->
+                        <div class="section-basic-infor">
+                          <div class="basic-infor__head-title">Thông tin cơ bản</div>
+                          <div class="basic-infor_ _line"></div>
+                          <div class="basic-infor__product-img">
+                            <div class="product-img__title">Hình ảnh sản phẩm</div>
+                            <div class="product-img__container-img">
+                              <div class="product-img__box-container">
+                                <img src="<%= boardgame.imageUrl %>" alt="" class="container-img__item">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="basic-infor__product-name">
+                            <div class="product-name__title">Tên sản phẩm</div>
+                            <input type="text" name="name" id="product-name" value="<%= boardgame.name %>">
+                            <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-name" onclick="createInputField('product-name')"> -->
+                          </div>
+                          <div class="basic-infor__product-description">
+                            <div class="product-name__title">Mô tả sản phẩm</div>
+                            <textarea name="description" id="product-description"><%= boardgame.description %></textarea>
+                            <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-description" onclick="createInputField('product-description')"> -->
+                          </div>
+                          <div class="basic-infor__more-infor">
+                            <div class="basic-infor__more-infor__col-1">
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Độ tuổi chơi +</div>
+                                <input type="text" name="ages" id="ages" value="<%= boardgame.ages %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('ages')"> -->
+                              </div>
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Người chơi tối đa</div>
+                                <input type="text" name="playerMax" id="playerMax" value="<%= boardgame.playerMax %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('playerMax')"> -->
+                              </div>
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Người chơi tối thiểu</div>
+                                <input type="text" name="playerMin" id="playerMin" value="<%= boardgame.playerMin %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('playerMin')"> -->
+                              </div>
+                            </div>
+                            <div class="basic-infor__more-infor__col-1">
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Thời lượng (phút)</div>
+                                <input type="text" name="length" id="length" value="<%= boardgame.length %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('length')"> -->
+                              </div>
+                              <div class="basic-infor__product-cost">
+                                <div class="product-name__title">Giá thuê 7 ngày</div>
+                                <input type="text" name="price" id="product-cost" value="<%= boardgame.price %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-cost" onclick="createInputField('product-cost')"> -->
+                              </div>
+                              <div class="basic-infor__product-quantity">
+                                <div class="product-name__title">Số lượng sản phẩm</div>
+                                <input type="text" name="quantity" id="product-quantity" value="<%= boardgame.quantity %>">
+                                <!-- <img src="/assets/images/product__icon-edit.svg" alt="" class="product__icon-edit edit-quantity" onclick="createInputField('product-quantity')"> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="basic-infor__btn-save" id="save-button">
+                          <div class="btn-save">Cập nhật</div>
+                        </button> 
+                      </form>
                     </div>
-
+                </div>
+             <!--  Start them thong tin san pham -->
             </div>
         </div>
-       
-
-
-
     </div>
 
-    
     <script src="/css_sprint5/chinh_sua_san_pham/main.js"></script>
 </body>
 </html>

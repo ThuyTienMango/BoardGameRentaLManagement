@@ -67,9 +67,8 @@ height: 96px;
     color: #718096;
 }
 .top-bar__profile{
-    margin-right: 15px;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
     align-items: center;
     width: 25%;
     height: 100%;
@@ -195,7 +194,6 @@ cursor: pointer;
 
 
 /*  end side bar */
-
 /*  start list oder */
 
 .list-oder-section{
@@ -259,17 +257,34 @@ cursor: pointer;
     height: 66px;   
     display: flex;
     align-items: center;
-   justify-content: flex-start;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-left: 15px;
+    width: 70%;
 }
-/* .list-oder__sort > a {
-    
-} */
+.btn__add-product{
+    background: #002144;
+    border-radius: 5px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 32px;
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    cursor: pointer;
+}
 .list-oder__sort-title{
     display: flex;
     flex-direction: column;
-  
+    width: 110px;
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
@@ -316,39 +331,47 @@ cursor: pointer;
     line-height: 24px;
     color: rgba(0, 0, 0, 0.7);
 }
+.list-oder__title-unit{
+    position: absolute;
+    top: 42px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 22px;
+}
 .list-oder__title-table-id,
-.list-oder__title-table-product{
+.list-oder__title-table-name{
 height: 100%;
 display: flex;
 align-items: center;
 }
 .list-oder__col-1{
-    width: 10%;
+    width: 12%;
 }
 
 
 .list-oder__col-3{
-    width: 28%;
+    width: 25%;
 }
 .list-oder__title-table-date,
-.list-oder__title-table-customer,
-.list-oder__title-table-cost,
+.list-oder__title-table-tel,
+.list-oder__title-table-email,
 .list-oder__title-table-status{
     height: 100%;
     display: flex;
     align-items: center;
    justify-content: center;
+   position: relative;
 }
 .list-oder__col-2{
-    width: 15%;
+    width: 19%;
 }
 
 .list-oder__col-1-1{
-width: 14%;
+width: 19%;
 }
 
 .list-oder__col-1-2{
-    width: 12%;
+    width: 19%;
 }
 
 .list-oder__oder-line{
@@ -379,7 +402,7 @@ width: 14%;
     text-align: justify;
     align-items: center;
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 15px;
     height: 100%;
     font-family: 'Helvetica';
     font-style: normal;
@@ -389,12 +412,10 @@ width: 14%;
     color: #000000;
     cursor: pointer;
     word-break: break-all;
-    
-    
 }
 .oder-info__product{
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
     
 }
 .oder-info__date{
@@ -406,52 +427,27 @@ width: 14%;
 .oder-info__customer{
     cursor: pointer;
 }
-/* .oder-info__customer,
-.oder-info__cost, */
+.oder-info__customer,
+.oder-info__cost,
+.oder-info__revenue,
 .oder-info__date{
     display: flex;
     align-items: center;
     justify-content: center;
+   
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
     color: #000000;
-    margin-left: 25px;
-    margin-right: -7px;
 }
-
-.oder-info__customer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    color: #000000;
-    /* margin-right: 35px; */
-}
-
 .oder-info__cost{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    color: #000000;
-    margin-right: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-.oder-info__status{
-width: 16%;
-margin-right: 35px;
-margin-left: -35px;
-}
+
 .oder-info__product-img{
     width: 35px;
     height: 35px;
@@ -494,46 +490,17 @@ border-radius: 5px;
     align-items: center;
     justify-content: center;
 }
-.oder-info__status-btn{
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 8px;
-    line-height: 160%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 70px;
-    height: 25px;
-    
-    border-radius: 8px;
+.oder-info__icon{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
-.status-btn--unpaid{
-    background: #FFF0E6;
-    color: #FE964A;
-}
-.status-btn--hired{
-    background: #E7F7EF;
-    color: #0CAF60;
-}
-.status-btn--due{
-    background: #FFF0F0;
-    color: #FD6A6A;
-}
-.status-btn--returned{
-    background: rgba(25, 167, 206, 0.6);
-    color: #146C94;
-}
+
 .oder-info__edit{
     display: flex;
     align-items: center;
     height: 100%;
-    margin-left: -8px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .list-oder__page-number{
@@ -602,12 +569,12 @@ border-radius: 5px;
     cursor: pointer;
 }
 
-/*  end list oder */
 
+
+/*  end list oder */
 /* start fix tổng cho BE  */
 .top-bar__title-page__head-1>a{
     color: #002144;
     }
-  
+
     /* start fix tổng cho BE  */
-    

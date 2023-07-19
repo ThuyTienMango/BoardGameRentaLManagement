@@ -8,7 +8,15 @@ class storeController {
     //[GET] /store
     async index(req, res, next) {
         try {
-            const boardgames = await Boardgame.find({});
+            const { name } = req.query; // Lấy giá trị tên sản phẩm từ query params
+            let query = {}; // Mặc định là truy vấn tất cả sản phẩm
+
+            // Nếu có tên sản phẩm được cung cấp, thêm điều kiện tìm kiếm vào truy vấn
+            if (name) {
+                query = { name: { $regex: name, $options: 'i' } };
+            }
+            const boardgames = await Boardgame.find(query);
+            const boardgamesCount = await Boardgame.countDocuments(query);
             const user = await User.findOne({ _id: req.session.user });
             const itemsPerPage = 20; // Số sản phẩm trên mỗi trang
             const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
@@ -20,6 +28,7 @@ class storeController {
                 currentPage,
                 totalPages: Math.ceil(boardgames.length / itemsPerPage),
                 user: user,
+                boardgamesCount: boardgamesCount,
             });
         } catch (error) {
             next(error);
@@ -59,18 +68,6 @@ class storeController {
             next(error);
         }
     }
-
-    //[GET] /store/order/:id
-    // async order(req, res, next){
-    //     try{
-    //         const boardgame = await Boardgame.findById(req.params.id);
-    //         res.render('boardgames/order', { 
-    //             boardgame: mongooseToObject(boardgame),
-    //          });
-    //     } catch(error) {
-    //         next(error);
-    //     }
-    // }
 }
 
 module.exports = new storeController();

@@ -14,7 +14,7 @@
                  <!--  start top bar -->
                  <div class="top-bar">
                     <div class="top-bar__logo">
-                        <a href="" class="">
+                        <a href="/admin/manageorder" class="">
                             <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
@@ -24,7 +24,7 @@
                             <a href="">   Sản phẩm </a>
                         </div>
                         <div class="top-bar__title-page__head-2">
-                            Quản lý sản phẩm của bạn
+                            Thêm sản phẩm mới
                         </div>
                     </div>
                     <div class="top-bar__profile">
@@ -48,25 +48,13 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="/admin" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Tổng quan
-                            </div>
-                        </a>
                         <a href="/admin/manageorder" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-oder.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title text-grey">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="/admin/thongke" class="side-bar__nav-container background-white">
-                            <img src="/assets/images/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Thống kê
-                            </div>
-                        </a>
-                        <a href="/admin/khachhang" class="side-bar__nav-container background-white">
+                        <a href="/admin/managecustomer" class="side-bar__nav-container background-white">
                             <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
@@ -114,37 +102,47 @@
                             <div class="product-name__title"> Mô tả sản phẩm </div>
                             <textarea name="description" id="" cols="30" rows="10" class="product-description__input"></textarea>
                         </div>
-                    </div>
-                      <!--  end thong tin co ban  -->
-                     <!--  start thong tin ban hang  -->
-                     <!-- <div class="section-sale-infor">
-                        <div class="basic-infor__head-title">Thông tin bán hàng</div>
-                        <div class="basic-infor__line"></div>
-                        <div class="basic-infor__product-quantity">
-                            <div class="product-name__title"> Số lượng sản phẩm </div>
-                            <input type="text" name="product-quantity" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        <div class="basic-infor__more-infor">
+                            <div class="basic-infor__more-infor__col-1">
+                                <div class="basic-infor__product-cost">
+                                    <div class="product-name__title"> Độ tuổi chơi + </div>
+                                    <input type="text" name="ages" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div> 
+                                <div class="basic-infor__product-cost">
+                                    <div class="product-name__title"> Người chơi tối đa </div>
+                                    <input type="text" name="playerMax" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div> 
+                                <div class="basic-infor__product-cost">
+                                    <div class="product-name__title"> Người chơi tối thiểu </div>
+                                    <input type="text" name="playerMin" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div> 
+                            </div>
+                            <div class="basic-infor__more-infor__col-1"> 
+                                <div class="basic-infor__product-cost">
+                                    <div class="product-name__title"> Thời lượng chơi </div>
+                                    <input type="text" name="length" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div> 
+                               
+                                <div class="basic-infor__product-quantity">
+                                    <div class="product-name__title"> Số lượng sản phẩm </div>
+                                    <input type="text" name="quantity" class="product-quantity__input"oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div>
+                                <div class="basic-infor__product-cost">
+                                    <div class="product-name__title"> Giá thuê 7 ngày </div>
+                                    <input type="text" name="price" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div>
+                            </div>
                         </div>
-                        <div class="basic-infor__product-cost">
-                            <div class="product-name__title"> Giá thuê 7 ngày </div>
-                            <input type="text" name="product-quantity" class="product-quantity__input" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
-                       
-                     </div> -->
-                     <!--  end thong tin ban hang  -->
                      <button class="basic-infor__btn-save">
                         <div class="btn-save"> Lưu & Hiển thị</div>
                      </button>
                     </form>
-
+                </div>
             </div>
         </div>
-       
-
-
-
     </div>
 
-    
     <script src="/css_sprint5/them_san_pham/main.js"></script>
 
 </body>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="/css_sprint5/quan_ly_don_hang/global.css">
+    <link rel="stylesheet" href="/css_sprint5/quan_ly_don_hang/index.css">
     <title>Quản lý đơn hàng</title>
 </head>
 <body>
@@ -14,28 +14,28 @@
                 <!--  start top bar -->
                 <div class="top-bar">
                     <div class="top-bar__logo">
-                        <a href="" class="">
-                            <img src="../../public/logo.jpg" alt="" class="top-bar__logo-img">
+                        <a href="/admin/manageorder" class="">
+                            <img src="/assets/images/logo.jpg" alt="" class="top-bar__logo-img">
                         </a>
                     </div>
                     <div class="top-bar__title-page">
                         
                         <div class="top-bar__title-page__head-1">
-                            <a href="">  Đơn hàng </a>
+                            <a href=""> Đơn hàng </a>
                         </div>
                         <div class="top-bar__title-page__head-2">
                             Quản lý đơn hàng của bạn
                         </div>
                     </div>
                     <div class="top-bar__profile">
-                        <div class="top-bar__profile__noti">
-                            <img src="../../public/profile__noti__icon.svg" alt="" class="profile__noti__icon">
-                        </div>
-                        <img src="../../public/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
-                        <img src="../../public/top-bar__profile__avt.svg" alt="" class="top-bar__profile__avt">
+                        <!-- <div class="top-bar__profile__noti">
+                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
+                        </div> -->
+                        <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
+                        <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
                         <div class="top-bar__profile__detail">
                             <div class="profile__detail__head-1">
-                                Thuỷ Tiên
+                                <%= user.name %>
                             </div>
                             <div class="profile__detail__head-2">
                                 Quản lý cửa hàng
@@ -49,38 +49,26 @@
                 <!-- start side bar -->
                 <div class="side-bar col-3">
                     <div class="side-bar__nav">
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-dashboar-grey.svg" alt="" class="side-bar__icon side-bar__icon-dashboar">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Tổng quan
-                            </div>
-                        </a>
-                        <a href="" class="side-bar__nav-container">
-                            <img src="../../public/side-bar__icon-oder-white.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
+                        <a href="/admin/manageorder" class="side-bar__nav-container">
+                            <img src="/assets/images/side-bar__icon-oder-white.svg" alt="" class="side-bar__icon side-bar__icon-oder ">
                             <div class="side-bar__nav-container-title ">
                                 Đơn hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-chart.svg" alt="" class="side-bar__icon side-bar__icon-chart">
-                            <div class="side-bar__nav-container-title text-grey">
-                                Thống kê
-                            </div>
-                        </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
+                        <a href="/admin/managecustomer" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-customer.svg" alt="" class="side-bar__icon side-bar__icon-customer">
                             <div class="side-bar__nav-container-title text-grey">
                                 Khách hàng
                             </div>
                         </a>
-                        <a href="" class="side-bar__nav-container background-white">
-                            <img src="../../public/side-bar__icon-product.svg" alt="" class="side-bar__icon side-bar__icon-product">
+                        <a href="/admin/manageboardgame" class="side-bar__nav-container background-white">
+                            <img src="/assets/images/side-bar__icon-product.svg" alt="" class="side-bar__icon side-bar__icon-product">
                             <div class="side-bar__nav-container-title text-grey">
                                Sản phẩm
                             </div>
                         </a>
-                        <a href="" class="side-bar__logout">
-                            <img src="../../public/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
+                        <a href="/logout" class="side-bar__logout">
+                            <img src="/assets/images/side-bar__logout__icon.svg" alt="" class="side-bar__logout__icon">
                             <div class="side-bar__logout-title">
                                 Đăng xuất
                             </div>
@@ -90,15 +78,25 @@
                 <!--  end side bar -->
 
                 <div class="list-oder-section col-9">
+                    <div class="search-bar">
+                        <form class="search-bar__form" action="/admin/manageorder/" method="GET">
+                            <input class="search-bar__input" type="text" name="orderId" placeholder="Nhập ID đơn hàng">
+                            <button class="search-bar__btn" type="submit">
+                                <img src="/assets/images/header__search-icon.svg" alt="">
+                            </button>
+                        </form>
+                    </div>                    
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
-                            <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
-                            <div class="sort-title__divider"></div>
-                            </div>
-                            <div class="list-oder__sort-title"> Đợi đến lấy </div>
-                            <div class="list-oder__sort-title"> Đến hạn trả </div>
-                            <div class="list-oder__sort-title"> Quá hạn trả </div>
-                            <div class="list-oder__sort-title"> Đơn huỷ </div>
+                            <a href="/admin/manageorder" class="<%= orderStatus === 'all' ? ' sort-title--active' : 'list-oder__sort-title' %>" >
+                                Tất cả
+                                <!-- <div class="sort-title__divider"></div> -->
+                               </a>
+                            <a href="/admin/manageorder?orderStatus=1" class="<%= orderStatus === '1' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Chưa thanh toán</a>
+                            <a href="/admin/manageorder?orderStatus=2" class="<%= orderStatus === '2' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đang thuê</a>
+                            <a href="/admin/manageorder?orderStatus=3" class="<%= orderStatus === '3' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đến hạn trả</a>
+                            <a href="/admin/manageorder?orderStatus=4" class="<%= orderStatus === '4' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đã trả</a>
+                           
                         </div>
                         <div class="list-oder__line-table"></div>
                         <div class="list-oder__title-table">
@@ -114,176 +112,76 @@
 
                         <!--  list oder 8 item  -->
                         <div class="list-oder__flex-box">
+                            <!-- Vòng lặp để hiển thị danh sách đơn hàng -->
+                            
                            <!--  1 oder start -->
-                           <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="../../public/it1.jpg" alt="" class="oder-info__product-img">
-                                    </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
+                           <!-- Vòng lặp để hiển thị danh sách đơn hàng -->
+                            <% ordersPage.forEach((order) => { %>
+                                <div class="list-oder__oder-line">
+                                    <div class="list-oder__oder-info">
+                                    <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__id list-oder__col-1"><%= order.Id %></a>
+                                    <div class="oder-info__product list-oder__col-3">
+                                        <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
+                                        <a href="#">
+                                        <img src="<%= game.imageUrl %>" alt="" class="oder-info__product-img">
                                         </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
-                                    </div>
-
-                                </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--returned">
-                                         Đã trả
-                                    </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="../../public/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-                        <!--  1 oder start -->
-                        <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="../../public/it1.jpg" alt="" class="oder-info__product-img">
-                                    </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
+                                        <div class="oder-info__product__text">
+                                        <a href="/admin/orderdetail/<%= order._id %>" class="product__text-title">
+                                            <%= game.name %>
                                         </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
+                                        <div class="product__text-quantity">SL: <%= order.quantity %></div>
+                                        </div>
                                     </div>
-
-                                </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--due">
-                                        Đến hạn trả
+                                    <div class="oder-info__date list-oder__col-2">
+                                        <div class="oder-info__date-day"><%= order.createdAt %></div>
                                     </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="../../public/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-                         <!--  1 oder start -->
-                         <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="../../public/it1.jpg" alt="" class="oder-info__product-img">
+                                    <% // Tìm khách hàng tương ứng với order.customerId %>
+                                    <% const customer = users.find((user) => user._id.toString() === order.customerId.toString()); %>
+                                    <a href="/admin/managecustomer/<%= customer._id %>" class="oder-info__customer list-oder__col-1-1">
+                                        <%= customer ? customer.name : '' %> <% // Hiển thị tên khách hàng nếu có, nếu không hiển thị chuỗi rỗng %>
+                                    </a>                                            
+                                    <div class="oder-info__cost list-oder__col-1-2"><%= order.totalPrice.toLocaleString('vi-VN') %></div> 
+                                    <div class="oder-info__status list-oder__col-2">
+                                        <% let orderStatus = '';
+                                        switch(order.orderStatus) {
+                                            case 1: orderStatus = 'Chưa thanh toán'; break;
+                                            case 2: orderStatus = 'Đang thuê'; break;
+                                            case 3: orderStatus = 'Đến hạn trả'; break;
+                                            case 4: orderStatus = 'Đã trả'; break;
+                                        } %>
+                                        <div class="oder-info__status-btn status-btn--due">
+                                            <%= orderStatus %>
+                                        </div>
+                                    </div>
+                                    <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
+                                        <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
                                     </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
-                                        </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
                                     </div>
-
+                                    <div class="oder-info__line-end"></div>
                                 </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--hired">
-                                         Đang thuê
-                                    </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="../../public/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-                        <!--  1 oder start -->
-                        <div class="list-oder__oder-line">
-                            <div class="list-oder__oder-info">
-                                <a href="" class="oder-info__id list-oder__col-1">#4112314</a>
-                                <div class="oder-info__product list-oder__col-3">
-                                    <a href="">
-                                        <img src="../../public/it1.jpg" alt="" class="oder-info__product-img">
-                                    </a>
-                                    <div class="oder-info__product__text">
-                                        <a href="#" class="product__text-title"> 
-                                            The Quest for El Dorado (2nd Edition)
-                                        </a>
-                                        <div class="product__text-quantity"> SL: 1</div>
-                                    </div>
-
-                                </div>
-                                <div class="oder-info__date list-oder__col-2">
-                                    <div class="oder-info__date-day"> 11-7-2023</div>
-                                    <div class="oder-info__date-time"> 13:00 PM</div>
-                                </div>
-                                <a href="" class="oder-info__customer list-oder__col-1-1"> Minh Đức</a>
-                                <div class="oder-info__cost list-oder__col-1-2 "> 70.000 </div>
-                                <div class="oder-info__status list-oder__col-2">
-                                    <div class="oder-info__status-btn status-btn--unpaid">
-                                        Chưa thanh toán
-                                    </div>
-                                </div>
-                                <a href="" class="oder-info__edit">
-                                    <img src="../../public/oder-info__edit-icon.svg" alt="" class="oder-info__edit-icon">
-                                </a>
-                            </div>
-                            <div class="oder-info__line-end"></div>
-
-                        </div>
-                        <!-- oder end  -->
-
-                             
-
-                             
-
-                            <div class="list-oder__page-number">
-                                <div class="page-number__container">
-                                    <img src="../../public/page-number__icon-back-page.svg" alt="" class="page-number__icon-back-page">
-                                    <div class="page-number__number page--active"> 1 </div>
-                                    <div class="page-number__number"> 2 </div>
-                                    <div class="page-number__number"> 3 </div>
-                                    <div class="page-number__number"> ... </div>
-                                    <div class="page-number__number"> 10 </div>
-                                    <img src="../../public/page-number__icon-next-page.svg" alt="" class="page-number__icon-next-page">
-                                </div>
-                            </div>
+                            <% }); %>
                            
+                            <!-- oder end -->
+                            
 
-
+                             <!-- Phân trang -->
+                            <div class="pagination">
+                                <% for (let i = 1; i <= totalPages; i++) { %>
+                                    <a href="/admin/manageorder?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                        <%= i %>
+                                    </a>
+                                <% } %>
+                            </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-       
-
-
-
+        <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+            <script>
+                alert('<%= flash.errorMessages[0] %>');
+            </script>
+        <% } %>
     </div>
 </body>
 </html>

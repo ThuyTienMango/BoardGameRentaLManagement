@@ -1,52 +1,29 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid');
 
 const Schema = mongoose.Schema;
 
-const orderSchema = new Schema(
+orderSchema = new Schema(
   {
-    customerId: {
-      type: String,
-      required: true
-    },
-    productId: {
-      type: String,
-      required: true
-    },
-    productName: {
-      type: String,
-      required: true
-    },
-    productImage: {
-      type: String,
-      required: true
-    },
-    productPrice: {
-      type: Number,
-      required: true
-    },
-    duration: {
-      type: Number,
-      required: true
-      },
-    quantity: {
-      type: Number,
-      required: true
-    },
-    totalPrice: {
-      type: Number,
-      required: true
-    },
-    orderStatus: {
-      type: String,
-    //   required: true
-    },
-    notes: {
-      type: String
-    }
+      Id: { type: String, default: shortid.generate },
+      customerId: { type: String, required: true },
+      productId: { type: String, required: true },
+      duration: { type: Number, required: true },
+      quantity: { type: Number, required: true },
+      totalPrice: { type: Number, required: true },
+      orderStatus: { type: Number, required: true },
+      progressTime: {
+        created: { type: Date },
+        confirmed: { type: Date },
+        payment: { type: Date },
+        due: { type: Date },
+        completed: { type: Date }
+      }
   },
   {
-    timestamps: true
+      timestamps: true,
   }
 );
+
 
 module.exports = mongoose.model('Order', orderSchema);

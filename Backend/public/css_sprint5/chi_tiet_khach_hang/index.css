@@ -48,11 +48,11 @@ height: 96px;
     margin-top: 20px;
     width: 100%;
     height: 31px;
-    
+    display: flex;
+    gap: 8px;
     font-weight: 700;
     font-size: 24px;
     line-height: 130%;
-
     color: #002144;
 }
 .top-bar__title-page__head-2{
@@ -190,209 +190,202 @@ cursor: pointer;
     line-height: 18px;
     color: #FFFFFF;
     cursor: pointer;
-    
 }
+
+
 /*  end side bar */
-/*  start thong tin co ban */
+/* start thong tin khach hang */
 .col-9{
     width: 74%;
-   
 }
-.section-basic-infor,
-.section-sale-infor{
+.customer-infor{
+height: 380px;
+border-radius: 20px;
+border: 1px solid rgba(0, 0, 0, 0.50);
+background: #FBFBFB;
+margin-top: 20px;
+margin-left: 20px;
+display: flex;
+flex-direction: column;
+
+}
+.customer-infor__title{
+color: #002144;
+font-family: Helvetica;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+display: flex;
+align-items: center;
+height: 40px;
+margin-top: 15px;
+margin-left: 15px;
+}
+.customer-infor__line{
+width: 100%;
+height: 1px;
+background: #737373;
+}
+.customer-infor__container{
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 10px 10px;
-    background: #FFFFFF;
-    border: 1px solid #002144;
-    border-radius: 20px;
-    margin: 20px 0px 20px 20px;
-    padding: 10px 10px ;
+    margin-left: 15px;
+    margin-top: 10px;
 }
-.basic-infor__more-infor{
-    margin-top: 20px;
+.customer-infor__container-line{
     display: flex;
-    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px ;
 }
-.basic-infor__more-infor__col-1{
-    width: 36.2%;
+.infor-col-1{
+    width: 10%;
+}
+.infor-col-2{
+    width: 24%;
+}
+.infor-col-3{
+    width: 28%;
+}
+.infor-col-4{
+    width: 32%;
+}
+.infor-col-5{
+    width: 36%;
+}
+.infor-col-6{
+    width: 48%;
+}
+.infor-col-7{
+    width: 80%;
+}
+.container__title{
+color: #000;
+font-family: Helvetica;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.container__box{
+border: 1px solid rgba(0, 0, 0, 0.50);
+background: #FBFBFB;
+display: flex;
+align-items: center;
+height: 32px;
+color: rgba(0, 0, 0, 0.50);
+font-family: Helvetica;
+font-size: 12px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+padding-left: 5px;
+}
+.customer-infor__avatar{
+position: absolute;
+width: 150px;
+height: 150px;
+top: 10%;
+right: 12%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.customer-infor__avatar-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+background: url(<path-to-image>), lightgray 0px -79.746px / 99.01% 177.778% no-repeat;
+
+}
+.customer-infor__avatar-title{
+    color: #000;
+font-family: Helvetica;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 10px;
+}
+/* end thong tin khach hang */
+/* start lich su thue */
+.history{
+    height: 330px;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+   
+    justify-content: flex-start;
+    gap: 20px;
+
+}
+.history__rental-history,
+.history__are-renting{
+    width: 424px;
+    min-height: 200px;
+    background: #FBFBFB;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.section-basic-infor{
-    height: 775px;
+.history__title{
+margin-left: 15px;
+margin-top: 20px;
+color: #002144;
+font-family: Helvetica;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
-.basic-infor__head-title{
-    margin-left: 10px;
-    height: 50px;
+.history__line{
+    background: #737373;
+    width: 100%;
+    height: 1px;
+}
+.history__container{
+    width: 95%;
+   
+   margin: 5px 15px ;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+}
+.history__container__id-oder{
+    width: 45%;
     display: flex;
     align-items: center;
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 25px;
-    color: #002144;
-}
-.basic-infor__line{
-    border: 1px solid #737373;
-    width: 100%;
-    margin-bottom: 10px;
-}
-.basic-infor__product-img,
-.basic-infor__product-name,
-.basic-infor__product-description,
-.basic-infor__product-quantity,
-.basic-infor__product-cost{
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: flex;
+    justify-content: flex-start;
     gap: 5px;
-    justify-content: flex-start;
+    margin: 10px 0px;
 }
-.product-img__title,
-.product-name__title{
-    width: 145px;
-}
-.product-img__box-add-img{
-    width: 80px;
-    height: 80px;
-    background: #FFFFFF;
-    border: 1px dashed #737373;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-
-.product-img__container-img{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px ;
-    height: 70px;
-    
-}
-
-.container-img__item{
-    width: 80px ;
-    height: 80px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px dashed #737373;
-   
-}
-.container-img__item__fill{
-    width: 100%;
-    height: 100%;
-   
+.id-number{
+color: #FD6A6A;
+font-family: Helvetica;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 
 
 
- /* Ẩn thẻ input */
- .product-img__box-add-img input[type="file"] {
-    display: none;
-  }
-  
-  /* Tạo giao diện cho nút chọn tệp */
-  .product-img__box-add-img .choose-file-button {
-    background-color:#FFFFFF;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    justify-content: center;
-    
-  }
-  .product-img__box-container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px ;
-  }
-  .product-description__input,
-  .product-name__input,
-  .product-quantity__input{
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    padding: 5px 5px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-  }
-
-  .product-name__input{
-   
-    width: 630px;
-    height: 30px;
-    font-weight: bold;
-  }
-  .product-description__input{
-   
-    width: 630px;
-    height: 290px; 
-    resize: none;
-  }
-  /*  end thong tin co ban */
-  /* start thong tin ban hang  */
-  .section-sale-infor{
-    height: 220px;
-  }
-.product-quantity__input{
-    width: 90px;
-    height: 30px;
-    font-weight: bold;
-}
-.basic-infor__btn-save{
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 10px;
-}
-.btn-save{
-    width: 130px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #002144;
-    border-radius: 5px;
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 150%;
-    color: #FFFFFF;
-    cursor: pointer;
-    margin: 10px 10px 5px 5px ;
-}
+/* end lich su thue */
 
 
-  /* end thong tin ban hang  */
-
-  /* start fix tổng cho BE  */
+/* start fix tổng cho BE  */
 .top-bar__title-page__head-1>a{
     color: #002144;
     }
-.form__container{
-    position: relative;
-}  
-.basic-infor__btn-save {
-    border: none;
-    position: absolute;
-    right: 0%;
-    bottom: 2%;
-    background: none;
+    
+.top-bar__title-page__id-customer{
+    color: #FD6A6A;
 }
     /* start fix tổng cho BE  */
