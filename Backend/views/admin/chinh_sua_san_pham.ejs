@@ -87,9 +87,11 @@
                           <div class="basic-infor__product-img">
                             <div class="product-img__title">Hình ảnh sản phẩm</div>
                             <div class="product-img__container-img">
-                              <div class="product-img__box-container">
-                                <img src="<%= boardgame.imageUrl %>" alt="" class="container-img__item">
-                              </div>
+                              <% for(let i = 0; i < boardgame.imageUrls.length; i++) { %>
+                                <div class="product-img__box-container">
+                                  <img src="<%= boardgame.imageUrls[i] %>" alt="" class="container-img__item">
+                                </div>
+                              <% } %>
                             </div>
                           </div>
                           <div class="basic-infor__product-name">
