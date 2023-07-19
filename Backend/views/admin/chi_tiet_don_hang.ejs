@@ -29,9 +29,6 @@
                         </div>
                     </div>
                     <div class="top-bar__profile">
-                        <div class="top-bar__profile__noti">
-                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
-                        </div>
                         <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
                         <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
                         <div class="top-bar__profile__detail">
@@ -105,7 +102,8 @@
                                     <div class="product-info__detail-oder__cost">
                                         <div class="detail-oder__cost-title"> 
                                             
-                                            <div class="detail-oder__cost-title-unit"><%= game.price.toLocaleString('vi-VN') %> VND</div>
+                                            <div class="detail-oder__cost-title-unit"><%= game.price.toLocaleString('vi-VN') %> </div>
+                                            VND
                                         </div>
                                         <div class="detail-oder__cost-title-quantity"> 
                                             SL:

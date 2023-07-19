@@ -84,8 +84,9 @@ height: 96px;
     color: #718096;
 }
 .top-bar__profile{
+   margin-right: 15px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-end;
     align-items: center;
     width: 25%;
     height: 100%;
@@ -310,28 +311,34 @@ cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 5px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: #000000;
+    gap: 3px;
+    color: rgba(0, 0, 0, 0.70);
+font-family: Helvetica;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
-.detail-oder__cost-title-unit{
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 11px;
-    color: rgba(0, 0, 0, 0.7);
+.detail-oder__cost-title-unit,
+.cost-title-quantity-1{
+   color: #000;
+font-family: Helvetica;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 
 }
 .detail-oder__cost-title-quantity{
     display: flex;
     align-items: center;
     justify-content:center;
-    gap: 10px;
+    gap: 3px;
     font-weight: 400;
     font-size: 10px;
     line-height: 11px;
 }
+
 /*  end thong tin san pham  */
 
 /*  start thong tin khach hang  */

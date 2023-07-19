@@ -67,8 +67,9 @@ height: 96px;
     color: #718096;
 }
 .top-bar__profile{
+    margin-right: 15px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-end;
     align-items: center;
     width: 25%;
     height: 100%;

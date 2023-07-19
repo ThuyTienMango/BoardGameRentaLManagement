@@ -28,9 +28,6 @@
                         </div>
                     </div>
                     <div class="top-bar__profile">
-                        <div class="top-bar__profile__noti">
-                            <img src="/assets/images/profile__noti__icon.svg" alt="" class="profile__noti__icon">
-                        </div>
                         <img src="/assets/images/top-bar__profile__divider.svg" alt="" class="top-bar__profile__divider">
                         <img src="<%= user.avatarUrl %>" style="width: 50px; border-radius: 50%" alt="" class="top-bar__profile__avt">
                         <div class="top-bar__profile__detail">
@@ -106,6 +103,7 @@
                             <div class="list-oder__title-table-id list-oder__col-1 ">ID</div>
                             <div class="list-oder__title-table-product list-oder__col-3">Sản phẩm</div>
                             <div class="list-oder__title-table-date list-oder__col-2">Ngày thêm</div>
+                            <div class="list-oder__title-table-date list-oder__col-2">Ngày sửa </div>
                             <div class="list-oder__title-table-customer list-oder__col-1-1">Số lượng
                                 <div class="list-oder__title-unit">( Cái )</div>
                             </div>
@@ -133,6 +131,9 @@
                                     </div>
                                     <div class="oder-info__date list-oder__col-2">
                                         <div class="oder-info__date-day"> <%= boardgame.createdAt %> </div>
+                                    </div>
+                                    <div class="oder-info__date list-oder__col-2">
+                                        <div class="oder-info__date-edit"> <%= boardgame.createdAt %> </div>
                                     </div>
                                     <div class="oder-info__customer list-oder__col-1-1"> <%= boardgame.quantity %> </div>
                                     <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price.toLocaleString('vi-VN') %> </div>
