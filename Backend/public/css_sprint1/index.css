@@ -175,7 +175,9 @@
 .retangle-filter{
     width: 100%;
 }
-
+.form__filter{
+    position: relative;
+}
 .filter-category{
     
     width: 242px;
@@ -300,6 +302,27 @@ input[type="radio"] + label {
 
 
   /*  test filter */
+.btn__filter{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background: #002144;
+    width: 47px;
+    height: 24.721px;
+    position: absolute;
+    border-radius: 5px;
+    right: 10.8%;
+    top: 1.9%;
+    border: none;
+    color: #FFF;
+    font-family: Helvetica;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    cursor: pointer;
+}
 
   
 .filter__retangle-small{
@@ -594,7 +617,6 @@ float: left;
     bottom: 0;
     left: 0;
     right: 0;
-    top: 89.16%;;
     height: 34px;
     overflow: hidden;
     text-align:  center;
