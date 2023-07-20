@@ -43,7 +43,7 @@
                                 <rect width="230" height="2" fill="#002144"/>
                                 </svg>
                                 <!--  Giá start  -->
-                            <div class="filter-category__player">
+                            <!-- <div class="filter-category__player">
                                 <div class="filter-title">
                                     <div class="playingtime filter-name-col-1">Giá đặt thuê</div>
                                     <div class="filter-title__hide filter-name-col-2 ">
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
+                            <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small"> -->
                             
                             <!--  Giá end  -->
                             <!--  Số người chơi tối đa start  -->
@@ -81,13 +81,13 @@
                                 <div class="filter-playingtime-content">
                                     <div class="filter-playingtime-content-line">
                                         <div class="filter__line">
-                                            <input type="radio" name="max_players" value="1" id="max_players_1">
+                                            <input type="radio" name="max_players" value="2" id="max_players_1">
                                             <label for="max_players_1"> 
                                                 <div class="label__title">2 người chơi</div> 
                                             </label>
                                         </div>
                                         <div class="filter__line">
-                                            <input type="radio" name="max_players" value="2" id="max_players_2">
+                                            <input type="radio" name="max_players" value="3" id="max_players_2">
                                             <label for="max_players_2">
                                                 <div class="label__title">3 người chơi</div> 
                                             </label>
@@ -115,13 +115,13 @@
                                 <div class="filter-playingtime-content">
                                     <div class="filter-playingtime-content-line">
                                         <div class="filter__line">
-                                            <input type="radio" name="min_players" value="1" id="min_players_1">
+                                            <input type="radio" name="min_players" value="2" id="min_players_1">
                                             <label for="min_players_1"> 
                                                 <div class="label__title">2 người chơi</div> 
                                             </label>
                                         </div>
                                         <div class="filter__line">
-                                            <input type="radio" name="min_players" value="2" id="min_players_2">
+                                            <input type="radio" name="min_players" value="3" id="min_players_2">
                                             <label  for="min_players_2">
                                                 <div class="label__title">3 người chơi</div> 
                                             </label>
@@ -164,19 +164,19 @@
                                         </label>
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="playing_time" value="4" id="playing_time_4">
+                                        <input  type="radio" name="playing_time" value="3" id="playing_time_4">
                                         <label  for="playing_time_4">
                                             <div class="label__title">Tối đa 40 phút</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="playing_time" value="5" id="playing_time_5">
+                                        <input  type="radio" name="playing_time" value="4" id="playing_time_5">
                                         <label  for="playing_time_5">
                                             <div class="label__title">Tối đa 60 phút</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="playing_time" value="6" id="playing_time_6">
+                                        <input  type="radio" name="playing_time" value="5" id="playing_time_6">
                                         <label  for="playing_time_6">
                                             <div class="label__title">Nhiều hơn 90 phút</div> 
                                         </label> 
@@ -211,19 +211,19 @@
                                         </label>
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="4" id="age_4">
+                                        <input  type="radio" name="age" value="3" id="age_4">
                                         <label  for="age_4">
                                             <div class="label__title">Từ 8 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="5" id="age_5">
+                                        <input  type="radio" name="age" value="4" id="age_5">
                                         <label  for="age_5">
                                             <div class="label__title">Từ 15 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="6" id="age_6">
+                                        <input  type="radio" name="age" value="5" id="age_6">
                                         <label  for="age_6">
                                             <div class="label__title">Trên 18 tuổi</div> 
                                         </label> 
@@ -285,6 +285,34 @@
                 
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const filterForm = document.getElementById('filterForm');
+                filterForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+        
+                    // Lấy giá trị của các hộp chọn
+                    const price = document.querySelector('input[name="price"]:checked').value;
+                    const maxPlayers = document.querySelector('input[name="max_players"]:checked').value;
+                    const minPlayers = document.querySelector('input[name="min_players"]:checked').value;
+                    const playingTime = document.querySelector('input[name="playing_time"]:checked').value;
+                    const age = document.querySelector('input[name="age"]:checked').value;
+        
+                    // Tạo URL có các tham số lọc
+                    const queryParams = new URLSearchParams();
+                    queryParams.set('boardgames', 'all'); // Thay đổi 'all' thành 'newest' nếu cần
+                    queryParams.set('price', price);
+                    queryParams.set('max_players', maxPlayers);
+                    queryParams.set('min_players', minPlayers);
+                    queryParams.set('playing_time', playingTime);
+                    queryParams.set('age', age);
+        
+                    // Chuyển hướng tới URL mới có các tham số lọc
+                    const newUrl = `/store?${queryParams.toString()}`;
+                    window.location.href = newUrl;
+                });
+            });
+        </script>
     
     <!-- Footer -->
     <%- include('../partials/footer.ejs'); -%>

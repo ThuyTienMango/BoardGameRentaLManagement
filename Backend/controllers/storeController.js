@@ -8,12 +8,32 @@ class storeController {
     //[GET] /store
     async index(req, res, next) {
         try {
-            const { name } = req.query; // Lấy giá trị tên sản phẩm từ query params
+            const { name, price, max_players, min_players, playing_time, age } = req.query; // Lấy giá trị tên sản phẩm từ query params
             let query = {}; // Mặc định là truy vấn tất cả sản phẩm
 
             // Nếu có tên sản phẩm được cung cấp, thêm điều kiện tìm kiếm vào truy vấn
             if (name) {
                 query = { name: { $regex: name, $options: 'i' } };
+            }
+
+            if (max_players) {
+                // Thêm điều kiện lọc theo số người chơi tối đa
+                query.playerMax = parseInt(max_players);
+            }
+
+            if (min_players) {
+                // Thêm điều kiện lọc theo số người chơi tối thiểu
+                query.playerMin = parseInt(min_players);
+            }
+
+            if (playing_time) {
+                // Thêm điều kiện lọc theo thời gian chơi
+                query.length = parseInt(playing_time);
+            }
+
+            if (age) {
+                // Thêm điều kiện lọc theo độ tuổi
+                query.ages = parseInt(age);
             }
             const boardgamesOrigin = await Boardgame.find(query);
             const boardgamesCount = await Boardgame.countDocuments(query);
@@ -64,7 +84,8 @@ class storeController {
             // const randomGames = shuffle(boardgames).slice(0, 5);
 
             //Sản phẩm tương tự theo khoảng giá hơn kém 100k
-            const similarBoardgames = boardgames.filter((game) => Math.abs(game.price - boardgame.price) <= 100000 && game._id.toString() !== boardgame._id.toString());
+            let similarBoardgames = boardgames.filter((game) => Math.abs(game.price - boardgame.price) <= 100000 && game._id.toString() !== boardgame._id.toString());
+            similarBoardgames=similarBoardgames.slice(0,5);
             res.render('customer_website/boardgames/detail', { 
                 boardgame: mongooseToObject(boardgame),
                 similarBoardgames: multipleMongooseToObject(similarBoardgames),
