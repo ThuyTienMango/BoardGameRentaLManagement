@@ -211,7 +211,7 @@
                                     <a href="/store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
                                     <div class="item-shop__rent">
                                         <b class="item-shop__rent__title"> Giá Thuê</b>
-                                        <b class="item-shop__rent__cost"><%= formattedPrice %> đ</b>
+                                        <b class="item-shop__rent__cost"><%= boardgame.price.toLocaleString('vi-VN') %> đ</b>
                                     </div>
                                     
                                     <div class="item-shop__rent-btn">

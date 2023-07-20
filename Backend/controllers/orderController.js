@@ -15,16 +15,16 @@ class orderController {
             let total = 0;
             switch(duration) {
                 case 7: 
-                    total = 100000 + quantity*boardgame.price;
+                    total = quantity*boardgame.price;
                     break;
                 case 14: 
-                    total = 200000 + quantity*boardgame.price; 
+                    total = 2 * quantity * boardgame.price ; 
                     break;
                 case 30: 
-                    total = 300000 + quantity*boardgame.price; 
+                    total = 4 * quantity * boardgame.price; 
                     break;
                 case 60: 
-                    total = 500000 + quantity*boardgame.price; 
+                    total = 8.5 * quantity * boardgame.price; 
                     break;
             }
             const formattedPrice = boardgame.price.toLocaleString('vi-VN');
