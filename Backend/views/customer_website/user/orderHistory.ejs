@@ -99,8 +99,9 @@
                             </div>
                             <img src="/assets/images/customer-history__retangle-top2.svg" alt="" class="customer-history__retangle-top2">
                             <!--  1 item  -->
-                            <% orders.forEach((order) => { %>
-                                <div class="info-oder__item__flex-box">
+                            
+                            <div class="info-oder__item__flex-box">
+                                <% orders.forEach((order) => { %>
                                     <div class="info-oder__item">
                                       <div class="info-oder__card info-oder__col4">
                                         <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
@@ -138,9 +139,9 @@
                                         </div>
                                       </div>
                                     </div>
-                                </div>
-                            <% }); %>
-            
+                                <% }); %>
+                            </div>
+                            
                              <!-- Phân trang -->
                             <div class="pagination">
                                 <% for (let i = 1; i <= totalPages; i++) { %>

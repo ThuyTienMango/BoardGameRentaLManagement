@@ -143,16 +143,33 @@
                                     <div class="oder-info__cost list-oder__col-1-2"><%= order.totalPrice.toLocaleString('vi-VN') %></div> 
                                     <div class="oder-info__status list-oder__col-2">
                                         <% let orderStatus = '';
+                                        let statusClass = ''; // Define a variable to store the CSS class based on the status
+                                        
                                         switch(order.orderStatus) {
-                                            case 1: orderStatus = 'Chưa thanh toán'; break;
-                                            case 2: orderStatus = 'Đang thuê'; break;
-                                            case 3: orderStatus = 'Đến hạn trả'; break;
-                                            case 4: orderStatus = 'Đã trả'; break;
+                                            case 1:
+                                                orderStatus = 'Chưa thanh toán';
+                                                statusClass = 'status-btn--unpaid'; 
+                                                break;
+                                            case 2:
+                                                orderStatus = 'Đang thuê';
+                                                statusClass = 'status-btn--hired';
+                                                break;
+                                            case 3:
+                                                orderStatus = 'Đến hạn trả';
+                                                statusClass = 'status-btn--due';
+                                                break;
+                                            case 4:
+                                                orderStatus = 'Đã trả';
+                                                statusClass = 'status-btn--returned';
+                                                break;
                                         } %>
-                                        <div class="oder-info__status-btn status-btn--due">
+                                        
+                                        <!-- Now use the statusClass variable to apply the appropriate class -->
+                                        <div class="oder-info__status-btn <%= statusClass %>">
                                             <%= orderStatus %>
                                         </div>
                                     </div>
+                                    
                                     <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
                                         <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
                                     </a>
