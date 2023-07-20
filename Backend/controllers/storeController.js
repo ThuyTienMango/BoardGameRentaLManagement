@@ -15,16 +15,35 @@ class storeController {
             if (name) {
                 query = { name: { $regex: name, $options: 'i' } };
             }
-            const boardgames = await Boardgame.find(query);
+            const boardgamesOrigin = await Boardgame.find(query);
             const boardgamesCount = await Boardgame.countDocuments(query);
+            const boardgamesNewest = await Boardgame.find(query).sort({createdAt : -1});
             const user = await User.findOne({ _id: req.session.user });
+            const boardgames = req.query.boardgames || 'all';
+
+            if(boardgames !== 'all'){
+                const itemsPerPage = 20; // Số sản phẩm trên mỗi trang
+                const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = currentPage * itemsPerPage;
+                const boardgamesPage = boardgamesNewest.slice(startIndex, endIndex);
+                res.render('customer_website/boardgames/store', {
+                    boardgames: multipleMongooseToObject(boardgamesPage),
+                    currentPage,
+                    totalPages: Math.ceil(boardgames.length / itemsPerPage),
+                    user: user,
+                    boardgamesCount: boardgamesCount,
+            });
+            }
+
             const itemsPerPage = 20; // Số sản phẩm trên mỗi trang
             const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = currentPage * itemsPerPage;
-            const boardgamesPage = boardgames.slice(startIndex, endIndex);
+            const boardgamesPage = boardgamesOrigin.slice(startIndex, endIndex);
             res.render('customer_website/boardgames/store', {
                 boardgames: multipleMongooseToObject(boardgamesPage),
+                boardgamesNewest: boardgamesNewest,
                 currentPage,
                 totalPages: Math.ceil(boardgames.length / itemsPerPage),
                 user: user,

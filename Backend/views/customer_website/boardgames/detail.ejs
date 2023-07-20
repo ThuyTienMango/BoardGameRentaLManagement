@@ -24,18 +24,24 @@
                     <div class="grid__row">
                         <div class="grid__colum-1">
                             <div class="small-img">
-                                <img src="<%= boardgame.imageUrl %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
-                                <% if (boardgame.image1) { %>
-                                <img src="<%= boardgame.image1 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <img src="<%= boardgame.imageUrls[0] %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
+                                <% if (boardgame.images[1]) { %>
+                                <img src="<%= boardgame.imageUrls[1]%>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
                                 <% } %>
-                                <% if (boardgame.image2) { %>
-                                <img src="<%= boardgame.image2 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% if (boardgame.images[2]) { %>
+                                <img src="<%= boardgame.imageUrls[2] %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% } %>
+                                <% if (boardgame.images[3]) { %>
+                                    <img src="<%= boardgame.imageUrls[3] %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% } %>
+                                <% if (boardgame.images[4]) { %>
+                                    <img src="<%= boardgame.imageUrls[4] %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
                                 <% } %>
                             </div>
                         </div>
                         <div class="grid__colum-6">
                             <div class="large-img">
-                                <img src="<%= boardgame.imageUrl %>" alt="" id="large-img__img">
+                                <img src="<%= boardgame.imageUrls[0] %>" alt="" id="large-img__img">
                             </div>
                         </div>
                         <div class="infor-product grid__colum-5">

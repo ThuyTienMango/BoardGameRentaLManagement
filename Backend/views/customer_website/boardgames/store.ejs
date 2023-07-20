@@ -22,13 +22,10 @@
         <div class="grid ">
             <div class="grid_row sort-section__content ">
 
-                <a href="/store" class="  sort-section__name  sort-section__name--active"> Boardgame</a>
+                <a href="/store" class=" <%= boardgames === 'all' ? 'sort-section__name--active' : 'sort-section__name' %>"> Boardgame</a>
                
-                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
+                <a href="/store?boardgames=newest" class="<%= boardgames === 'newest' ? 'sort-section__name--active' : 'sort-section__name' %>">Mới Nhất </a>
                 
-
-
-
             </div>
         </div>
     </div>
@@ -247,7 +244,7 @@
                     </form>
                     <div class=" grid__colum-10">
                         <div class="tf-sort">
-                            <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 
+                            <b class="tf-sort__quantity" style=" margin-top: 10px; "> <%= boardgamesCount %> 
                                <div>Items</div> 
                             </b>
                         </div>
@@ -257,7 +254,7 @@
                                 <% boardgames.forEach((boardgame) => { %>
                                     <div class="product-section__item-shop col-4">
                                         <a href="store/<%= boardgame._id %>">
-                                            <img src="<%= boardgame.imageUrl %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
+                                            <img src="<%= boardgame.imageUrls[0] %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
                                         </a>
                                         <a href="store/<%= boardgame._id %>" class="item-shop__title-product"><%= boardgame.name %></a>
                                         <div class="item-shop__rent">

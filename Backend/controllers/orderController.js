@@ -29,6 +29,14 @@ class orderController {
             }
             const formattedPrice = boardgame.price.toLocaleString('vi-VN');
             const formattedTotal = total.toLocaleString('vi-VN');
+            const quantityUpdate = boardgame.quantity - quantity;
+            const filter = boardgame._id;
+            const update = {
+                quantity:  quantityUpdate,
+            }
+            await Boardgame.findOneAndUpdate(filter, update, {
+                new: true
+            })
             res.render('customer_website/boardgames/order', { 
                 boardgame: mongooseToObject(boardgame),
                 user: user,
@@ -66,9 +74,6 @@ class orderController {
           const order = new Order({
             customerId: user._id,
             productId: boardgame._id,
-            productName: boardgame.name,
-            productImage: boardgame.imageUrl,
-            productPrice: boardgame.price,
             duration: duration,
             quantity: quantity,
             totalPrice: total,
