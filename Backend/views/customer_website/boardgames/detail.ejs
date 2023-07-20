@@ -51,8 +51,14 @@
                             <div class="rental">
                                 <div class="rental__rent">Giá Thuê:</div>
                                 <div class="rental__price"><%= formattedPrice %> đ</div>
-                                <div class="rental__remain"><%= boardgame.quantity %> còn lại</div>
+                                <% if(boardgame.quantity > 0) { %>
+                                    <div class="rental__remain"><%= boardgame.quantity %> còn lại</div>
+                                <% } else { %>
+                                    <div class="rental__remain" style="color:red"> Hết hàng </div>
+                                <% } %>
+                                
                             </div>
+                            <% if(boardgame.quantity > 0) { %>
                             <form action="" >
                                 <div class="quantity-btn   quantity-btn__rental-time ">
                                     <div class="quantity-btn__rental-time__title"> Số ngày thuê: </div>
@@ -74,10 +80,13 @@
                                         <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" max="<%= boardgame.quantity %>" readonly>
                                     </div>
                                 </div>
+                                
                                 <button class="ren-btn">
                                     <a href="" class="ren-btn__title"> Đặt thuê  </a>
                                 </button>
+                                    
                             </form>
+                            <% } %>
                         </div>
                     </div>
                 </div>

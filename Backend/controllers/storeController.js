@@ -30,7 +30,7 @@ class storeController {
                 res.render('customer_website/boardgames/store', {
                     boardgames: multipleMongooseToObject(boardgamesPage),
                     currentPage,
-                    totalPages: Math.ceil(boardgames.length / itemsPerPage),
+                    totalPages: Math.ceil(boardgamesNewest.length / itemsPerPage),
                     user: user,
                     boardgamesCount: boardgamesCount,
             });
@@ -45,7 +45,7 @@ class storeController {
                 boardgames: multipleMongooseToObject(boardgamesPage),
                 boardgamesNewest: boardgamesNewest,
                 currentPage,
-                totalPages: Math.ceil(boardgames.length / itemsPerPage),
+                totalPages: Math.ceil(boardgamesOrigin.length / itemsPerPage),
                 user: user,
                 boardgamesCount: boardgamesCount,
             });

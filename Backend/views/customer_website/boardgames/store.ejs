@@ -261,8 +261,9 @@
                                             <b class="item-shop__rent__title">Giá Thuê</b>
                                             <b class="item-shop__rent__cost"><%= boardgame.price.toLocaleString('vi-VN') %> đ</b>
                                         </div>
-                                    
-                                        <a href="/store/order/<%= boardgame._id %>?duration=7&quantity=1">
+                                        
+                                        <% let rentLink = (boardgame.quantity > 0) ? '/store/order/' + boardgame._id + '?duration=7&quantity=1' : ''; %>
+                                        <a href="<%= rentLink %>">
                                             <div class="item-shop__rent-btn">
                                                 <b class="item-shop__rent-btn__title">Thuê ngay</b>
                                             </div>
