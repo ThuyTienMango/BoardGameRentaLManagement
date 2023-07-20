@@ -30,6 +30,7 @@ class userController {
   //[GET] /user/orderhistory
   async orderHistory(req, res, next){
     try {
+      const boardgames = await Boardgame.find();
       const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
       const orders = await Order.find({ customerId: user._id }).sort({ createdAt: -1 }); // Tìm các đơn hàng dựa trên customerId
       const itemsPerPage = 3; // Số sản phẩm trên mỗi trang
@@ -38,7 +39,8 @@ class userController {
       const endIndex = currentPage * itemsPerPage;
       const ordersPage = orders.slice(startIndex, endIndex);
       res.render('customer_website/user/orderHistory',
-      { 
+      {
+        boardgames: boardgames, 
         user: user,
         orders: ordersPage,
         currentPage,

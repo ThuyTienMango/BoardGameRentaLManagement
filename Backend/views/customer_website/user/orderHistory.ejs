@@ -103,15 +103,16 @@
                                 <div class="info-oder__item__flex-box">
                                     <div class="info-oder__item">
                                       <div class="info-oder__card info-oder__col4">
-                                        <img src="<%= order.productImage %>" alt="" class="info-oder__card__img">
-                                        <div class="info-oder__card__title"><%= order.productName %></div>
+                                        <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
+                                        <img src="<%= game.imageUrls[0] %>" alt="" class="info-oder__card__img">
+                                        <div class="info-oder__card__title"><%= game.name %></div>
                                         <div class="info-oder__card__quantity">ID đơn hàng: 
-                                            <div class="id-oder"> H21387hag</div>
+                                            <div class="id-oder"> <%= order.Id %></div>
                                         </div>
                                       </div>
                                       <div class="info-oder__properties info-oder__col5">
                                         <div class="info-oder__colum-1 oder__time">
-                                            Thu Jul 20 2023 06:05:01 GMT+0700 (Indochina Time)
+                                            <%= order.createdAt %>
                                           </div>
                                         <div class="info-oder__colum-1 quantity-btn__rental-time">
                                           <div class="rental-time__value quantity-btn"><%= order.duration %></div>
@@ -119,11 +120,11 @@
                                         <div class="info-oder__colum-1 quantity-btn__quantity">
                                           <div class="quantity__value quantity-btn"><%= order.quantity %></div>
                                         </div>
-                                        <div class="info-oder__colum-1 quantity-btn__cost">
+                                        <!-- <div class="info-oder__colum-1 quantity-btn__cost">
                                           <%= order.productPrice %>
-                                        </div>
+                                        </div> -->
                                         <div class="info-oder__colum-1 quantity-btn__total">
-                                          <%= order.totalPrice %>
+                                          <%= order.totalPrice.toLocaleString('vi-VN') %>
                                         </div>
                                         <% let orderStatus = '';
                                         switch(order.orderStatus) {
