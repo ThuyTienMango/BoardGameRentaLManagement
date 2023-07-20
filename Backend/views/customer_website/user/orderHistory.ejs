@@ -105,8 +105,12 @@
                                     <div class="info-oder__item">
                                       <div class="info-oder__card info-oder__col4">
                                         <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
-                                        <img src="<%= game.imageUrls[0] %>" alt="" class="info-oder__card__img">
-                                        <div class="info-oder__card__title"><%= game.name %></div>
+                                        <a href="/store/<%= game._id %>">
+                                            <img src="<%= game.imageUrls[0] %>" alt="" class="info-oder__card__img">
+                                        </a>
+                                        <a href="/store/<%= game._id %>">
+                                            <div class="info-oder__card__title"><%= game.name %></div>
+                                        </a>
                                         <div class="info-oder__card__quantity">ID đơn hàng: 
                                             <div class="id-oder"> <%= order.Id %></div>
                                         </div>

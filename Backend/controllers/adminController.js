@@ -305,6 +305,16 @@ async addBoardgame(req, res, next){
           return res.redirect(`/admin/addboardgame`);
         }
 
+        if(boardgame.ages === 0){
+          req.flash('errorMessages','Độ tuổi phải lớn hơn 0');
+          return res.redirect(`/admin/addboardgame`);
+        }
+
+        if(boardgame.playerMax < boardgame.playerMin){
+          req.flash('errorMessages','Số người chơi tối đa phải lớn hơn số người chơi tối thiểu');
+          return res.redirect(`/admin/addboardgame`);
+        }
+
         await boardgame.save();
         res.redirect('/admin/manageboardgame');
       });
@@ -331,11 +341,6 @@ async addBoardgame(req, res, next){
           price: req.body.price,
           quantity: req.body.quantity
         }
-
-        // if(req.body.name === boardgames.name){
-        //   req.flash('errorMessages','Tên sản phẩm đã tồn tại');
-        //   return res.redirect(`/admin/editboardgame/${filter}`);
-        // }
 
         await Boardgame.findOneAndUpdate(filter, update, {
           new: true

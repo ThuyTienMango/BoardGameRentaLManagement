@@ -87,13 +87,13 @@
                             <div class="section-product-info__line"></div>
                             <div class="section-product-info__flex-box">
                                 <!--  start 1 oder  -->
+                                <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
                                 <div class="section-product-info__detail-oder">
-                                    <a href="">
-                                        <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
+                                    <a href="/store/<%= game._id %>">
                                         <img src="<%= game.imageUrls[0] %>" alt="" class="product-info__detail-oder-img">
                                     </a>
                                     <div class="product-info__detail-oder-title">
-                                        <a href="" class="detail-oder-title__head"> <%= game.name %> </a>
+                                        <a href="/store/<%= game._id %>" class="detail-oder-title__head"> <%= game.name %> </a>
                                         <div class="detail-oder-title__rental-time">
                                             Ngày Thuê: 
                                             <div class="oder-title__rental-time"> <%= order.duration %> </div>
@@ -169,7 +169,7 @@
                                       <%= customer ? customer.createdAt.getDate() + '-' + (customer.createdAt.getMonth() + 1) + '-' + customer.createdAt.getFullYear() : '' %>
                                     </div>
                                   </div>                                  
-                                <a href="" class="customer-infor__id"> <%= customer.Id %> </a>
+                                <a href="/admin/managecustomer/<%= customer._id %>" class="customer-infor__id"> <%= customer.Id %> </a>
                             </div>
                             <a href="">
                                 <img src="<%= customer.avatarUrl %>" alt="" class="customer-infor__basic-avt">

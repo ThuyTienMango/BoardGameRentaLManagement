@@ -83,7 +83,7 @@ class storeController {
             const formattedPrice = boardgame.price.toLocaleString('vi-VN');
 
             //Sản phẩm tương tự theo khoảng giá hơn kém 100k
-            let similarBoardgames = boardgames.filter((game) => Math.abs(game.price - boardgame.price) <= 100000 && game._id.toString() !== boardgame._id.toString());
+            let similarBoardgames = boardgames.filter((game) => Math.abs(game.price - boardgame.price) <= 50000 && game._id.toString() !== boardgame._id.toString());
             similarBoardgames = similarBoardgames.slice(0,5);
             
             res.render('customer_website/boardgames/detail', { 
