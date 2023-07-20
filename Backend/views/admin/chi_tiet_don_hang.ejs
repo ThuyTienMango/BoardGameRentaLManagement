@@ -90,7 +90,7 @@
                                 <div class="section-product-info__detail-oder">
                                     <a href="">
                                         <% const game = boardgames.find((boardgame) => boardgame._id.toString() === order.productId.toString()); %>
-                                        <img src="<%= game.imageUrl %>" alt="" class="product-info__detail-oder-img">
+                                        <img src="<%= game.imageUrls[0] %>" alt="" class="product-info__detail-oder-img">
                                     </a>
                                     <div class="product-info__detail-oder-title">
                                         <a href="" class="detail-oder-title__head"> <%= game.name %> </a>
@@ -227,13 +227,13 @@
                                 <% if(order.orderStatus == 1 || order.orderStatus == 2 || order.orderStatus == 3 || order.orderStatus == 4) { %>
                                     <img src="/assets/images/order-journey__check-list-done.svg" alt="" class="order-journey__check-list-done ">
                                     <div class="order-journey__text">
-                                        <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê qua email</div>
+                                        <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê </div>
                                         <div class="order-journey__text-date"> <%= order.createdAt %>  </div>
                                     </div>
                                 <%} else {%>
                                     <img src="/assets/images/order-journey__check-list-unfinished.svg" alt="" class="order-journey__check-list-done ">
                                     <div class="order-journey__text">
-                                        <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê qua email</div>
+                                        <div class="order-journey__text-head"> Khách hàng xác nhận đặt thuê </div>
                                         <div class="order-journey__text-date">   </div>
                                     </div>
                                 <% } %>
