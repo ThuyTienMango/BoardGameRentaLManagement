@@ -199,33 +199,33 @@
                             <div class="filter-playingtime-content">
                                 <div class="filter-playingtime-content-line">
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="8" id="age_4">
-                                        <label  for="age_4">
+                                        <input  type="radio" name="age" value="8" id="age_8">
+                                        <label  for="age_8">
                                             <div class="label__title">Từ 8 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="10" id="age_4">
-                                        <label  for="age_4">
+                                        <input  type="radio" name="age" value="10" id="age_10">
+                                        <label  for="age_10">
                                             <div class="label__title">Từ 10 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="12" id="age_4">
-                                        <label  for="age_4">
+                                        <input  type="radio" name="age" value="12" id="age_12">
+                                        <label  for="age_12">
                                             <div class="label__title">Từ 12 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="14" id="age_4">
-                                        <label  for="age_4">
+                                        <input  type="radio" name="age" value="14" id="age_14">
+                                        <label  for="age_14">
                                             <div class="label__title">Từ 14 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="18" id="age_6">
-                                        <label  for="age_6">
-                                            <div class="label__title">Trên 18 tuổi</div> 
+                                        <input  type="radio" name="age" value="18" id="age_18">
+                                        <label  for="age_18">
+                                            <div class="label__title">Từ 18 tuổi</div> 
                                         </label> 
                                     </div>
                                 </div>
@@ -270,13 +270,23 @@
                                     <!-- end 1 sản phẩm  -->
                             </div> 
                              <!-- Phân trang -->
-                             <div class="pagination">
-                                <% for (let i = 1; i <= totalPages; i++) { %>
-                                    <a href="/store?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
-                                        <%= i %>
-                                    </a>
-                                <% } %>
-                            </div>                     
+                             <% if( boardgamesOption !== 'all') { %>
+                                <div class="pagination">
+                                    <% for (let i = 1; i <= totalPages; i++) { %>
+                                        <a href="/store?boardgames=newest&page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                            <%= i %>
+                                        </a>
+                                    <% } %>
+                                </div>     
+                             <% } else { %>
+                                <div class="pagination">
+                                    <% for (let i = 1; i <= totalPages; i++) { %>
+                                        <a href="/store?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                            <%= i %>
+                                        </a>
+                                    <% } %>
+                                </div>     
+                             <% } %>
                         </div>
                     </div>
                 </div>

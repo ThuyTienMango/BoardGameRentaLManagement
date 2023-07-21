@@ -39,9 +39,9 @@ class storeController {
             const boardgamesCount = await Boardgame.countDocuments(query);
             const boardgamesNewest = await Boardgame.find(query).sort({createdAt : -1});
             const user = await User.findOne({ _id: req.session.user });
-            const boardgames = req.query.boardgames || 'all';
+            const boardgamesOption = req.query.boardgames || 'all';
 
-            if(boardgames !== 'all'){
+            if(boardgamesOption !== 'all'){
                 const itemsPerPage = 20; // Số sản phẩm trên mỗi trang
                 const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
                 const startIndex = (currentPage - 1) * itemsPerPage;
@@ -53,6 +53,7 @@ class storeController {
                     totalPages: Math.ceil(boardgamesNewest.length / itemsPerPage),
                     user: user,
                     boardgamesCount: boardgamesCount,
+                    boardgamesOption,
             });
             }
 
@@ -68,6 +69,7 @@ class storeController {
                 totalPages: Math.ceil(boardgamesOrigin.length / itemsPerPage),
                 user: user,
                 boardgamesCount: boardgamesCount,
+                boardgamesOption
             });
         } catch (error) {
             next(error);
