@@ -19,6 +19,7 @@ userSchema = new Schema(
       avatar: String,
       avatarUrl: String,
       address: { type: String, required: true },
+      role: { type: String, require: true }
   },
   {
       timestamps: true,

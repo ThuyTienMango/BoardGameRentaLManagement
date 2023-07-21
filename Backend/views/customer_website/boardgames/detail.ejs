@@ -14,7 +14,7 @@
 <body>
     <div class="app">
         <!-- Header -->
-        <%- include('../partials/header_store.ejs'); -%>
+        <%- include('../partials/header_detail.ejs'); -%>
 
         <div class="header-end"></div>
         <div class="container-section">
@@ -24,18 +24,24 @@
                     <div class="grid__row">
                         <div class="grid__colum-1">
                             <div class="small-img">
-                                <img src="<%= boardgame.imageUrl %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
-                                <% if (boardgame.image1) { %>
-                                <img src="<%= boardgame.image1 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <img src="<%= boardgame.imageUrls[0] %>" alt="" class="small-img__img boder-img" onclick="swapImageClasses(this)">
+                                <% if (boardgame.images[1]) { %>
+                                <img src="<%= boardgame.imageUrls[1]%>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
                                 <% } %>
-                                <% if (boardgame.image2) { %>
-                                <img src="<%= boardgame.image2 %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% if (boardgame.images[2]) { %>
+                                <img src="<%= boardgame.imageUrls[2] %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% } %>
+                                <% if (boardgame.images[3]) { %>
+                                    <img src="<%= boardgame.imageUrls[3] %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
+                                <% } %>
+                                <% if (boardgame.images[4]) { %>
+                                    <img src="<%= boardgame.imageUrls[4] %>" alt="" class="small-img__img opacity-img" onclick="swapImageClasses(this)">
                                 <% } %>
                             </div>
                         </div>
                         <div class="grid__colum-6">
                             <div class="large-img">
-                                <img src="<%= boardgame.imageUrl %>" alt="" id="large-img__img">
+                                <img src="<%= boardgame.imageUrls[0] %>" alt="" id="large-img__img">
                             </div>
                         </div>
                         <div class="infor-product grid__colum-5">
@@ -45,8 +51,14 @@
                             <div class="rental">
                                 <div class="rental__rent">Giá Thuê:</div>
                                 <div class="rental__price"><%= formattedPrice %> đ</div>
-                                <div class="rental__remain"><%= boardgame.quantity %> còn lại</div>
+                                <% if(boardgame.quantity > 0) { %>
+                                    <div class="rental__remain"><%= boardgame.quantity %> còn lại</div>
+                                <% } else { %>
+                                    <div class="rental__remain" style="color:red"> Hết hàng </div>
+                                <% } %>
+                                
                             </div>
+                            <% if(boardgame.quantity > 0) { %>
                             <form action="" >
                                 <div class="quantity-btn   quantity-btn__rental-time ">
                                     <div class="quantity-btn__rental-time__title"> Số ngày thuê: </div>
@@ -68,10 +80,13 @@
                                         <input class=" button-rent__quantityInput " type="number" min=" 1 "    value="1" max="<%= boardgame.quantity %>" readonly>
                                     </div>
                                 </div>
+                                
                                 <button class="ren-btn">
                                     <a href="" class="ren-btn__title"> Đặt thuê  </a>
                                 </button>
+                                    
                             </form>
+                            <% } %>
                         </div>
                     </div>
                 </div>
@@ -182,7 +197,7 @@
 
                         <div class="similar-item">
                     <!-- item  -->
-                            <% boardgames.forEach((boardgame) =>{ %>
+                            <% similarBoardgames.forEach((boardgame) =>{ %>
                                 <div class=" product-section__item-shop col-4">
                                     <!-- <div class="item-shop__favourite">
                                         <div class="item-shop__favourite__content">
@@ -191,12 +206,12 @@
                                         </div>
                                     </div> -->
                                     <a href="/store/<%= boardgame._id %>">
-                                        <img src="<%= boardgame.imageUrl %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
+                                        <img src="<%= boardgame.imageUrls[0] %>" alt=" <%= boardgame.name %> " class="item-shop__image-product">
                                     </a>
                                     <a href="/store/<%= boardgame._id %>" class="item-shop__title-product"> <%= boardgame.name %>  </a>
                                     <div class="item-shop__rent">
                                         <b class="item-shop__rent__title"> Giá Thuê</b>
-                                        <b class="item-shop__rent__cost"><%= formattedPrice %> đ</b>
+                                        <b class="item-shop__rent__cost"><%= boardgame.price.toLocaleString('vi-VN') %> đ</b> 
                                     </div>
                                     
                                     <div class="item-shop__rent-btn">

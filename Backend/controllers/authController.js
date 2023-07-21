@@ -105,6 +105,12 @@ class authController {
           user.avatarUrl = '/uploads/' + req.file.filename; // Lưu đường dẫn đầy đủ của ảnh
         }
 
+        if(user.name !== 'admin' && user.password !== 'adminastros'){
+          user.role = 'customer';
+        } else {
+          user.role = 'admin';
+        }
+
         await user.save(); // Lưu thông tin người dùng vào cơ sở dữ liệu
         req.flash('errorMessages', 'Bạn đã đăng ký tài khoản thành công');
         res.redirect('/login');
@@ -140,7 +146,7 @@ class authController {
       req.session.user = user;
 
       // Chuyển hướng dựa trên vai trò của người dùng
-      if (user.username === 'admin') {
+      if (user.role === 'admin') {
         // Chuyển hướng đến trang dành cho admin
         return res.redirect('/admin/manageorder');
       } else {

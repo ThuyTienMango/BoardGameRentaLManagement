@@ -83,8 +83,9 @@ height: 96px;
     color: #718096;
 }
 .top-bar__profile{
+    margin-right: 15px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-end;
     align-items: center;
     width: 25%;
     height: 100%;
@@ -275,6 +276,7 @@ cursor: pointer;
 .product-name__title{
     width: 145px;
 }
+
 .product-img__box-add-img{
     width: 80px;
     height: 80px;
@@ -295,7 +297,10 @@ cursor: pointer;
     height: 70px;
     
 }
-
+.product-description__input{
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    background: #FFF;   
+}
 .container-img__item{
     width: 80px ;
     height: 80px;

@@ -319,7 +319,6 @@ cursor: pointer;
 
 }
 .list-oder__title-table{
-    margin-left: 15px;
     width: 100%;
     height: 66px;
     display: flex;
@@ -346,7 +345,8 @@ display: flex;
 align-items: center;
 }
 .list-oder__col-1{
-    width: 12%;
+    width: 8%;
+    margin-left: 10px;
 }
 
 
@@ -393,26 +393,25 @@ width: 19%;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: flex-start;
     
 }
+
 .oder-info__id{
    
     display: flex;
-    text-align: justify;
     align-items: center;
     margin-left: 10px;
-    margin-right: 15px;
     height: 100%;
     font-family: 'Helvetica';
     font-style: normal;
-    font-weight: 300;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 12px;
     line-height: 14px;
     color: #000000;
     cursor: pointer;
-    word-break: break-all;
 }
 .oder-info__product{
     display: flex;
@@ -427,6 +426,7 @@ width: 19%;
 }
 .oder-info__customer{
     cursor: pointer;
+    margin-left: -20px;
 }
 .oder-info__customer,
 .oder-info__cost,
@@ -515,7 +515,9 @@ border-radius: 5px;
 }
 
 .pagination {
-    height: 100%;
+    position: absolute;
+    bottom: 1%;
+    right: 50%;
     display: flex;
     align-items: center;
     gap: 8px;

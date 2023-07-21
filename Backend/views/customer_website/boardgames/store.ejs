@@ -22,13 +22,10 @@
         <div class="grid ">
             <div class="grid_row sort-section__content ">
 
-                <a href="/store" class="  sort-section__name  sort-section__name--active"> Boardgame</a>
+                <a href="/store" class=" <%= boardgames === 'all' ? 'sort-section__name--active' : 'sort-section__name' %>"> Boardgame</a>
                
-                <a href="https://courses.uit.edu.vn/login/index.php " class="sort-section__name  ">Mới Nhất </a>
+                <a href="/store?boardgames=newest" class="<%= boardgames === 'newest' ? 'sort-section__name--active' : 'sort-section__name' %>">Mới Nhất </a>
                 
-
-
-
             </div>
         </div>
     </div>
@@ -37,283 +34,299 @@
         <div class="grid">
             <div class="grid__row">
                 <div class="grid__colum-2">
-                    <div class="filter-category">
-                        
-                        <div class="filter-title-head">
-                            <div class="filter-name filter-name-col-1">Bộ lọc</div>
-                            <div class="reset filter-name-col-2">Đặt lại</div>
-                                
-                        </div>
-                        <svg class="retangle-filter" width="230" height="2" viewBox="0 0 230 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="230" height="2" fill="#002144"/>
-                            </svg>
-                        <div class="filter-category__playing-time">
-
+                    <form class="form__filter" action="">
+                        <div class="filter-category">
+                            <div class="filter-title-head">
+                                <div class="filter-name filter-name-col-1">Bộ lọc</div>      
+                            </div>
+                            <svg class="retangle-filter" width="230" height="2" viewBox="0 0 230 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="230" height="2" fill="#002144"/>
+                                </svg>
+                                <!--  Giá start  -->
+                            <!-- <div class="filter-category__player">
+                                <div class="filter-title">
+                                    <div class="playingtime filter-name-col-1">Giá đặt thuê</div>
+                                    <div class="filter-title__hide filter-name-col-2 ">
+                                        <div class="rectangle-playingtime-1"></div>
+                                    </div>
+                                </div>
+                                <div class="filter-playingtime-content">
+                                    <div class="filter-playingtime-content-line">
+                                        <div class="filter__line">
+                                            <input type="radio" name="price" value="1" id="price_1">
+                                            <label for="price_1"> 
+                                                <div class="label__title">Từ thấp đến cao</div> 
+                                            </label>
+                                        </div>
+                                        <div class="filter__line">
+                                            <input type="radio" name="price" value="2" id="price_2">
+                                            <label for="price_2">
+                                                <div class="label__title">Từ cao đến thấp</div> 
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small"> -->
+                            
+                            <!--  Giá end  -->
+                            <!--  Số người chơi tối đa start  -->
+                            <div class="filter-category__player">
+                                <div class="filter-title">
+                                    <div class="playingtime filter-name-col-1">Số người chơi tối đa</div>
+                                    <div class="filter-title__hide filter-name-col-2 ">
+                                        <div class="rectangle-playingtime-1"></div>
+                                    </div>
+                                </div>
+                                <div class="filter-playingtime-content">
+                                    <div class="filter-playingtime-content-line">
+                                        <div class="filter__line">
+                                            <input type="radio" name="max_players" value="4" id="max_players_1">
+                                            <label for="max_players_1"> 
+                                                <div class="label__title">4 người chơi</div> 
+                                            </label>
+                                        </div>
+                                        <div class="filter__line">
+                                            <input type="radio" name="max_players" value="6" id="max_players_2">
+                                            <label for="max_players_2">
+                                                <div class="label__title">6 người chơi</div> 
+                                            </label>
+                                        </div>
+                                        <div class="filter__line">
+                                            <input  type="radio" name="max_players" value="8" id="max_players_4">
+                                            <label  for="max_players_4">
+                                                <div class="label__title">8 người chơi</div> 
+                                            </label> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
+                            
+                            <!--  Số người chơi tối đa end  -->
+                            <!--  Số người chơi tối thiểu start  -->
+                            <div class="filter-category__player">
+                                <div class="filter-title">
+                                    <div class="playingtime filter-name-col-1">Số người chơi tối thiểu</div>
+                                    <div class="filter-title__hide filter-name-col-2 ">
+                                        <div class="rectangle-playingtime-1"></div>
+                                    </div>
+                                </div>
+                                <div class="filter-playingtime-content">
+                                    <div class="filter-playingtime-content-line">
+                                        <div class="filter__line">
+                                            <input type="radio" name="min_players" value="1" id="min_players_1">
+                                            <label for="min_players_1"> 
+                                                <div class="label__title">1 người chơi</div> 
+                                            </label>
+                                        </div>
+                                        <div class="filter__line">
+                                            <input type="radio" name="min_players" value="2" id="min_players_2">
+                                            <label  for="min_players_2">
+                                                <div class="label__title">2 người chơi</div> 
+                                            </label>
+                                        </div>
+                                        <div class="filter__line">
+                                            <input  type="radio" name="min_players" value="3" id="min_players_4">
+                                            <label  for="min_players_4">
+                                                <div class="label__title">3 người chơi</div> 
+                                            </label> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
+                            <!--  Số người chơi tối thiểu end  -->
+                           
+                            <!--  Thời gian chơi start  -->
+                           <div class="filter-category__player">
                             <div class="filter-title">
                                 <div class="playingtime filter-name-col-1">Thời gian chơi</div>
                                 <div class="filter-title__hide filter-name-col-2 ">
-                                    <div class="rectangle-playingtime-1 "></div>
+                                    <div class="rectangle-playingtime-1"></div>
                                 </div>
                             </div>
                             <div class="filter-playingtime-content">
                                 <div class="filter-playingtime-content-line">
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">15 phút hoặc ít hơn</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
+                                        <input type="radio" name="playing_time" value="15" id="playing_time_1">
+                                        <label  for="playing_time_1"> 
+                                            <div class="label__title"> Tối đa 15 phút</div> 
+                                        </label>
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">30 phút hoặc ít hơn</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
+                                        <input type="radio" name="playing_time" value="30" id="playing_time_2">
+                                        <label  for="playing_time_2">
+                                            <div class="label__title">Tối đa 30 phút</div> 
+                                        </label>
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">40 phút hoặc ít hơn</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
+                                        <input  type="radio" name="playing_time" value="40" id="playing_time_4">
+                                        <label  for="playing_time_4">
+                                            <div class="label__title">Tối đa 40 phút</div> 
+                                        </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">60 phút hoặc ít hơn</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
+                                        <input  type="radio" name="playing_time" value="60" id="playing_time_5">
+                                        <label  for="playing_time_5">
+                                            <div class="label__title">Tối đa 60 phút</div> 
+                                        </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">90 phút hoặc ít hơn</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
+                                        <input  type="radio" name="playing_time" value="90" id="playing_time_6">
+                                        <label  for="playing_time_6">
+                                            <div class="label__title">Tối đa 90 phút</div> 
+                                        </label> 
                                     </div>
-                                   
-                                </div>    
-                            </div>    
-                        </div>
-
- 
-                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
-                       <!--  thuoc tinh thu Players - Minimum  -->
-                        <div class="filter-category__player">
-                            <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Số người chơi tối thiểu</div>
-                                <div class="filter-title__hide filter-name-col-2 ">
-                                    <div class="rectangle-playingtime-1 "></div>
                                 </div>
                             </div>
-                            <div class="filter-playingtime-content">
-                                <div class="filter-playingtime-content-line">
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">1 (215)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">2 (213)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">4 (217)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    
-                                                                   
-                                </div>    
-                            </div>    
-                        </div>
-                            
+                            </div>
                         <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
-
-                        <!--  thuoc tinh thu Players - Maximum  -->
-                        <div class="filter-category__player">
-                            <div class="filter-title">
-                                <div class="playingtime filter-name-col-1">Số người chơi tối đa</div>
-                                <div class="filter-title__hide filter-name-col-2 ">
-                                    <div class="rectangle-playingtime-1 "></div>
-                                </div>
-                            </div>
-                            <div class="filter-playingtime-content">
-                                <div class="filter-playingtime-content-line">
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">3  (215)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">6  (213)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">12 (217)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">15 (230)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__line">
-                                        <div class="minutes filter-name-col-1">18 (120)</div>
-                                        <div class="filter__button-select filter-name-col-2"> 
-                                            <div class="circle-object  "></div>
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                                                   
-                                </div>    
-                            </div>    
-                        </div>
-                            
-                        <img src="/assets/images/filter__retangle-small.svg" alt="" class="filter__retangle-small">
-                     <div class="filter-category__Suggested-Age">
-
-                         <div class="filter-title">
-                             <div class="playingtime filter-name-col-1">Độ tuổi</div>
-                             <div class="filter-title__hide filter-name-col-2 ">
-                                 <div class="rectangle-playingtime-1 "></div>
-                             </div>
-                         </div>
-                             
-                         <div class="filter-age-content">
-                            <div class="age-filter">
-                             <div class="age-content">3+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">5+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">8+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">12+</div>
-                            </div>
-                            <div class="age-filter">
-                             <div class="age-content">18+</div>
-                            </div>
-                         </div>
-                     </div>
-                    </div>
-                </div>
-
-                <div class=" grid__colum-10">
-                    <div class="tf-sort">
-
-                        <b class="tf-sort__quantity" style=" margin-top: 10px; "> 1,230 
-                           <div>Items</div> 
-                        </b>
-                        <div class="filter-price">
-                            <img class="tf-sort__layout__icon   " alt="" src="/assets/images/-icon-filter.svg" />
-                            <b class=" layout__content "> Giá:</b>
-                            <img class="tf-sort__layout__icon  " alt="" src="/assets/images/-icon-arrow-down.svg" />
-                            <ul class="filter-price__list">
-                                <li class="filter-price__list__item">
-                                    <a href="# " class="filter-price__link"> Giá: Thấp đến cao </a>
-
-                                    
-                                </ul> -->
-                            </div>
-                            <button type="submit" class="order-journey__btn-save">Lưu thay đổi</button>
-                        </form>  
-                    </div>
-                    <!--  San pham tong/ hiện 5 hàng sản phẩm, mỗi hàng 4 sp    -->
-
-                    <div class="product-section grid__row">
-                        <!-- San pham -->
-                        <% boardgames.forEach((boardgame) => { %>
-                        <div class="product-section__item-shop col-4">
-                            <!-- <div class="item-shop__favourite">
-                                <div class="item-shop__favourite__content">
-                                    <img src="/assets/images/-icon-heart1.svg" alt="" class="item-shop__icon-heart">
-                                    <b class="item-shop__likes">99</b>
-                                </div>
-                            </div> -->
-                            <a href="store/<%= boardgame._id %>">
-                                <img src="<%= boardgame.imageUrl %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
-                            </a>
-                            <a href="store/<%= boardgame._id %>" class="item-shop__title-product"><%= boardgame.name %></a>
-                            <div class="item-shop__rent">
-                                <b class="item-shop__rent__title">Giá Thuê</b>
-                                <b class="item-shop__rent__cost"><%= boardgame.price.toLocaleString('vi-VN') %> đ</b>
-                            </div>
                         
-                            <a href="/store/order/<%= boardgame._id %>?duration=7&quantity=1">
-                                <div class="item-shop__rent-btn">
-                                    <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                        <!--  Thời gian chơi end  -->
+                            
+                                <!--  Tuổi chơi start  -->
+                           <div class="filter-category__player">
+                            <div class="filter-title">
+                                <div class="playingtime filter-name-col-1">Độ tuổi </div>
+                                <div class="filter-title__hide filter-name-col-2 ">
+                                    <div class="rectangle-playingtime-1"></div>
                                 </div>
-                            </a>
+                            </div>
+                            <div class="filter-playingtime-content">
+                                <div class="filter-playingtime-content-line">
+                                    <div class="filter__line">
+                                        <input  type="radio" name="age" value="8" id="age_8">
+                                        <label  for="age_8">
+                                            <div class="label__title">Từ 8 tuổi</div> 
+                                        </label> 
+                                    </div>
+                                    <div class="filter__line">
+                                        <input  type="radio" name="age" value="10" id="age_10">
+                                        <label  for="age_10">
+                                            <div class="label__title">Từ 10 tuổi</div> 
+                                        </label> 
+                                    </div>
+                                    <div class="filter__line">
+                                        <input  type="radio" name="age" value="12" id="age_12">
+                                        <label  for="age_12">
+                                            <div class="label__title">Từ 12 tuổi</div> 
+                                        </label> 
+                                    </div>
+                                    <div class="filter__line">
+                                        <input  type="radio" name="age" value="14" id="age_14">
+                                        <label  for="age_14">
+                                            <div class="label__title">Từ 14 tuổi</div> 
+                                        </label> 
+                                    </div>
+                                    <div class="filter__line">
+                                        <input  type="radio" name="age" value="18" id="age_18">
+                                        <label  for="age_18">
+                                            <div class="label__title">Từ 18 tuổi</div> 
+                                        </label> 
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        <!--  Tuổi chơi end  -->
+                         </div>
+                         <button class="btn__filter">
+                             <img src="/assets/images/btn__filter__icon.svg" alt="" class="btn__filter__icon">
+                             Lọc
+                         </button>
+                         </form>
+                    </div>
+                    <div class=" grid__colum-10">
+                        <div class="tf-sort">
+                            <b class="tf-sort__quantity" style=" margin-top: 10px; "> <%= boardgamesCount %> 
+                               <div>Items</div> 
+                            </b>
                         </div>
-                        <% }) %>
-                      
-                        <!-- Phân trang -->
-                        <div class="pagination">
-                            <% for (let i = 1; i <= totalPages; i++) { %>
-                                <a href="/store?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
-                                    <%= i %>
-                                </a>
-                            <% } %>
+                        <div class="product-section__flex-box">
+                            <div class="product-section grid__row">
+                                      <!-- San pham -->
+                                <% boardgames.forEach((boardgame) => { %>
+                                    <div class="product-section__item-shop col-4">
+                                        <a href="store/<%= boardgame._id %>">
+                                            <img src="<%= boardgame.imageUrls[0] %>" alt="<%= boardgame.name %>" class="item-shop__image-product">
+                                        </a>
+                                        <a href="store/<%= boardgame._id %>" class="item-shop__title-product"><%= boardgame.name %></a>
+                                        <div class="item-shop__rent">
+                                            <b class="item-shop__rent__title">Giá Thuê</b>
+                                            <b class="item-shop__rent__cost"><%= boardgame.price.toLocaleString('vi-VN') %> đ</b>
+                                        </div>
+                                        
+                                        <% let rentLink = (boardgame.quantity > 0) ? '/store/order/' + boardgame._id + '?duration=7&quantity=1' : ''; %>
+                                        <a href="<%= rentLink %>">
+                                            <div class="item-shop__rent-btn">
+                                                <b class="item-shop__rent-btn__title">Thuê ngay</b>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <% }) %>
+                                    <!-- end 1 sản phẩm  -->
+                            </div> 
+                             <!-- Phân trang -->
+                             <% if( boardgamesOption !== 'all') { %>
+                                <div class="pagination">
+                                    <% for (let i = 1; i <= totalPages; i++) { %>
+                                        <a href="/store?boardgames=newest&page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                            <%= i %>
+                                        </a>
+                                    <% } %>
+                                </div>     
+                             <% } else { %>
+                                <div class="pagination">
+                                    <% for (let i = 1; i <= totalPages; i++) { %>
+                                        <a href="/store?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+                                            <%= i %>
+                                        </a>
+                                    <% } %>
+                                </div>     
+                             <% } %>
                         </div>
-                    </div>                      
+                    </div>
                 </div>
+               
+
+                
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const filterForm = document.getElementById('filterForm');
+                filterForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+        
+                    // Lấy giá trị của các hộp chọn
+                    const maxPlayers = document.querySelector('input[name="max_players"]:checked').value;
+                    const minPlayers = document.querySelector('input[name="min_players"]:checked').value;
+                    const playingTime = document.querySelector('input[name="playing_time"]:checked').value;
+                    const age = document.querySelector('input[name="age"]:checked').value;
+        
+                    // Tạo URL có các tham số lọc
+                    const queryParams = new URLSearchParams();
+                    queryParams.set('boardgames', 'all'); // Thay đổi 'all' thành 'newest' nếu cần
+                    queryParams.set('max_players', maxPlayers);
+                    queryParams.set('min_players', minPlayers);
+                    queryParams.set('playing_time', length);
+                    queryParams.set('age', age);
+        
+                    // Chuyển hướng tới URL mới có các tham số lọc
+                    const newUrl = `/store?${queryParams.toString()}`;
+                    window.location.href = newUrl;
+                });
+            });
+        </script>
     
     <!-- Footer -->
     <%- include('../partials/footer.ejs'); -%>
 </div>
     
-<!--  Script chuyển màu button tại filter  -->
-<script>
-    //     const circleObject = document.querySelector('.circle-object');
-    
-    // circleObject.addEventListener('click', function() {
-    //   circleObject.classList.toggle('clicked');
-    // });
-    
-    
-    
-    // const buttonSelects = document.querySelectorAll('.filter__button-select');
-    
-    // buttonSelects.forEach(buttonSelect => {
-    //   const circleObject = buttonSelect.querySelector('.circle-object');
-    //   circleObject.addEventListener('click', function() {
-    //     circleObject.classList.toggle('clicked');
-    //   });
-    // });
-    
-    
-    const filterLines = document.querySelectorAll('.filter-playingtime-content-line');
-    
-    filterLines.forEach(filterLine => {
-      const circleObjects = filterLine.querySelectorAll('.circle-object');
-      circleObjects.forEach(circleObject => {
-        circleObject.addEventListener('click', function() {
-          if (circleObject.classList.contains('clicked')) {
-            return; // Không làm gì nếu circle-object đã được chọn trước đó
-          }
-          
-          const activeCircleObject = filterLine.querySelector('.circle-object.clicked');
-          if (activeCircleObject) {
-            activeCircleObject.classList.remove('clicked');
-          }
-          
-          circleObject.classList.add('clicked');
-        });
-      });
-    });
-</script>
+
 
 </body>
 </html>

@@ -118,13 +118,13 @@
                             <% boardgames.forEach((boardgame) => { %>
                             <div class="list-oder__oder-line">
                                 <div class="list-oder__oder-info">
-                                    <a href="" class="oder-info__id list-oder__col-1"><%= boardgame.Id %></a>
+                                    <a href="/store/<%= boardgame._id %>" class="oder-info__id list-oder__col-1"><%= boardgame.Id %></a>
                                     <div class="oder-info__product list-oder__col-3">
-                                        <a href="">
-                                            <img src="<%= boardgame.imageUrl %>" alt="" class="oder-info__product-img">
+                                        <a href="/store/<%= boardgame._id %>">
+                                            <img src="<%= boardgame.imageUrls[0] %>" alt="" class="oder-info__product-img">
                                         </a>
                                         <div class="oder-info__product__text">
-                                            <a href="" class="product__text-title"> 
+                                            <a href="/store/<%= boardgame._id %>" class="product__text-title"> 
                                                 <%= boardgame.name %>
                                             </a>
                                         </div>
@@ -133,7 +133,7 @@
                                         <div class="oder-info__date-day"> <%= boardgame.createdAt %> </div>
                                     </div>
                                     <div class="oder-info__date list-oder__col-2">
-                                        <div class="oder-info__date-edit"> <%= boardgame.createdAt %> </div>
+                                        <div class="oder-info__date-edit"> <%= boardgame.updatedAt %> </div>
                                     </div>
                                     <div class="oder-info__customer list-oder__col-1-1"> <%= boardgame.quantity %> </div>
                                     <div class="oder-info__cost list-oder__col-1-2 "> <%= boardgame.price.toLocaleString('vi-VN') %> </div>

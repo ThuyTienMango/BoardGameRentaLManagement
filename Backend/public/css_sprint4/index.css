@@ -268,6 +268,7 @@ margin-right: 5px;
 	display: flex;
 	align-items: center;
 	text-align: center;	
+	color: #000;
 	}
 	.function-title__active {
 		color: #002144;
@@ -322,10 +323,8 @@ margin-right: 5px;
 	right: 0%;
 	top: 0%;
 	bottom: 0%;
-
 	background: #FBFBFB;
 	border: 1px solid rgba(0, 0, 0, 0.5);
-
 }
 
 .customer-information__title{
@@ -334,16 +333,18 @@ left: 3.24%;
 right: 69.04%;
 top: 7.69%;
 bottom: 84.62%;
-
 font-family: 'Helvetica';
 font-style: normal;
 font-weight: 700;
 font-size: 20px;
 line-height: 23px;
-/* identical to box height */
-
-
 color: #002144;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+.id__customer{
+	color: #FD6A6A !important;
 }
 
 .customer-information__retangle{
@@ -394,12 +395,16 @@ height: 243px;
 .customer-form__input-email,
 .customer-form__input-phone,
 .customer-form__input-identity,
-.customer-form__input-address {
+.customer-form__input-address,
+.customer-form__input-id{
 	box-sizing: border-box;
 	height: 30px;
 	background: #FBFBFB;
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	transition: all 0.3s ease;
+}
+.customer-form__input-id{
+	width: 17%;
 }
 .customer-form__input-name{
 	width: 23%;
@@ -465,7 +470,28 @@ button {
 	margin-top: 5px;
 	margin-left: 8px;
 }
-
+.edit__profile__btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #002144;
+	width: 130px;
+	height: 32.721px;
+	position: absolute;
+	border-radius: 5px;
+	right: 2%;
+	top: -22%;
+}
+.edit__profile__btn > a {
+	color: #FFF;
+	font-family: Helvetica;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 150%; /* 18px */
+	letter-spacing: 0.2px;
+	text-decoration: none;
+}
 
 
 /* Footer */
@@ -473,26 +499,30 @@ button {
 	padding-top: 16px;
     position: absolute;
     left: 0;
-
-    bottom: auto;
+    bottom: 0%;
     width: 100%;
     height: 220px;
-
     background-color: var(--color-gray-100);
+    color: #FFF;
+    font-family: Helvetica;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .footer__heading{
-	font-size: 0.7rem;
 	text-transform: uppercase;
 	color: white;
     text-decoration: none;
+
 }
 .footer__list{
-	padding-left: 0;
+	margin-top: -10px;
+    padding-left: 0;
 	list-style: none;
 }
 .footer-item__link{
 	text-decoration: none;
-	font-size: 0.8rem;
 	color: white;
 	padding: 2px 0;
 	display: block;
@@ -532,12 +562,49 @@ button {
 .footer__text{
 	margin: auto;
 	color: white;
-	margin-top: 4%;
+	margin-top: 1%;
 	font-size: 1rem;
 }
-
-.grid__column-2-4{
+.grid__column-2-4,
+.grid__column-2-4-6{
 	padding-left: 5px;
 	padding-right: 5px;
-	width: 19%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 15px;
+}
+.grid__column-2-4-6{
+    width: 22%;
+    margin-right: 12%;
+    margin-left: 5%;
+}
+.grid__column-2-4{
+    width: 18%;
+}
+.footer__logo{
+border-radius: 10px;
+border: 6px solid #FFF;
+width: 176px;
+height: 46px;
+}
+.footer__site{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.footer__contact{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ml-15{
+    margin-left: 35px;
+}
+.fb{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 }
