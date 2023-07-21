@@ -86,10 +86,10 @@
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
                             <a href="/admin/manageboardgame" class="<%= checkStock === 'all' ? ' sort-title--active' : 'list-oder__sort-title' %>">
-                                Tất cả
+                                Tất cả (<%= filteredBoardgameCountAll %>)
                                 <!-- <div class="sort-title__divider"></div> -->
                                </a>
-                            <a href="/admin/manageboardgame?checkStock=0" class="<%= checkStock === '0' ? ' sort-title--active' : 'list-oder__sort-title' %>" style=" margin-left: 15px; ">Hết hàng</a>
+                            <a href="/admin/manageboardgame?checkStock=0" class="<%= checkStock === '0' ? ' sort-title--active' : 'list-oder__sort-title' %>" style=" margin-left: 15px; ">Hết hàng (<%= filteredBoardgameCount0 %>)</a>
                             <!-- <div class="list-oder__sort-title sort-title--active  " style="margin-right: -30px;" > Tất cả
                             <div class="sort-title__divider"></div>
                             </div>

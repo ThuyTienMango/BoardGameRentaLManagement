@@ -127,6 +127,8 @@ class adminController {
         const startIndex = (currentPage - 1) * itemsPerPage; //chỉ số sp đầu tiên của 1 trang
         const endIndex = currentPage * itemsPerPage; // chỉ số sp cuối cùng của 1 trang
         const boardgamesPage = filteredBoardgames.slice(startIndex, endIndex); //tạo danh sách sp theo trang 
+        const filteredBoardgameCountAll = await Boardgame.countDocuments();
+        const filteredBoardgameCount0 = await Boardgame.countDocuments({quantity : 0});
         res.render('admin/quan_ly_san_pham', { 
           flash,
           user: user,
@@ -134,6 +136,8 @@ class adminController {
           totalPages: Math.ceil(filteredBoardgames.length / itemsPerPage),
           currentPage,
           checkStock: checkStock,
+          filteredBoardgameCountAll,
+          filteredBoardgameCount0
         });
       }
     } catch (error) {
@@ -166,8 +170,7 @@ class adminController {
         if (searchOrderId) {
           const orderSearch = await Order.findOne({ Id: searchOrderId });
           if (orderSearch) {
-            const order_idSearch = orderSearch._id;
-            return res.redirect(`/admin/orderdetail/${order_idSearch}`);
+            filteredOrders = [orderSearch];
           } else {
             req.flash('errorMessages', 'Đơn hàng không tồn tại');
             return res.redirect('/admin/manageorder');
@@ -179,6 +182,12 @@ class adminController {
         const startIndex = (currentPage - 1) * ordersPerPage;
         const endIndex = currentPage * ordersPerPage;
         const ordersPage = filteredOrders.slice(startIndex, endIndex);
+        const filteredOrdersCountAll = await Order.countDocuments();
+        const filteredOrdersCount1 = await Order.countDocuments({orderStatus : 1});
+        const filteredOrdersCount2 = await Order.countDocuments({orderStatus : 2});
+        const filteredOrdersCount3 = await Order.countDocuments({orderStatus : 3});
+        const filteredOrdersCount4 = await Order.countDocuments({orderStatus : 4});
+        
         res.render('admin/quan_ly_don_hang', {
           flash,
           user: user,
@@ -188,6 +197,11 @@ class adminController {
           currentPage,
           boardgames: boardgames,
           orderStatus: orderStatus,
+          filteredOrdersCountAll,
+          filteredOrdersCount1,
+          filteredOrdersCount2,
+          filteredOrdersCount3,
+          filteredOrdersCount4
         });
       }
     } catch (error) {
@@ -244,6 +258,7 @@ class adminController {
         const startIndex = (currentPage - 1) * cusPerPage;
         const endIndex = currentPage * cusPerPage;
         const cusPage = users.slice(startIndex, endIndex);
+        const filteredCustomerCount = await User.countDocuments({ username: { $ne: 'admin' } });
         res.render('admin/quan_ly_khach_hang',{
           flash,
           user: user,
@@ -252,6 +267,7 @@ class adminController {
           cusPage: multipleMongooseToObject(cusPage),
           totalPages: Math.ceil(users.length / cusPerPage),
           currentPage,
+          filteredCustomerCount
         });
       }
     } catch(error){
