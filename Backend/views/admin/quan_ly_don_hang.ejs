@@ -170,9 +170,20 @@
                                         </div>
                                     </div>
                                     
-                                    <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
+                                    <div class="oder-info__icon">
+                                        <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
+                                            <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
+                                        </a>
+                                        <form action="" method="POST" onsubmit="return confirmDelete()">
+                                            <button type="submit" class="oder-info__delete">
+                                              <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <!-- <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
                                         <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
-                                    </a>
+                                    </a> -->
                                     </div>
                                     <div class="oder-info__line-end"></div>
                                 </div>
