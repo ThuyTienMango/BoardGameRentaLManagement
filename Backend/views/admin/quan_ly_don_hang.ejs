@@ -89,13 +89,13 @@
                     <div class="list-oder__container">
                         <div class="list-oder__sort">
                             <a href="/admin/manageorder" class="<%= orderStatus === 'all' ? ' sort-title--active' : 'list-oder__sort-title' %>" >
-                                Tất cả (<%= filteredOrdersCountAll %>)
-                                <!-- <div class="sort-title__divider"></div> -->
+                                Tất cả
+                                <div class="sort__unit"> (<%= filteredOrdersCountAll %>)</div>
                                </a>
-                            <a href="/admin/manageorder?orderStatus=1" class="<%= orderStatus === '1' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Chưa thanh toán (<%= filteredOrdersCount1 %>)</a>
-                            <a href="/admin/manageorder?orderStatus=2" class="<%= orderStatus === '2' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đang thuê (<%= filteredOrdersCount2 %>)</a>
-                            <a href="/admin/manageorder?orderStatus=3" class="<%= orderStatus === '3' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đến hạn trả (<%= filteredOrdersCount3 %>)</a>
-                            <a href="/admin/manageorder?orderStatus=4" class="<%= orderStatus === '4' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đã trả (<%= filteredOrdersCount4 %>)</a>
+                            <a href="/admin/manageorder?orderStatus=1" class="<%= orderStatus === '1' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Chưa thanh toán <div class="sort__unit"> (<%= filteredOrdersCount1 %>) </div> </a>
+                            <a href="/admin/manageorder?orderStatus=2" class="<%= orderStatus === '2' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đang thuê <div class="sort__unit">(<%= filteredOrdersCount2 %>)</div> </a>
+                            <a href="/admin/manageorder?orderStatus=3" class="<%= orderStatus === '3' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đến hạn trả <div class="sort__unit">(<%= filteredOrdersCount3 %>)</div> </a>
+                            <a href="/admin/manageorder?orderStatus=4" class="<%= orderStatus === '4' ? ' sort-title--active' : 'list-oder__sort-title' %>" >Đã trả <div class="sort__unit">(<%= filteredOrdersCount4 %>)</div> </a>
                            
                         </div>
                         <div class="list-oder__line-table"></div>
