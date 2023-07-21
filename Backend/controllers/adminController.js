@@ -347,7 +347,7 @@ async addBoardgame(req, res, next){
         const orderId = req.params.id;
         const flash = req.flash();
 
-        // Thực hiện xóa sản phẩm
+        // Thực hiện xóa đơn hàng
         await Order.findByIdAndRemove(orderId);
 
         req.flash('errorMessages', 'Đơn hàng đã được xóa');
@@ -394,12 +394,6 @@ async addBoardgame(req, res, next){
       if(req.session.user && req.session.user.role === 'admin'){
         const boardgameId = req.params.id;
         const flash = req.flash();
-        // Kiểm tra xem sản phẩm có tồn tại không
-        const boardgame = await Boardgame.findById(boardgameId);
-        if (!boardgame) {
-          req.flash('errorMessages', 'Sản phẩm không tồn tại');
-          return res.redirect('/admin/manageboardgame');
-        }
 
         // Thực hiện xóa sản phẩm
         await Boardgame.findByIdAndRemove(boardgameId);
