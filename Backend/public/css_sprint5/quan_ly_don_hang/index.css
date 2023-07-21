@@ -536,6 +536,9 @@ border-radius: 5px;
     border: none;
     background: none;
 }
+.oder-info__edit{
+    margin-left: -2px;
+}
 .oder-info__icon {
     display: flex;
     flex-direction: column;
