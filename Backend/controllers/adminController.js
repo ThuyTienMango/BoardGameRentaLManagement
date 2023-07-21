@@ -174,7 +174,7 @@ class adminController {
           }
         }
 
-        const ordersPerPage = 7; // Số đơn hàng trên mỗi trang
+        const ordersPerPage = 6; // Số đơn hàng trên mỗi trang
         const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
         const startIndex = (currentPage - 1) * ordersPerPage;
         const endIndex = currentPage * ordersPerPage;
@@ -239,7 +239,7 @@ class adminController {
           }
         }
 
-        const cusPerPage = 7;
+        const cusPerPage = 6;
         const currentPage = req.query.page || 1;
         const startIndex = (currentPage - 1) * cusPerPage;
         const endIndex = currentPage * cusPerPage;
@@ -340,6 +340,23 @@ async addBoardgame(req, res, next){
   }
 }
 
+  //[POST] /admin/deleteorder/:id 
+  async deleteOrder(req, res, next){
+    try {
+      if(req.session.user && req.session.user.role === 'admin'){
+        const orderId = req.params.id;
+        const flash = req.flash();
+
+        // Thực hiện xóa sản phẩm
+        await Order.findByIdAndRemove(orderId);
+
+        req.flash('errorMessages', 'Đơn hàng đã được xóa');
+        res.redirect('/admin/manageorder');
+      }   
+    } catch(error){
+      next(error)
+    }
+  }
 
   //[POST] /admin/editboardgame/:id
   async editBoardgame(req, res, next) {

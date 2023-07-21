@@ -174,7 +174,7 @@
                                         <a href="/admin/orderdetail/<%= order._id %>" class="oder-info__edit">
                                             <img src="/assets/images/oder-info__eye-icon.svg" alt="" class="oder-info__edit-icon">
                                         </a>
-                                        <form action="" method="POST" onsubmit="return confirmDelete()">
+                                        <form action="/admin/deleteorder/<%= order._id %>" method="POST" onsubmit="return confirmDelete()">
                                             <button type="submit" class="oder-info__delete">
                                               <img src="/assets/images/oder-info__delete-icon.svg" alt="" class="oder-info__delete-icon">
                                             </button>
@@ -191,6 +191,19 @@
                            
                             <!-- oder end -->
                             
+
+                            <% if (flash.errorMessages && flash.errorMessages.length > 0) { %>
+                                <script>
+                                    alert('<%= flash.errorMessages[0] %>');
+                                </script>
+                            <% } %>
+
+                            <script>
+                                function confirmDelete() {
+                                  return confirm("Bạn có chắc chắn muốn xóa đơn hàng này?");
+                                }
+                            </script>
+
 
                              <!-- Phân trang -->
                             <div class="pagination">
