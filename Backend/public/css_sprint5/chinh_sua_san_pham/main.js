@@ -53,6 +53,38 @@ function handleImageUpload(event) {
 
 
 
+  // Hàm kiểm tra và ngăn người dùng gửi form nếu trường nhập liệu không phải là số
+  function validateForm() {
+    const priceInput = document.getElementById('boardgame-price');
+    const agesInput = document.getElementById('boardgame-ages');
+    const playerMinInput = document.getElementById('boardgame-playerMin');
+    // Thêm các trường khác tương tự ở đây
+
+    if (isNaN(priceInput.value)) {
+      alert('Vui lòng chỉ nhập số vào trường Giá');
+      return false;
+    }
+
+    if (isNaN(agesInput.value)) {
+      alert('Vui lòng chỉ nhập số vào trường Độ tuổi');
+      return false;
+    }
+
+    if (isNaN(playerMinInput.value)) {
+      alert('Vui lòng chỉ nhập số vào trường Số người chơi tối thiểu');
+      return false;
+    }
+    // Thêm các điều kiện kiểm tra cho các trường khác ở đây
+
+    // Nếu các trường nhập liệu đều là số, cho phép gửi form
+    return true;
+  }
+
+  // Lắng nghe sự kiện submit của form và gọi hàm kiểm tra trước khi submit
+  const form = document.querySelector('form');
+  form.addEventListener('submit', validateForm);
+
+
 
 //   //js chỉnh sửa thông tin sản phẩm 
 

@@ -337,8 +337,8 @@ async addBoardgame(req, res, next){
           return res.redirect(`/admin/addboardgame`);
         }
 
-        if(boardgame.ages === 0){
-          req.flash('errorMessages','Độ tuổi phải lớn hơn 0');
+        if(boardgame.ages === 0 || boardgame.playerMax === 0 || boardgame.playerMin === 0 || boardgame.length === 0 || boardgame.price ===0){
+          req.flash('errorMessages','Bạn đã nhập sai số liệu');
           return res.redirect(`/admin/addboardgame`);
         }
 
