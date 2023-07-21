@@ -125,11 +125,13 @@
                                 <div class="history__title"> Lịch sử thuê </div>
                                 <div class="history__line"></div>
                                 <div class="history__container">
-                                    <% orders.forEach((order) => { %>
-                                    <a href="/admin/orderdetail/<%= order._id %>" class="history__container__id-oder">
-                                        <img src="/assets/images/id-oder__icon.svg" alt="" class="id-oder__icon">
-                                        <div class="id-number"> <%= order.Id %></div>
-                                    </a>  
+                                    <% orders.forEach((order) => { %>   
+                                        <% if(order.orderStatus === 4 ) { %>
+                                            <a href="/admin/orderdetail/<%= order._id %>" class="history__container__id-oder">
+                                                <img src="/assets/images/id-oder__icon.svg" alt="" class="id-oder__icon">
+                                                <div class="id-number"> <%= order.Id %></div>
+                                            </a>  
+                                        <% } %>
                                     <% }) %>
                                 </div>
                             </div>

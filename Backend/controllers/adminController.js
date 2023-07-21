@@ -283,7 +283,7 @@ class adminController {
         const user = await User.findOne({ _id: req.session.user });
         const cus = await User.findById(req.params.id);
         const orders = await Order.find({ customerId: cus._id });
-        const ordersRenting = await Order.find({ customerId: cus._id, orderStatus: { $in: [1, 2, 3] } });
+        const ordersRenting = await Order.find({ customerId: cus._id, orderStatus: { $in: [2, 3] } });
         res.render('admin/chi_tiet_khach_hang',{
           user: user,
           cus: cus,
