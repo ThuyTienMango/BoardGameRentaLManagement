@@ -152,33 +152,33 @@
                             <div class="filter-playingtime-content">
                                 <div class="filter-playingtime-content-line">
                                     <div class="filter__line">
-                                        <input type="radio" name="playing_time" value="1" id="playing_time_1">
+                                        <input type="radio" name="playing_time" value="15" id="playing_time_1">
                                         <label  for="playing_time_1"> 
                                             <div class="label__title"> Tối đa 15 phút</div> 
                                         </label>
                                     </div>
                                     <div class="filter__line">
-                                        <input type="radio" name="playing_time" value="2" id="playing_time_2">
+                                        <input type="radio" name="playing_time" value="30" id="playing_time_2">
                                         <label  for="playing_time_2">
                                             <div class="label__title">Tối đa 30 phút</div> 
                                         </label>
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="playing_time" value="3" id="playing_time_4">
+                                        <input  type="radio" name="playing_time" value="40" id="playing_time_4">
                                         <label  for="playing_time_4">
                                             <div class="label__title">Tối đa 40 phút</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="playing_time" value="4" id="playing_time_5">
+                                        <input  type="radio" name="playing_time" value="60" id="playing_time_5">
                                         <label  for="playing_time_5">
                                             <div class="label__title">Tối đa 60 phút</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="playing_time" value="5" id="playing_time_6">
+                                        <input  type="radio" name="playing_time" value="90" id="playing_time_6">
                                         <label  for="playing_time_6">
-                                            <div class="label__title">Nhiều hơn 90 phút</div> 
+                                            <div class="label__title">Tối đa 90 phút</div> 
                                         </label> 
                                     </div>
                                 </div>
@@ -199,31 +199,31 @@
                             <div class="filter-playingtime-content">
                                 <div class="filter-playingtime-content-line">
                                     <div class="filter__line">
-                                        <input type="radio" name="age" value="1" id="age_1">
+                                        <input type="radio" name="age" value="3" id="age_1">
                                         <label  for="age_1"> 
                                             <div class="label__title">Từ 3 tuổi</div> 
                                         </label>
                                     </div>
                                     <div class="filter__line">
-                                        <input type="radio" name="age" value="2" id="age_2">
+                                        <input type="radio" name="age" value="5" id="age_2">
                                         <label  for="age_2">
                                             <div class="label__title">Từ 5 tuổi</div> 
                                         </label>
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="3" id="age_4">
+                                        <input  type="radio" name="age" value="8" id="age_4">
                                         <label  for="age_4">
                                             <div class="label__title">Từ 8 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="4" id="age_5">
+                                        <input  type="radio" name="age" value="15" id="age_5">
                                         <label  for="age_5">
                                             <div class="label__title">Từ 15 tuổi</div> 
                                         </label> 
                                     </div>
                                     <div class="filter__line">
-                                        <input  type="radio" name="age" value="5" id="age_6">
+                                        <input  type="radio" name="age" value="18" id="age_6">
                                         <label  for="age_6">
                                             <div class="label__title">Trên 18 tuổi</div> 
                                         </label> 
@@ -292,7 +292,6 @@
                     event.preventDefault();
         
                     // Lấy giá trị của các hộp chọn
-                    const price = document.querySelector('input[name="price"]:checked').value;
                     const maxPlayers = document.querySelector('input[name="max_players"]:checked').value;
                     const minPlayers = document.querySelector('input[name="min_players"]:checked').value;
                     const playingTime = document.querySelector('input[name="playing_time"]:checked').value;
@@ -301,10 +300,9 @@
                     // Tạo URL có các tham số lọc
                     const queryParams = new URLSearchParams();
                     queryParams.set('boardgames', 'all'); // Thay đổi 'all' thành 'newest' nếu cần
-                    queryParams.set('price', price);
                     queryParams.set('max_players', maxPlayers);
                     queryParams.set('min_players', minPlayers);
-                    queryParams.set('playing_time', playingTime);
+                    queryParams.set('playing_time', length);
                     queryParams.set('age', age);
         
                     // Chuyển hướng tới URL mới có các tham số lọc
