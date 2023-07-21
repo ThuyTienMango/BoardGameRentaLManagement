@@ -164,7 +164,7 @@ class authController {
   //[GET] /logout
   async logoutUser(req, res, next) {
     try {
-      req.session.destroy();
+      req.session.destroy(); // Hủy phiên đăng nhập
       res.redirect('/login');
     } catch (error) {
       next(error);
@@ -173,7 +173,7 @@ class authController {
 
   async checkLogin(req, res, next) {
     try {
-      if (!req.session.user) {
+      if (!req.session.user) { //Kiểm tra đăng nhập hay chưa
         return res.redirect('/login');
       }
       next();

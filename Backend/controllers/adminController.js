@@ -1,3 +1,4 @@
+// Import các module cần thiết
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const Boardgame = require('../models/Boardgame');
@@ -11,12 +12,12 @@ const path = require('path');
 // Thiết lập storage engine cho multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/Boardgame_img/'); // Đường dẫn thư mục lưu trữ file
+    cb(null, 'public/Boardgame_img/'); // Đường dẫn thư mục lưu trữ các file ảnh boardgames
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const extname = path.extname(file.originalname);
-    cb(null, uniqueSuffix + extname); // Tên file được lưu trữ
+    cb(null, uniqueSuffix + extname); // Tên các file ảnh được lưu trữ
   }
 });
 
@@ -46,6 +47,7 @@ class adminController {
   //[GET] /admin/
   async index(req, res, next){
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         res.send('Trang admin');
       }
@@ -57,12 +59,13 @@ class adminController {
   //[GET] /admin/addboardgame
   async getAddBoardgamePage(req, res, next){
    try{
+    // Kiểm tra đăng nhập và quyền hạn admin
     if(req.session.user && req.session.user.role === 'admin'){
-      const flash = req.flash();
-      const user = await User.findOne({ _id: req.session.user }); //sử dụng phương thức findOne để tìm kiếm một boardgame trong cơ sở dữ liệu dựa trên giá trị _id lấy từ session (req.session.user) (phiên boardgame hiện tại sau khi đăng nhập)
+      const flash = req.flash(); // Lấy các tin nhắn flash từ request
+      const user = await User.findOne({ _id: req.session.user });  // Lấy thông tin người dùng từ CSDL bằng cách tìm kiếm theo _id lưu trong phiên (session)
       res.render('admin/them_san_pham',{
-        flash,
-        user: user,
+        flash, // Truyền đối tượng flash để hiển thị các thông báo (nếu có) trên trang
+        user: user, // Truyền thông tin người dùng đăng nhập để sử dụng trong giao diện trang "Thêm sản phẩm"
       });
     }
    } catch(error){
@@ -73,12 +76,13 @@ class adminController {
   //[GET] /admin/editboardgame
   async getEditBoardgamePage(req, res, next){
     try{
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
-        const boardgame = await Boardgame.findById(req.params.id);
+        const boardgame = await Boardgame.findById(req.params.id); // Tìm kiếm boardgame theo Id được lấy qua tham số URL trong yêu cầu HTTP
         const user = await User.findOne({ _id: req.session.user });
         res.render('admin/chinh_sua_san_pham',{
         user: user,
-        boardgame: mongooseToObject(boardgame),
+        boardgame: mongooseToObject(boardgame), // Chuyển đổi đối tượng Mongoose sang dạng đối tượng JavaScript thông thường
         });
       }
     } catch(error){
@@ -89,36 +93,41 @@ class adminController {
   //[GET] /admin/manageboardgame
   async getManageBoardgamePage(req, res, next) {
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const flash = req.flash();
-        const boardgames = await Boardgame.find({}).sort({ createdAt: -1 });
+        const boardgames = await Boardgame.find({}).sort({ createdAt: -1 }); //Tìm tất cả các boardgames và sort lại theo thời gian tạo (mới nhất -> cũ nhất)
         const user = await User.findOne({ _id: req.session.user });
-        const checkStock = req.query.checkStock || 'all';
-        let filteredBoardgames = boardgames;
+
+        // Lấy giá trị của tham số "checkStock" từ truy vấn URL, nếu không có tham số này thì mặc định giá trị là 'all'
+        // Tham số "checkStock" được sử dụng để lọc danh sách sản phẩm theo tình trạng hàng tồn kho
+        const checkStock = req.query.checkStock || 'all'; 
+        let filteredBoardgames = boardgames; // Khởi tạo một bản sao của danh sách boardgames để thực hiện các bước lọc và tìm kiếm mà không làm thay đổi danh sách gốc
 
         // Lọc sản phẩm hết hàng
         if (checkStock !== 'all') {
+          //cập nhật danh sách mới bộ lọc boardgames hết hàng
           filteredBoardgames = filteredBoardgames.filter((boardgame) => boardgame.quantity.toString() === checkStock);
         }
 
         // Tìm kiếm sản phẩm theo id
         const boardgameSearchId = req.query.boardgameId;
         if (boardgameSearchId) {
-          const boardgameSearch = await Boardgame.findOne({ Id: boardgameSearchId });
+          const boardgameSearch = await Boardgame.findOne({ Id: boardgameSearchId }); // tìm kiếm sản phẩm trong database có id đó
           if (boardgameSearch) {
-            filteredBoardgames = [boardgameSearch];
+            filteredBoardgames = [boardgameSearch]; //lưu boardgame được tìm kiếm vào danh sách
           } else {
-            req.flash('errorMessages', 'Sản phẩm không tồn tại');
-            return res.redirect('/admin/manageboardgame');
+            req.flash('errorMessages', 'Sản phẩm không tồn tại'); // hiện thông báo nếu không tìm thấy
+            return res.redirect('/admin/manageboardgame'); //hiện lại trang quản lí đơn hàng
           }
         }
 
         const itemsPerPage = 6; // Số sản phẩm trên mỗi trang
         const currentPage = req.query.page || 1; // Trang hiện tại (mặc định là 1)
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = currentPage * itemsPerPage;
-        const boardgamesPage = filteredBoardgames.slice(startIndex, endIndex);
-        res.render('admin/quan_ly_san_pham', {
+        const startIndex = (currentPage - 1) * itemsPerPage; //chỉ số sp đầu tiên của 1 trang
+        const endIndex = currentPage * itemsPerPage; // chỉ số sp cuối cùng của 1 trang
+        const boardgamesPage = filteredBoardgames.slice(startIndex, endIndex); //tạo danh sách sp theo trang 
+        res.render('admin/quan_ly_san_pham', { 
           flash,
           user: user,
           boardgames: multipleMongooseToObject(boardgamesPage),
@@ -136,12 +145,13 @@ class adminController {
   //[GET] /admin/manageorder
   async getManageOrderPage(req, res, next) {
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const user = await User.findOne({ _id: req.session.user });
-        const orders = await Order.find({ orderStatus: { $in: [1, 2, 3, 4] } }).sort({ createdAt: -1 });
+        const orders = await Order.find({ orderStatus: { $in: [1, 2, 3, 4] } }).sort({ createdAt: -1 }); //kiếm các đơn hàng theo trạng thái và sort thời gian tạo đơn hàng mới nhất
         const boardgames = await Boardgame.find();
         const users = await User.find();
-        const orderStatus = req.query.orderStatus || 'all';
+        const orderStatus = req.query.orderStatus || 'all'; // lấy trạng thái đơn hàng bằng Url
         let filteredOrders = orders;
         const flash = req.flash();
 
@@ -188,6 +198,7 @@ class adminController {
   //[GET] /admin/orderdetail
   async getOrderDetailPage(req, res, next){
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const user = await User.findOne({ _id: req.session.user });
         const order = await Order.findById(req.params.id);
@@ -209,6 +220,7 @@ class adminController {
   //[GET] /admin/managecustomer
   async getManageCustomerPage(req, res, next){
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const user = await User.findOne({ _id: req.session.user });
         const users = await User.find({ username: { $ne: 'admin' } }).sort({ createdAt: -1 });
@@ -250,6 +262,7 @@ class adminController {
   //[GET] /admin/managecustomer/:id
   async getDetailCustomerPage(req, res, next){
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const user = await User.findOne({ _id: req.session.user });
         const cus = await User.findById(req.params.id);
@@ -270,14 +283,17 @@ class adminController {
   //[POST] /admin/addboardgame
 async addBoardgame(req, res, next){
   try{
+    // Kiểm tra đăng nhập và quyền hạn admin
     if(req.session.user && req.session.user.role === 'admin'){
       upload(req, res, async (err) => {
         if (err) {
           return res.status(400).json({ message: err.message });
         }
         
+        // Lấy các thông tin cần thiết từ body của request
         const { name, description, price, ages, playerMin, playerMax, length, quantity } = req.body;
 
+        //Kiểm tra tính đầy đủ của các thông tin được nhập
         if (!name || !description ||  !price || !ages || !playerMin || !playerMax || !length ||!quantity) {
           req.flash('errorMessages','Chưa điền đầy đủ thông tin')
           return res.redirect('/admin/addboardgame');
@@ -328,9 +344,10 @@ async addBoardgame(req, res, next){
   //[POST] /admin/editboardgame/:id
   async editBoardgame(req, res, next) {
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const boardgames = await Boardgame.find();
-        const filter = { _id : req.params.id };
+        const filter = { _id : req.params.id }; 
         const update = {
           name: req.body.name,
           description: req.body.description,
@@ -342,6 +359,7 @@ async addBoardgame(req, res, next){
           quantity: req.body.quantity
         }
 
+        // Tìm và cập nhật một bản ghi dựa trên các điều kiện tìm kiếm (filter) và các giá trị cập nhật (update).
         await Boardgame.findOneAndUpdate(filter, update, {
           new: true
         });
@@ -355,6 +373,7 @@ async addBoardgame(req, res, next){
   // [POST] /admin/deleteBoardgame/:id
   async deleteBoardgame (req, res, next){
     try{
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const boardgameId = req.params.id;
         const flash = req.flash();
@@ -379,6 +398,7 @@ async addBoardgame(req, res, next){
   //[POST] /admin/orderdetail/:id
   async editOrder(req, res, next) {
     try {
+      // Kiểm tra đăng nhập và quyền hạn admin
       if(req.session.user && req.session.user.role === 'admin'){
         const filter = { _id : req.params.id };
         const update = {

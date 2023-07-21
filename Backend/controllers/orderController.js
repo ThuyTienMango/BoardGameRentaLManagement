@@ -10,6 +10,8 @@ class orderController {
         try{
             const user = await User.findOne({ _id: req.session.user }); // Tìm người dùng theo ID
             const boardgame = await Boardgame.findById(req.params.id);
+
+            // Lấy và chuyển đổi hai tham số duration và quantity từ URL thành dạng số nguyên.
             const duration = parseInt(req.query.duration);
             const quantity = parseInt(req.query.quantity);
             let total = 0;
@@ -73,6 +75,8 @@ class orderController {
             // notes: ''
           });
           await order.save();
+
+          // Cập nhật số lượng sp còn lại sau khi đặt thuê và lưu lại trong database
           const quantityUpdate = boardgame.quantity - quantity;
           const filter = boardgame._id;
           const update = {
